@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brow & Nail Beauty</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffafc;
+      color: #2b2025;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #fff0f5, #ffffff);
+    }
+
+    .hero {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #6d5b63;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 28px;
+      background: #2b2025;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 80px 25px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .service {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .service h3 {
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: #77666e;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: #2b2025;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <h1>Brow & Nail Beauty</h1>
+
+      <p>
+        Beleza, cuidado e sofisticação em cada detalhe.
+        Realce sua beleza com serviços pensados para você.
+      </p>
+
+      <a href="#servicos" class="button">
+        Conheça nossos serviços
+      </a>
+    </div>
+  </header>
+
+  <section id="servicos">
+    <h2>Nossos Serviços</h2>
+
+    <div class="services">
+
+      <div class="service">
+        <h3>Brow Design</h3>
+        <p>
+          Design de sobrancelhas para valorizar o seu olhar.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>Nail Design</h3>
+        <p>
+          Unhas impecáveis com acabamento sofisticado e personalizado.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>Beauty</h3>
+        <p>
+          Cuidados especiais para você se sentir ainda mais incrível.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Brow & Nail Beauty
+  </footer>
+
+</body>
+</html>
