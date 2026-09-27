@@ -50,6 +50,28 @@
       color: #d8c5cb;
     }
 
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 35px;
+    }
+
+    .hero-info span {
+      display: block;
+      width: fit-content;
+      max-width: 95%;
+      padding: 12px 24px;
+      background: #ffffff;
+      color: #171217;
+      border-radius: 14px;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 25px rgba(255,255,255,0.08);
+    }
+
     .button {
       display: inline-block;
       padding: 15px 32px;
@@ -126,6 +148,12 @@
         font-size: 46px;
       }
 
+      .hero-info span {
+        font-size: 16px;
+        padding: 11px 16px;
+        width: 100%;
+      }
+
       .hero p {
         font-size: 18px;
       }
@@ -140,11 +168,10 @@
 
       <h1>Vanessa Signature</h1>
 
-      <p>
-        Micro Labial • Dermopigmentação • Design de Sobrancelhas
-        <br>
-        Beleza, precisão e sofisticação em cada detalhe.
-      </p>
+      <div class="hero-info">
+        <span>Micro Labial • Dermopigmentação • Design de Sobrancelhas</span>
+        <span>Beleza, precisão e sofisticação em cada detalhe.</span>
+      </div>
 
       <a href="#servicos" class="button">
         Conheça nossos serviços
