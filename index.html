@@ -3,86 +3,1174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vanessa Signature</title>
+<meta name="theme-color" content="#080608">
+
+<title>Vanessa Signature | Beleza & Sofisticação</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#070707;color:#f5d6df;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;background:linear-gradient(90deg,transparent 49.8%,rgba(216,160,176,.025) 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,rgba(216,160,176,.025) 50%,transparent 50.2%);background-size:80px 80px;mask-image:linear-gradient(#000,transparent 80%)}
-.particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}.p{position:absolute;width:3px;height:3px;border-radius:50%;background:#d8a0b0;box-shadow:0 0 14px #d8a0b0;opacity:.5;animation:up linear infinite}
-.p:nth-child(1){left:8%;animation-duration:10s}.p:nth-child(2){left:20%;animation-duration:13s;animation-delay:-4s}.p:nth-child(3){left:35%;animation-duration:11s;animation-delay:-7s}.p:nth-child(4){left:50%;animation-duration:15s;animation-delay:-2s}.p:nth-child(5){left:67%;animation-duration:12s;animation-delay:-6s}.p:nth-child(6){left:82%;animation-duration:14s;animation-delay:-9s}
-@keyframes up{from{transform:translateY(110vh) scale(.5)}to{transform:translateY(-20vh) scale(1.5)}}
-header{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;position:relative;overflow:hidden;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(216,160,176,.14),transparent 28%),linear-gradient(135deg,#070707,#1b1116)}
-header:before,header:after{content:"";position:absolute;border:1px solid rgba(216,160,176,.1);border-radius:50%;animation:spin 18s linear infinite}header:before{width:620px;height:620px}header:after{width:430px;height:430px;animation-direction:reverse;animation-duration:12s}
-@keyframes spin{to{transform:rotate(360deg) scale(1.08)}}
-.hero{position:relative;z-index:3;max-width:1050px}h1{font:500 68px Georgia,serif;letter-spacing:5px;color:#d8a0b0;text-shadow:0 0 20px rgba(216,160,176,.2);animation:float 4s ease-in-out infinite}@keyframes float{50%{transform:translateY(-7px)}}
-.hero-info{display:flex;flex-direction:column;align-items:center;gap:16px;margin:30px 0 38px}
-.hero-info span,.service,.contact-box{background:linear-gradient(145deg,rgba(28,20,23,.95),rgba(12,12,12,.92));border:1px solid rgba(216,160,176,.3);box-shadow:0 18px 45px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.04);backdrop-filter:blur(12px)}
-.hero-info span{padding:16px 28px;border-radius:17px;font-size:20px;font-weight:600;transition:.5s;transform-style:preserve-3d}.hero-info span:hover{transform:perspective(800px) rotateX(5deg) rotateY(-6deg) translateY(-7px);border-color:#d8a0b0}
-.button{display:inline-block;padding:17px 35px;border-radius:30px;background:#d8a0b0;color:#080808;text-decoration:none;font-weight:bold;transition:.35s;box-shadow:0 12px 30px rgba(216,160,176,.2)}.button:hover{transform:translateY(-5px) scale(1.04)}
-section{padding:105px 25px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 15%,rgba(216,160,176,.07),transparent 40%),#0b0b0b}h2{font:500 38px Georgia,serif;color:#d8a0b0;margin-bottom:50px}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1050px;margin:auto}.service{padding:38px 24px;border-radius:23px;transition:.55s;transform-style:preserve-3d}.service:hover{transform:perspective(900px) rotateX(5deg) rotateY(-5deg) translateY(-10px) translateZ(18px);border-color:#d8a0b0}.service h3{color:#d8a0b0;font-size:23px;margin-bottom:14px}.service p{color:#d8c5cb;line-height:1.7}
-.vanessa{min-height:600px;display:flex;align-items:center;justify-content:center;gap:45px;flex-wrap:wrap;background:radial-gradient(circle,rgba(216,160,176,.12),transparent 45%),#080808}
-.character{width:min(520px,90vw);border-radius:28px;box-shadow:0 25px 70px rgba(0,0,0,.7),0 0 45px rgba(216,160,176,.12);border:1px solid rgba(216,160,176,.35);transition:.6s;animation:float 5s ease-in-out infinite}.character:hover{transform:perspective(900px) rotateY(-4deg) translateY(-8px)}
-.message{max-width:440px;text-align:left}.message .name{font:500 48px Georgia,serif;color:#d8a0b0;margin-bottom:15px}.message p{font-size:25px;line-height:1.45;color:#f1e2e6}
-.contact{background:#080808}.contact-box{max-width:720px;margin:auto;padding:40px 30px;border-radius:28px;transition:.5s}.contact-box:hover{transform:translateY(-8px);border-color:#d8a0b0}.contact-title{font:500 34px Georgia,serif;color:#d8a0b0;margin-bottom:28px}
-.whatsapp{display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:18px;background:#111;color:#f3e3e7;text-decoration:none;font-size:22px;font-weight:600;border:1px solid rgba(216,160,176,.4);transition:.4s}.whatsapp:hover{transform:translateY(-5px) scale(1.03);border-color:#d8a0b0}.icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:white;font-weight:bold}
-footer{padding:38px;text-align:center;background:#050505;color:#d8a0b0;border-top:1px solid #3a2029}
-.reveal{opacity:0;transform:translateY(65px) scale(.96);transition:1s cubic-bezier(.2,.8,.2,1)}.reveal.active{opacity:1;transform:none}
-.click{position:fixed;width:20px;height:20px;border:2px solid #d8a0b0;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);animation:click .8s ease-out forwards}@keyframes click{to{opacity:0;transform:translate(-50%,-50%) scale(5)}}
-@media(max-width:600px){h1{font-size:45px;letter-spacing:2px}.hero-info span{font-size:17px;width:100%}h2{font-size:32px}.vanessa{gap:25px}.message{text-align:center}.message .name{font-size:40px}.message p{font-size:21px}.whatsapp{width:100%;justify-content:center;font-size:19px}}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070607;
+    color:#f5e6eb;
+    overflow-x:hidden;
+}
+
+/* =========================
+   FUNDO
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.35;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.8%,
+            rgba(216,160,176,.025) 50%,
+            transparent 50.2%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49.8%,
+            rgba(216,160,176,.025) 50%,
+            transparent 50.2%
+        );
+    background-size:80px 80px;
+    mask-image:linear-gradient(#000,transparent 85%);
+}
+
+/* =========================
+   PARTÍCULAS
+========================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+    overflow:hidden;
+}
+
+.p{
+    position:absolute;
+    bottom:-10px;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#d8a0b0;
+    box-shadow:
+        0 0 8px #d8a0b0,
+        0 0 18px rgba(216,160,176,.5);
+    opacity:.55;
+    animation:particleUp linear infinite;
+}
+
+.p:nth-child(1){
+    left:8%;
+    animation-duration:11s;
+}
+
+.p:nth-child(2){
+    left:22%;
+    animation-duration:14s;
+    animation-delay:-4s;
+}
+
+.p:nth-child(3){
+    left:38%;
+    animation-duration:12s;
+    animation-delay:-7s;
+}
+
+.p:nth-child(4){
+    left:55%;
+    animation-duration:16s;
+    animation-delay:-2s;
+}
+
+.p:nth-child(5){
+    left:72%;
+    animation-duration:13s;
+    animation-delay:-6s;
+}
+
+.p:nth-child(6){
+    left:88%;
+    animation-duration:15s;
+    animation-delay:-9s;
+}
+
+@keyframes particleUp{
+
+    from{
+        transform:translateY(0) scale(.5);
+    }
+
+    to{
+        transform:translateY(-115vh) scale(1.5);
+    }
+
+}
+
+/* =========================
+   HERO
+========================= */
+
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:35px 22px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at var(--x,50%) var(--y,50%),
+            rgba(216,160,176,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(125,63,82,.13),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #060506,
+            #120b0f 50%,
+            #080708
+        );
+}
+
+header::before,
+header::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(216,160,176,.12);
+    animation:spin 20s linear infinite;
+}
+
+header::before{
+    width:700px;
+    height:700px;
+}
+
+header::after{
+    width:470px;
+    height:470px;
+    animation-direction:reverse;
+    animation-duration:14s;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg) scale(1.05);
+    }
+
+}
+
+.hero{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:1050px;
+}
+
+.brand-small{
+    display:inline-block;
+    margin-bottom:22px;
+    padding:9px 18px;
+    border:1px solid rgba(216,160,176,.35);
+    border-radius:30px;
+    color:#d8a0b0;
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    background:rgba(216,160,176,.05);
+    backdrop-filter:blur(10px);
+}
+
+h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(48px,8vw,78px);
+    font-weight:500;
+    letter-spacing:5px;
+    color:#d8a0b0;
+    line-height:1.05;
+    text-shadow:
+        0 0 25px rgba(216,160,176,.22),
+        0 0 70px rgba(216,160,176,.08);
+    animation:titleFloat 5s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+
+    50%{
+        transform:translateY(-7px);
+    }
+
+}
+
+.hero-line{
+    width:90px;
+    height:1px;
+    margin:28px auto;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d8a0b0,
+        transparent
+    );
+}
+
+.hero-subtitle{
+    max-width:720px;
+    margin:0 auto;
+    color:#ead9df;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.hero-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    margin:35px auto;
+    max-width:850px;
+}
+
+.hero-info span{
+    width:100%;
+    padding:16px 25px;
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(31,22,26,.95),
+            rgba(12,10,11,.92)
+        );
+
+    border:1px solid rgba(216,160,176,.25);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4),
+        inset 0 1px rgba(255,255,255,.04);
+
+    backdrop-filter:blur(14px);
+
+    color:#f1e2e6;
+    font-size:18px;
+    font-weight:600;
+
+    transition:.4s;
+}
+
+.hero-info span:hover{
+    transform:translateY(-5px);
+    border-color:#d8a0b0;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 25px rgba(216,160,176,.08);
+}
+
+.button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:17px 32px;
+    border-radius:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e2afbd,
+            #c98fa1
+        );
+
+    color:#080607;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:16px;
+
+    box-shadow:
+        0 15px 35px rgba(216,160,176,.18);
+
+    transition:.4s;
+}
+
+.button:hover{
+    transform:translateY(-5px) scale(1.04);
+    box-shadow:
+        0 20px 50px rgba(216,160,176,.3);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section{
+    padding:110px 25px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(216,160,176,.07),
+            transparent 42%
+        ),
+        #0a090a;
+}
+
+.section-label{
+    display:block;
+    margin-bottom:12px;
+    color:#b98595;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(32px,5vw,44px);
+    font-weight:500;
+    color:#d8a0b0;
+    margin-bottom:55px;
+}
+
+.section-description{
+    max-width:650px;
+    margin:-25px auto 50px;
+    color:#cbbbc1;
+    line-height:1.7;
+}
+
+/* =========================
+   SERVIÇOS
+========================= */
+
+.services{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+    max-width:1100px;
+    margin:auto;
+}
+
+.service{
+    position:relative;
+    padding:42px 26px;
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(31,22,26,.96),
+            rgba(12,11,12,.94)
+        );
+
+    border:1px solid rgba(216,160,176,.22);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.035);
+
+    transition:.5s;
+    overflow:hidden;
+}
+
+.service::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:1px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d8a0b0,
+            transparent
+        );
+    opacity:.6;
+}
+
+.service:hover{
+    transform:translateY(-12px);
+    border-color:rgba(216,160,176,.55);
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.6),
+        0 0 35px rgba(216,160,176,.08);
+}
+
+.service-number{
+    display:block;
+    margin-bottom:20px;
+    color:#8d6571;
+    font-family:Georgia,serif;
+    font-size:15px;
+}
+
+.service h3{
+    color:#d8a0b0;
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:500;
+    margin-bottom:16px;
+}
+
+.service p{
+    color:#cdbec3;
+    line-height:1.75;
+    font-size:15px;
+}
+
+/* =========================
+   VANESSA
+========================= */
+
+.vanessa{
+    min-height:680px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:65px;
+    flex-wrap:wrap;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(216,160,176,.11),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(216,160,176,.06),
+            transparent 30%
+        ),
+        #080708;
+}
+
+.image-container{
+    position:relative;
+    max-width:520px;
+    width:min(520px,90vw);
+}
+
+.image-container::before{
+    content:"";
+    position:absolute;
+    inset:-14px;
+
+    border:1px solid rgba(216,160,176,.15);
+    border-radius:38px;
+
+    transform:rotate(3deg);
+    pointer-events:none;
+}
+
+.image-container::after{
+    content:"";
+    position:absolute;
+    inset:-28px;
+
+    border:1px solid rgba(216,160,176,.06);
+    border-radius:45px;
+
+    transform:rotate(-3deg);
+    pointer-events:none;
+}
+
+.character{
+    display:block;
+    width:100%;
+    height:auto;
+
+    border-radius:30px;
+
+    border:1px solid rgba(216,160,176,.35);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.75),
+        0 0 55px rgba(216,160,176,.13);
+
+    transition:.6s;
+
+    animation:imageFloat 6s ease-in-out infinite;
+}
+
+.character:hover{
+    transform:
+        perspective(1000px)
+        rotateY(-4deg)
+        translateY(-8px)
+        scale(1.01);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.8),
+        0 0 70px rgba(216,160,176,.2);
+}
+
+@keyframes imageFloat{
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.message{
+    max-width:440px;
+    text-align:left;
+}
+
+.message-label{
+    color:#9c7180;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.message .name{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(42px,6vw,58px);
+    font-weight:500;
+    color:#d8a0b0;
+    margin-bottom:20px;
+}
+
+.message-line{
+    width:70px;
+    height:1px;
+    background:#d8a0b0;
+    margin-bottom:25px;
+}
+
+.message p{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:25px;
+    line-height:1.55;
+    color:#f1e2e6;
+}
+
+.message small{
+    display:block;
+    margin-top:20px;
+    color:#a9959c;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact{
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(216,160,176,.08),
+            transparent 45%
+        ),
+        #080708;
+}
+
+.contact-box{
+    max-width:760px;
+    margin:auto;
+    padding:50px 30px;
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,22,26,.95),
+            rgba(10,9,10,.95)
+        );
+
+    border:1px solid rgba(216,160,176,.25);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+.contact-title{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:36px;
+    font-weight:500;
+    color:#d8a0b0;
+    margin-bottom:15px;
+}
+
+.contact-text{
+    color:#bcaab0;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+.whatsapp{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+
+    padding:18px 30px;
+    border-radius:20px;
+
+    background:#111;
+
+    color:#f3e3e7;
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:600;
+
+    border:1px solid rgba(216,160,176,.35);
+
+    transition:.4s;
+}
+
+.whatsapp:hover{
+    transform:translateY(-5px) scale(1.03);
+    border-color:#d8a0b0;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.5);
+}
+
+.icon{
+    width:36px;
+    height:36px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#25d366;
+    color:#fff;
+
+    font-weight:bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:40px 25px;
+    text-align:center;
+
+    background:#050505;
+
+    color:#9c7b86;
+
+    border-top:
+        1px solid rgba(216,160,176,.16);
+
+    font-size:13px;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px) scale(.97);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:none;
+}
+
+.click{
+    position:fixed;
+
+    width:20px;
+    height:20px;
+
+    border:2px solid #d8a0b0;
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transform:translate(-50%,-50%);
+
+    animation:clickEffect .8s ease-out forwards;
+}
+
+@keyframes clickEffect{
+
+    to{
+        opacity:0;
+        transform:
+            translate(-50%,-50%)
+            scale(5);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        padding:30px 18px;
+    }
+
+    h1{
+        letter-spacing:2px;
+    }
+
+    .brand-small{
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .hero-subtitle{
+        font-size:16px;
+    }
+
+    .hero-info span{
+        font-size:16px;
+        padding:15px 18px;
+    }
+
+    section{
+        padding:85px 20px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .vanessa{
+        gap:45px;
+        min-height:auto;
+        padding-top:90px;
+        padding-bottom:90px;
+    }
+
+    .message{
+        text-align:center;
+    }
+
+    .message-line{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .message p{
+        font-size:22px;
+    }
+
+    .contact-box{
+        padding:40px 20px;
+    }
+
+    .contact-title{
+        font-size:31px;
+    }
+
+    .whatsapp{
+        width:100%;
+        font-size:18px;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
-<div class="particles"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i></div>
-<header><div class="hero">
-<h1>Vanessa Signature</h1>
-<div class="hero-info"><span class="reveal">Micro Labial • Dermopigmentação • Design de Sobrancelhas</span><span class="reveal">Beleza, precisão e sofisticação em cada detalhe.</span></div>
-<a class="button" href="#servicos">Conheça nossos serviços</a>
-</div></header>
-<section id="servicos"><h2 class="reveal">Nossos Serviços</h2><div class="services">
-<div class="service reveal"><h3>Micro Labial</h3><p>Realce e definição dos lábios com um resultado delicado e personalizado.</p></div>
-<div class="service reveal"><h3>Dermopigmentação</h3><p>Procedimentos com cuidado, precisão e naturalidade.</p></div>
-<div class="service reveal"><h3>Design de Sobrancelhas</h3><p>Design personalizado para valorizar o seu olhar e harmonizar seus traços.</p></div>
-</div></section>
-<section class="vanessa">
-<img class="character reveal" src="data:image/jpeg;base64,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" alt="Personagem 3D Vanessa Signature">
-<div class="message reveal"><div class="name">Vanessa</div><p>Obrigada por estar aqui! ✨</p></div>
-</section>
 
-<section class="contact">
-<div class="contact-box reveal">
-<div class="contact-title">Agende seu atendimento</div>
+<!-- =========================
+     PARTÍCULAS
+========================= -->
 
-<a class="whatsapp" href="https://wa.me/5521987391225" target="_blank">
-<span class="icon">☎</span>(21) 98739-1225
-</a>
+<div class="particles">
 
-<p style="margin-top:18px;color:#bcaab0">
-Clique para falar diretamente pelo WhatsApp
-</p>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
 
 </div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header>
+
+    <div class="hero">
+
+        <div class="brand-small">
+            Vanessa Signature
+        </div>
+
+        <h1>
+            Beleza que<br>
+            revela você.
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <p class="hero-subtitle">
+            Precisão, delicadeza e sofisticação
+            em cada detalhe.
+        </p>
+
+        <div class="hero-info">
+
+            <span class="reveal">
+                Micro Labial • Dermopigmentação • Design de Sobrancelhas
+            </span>
+
+            <span class="reveal">
+                Um cuidado personalizado para realçar a sua beleza.
+            </span>
+
+        </div>
+
+        <a
+            class="button"
+            href="#servicos"
+        >
+            Conheça nossos serviços
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section id="servicos">
+
+    <span class="section-label">
+        Especialidades
+    </span>
+
+    <h2 class="reveal">
+        Nossos Serviços
+    </h2>
+
+    <p class="section-description reveal">
+        Procedimentos pensados para valorizar
+        sua beleza de forma elegante,
+        personalizada e natural.
+    </p>
+
+    <div class="services">
+
+        <div class="service reveal">
+
+            <span class="service-number">
+                01
+            </span>
+
+            <h3>
+                Micro Labial
+            </h3>
+
+            <p>
+                Realce e definição dos lábios
+                com um resultado delicado,
+                sofisticado e personalizado.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <span class="service-number">
+                02
+            </span>
+
+            <h3>
+                Dermopigmentação
+            </h3>
+
+            <p>
+                Procedimentos realizados com
+                cuidado, precisão e atenção
+                aos detalhes.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <span class="service-number">
+                03
+            </span>
+
+            <h3>
+                Design de Sobrancelhas
+            </h3>
+
+            <p>
+                Design personalizado para
+                valorizar o olhar e harmonizar
+                seus traços.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
 
-<footer>© 2026 Vanessa Signature</footer>
+
+<!-- =========================
+     VANESSA
+========================= -->
+
+<section class="vanessa">
+
+    <div class="image-container reveal">
+
+        <img
+            class="character"
+            src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
+            alt="Personagem Vanessa Signature"
+        >
+
+    </div>
+
+
+    <div class="message reveal">
+
+        <div class="message-label">
+            Seja bem-vinda
+        </div>
+
+        <div class="name">
+            Vanessa
+        </div>
+
+        <div class="message-line"></div>
+
+        <p>
+            Obrigada por estar aqui! ✨
+        </p>
+
+        <small>
+            Será um prazer cuidar de você
+            e fazer parte do seu momento.
+        </small>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contact">
+
+    <span class="section-label">
+        Atendimento
+    </span>
+
+    <h2 class="reveal">
+        Vamos realçar sua beleza?
+    </h2>
+
+    <div class="contact-box reveal">
+
+        <div class="contact-title">
+            Agende seu atendimento
+        </div>
+
+        <p class="contact-text">
+            Clique abaixo e fale diretamente
+            pelo WhatsApp.
+        </p>
+
+        <a
+            class="whatsapp"
+            href="https://wa.me/5521987391225"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <span class="icon">
+                ☎
+            </span>
+
+            (21) 98739-1225
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Vanessa Signature
+    <br><br>
+    Beleza • Precisão • Sofisticação
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
-const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('active')),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
 
-document.addEventListener('pointermove',e=>{
-document.querySelector('header').style.setProperty('--x',(e.clientX/innerWidth*100)+'%');
-document.querySelector('header').style.setProperty('--y',(e.clientY/innerHeight*100)+'%')
-});
+/* ANIMAÇÃO AO ENTRAR NA TELA */
 
-document.addEventListener('click',e=>{
-const x=document.createElement('div');
-x.className='click';
-x.style.left=e.clientX+'px';
-x.style.top=e.clientY+'px';
-document.body.appendChild(x);
-setTimeout(()=>x.remove(),800)
-});
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+/* EFEITO DE LUZ SEGUINDO O MOUSE */
+
+document.addEventListener(
+    "pointermove",
+    event => {
+
+        const header =
+            document.querySelector("header");
+
+        if(!header) return;
+
+        const x =
+            (event.clientX / window.innerWidth) * 100;
+
+        const y =
+            (event.clientY / window.innerHeight) * 100;
+
+        header.style.setProperty(
+            "--x",
+            x + "%"
+        );
+
+        header.style.setProperty(
+            "--y",
+            y + "%"
+        );
+
+    }
+);
+
+
+/* EFEITO AO CLICAR */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const ripple =
+            document.createElement("div");
+
+        ripple.className = "click";
+
+        ripple.style.left =
+            event.clientX + "px";
+
+        ripple.style.top =
+            event.clientY + "px";
+
+        document.body.appendChild(ripple);
+
+        setTimeout(
+            () => ripple.remove(),
+            800
+        );
+
+    }
+);
+
 </script>
 
 </body>
