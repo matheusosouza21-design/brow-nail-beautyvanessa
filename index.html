@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080608">
 
-<title>Vanessa Signature | Beleza & Sofisticação</title>
+<title>Vanessa Signature</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -20,419 +18,272 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#070607;
-    color:#f5e6eb;
+    background:#050505;
+    color:#f5f0f1;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
-/* =========================
-   FUNDO
-========================= */
+/* FUNDO */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:50;
-    opacity:.35;
     background:
-        linear-gradient(
-            90deg,
-            transparent 49.8%,
-            rgba(216,160,176,.025) 50%,
-            transparent 50.2%
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(216,160,176,.10),
+            transparent 35%
         ),
-        linear-gradient(
-            0deg,
-            transparent 49.8%,
-            rgba(216,160,176,.025) 50%,
-            transparent 50.2%
+        radial-gradient(
+            circle at 0% 80%,
+            rgba(216,160,176,.05),
+            transparent 30%
         );
-    background-size:80px 80px;
-    mask-image:linear-gradient(#000,transparent 85%);
+    z-index:-2;
 }
 
-/* =========================
-   PARTÍCULAS
-========================= */
+/* PARTÍCULAS */
 
 .particles{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:2;
+    z-index:-1;
     overflow:hidden;
 }
 
-.p{
+.particle{
     position:absolute;
-    bottom:-10px;
-    width:3px;
-    height:3px;
-    border-radius:50%;
+    width:2px;
+    height:2px;
     background:#d8a0b0;
-    box-shadow:
-        0 0 8px #d8a0b0,
-        0 0 18px rgba(216,160,176,.5);
-    opacity:.55;
-    animation:particleUp linear infinite;
+    border-radius:50%;
+    opacity:.35;
+    animation:floatParticle linear infinite;
 }
 
-.p:nth-child(1){
-    left:8%;
-    animation-duration:11s;
-}
-
-.p:nth-child(2){
-    left:22%;
-    animation-duration:14s;
-    animation-delay:-4s;
-}
-
-.p:nth-child(3){
-    left:38%;
-    animation-duration:12s;
-    animation-delay:-7s;
-}
-
-.p:nth-child(4){
-    left:55%;
-    animation-duration:16s;
-    animation-delay:-2s;
-}
-
-.p:nth-child(5){
-    left:72%;
-    animation-duration:13s;
-    animation-delay:-6s;
-}
-
-.p:nth-child(6){
-    left:88%;
-    animation-duration:15s;
-    animation-delay:-9s;
-}
-
-@keyframes particleUp{
-
+@keyframes floatParticle{
     from{
-        transform:translateY(0) scale(.5);
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.35;
+    }
+
+    80%{
+        opacity:.25;
     }
 
     to{
-        transform:translateY(-115vh) scale(1.5);
+        transform:translateY(-20vh);
+        opacity:0;
     }
-
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
-header{
+.hero{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:35px 22px;
+    padding:60px 20px;
     position:relative;
     overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at var(--x,50%) var(--y,50%),
-            rgba(216,160,176,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(125,63,82,.13),
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            #060506,
-            #120b0f 50%,
-            #080708
-        );
 }
 
-header::before,
-header::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(216,160,176,.12);
-    animation:spin 20s linear infinite;
+.hero-content{
+    max-width:1000px;
+    width:100%;
+    animation:heroIn 1.2s ease forwards;
 }
 
-header::before{
-    width:700px;
-    height:700px;
-}
-
-header::after{
-    width:470px;
-    height:470px;
-    animation-direction:reverse;
-    animation-duration:14s;
-}
-
-@keyframes spin{
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
 
     to{
-        transform:rotate(360deg) scale(1.05);
+        opacity:1;
+        transform:translateY(0);
     }
-
 }
 
-.hero{
-    position:relative;
-    z-index:5;
-    width:100%;
-    max-width:1050px;
-}
+/* NOME DA MARCA */
 
-.brand-small{
-    display:inline-block;
-    margin-bottom:22px;
-    padding:9px 18px;
-    border:1px solid rgba(216,160,176,.35);
-    border-radius:30px;
-    color:#d8a0b0;
-    font-size:12px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    background:rgba(216,160,176,.05);
-    backdrop-filter:blur(10px);
-}
-
-h1{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(48px,8vw,78px);
+.brand-name{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(48px, 8vw, 92px);
     font-weight:500;
-    letter-spacing:5px;
-    color:#d8a0b0;
+    letter-spacing:2px;
     line-height:1.05;
+    color:#f4e9ec;
     text-shadow:
-        0 0 25px rgba(216,160,176,.22),
-        0 0 70px rgba(216,160,176,.08);
-    animation:titleFloat 5s ease-in-out infinite;
+        0 0 20px rgba(216,160,176,.16),
+        0 0 50px rgba(216,160,176,.08);
+    margin-bottom:28px;
 }
 
-@keyframes titleFloat{
-
-    50%{
-        transform:translateY(-7px);
-    }
-
+.brand-name span{
+    color:#d8a0b0;
 }
 
-.hero-line{
-    width:90px;
-    height:1px;
-    margin:28px auto;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #d8a0b0,
-        transparent
-    );
+/* SUBTÍTULO */
+
+.hero h2{
+    font-size:clamp(25px, 4vw, 48px);
+    font-weight:400;
+    line-height:1.2;
+    margin-bottom:20px;
+    color:#f5f0f1;
 }
 
 .hero-subtitle{
-    max-width:720px;
-    margin:0 auto;
-    color:#ead9df;
+    max-width:700px;
+    margin:0 auto 40px;
+    color:#bdb5b8;
     font-size:18px;
     line-height:1.7;
 }
+
+/* CARDS INFORMATIVOS */
 
 .hero-info{
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-    margin:35px auto;
-    max-width:850px;
-}
-
-.hero-info span{
-    width:100%;
-    padding:16px 25px;
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(31,22,26,.95),
-            rgba(12,10,11,.92)
-        );
-
-    border:1px solid rgba(216,160,176,.25);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.4),
-        inset 0 1px rgba(255,255,255,.04);
-
-    backdrop-filter:blur(14px);
-
-    color:#f1e2e6;
-    font-size:18px;
-    font-weight:600;
-
-    transition:.4s;
-}
-
-.hero-info span:hover{
-    transform:translateY(-5px);
-    border-color:#d8a0b0;
-}
-
-.button{
-    display:inline-flex;
-    align-items:center;
     justify-content:center;
-    padding:17px 32px;
-    border-radius:40px;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
 
-    background:
-        linear-gradient(
-            135deg,
-            #e2afbd,
-            #c98fa1
-        );
+.info-card{
+    padding:18px 24px;
+    border:1px solid rgba(216,160,176,.18);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+    backdrop-filter:blur(10px);
+    color:#d8a0b0;
+    font-size:14px;
+    letter-spacing:.5px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
 
-    color:#080607;
+/* BOTÃO */
+
+.cta{
+    display:inline-block;
     text-decoration:none;
+    color:#080808;
+    background:#d8a0b0;
+    padding:17px 32px;
+    border-radius:50px;
     font-weight:bold;
-    font-size:16px;
-
+    letter-spacing:.5px;
+    transition:.3s ease;
     box-shadow:
-        0 15px 35px rgba(216,160,176,.18);
-
-    transition:.4s;
+        0 0 20px rgba(216,160,176,.18),
+        0 10px 30px rgba(0,0,0,.5);
 }
 
-.button:hover{
-    transform:translateY(-5px) scale(1.04);
+.cta:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 0 30px rgba(216,160,176,.35),
+        0 15px 40px rgba(0,0,0,.6);
 }
 
-/* =========================
-   SEÇÕES
-========================= */
+/* SEÇÕES */
 
 section{
-    padding:110px 25px;
-    position:relative;
-    overflow:hidden;
-    text-align:center;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(216,160,176,.07),
-            transparent 42%
-        ),
-        #0a090a;
+    padding:100px 20px;
 }
 
-.section-label{
-    display:block;
-    margin-bottom:12px;
-    color:#b98595;
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:4px;
-    text-transform:uppercase;
-}
-
-h2{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(32px,5vw,44px);
-    font-weight:500;
-    color:#d8a0b0;
-    margin-bottom:55px;
-}
-
-.section-description{
-    max-width:650px;
-    margin:-25px auto 50px;
-    color:#cbbbc1;
-    line-height:1.7;
-}
-
-/* =========================
-   SERVIÇOS
-========================= */
-
-.services{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(230px,1fr));
-
-    gap:25px;
-
+.container{
     max-width:1100px;
     margin:auto;
 }
 
+.section-title{
+    text-align:center;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(34px,5vw,55px);
+    font-weight:400;
+    margin-bottom:15px;
+}
+
+.section-title span{
+    color:#d8a0b0;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#91898c;
+    margin-bottom:55px;
+    font-size:16px;
+}
+
+/* SERVIÇOS */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
 .service{
     position:relative;
-    padding:42px 26px;
+    padding:38px 28px;
+    min-height:230px;
+    border:1px solid rgba(216,160,176,.15);
     border-radius:25px;
-
     background:
         linear-gradient(
             145deg,
-            rgba(31,22,26,.96),
-            rgba(12,11,12,.94)
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
         );
-
-    border:1px solid rgba(216,160,176,.22);
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.45),
-        inset 0 1px rgba(255,255,255,.035);
-
-    transition:.4s;
+    backdrop-filter:blur(12px);
     overflow:hidden;
-
     cursor:pointer;
     transform-style:preserve-3d;
-
     -webkit-tap-highlight-color:transparent;
+    transition:.35s ease;
 }
 
-.service::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:1px;
+.service:hover{
+    transform:translateY(-8px);
+    border-color:rgba(216,160,176,.4);
+    box-shadow:
+        0 0 25px rgba(216,160,176,.10),
+        0 25px 60px rgba(0,0,0,.5);
+}
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d8a0b0,
-            transparent
-        );
+.service h3{
+    color:#d8a0b0;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:27px;
+    font-weight:400;
+    margin-bottom:18px;
+}
 
-    opacity:.6;
+.service p{
+    color:#aaa2a5;
+    line-height:1.7;
+    font-size:15px;
 }
 
 .service::after{
     content:"";
     position:absolute;
     inset:0;
-
     border-radius:25px;
-
     background:
         linear-gradient(
             120deg,
@@ -440,32 +291,15 @@ h2{
             rgba(216,160,176,.18),
             transparent 80%
         );
-
     opacity:0;
     transform:translateX(-100%);
-
     transition:.5s;
-
     pointer-events:none;
-}
-
-.service:hover{
-    transform:
-        translateY(-10px)
-        scale(1.01);
-
-    border-color:rgba(216,160,176,.55);
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.6),
-        0 0 35px rgba(216,160,176,.08);
 }
 
 .service.active-card{
     animation:futurePulse .65s ease;
-
     border-color:#d8a0b0;
-
     box-shadow:
         0 0 20px rgba(216,160,176,.22),
         0 0 55px rgba(216,160,176,.12),
@@ -478,41 +312,28 @@ h2{
 }
 
 @keyframes futurePulse{
-
     0%{
-        transform:
-            scale(1)
-            rotateZ(0deg);
+        transform:scale(1) rotateZ(0deg);
     }
 
     25%{
-        transform:
-            scale(1.025)
-            rotateZ(-1.2deg);
+        transform:scale(1.025) rotateZ(-1.2deg);
     }
 
     50%{
-        transform:
-            scale(1.035)
-            rotateZ(1.2deg);
+        transform:scale(1.035) rotateZ(1.2deg);
     }
 
     75%{
-        transform:
-            scale(1.02)
-            rotateZ(-.6deg);
+        transform:scale(1.02) rotateZ(-.6deg);
     }
 
     100%{
-        transform:
-            scale(1)
-            rotateZ(0deg);
+        transform:scale(1) rotateZ(0deg);
     }
-
 }
 
 @keyframes scanLight{
-
     0%{
         transform:translateX(-100%);
     }
@@ -520,419 +341,166 @@ h2{
     100%{
         transform:translateX(100%);
     }
-
 }
 
-.service-number{
-    display:block;
-    margin-bottom:20px;
+/* ÁREA DA PERSONAGEM */
 
-    color:#8d6571;
-
-    font-family:Georgia,serif;
-    font-size:15px;
-}
-
-.service h3{
-    color:#d8a0b0;
-
-    font-family:Georgia,serif;
-    font-size:25px;
-    font-weight:500;
-
-    margin-bottom:16px;
-}
-
-.service p{
-    color:#cdbec3;
-    line-height:1.75;
-    font-size:15px;
-}
-
-/* =========================
-   VANESSA / IMAGEM
-========================= */
-
-.vanessa{
-    min-height:680px;
-
-    display:flex;
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
     align-items:center;
+    gap:70px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.image-box{
+    display:flex;
     justify-content:center;
-
-    gap:65px;
-    flex-wrap:wrap;
-
-    background:
-        radial-gradient(
-            circle at 30% 50%,
-            rgba(216,160,176,.11),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(216,160,176,.06),
-            transparent 30%
-        ),
-        #080708;
-}
-
-.image-container{
-    position:relative;
-    max-width:520px;
-    width:min(520px,90vw);
-}
-
-.image-container::before{
-    content:"";
-    position:absolute;
-    inset:-14px;
-
-    border:1px solid rgba(216,160,176,.15);
-    border-radius:38px;
-
-    transform:rotate(3deg);
-
-    pointer-events:none;
-}
-
-.image-container::after{
-    content:"";
-    position:absolute;
-    inset:-28px;
-
-    border:1px solid rgba(216,160,176,.06);
-    border-radius:45px;
-
-    transform:rotate(-3deg);
-
-    pointer-events:none;
+    align-items:center;
 }
 
 .character{
+    width:min(100%,430px);
+    max-height:650px;
+    object-fit:contain;
     display:block;
-    width:100%;
-    height:auto;
-
-    border-radius:30px;
-
-    border:1px solid rgba(216,160,176,.35);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.75),
-        0 0 55px rgba(216,160,176,.13);
-
-    transition:.6s;
-
-    animation:imageFloat 6s ease-in-out infinite;
-}
-
-.character:hover{
-    transform:
-        perspective(1000px)
-        rotateY(-4deg)
-        translateY(-8px)
-        scale(1.01);
-
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.8),
-        0 0 70px rgba(216,160,176,.2);
-}
-
-@keyframes imageFloat{
-
-    50%{
-        transform:translateY(-8px);
-    }
-
+    filter:
+        drop-shadow(0 20px 40px rgba(0,0,0,.7))
+        drop-shadow(0 0 25px rgba(216,160,176,.10));
 }
 
 .message{
-    max-width:440px;
     text-align:left;
 }
 
 .message-label{
-    color:#d8a0b0;
-
-    font-size:18px;
-    font-weight:600;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    margin-bottom:20px;
-
-    text-shadow:
-        0 0 15px rgba(216,160,176,.25);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(36px,5vw,60px);
+    color:#f4e9ec;
+    margin-bottom:18px;
 }
 
 .message-line{
-    width:70px;
+    width:80px;
     height:1px;
-
     background:#d8a0b0;
-
     margin-bottom:25px;
-
-    box-shadow:
-        0 0 12px rgba(216,160,176,.3);
+    box-shadow:0 0 12px rgba(216,160,176,.35);
 }
 
 .message p{
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:25px;
-    line-height:1.55;
-
-    color:#f1e2e6;
+    color:#d8a0b0;
+    font-size:22px;
+    line-height:1.6;
+    margin-bottom:10px;
 }
 
 .signature-message{
     display:block;
-
     margin-top:24px;
-
     color:#d8a0b0;
-
     font-size:19px;
     line-height:1.75;
-
     font-weight:500;
-
-    text-shadow:
-        0 0 14px rgba(216,160,176,.22);
+    text-shadow:0 0 14px rgba(216,160,176,.22);
 }
 
-/* =========================
-   CONTATO
-========================= */
+/* CONTATO */
 
 .contact{
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(216,160,176,.08),
-            transparent 45%
-        ),
-        #080708;
-}
-
-.contact-box{
-    max-width:760px;
+    text-align:center;
+    max-width:700px;
     margin:auto;
-
-    padding:50px 30px;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30,22,26,.95),
-            rgba(10,9,10,.95)
-        );
-
-    border:1px solid rgba(216,160,176,.25);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5),
-        inset 0 1px rgba(255,255,255,.04);
 }
 
-.contact-title{
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:36px;
-    font-weight:500;
-
-    color:#d8a0b0;
-
-    margin-bottom:15px;
-}
-
-.contact-text{
-    color:#bcaab0;
-
-    margin-bottom:30px;
-
+.contact p{
+    color:#aaa2a5;
+    font-size:17px;
     line-height:1.7;
+    margin-bottom:30px;
 }
 
 .whatsapp{
     display:inline-flex;
-
     align-items:center;
-    justify-content:center;
-
-    gap:14px;
-
-    padding:18px 30px;
-
-    border-radius:20px;
-
-    background:#111;
-
-    color:#f3e3e7;
-
+    gap:10px;
+    padding:17px 28px;
+    border-radius:50px;
+    background:#d8a0b0;
+    color:#080808;
     text-decoration:none;
-
-    font-size:20px;
-    font-weight:600;
-
-    border:1px solid rgba(216,160,176,.35);
-
-    transition:.4s;
+    font-weight:bold;
+    transition:.3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
 
 .whatsapp:hover{
-    transform:
-        translateY(-5px)
-        scale(1.03);
-
-    border-color:#d8a0b0;
-
+    transform:translateY(-3px);
     box-shadow:
-        0 15px 40px rgba(0,0,0,.5);
+        0 0 25px rgba(216,160,176,.25),
+        0 15px 40px rgba(0,0,0,.6);
 }
 
-.icon{
-    width:36px;
-    height:36px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    background:#25d366;
-
-    color:#fff;
-
-    font-weight:bold;
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
-    padding:40px 25px;
-
+    border-top:1px solid rgba(216,160,176,.1);
     text-align:center;
-
-    background:#050505;
-
-    color:#9c7b86;
-
-    border-top:
-        1px solid rgba(216,160,176,.16);
-
+    padding:35px 20px;
+    color:#716b6e;
     font-size:13px;
 }
 
-/* =========================
-   REVEAL
-========================= */
+footer strong{
+    color:#d8a0b0;
+    font-weight:500;
+}
+
+/* ANIMAÇÃO DE ENTRADA */
 
 .reveal{
     opacity:0;
-
-    transform:
-        translateY(60px)
-        scale(.97);
-
+    transform:translateY(30px);
     transition:
-        opacity 1s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1);
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.reveal.active{
+.reveal.visible{
     opacity:1;
-    transform:none;
+    transform:translateY(0);
 }
 
-/* =========================
-   CLIQUE
-========================= */
+/* RESPONSIVO */
 
-.click{
-    position:fixed;
+@media(max-width:800px){
 
-    width:20px;
-    height:20px;
-
-    border:2px solid #d8a0b0;
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:99999;
-
-    transform:
-        translate(-50%,-50%);
-
-    animation:
-        clickEffect .8s ease-out forwards;
-}
-
-@keyframes clickEffect{
-
-    to{
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(5);
+    .hero{
+        min-height:95vh;
+        padding:50px 20px;
     }
 
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:700px){
-
-    header{
-        padding:30px 18px;
+    .brand-name{
+        font-size:clamp(43px,12vw,68px);
+        letter-spacing:1px;
     }
 
-    h1{
-        letter-spacing:2px;
-    }
-
-    .brand-small{
-        font-size:10px;
-        letter-spacing:3px;
+    .hero h2{
+        font-size:30px;
     }
 
     .hero-subtitle{
         font-size:16px;
     }
 
-    .hero-info span{
-        font-size:16px;
-        padding:15px 18px;
-    }
-
-    section{
-        padding:85px 20px;
-    }
-
-    .services{
+    .services-grid{
         grid-template-columns:1fr;
     }
 
-    .vanessa{
+    .about{
+        grid-template-columns:1fr;
         gap:45px;
-
-        min-height:auto;
-
-        padding-top:90px;
-        padding-bottom:90px;
     }
 
     .message{
@@ -945,94 +513,95 @@ footer{
     }
 
     .message-label{
-        font-size:15px;
-    }
-
-    .message p{
-        font-size:22px;
+        font-size:43px;
     }
 
     .signature-message{
         font-size:18px;
     }
 
-    .contact-box{
-        padding:40px 20px;
+    section{
+        padding:75px 20px;
     }
-
-    .contact-title{
-        font-size:31px;
-    }
-
-    .whatsapp{
-        width:100%;
-        font-size:18px;
-    }
-
 }
 
+@media(max-width:480px){
+
+    .brand-name{
+        font-size:46px;
+    }
+
+    .hero h2{
+        font-size:27px;
+    }
+
+    .info-card{
+        width:100%;
+    }
+
+    .service{
+        padding:32px 24px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .character{
+        width:90%;
+    }
+}
 </style>
 </head>
 
 <body>
 
-
-<!-- =========================
-     PARTÍCULAS
-========================= -->
+<!-- PARTÍCULAS -->
 
 <div class="particles">
-
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-
+    <span class="particle" style="left:5%;animation-duration:12s;animation-delay:1s;"></span>
+    <span class="particle" style="left:12%;animation-duration:17s;animation-delay:4s;"></span>
+    <span class="particle" style="left:21%;animation-duration:14s;animation-delay:2s;"></span>
+    <span class="particle" style="left:32%;animation-duration:19s;animation-delay:6s;"></span>
+    <span class="particle" style="left:44%;animation-duration:13s;animation-delay:3s;"></span>
+    <span class="particle" style="left:55%;animation-duration:18s;animation-delay:7s;"></span>
+    <span class="particle" style="left:67%;animation-duration:15s;animation-delay:1s;"></span>
+    <span class="particle" style="left:78%;animation-duration:20s;animation-delay:5s;"></span>
+    <span class="particle" style="left:89%;animation-duration:16s;animation-delay:8s;"></span>
+    <span class="particle" style="left:96%;animation-duration:13s;animation-delay:2s;"></span>
 </div>
 
+<!-- HERO -->
 
-<!-- =========================
-     HERO
-========================= -->
+<header class="hero">
 
-<header>
+    <div class="hero-content">
 
-    <div class="hero">
-
-        <div class="brand-small">
-            Vanessa Signature
+        <div class="brand-name">
+            Vanessa <span>Signature</span>
         </div>
 
-        <h1>
-            Beleza que<br>
-            revela você.
-        </h1>
-
-        <div class="hero-line"></div>
+        <h2>
+            Beleza que revela você.
+        </h2>
 
         <p class="hero-subtitle">
-            Precisão, delicadeza e sofisticação
-            em cada detalhe.
+            Precisão, delicadeza e sofisticação em cada detalhe.
         </p>
 
         <div class="hero-info">
 
-            <span class="reveal">
+            <div class="info-card">
                 Micro Labial • Dermopigmentação • Design de Sobrancelhas
-            </span>
+            </div>
 
-            <span class="reveal">
+            <div class="info-card">
                 Um cuidado personalizado para realçar sua beleza.
-            </span>
+            </div>
 
         </div>
 
-        <a
-            class="button"
-            href="#servicos"
-        >
+        <a href="#servicos" class="cta">
             Conheça nossos serviços
         </a>
 
@@ -1040,223 +609,169 @@ footer{
 
 </header>
 
-
-<!-- =========================
-     SERVIÇOS
-========================= -->
+<!-- SERVIÇOS -->
 
 <section id="servicos">
 
-    <span class="section-label">
-        Especialidades
-    </span>
+    <div class="container">
 
-    <h2 class="reveal">
-        Nossos Serviços
-    </h2>
+        <h2 class="section-title reveal">
+            Nossos <span>serviços</span>
+        </h2>
 
-    <p class="section-description reveal">
-        Procedimentos pensados para valorizar
-        sua beleza de forma elegante,
-        personalizada e natural.
-    </p>
-
-    <div class="services">
-
-
-        <div class="service reveal">
-
-            <span class="service-number">
-                01
-            </span>
-
-            <h3>
-                Micro Labial
-            </h3>
-
-            <p>
-                Realce e definição dos lábios
-                com um resultado delicado,
-                sofisticado e personalizado.
-            </p>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <span class="service-number">
-                02
-            </span>
-
-            <h3>
-                Dermopigmentação
-            </h3>
-
-            <p>
-                Procedimentos realizados com
-                cuidado, precisão e atenção
-                aos detalhes.
-            </p>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <span class="service-number">
-                03
-            </span>
-
-            <h3>
-                Design de Sobrancelhas
-            </h3>
-
-            <p>
-                Design personalizado para
-                valorizar o olhar e harmonizar
-                seus traços.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     IMAGEM + MENSAGEM
-========================= -->
-
-<section class="vanessa">
-
-    <div class="image-container reveal">
-
-        <img
-            class="character"
-            src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
-            alt="Personagem Vanessa Signature"
-        >
-
-    </div>
-
-
-    <div class="message reveal">
-
-        <div class="message-label">
-            Seja bem-vinda(o)
-        </div>
-
-        <div class="message-line"></div>
-
-        <p>
-            Obrigada por estar aqui! ✨
+        <p class="section-subtitle reveal">
+            Técnicas pensadas para valorizar sua beleza com naturalidade e precisão.
         </p>
 
-        <small class="signature-message">
-            Será um prazer cuidar de você
-            e fazer parte do seu momento.
-        </small>
+        <div class="services-grid">
+
+            <div class="service reveal">
+
+                <h3>
+                    Micro Labial
+                </h3>
+
+                <p>
+                    Realce a beleza dos seus lábios com delicadeza,
+                    definição e um resultado sofisticado.
+                </p>
+
+            </div>
+
+            <div class="service reveal">
+
+                <h3>
+                    Dermopigmentação
+                </h3>
+
+                <p>
+                    Técnicas personalizadas para harmonizar seus traços
+                    e valorizar sua beleza natural.
+                </p>
+
+            </div>
+
+            <div class="service reveal">
+
+                <h3>
+                    Design de Sobrancelhas
+                </h3>
+
+                <p>
+                    Um design pensado para respeitar seus traços
+                    e criar equilíbrio e harmonia.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
+<!-- PERSONAGEM / MENSAGEM -->
 
-<!-- =========================
-     CONTATO
-========================= -->
+<section>
 
-<section class="contact">
+    <div class="about">
 
-    <span class="section-label">
-        Atendimento
-    </span>
+        <div class="image-box reveal">
 
-    <h2 class="reveal">
-        Vamos realçar sua beleza?
-    </h2>
+            <img
+                class="character"
+                src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
+                alt="Personagem Vanessa Signature"
+            >
 
-    <div class="contact-box reveal">
-
-        <div class="contact-title">
-            Agende seu atendimento
         </div>
 
-        <p class="contact-text">
-            Clique abaixo e fale diretamente
-            pelo WhatsApp.
+        <div class="message reveal">
+
+            <div class="message-label">
+                Seja bem-vinda
+            </div>
+
+            <div class="message-line"></div>
+
+            <p>
+                Obrigada por estar aqui! ✨
+            </p>
+
+            <small class="signature-message">
+                Será um prazer cuidar de você
+                e fazer parte do seu momento.
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section>
+
+    <div class="contact reveal">
+
+        <h2 class="section-title">
+            Vamos <span>conversar?</span>
+        </h2>
+
+        <p>
+            Entre em contato para conhecer os procedimentos,
+            tirar suas dúvidas e consultar os horários disponíveis.
         </p>
 
         <a
             class="whatsapp"
             href="https://wa.me/5521987391225"
             target="_blank"
-            rel="noopener noreferrer"
         >
-
-            <span class="icon">
-                ☎
-            </span>
-
-            (21) 98739-1225
-
+            💬 Falar pelo WhatsApp
         </a>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    © 2026 Vanessa Signature
+    <p>
+        © 2026 <strong>Vanessa Signature</strong>
+    </p>
 
-    <br><br>
-
-    Beleza • Precisão • Sofisticação
+    <p style="margin-top:8px;">
+        Beleza • Precisão • Sofisticação
+    </p>
 
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
-/* =========================
-   ANIMAÇÃO AO ENTRAR NA TELA
-========================= */
+/* ANIMAÇÕES AO ENTRAR NA TELA */
 
 const observer = new IntersectionObserver(
-
     entries => {
 
         entries.forEach(entry => {
 
             if(entry.isIntersecting){
 
-                entry.target.classList.add("active");
+                entry.target.classList.add("visible");
 
             }
 
         });
 
     },
-
     {
         threshold:0.12
     }
-
 );
-
 
 document
     .querySelectorAll(".reveal")
@@ -1267,125 +782,57 @@ document
     });
 
 
-/* =========================
-   LUZ DO HERO
-========================= */
-
-document.addEventListener(
-
-    "pointermove",
-
-    event => {
-
-        const header =
-            document.querySelector("header");
-
-        if(!header) return;
-
-        const x =
-            (event.clientX / window.innerWidth) * 100;
-
-        const y =
-            (event.clientY / window.innerHeight) * 100;
-
-        header.style.setProperty(
-            "--x",
-            x + "%"
-        );
-
-        header.style.setProperty(
-            "--y",
-            y + "%"
-        );
-
-    }
-
-);
-
-
-/* =========================
-   CARDS FUTURÍSTICOS
-========================= */
+/* EFEITO NOS CARDS DE SERVIÇOS */
 
 document
     .querySelectorAll(".service")
     .forEach(card => {
 
-        card.addEventListener(
+        card.addEventListener("click", () => {
 
-            "click",
+            card.classList.remove("active-card");
 
-            () => {
+            void card.offsetWidth;
 
-                card.classList.remove(
-                    "active-card"
-                );
+            card.classList.add("active-card");
 
-                /* Reinicia a animação */
+            setTimeout(() => {
 
-                void card.offsetWidth;
+                card.classList.remove("active-card");
 
-                card.classList.add(
-                    "active-card"
-                );
+            },700);
 
-                setTimeout(
-
-                    () => {
-
-                        card.classList.remove(
-                            "active-card"
-                        );
-
-                    },
-
-                    700
-
-                );
-
-            }
-
-        );
+        });
 
     });
 
 
-/* =========================
-   EFEITO DE CLIQUE
-========================= */
+/* LUZ DO MOUSE NO HERO */
 
-document.addEventListener(
+const hero = document.querySelector(".hero");
 
-    "click",
+hero.addEventListener("pointermove", event => {
 
-    event => {
+    const rect = hero.getBoundingClientRect();
 
-        const ripple =
-            document.createElement("div");
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
-        ripple.className = "click";
+    hero.style.background = `
+        radial-gradient(
+            500px circle at ${x}px ${y}px,
+            rgba(216,160,176,.08),
+            transparent 60%
+        )
+    `;
 
-        ripple.style.left =
-            event.clientX + "px";
+});
 
-        ripple.style.top =
-            event.clientY + "px";
+hero.addEventListener("pointerleave", () => {
 
-        document.body.appendChild(
-            ripple
-        );
+    hero.style.background = "transparent";
 
-        setTimeout(
-
-            () => ripple.remove(),
-
-            800
-
-        );
-
-    }
-
-);
+});
 
 </script>
 
