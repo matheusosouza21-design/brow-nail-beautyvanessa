@@ -7,6 +7,7 @@
 <title>Vanessa Signature</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -66,6 +67,7 @@ body::before{
 }
 
 @keyframes floatParticle{
+
     from{
         transform:translateY(100vh);
         opacity:0;
@@ -83,6 +85,7 @@ body::before{
         transform:translateY(-20vh);
         opacity:0;
     }
+
 }
 
 /* HERO */
@@ -105,6 +108,7 @@ body::before{
 }
 
 @keyframes heroIn{
+
     from{
         opacity:0;
         transform:translateY(35px);
@@ -114,6 +118,7 @@ body::before{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 /* NOME DA MARCA */
@@ -124,15 +129,11 @@ body::before{
     font-weight:500;
     letter-spacing:2px;
     line-height:1.05;
-    color:#f4e9ec;
-    text-shadow:
-        0 0 20px rgba(216,160,176,.16),
-        0 0 50px rgba(216,160,176,.08);
-    margin-bottom:28px;
-}
-
-.brand-name span{
     color:#d8a0b0;
+    text-shadow:
+        0 0 20px rgba(216,160,176,.20),
+        0 0 50px rgba(216,160,176,.10);
+    margin-bottom:28px;
 }
 
 /* SUBTÍTULO */
@@ -164,8 +165,10 @@ body::before{
 }
 
 .info-card{
+    position:relative;
+    overflow:hidden;
     padding:18px 24px;
-    border:1px solid rgba(216,160,176,.18);
+    border:1px solid rgba(216,160,176,.20);
     border-radius:18px;
     background:rgba(255,255,255,.025);
     backdrop-filter:blur(10px);
@@ -173,27 +176,143 @@ body::before{
     font-size:14px;
     letter-spacing:.5px;
     box-shadow:0 15px 40px rgba(0,0,0,.3);
+
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.info-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#d8a0b0;
+
+    box-shadow:
+        0 0 18px rgba(216,160,176,.16),
+        0 15px 40px rgba(0,0,0,.4);
+}
+
+/* LUZ DE VARREDURA */
+
+.info-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:80%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent,
+            rgba(216,160,176,.30),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    pointer-events:none;
+}
+
+/* CARD ATIVADO */
+
+.info-card.active-info{
+
+    animation:infoPulse .65s ease;
+
+    border-color:#d8a0b0;
+
+    box-shadow:
+        0 0 20px rgba(216,160,176,.28),
+        0 0 55px rgba(216,160,176,.12),
+        0 15px 40px rgba(0,0,0,.5);
+}
+
+.info-card.active-info::after{
+
+    animation:infoScan .65s ease;
+}
+
+@keyframes infoPulse{
+
+    0%{
+        transform:scale(1) rotateZ(0);
+    }
+
+    25%{
+        transform:scale(1.025) rotateZ(-1deg);
+    }
+
+    50%{
+        transform:scale(1.04) rotateZ(1deg);
+    }
+
+    75%{
+        transform:scale(1.02) rotateZ(-.5deg);
+    }
+
+    100%{
+        transform:scale(1) rotateZ(0);
+    }
+
+}
+
+@keyframes infoScan{
+
+    0%{
+        left:-120%;
+    }
+
+    100%{
+        left:140%;
+    }
+
 }
 
 /* BOTÃO */
 
 .cta{
+
     display:inline-block;
+
     text-decoration:none;
+
     color:#080808;
+
     background:#d8a0b0;
+
     padding:17px 32px;
+
     border-radius:50px;
+
     font-weight:bold;
+
     letter-spacing:.5px;
+
     transition:.3s ease;
+
     box-shadow:
         0 0 20px rgba(216,160,176,.18),
         0 10px 30px rgba(0,0,0,.5);
 }
 
 .cta:hover{
+
     transform:translateY(-3px);
+
     box-shadow:
         0 0 30px rgba(216,160,176,.35),
         0 15px 40px rgba(0,0,0,.6);
@@ -211,10 +330,15 @@ section{
 }
 
 .section-title{
+
     text-align:center;
+
     font-family:Georgia, "Times New Roman", serif;
+
     font-size:clamp(34px,5vw,55px);
+
     font-weight:400;
+
     margin-bottom:15px;
 }
 
@@ -223,67 +347,102 @@ section{
 }
 
 .section-subtitle{
+
     text-align:center;
+
     color:#91898c;
+
     margin-bottom:55px;
+
     font-size:16px;
 }
 
 /* SERVIÇOS */
 
 .services-grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:22px;
 }
 
 .service{
+
     position:relative;
+
     padding:38px 28px;
+
     min-height:230px;
+
     border:1px solid rgba(216,160,176,.15);
+
     border-radius:25px;
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
             rgba(255,255,255,.012)
         );
+
     backdrop-filter:blur(12px);
+
     overflow:hidden;
+
     cursor:pointer;
+
     transform-style:preserve-3d;
+
     -webkit-tap-highlight-color:transparent;
+
     transition:.35s ease;
 }
 
 .service:hover{
+
     transform:translateY(-8px);
+
     border-color:rgba(216,160,176,.4);
+
     box-shadow:
         0 0 25px rgba(216,160,176,.10),
         0 25px 60px rgba(0,0,0,.5);
 }
 
 .service h3{
+
     color:#d8a0b0;
+
     font-family:Georgia, "Times New Roman", serif;
+
     font-size:27px;
+
     font-weight:400;
+
     margin-bottom:18px;
 }
 
 .service p{
+
     color:#aaa2a5;
+
     line-height:1.7;
+
     font-size:15px;
 }
 
 .service::after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
+
     border-radius:25px;
+
     background:
         linear-gradient(
             120deg,
@@ -291,15 +450,22 @@ section{
             rgba(216,160,176,.18),
             transparent 80%
         );
+
     opacity:0;
+
     transform:translateX(-100%);
+
     transition:.5s;
+
     pointer-events:none;
 }
 
 .service.active-card{
+
     animation:futurePulse .65s ease;
+
     border-color:#d8a0b0;
+
     box-shadow:
         0 0 20px rgba(216,160,176,.22),
         0 0 55px rgba(216,160,176,.12),
@@ -307,11 +473,14 @@ section{
 }
 
 .service.active-card::after{
+
     opacity:1;
+
     animation:scanLight .65s ease;
 }
 
 @keyframes futurePulse{
+
     0%{
         transform:scale(1) rotateZ(0deg);
     }
@@ -331,9 +500,11 @@ section{
     100%{
         transform:scale(1) rotateZ(0deg);
     }
+
 }
 
 @keyframes scanLight{
+
     0%{
         transform:translateX(-100%);
     }
@@ -341,30 +512,45 @@ section{
     100%{
         transform:translateX(100%);
     }
+
 }
 
 /* ÁREA DA PERSONAGEM */
 
 .about{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     align-items:center;
+
     gap:70px;
+
     max-width:1000px;
+
     margin:auto;
 }
 
 .image-box{
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 }
 
 .character{
+
     width:min(100%,430px);
+
     max-height:650px;
+
     object-fit:contain;
+
     display:block;
+
     filter:
         drop-shadow(0 20px 40px rgba(0,0,0,.7))
         drop-shadow(0 0 25px rgba(216,160,176,.10));
@@ -375,68 +561,108 @@ section{
 }
 
 .message-label{
+
     font-family:Georgia, "Times New Roman", serif;
+
     font-size:clamp(36px,5vw,60px);
+
     color:#f4e9ec;
+
     margin-bottom:18px;
 }
 
 .message-line{
+
     width:80px;
+
     height:1px;
+
     background:#d8a0b0;
+
     margin-bottom:25px;
+
     box-shadow:0 0 12px rgba(216,160,176,.35);
 }
 
 .message p{
+
     color:#d8a0b0;
+
     font-size:22px;
+
     line-height:1.6;
+
     margin-bottom:10px;
 }
 
 .signature-message{
+
     display:block;
+
     margin-top:24px;
+
     color:#d8a0b0;
+
     font-size:19px;
+
     line-height:1.75;
+
     font-weight:500;
+
     text-shadow:0 0 14px rgba(216,160,176,.22);
 }
 
 /* CONTATO */
 
 .contact{
+
     text-align:center;
+
     max-width:700px;
+
     margin:auto;
 }
 
 .contact p{
+
     color:#aaa2a5;
+
     font-size:17px;
+
     line-height:1.7;
+
     margin-bottom:30px;
 }
 
 .whatsapp{
+
     display:inline-flex;
+
     align-items:center;
+
     gap:10px;
+
     padding:17px 28px;
+
     border-radius:50px;
+
     background:#d8a0b0;
+
     color:#080808;
+
     text-decoration:none;
+
     font-weight:bold;
+
     transition:.3s ease;
+
     box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
 
 .whatsapp:hover{
+
     transform:translateY(-3px);
+
     box-shadow:
         0 0 25px rgba(216,160,176,.25),
         0 15px 40px rgba(0,0,0,.6);
@@ -445,30 +671,42 @@ section{
 /* FOOTER */
 
 footer{
+
     border-top:1px solid rgba(216,160,176,.1);
+
     text-align:center;
+
     padding:35px 20px;
+
     color:#716b6e;
+
     font-size:13px;
 }
 
 footer strong{
+
     color:#d8a0b0;
+
     font-weight:500;
 }
 
 /* ANIMAÇÃO DE ENTRADA */
 
 .reveal{
+
     opacity:0;
+
     transform:translateY(30px);
+
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
 
 .reveal.visible{
+
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -477,80 +715,118 @@ footer strong{
 @media(max-width:800px){
 
     .hero{
+
         min-height:95vh;
+
         padding:50px 20px;
     }
 
     .brand-name{
+
         font-size:clamp(43px,12vw,68px);
+
         letter-spacing:1px;
     }
 
     .hero h2{
+
         font-size:30px;
     }
 
     .hero-subtitle{
+
         font-size:16px;
     }
 
+    .hero-info{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .info-card{
+
+        width:100%;
+
+        max-width:500px;
+    }
+
     .services-grid{
+
         grid-template-columns:1fr;
     }
 
     .about{
+
         grid-template-columns:1fr;
+
         gap:45px;
     }
 
     .message{
+
         text-align:center;
     }
 
     .message-line{
+
         margin-left:auto;
+
         margin-right:auto;
     }
 
     .message-label{
+
         font-size:43px;
     }
 
     .signature-message{
+
         font-size:18px;
     }
 
     section{
+
         padding:75px 20px;
     }
+
 }
 
 @media(max-width:480px){
 
     .brand-name{
+
         font-size:46px;
     }
 
     .hero h2{
+
         font-size:27px;
     }
 
     .info-card{
+
         width:100%;
     }
 
     .service{
+
         padding:32px 24px;
     }
 
     .section-title{
+
         font-size:36px;
     }
 
     .character{
+
         width:90%;
     }
+
 }
+
 </style>
 </head>
 
@@ -559,17 +835,29 @@ footer strong{
 <!-- PARTÍCULAS -->
 
 <div class="particles">
+
     <span class="particle" style="left:5%;animation-duration:12s;animation-delay:1s;"></span>
+
     <span class="particle" style="left:12%;animation-duration:17s;animation-delay:4s;"></span>
+
     <span class="particle" style="left:21%;animation-duration:14s;animation-delay:2s;"></span>
+
     <span class="particle" style="left:32%;animation-duration:19s;animation-delay:6s;"></span>
+
     <span class="particle" style="left:44%;animation-duration:13s;animation-delay:3s;"></span>
+
     <span class="particle" style="left:55%;animation-duration:18s;animation-delay:7s;"></span>
+
     <span class="particle" style="left:67%;animation-duration:15s;animation-delay:1s;"></span>
+
     <span class="particle" style="left:78%;animation-duration:20s;animation-delay:5s;"></span>
+
     <span class="particle" style="left:89%;animation-duration:16s;animation-delay:8s;"></span>
+
     <span class="particle" style="left:96%;animation-duration:13s;animation-delay:2s;"></span>
+
 </div>
+
 
 <!-- HERO -->
 
@@ -578,7 +866,7 @@ footer strong{
     <div class="hero-content">
 
         <div class="brand-name">
-            Vanessa <span>Signature</span>
+            Vanessa Signature
         </div>
 
         <h2>
@@ -589,25 +877,37 @@ footer strong{
             Precisão, delicadeza e sofisticação em cada detalhe.
         </p>
 
+
+        <!-- CARDS INTERATIVOS -->
+
         <div class="hero-info">
 
-            <div class="info-card">
+            <div class="info-card interactive-info">
+
                 Micro Labial • Dermopigmentação • Design de Sobrancelhas
+
             </div>
 
-            <div class="info-card">
+
+            <div class="info-card interactive-info">
+
                 Um cuidado personalizado para realçar sua beleza.
+
             </div>
 
         </div>
 
+
         <a href="#servicos" class="cta">
+
             Conheça nossos serviços
+
         </a>
 
     </div>
 
 </header>
+
 
 <!-- SERVIÇOS -->
 
@@ -616,14 +916,22 @@ footer strong{
     <div class="container">
 
         <h2 class="section-title reveal">
+
             Nossos <span>serviços</span>
+
         </h2>
 
+
         <p class="section-subtitle reveal">
-            Técnicas pensadas para valorizar sua beleza com naturalidade e precisão.
+
+            Técnicas pensadas para valorizar sua beleza
+            com naturalidade e precisão.
+
         </p>
 
+
         <div class="services-grid">
+
 
             <div class="service reveal">
 
@@ -632,11 +940,14 @@ footer strong{
                 </h3>
 
                 <p>
+
                     Realce a beleza dos seus lábios com delicadeza,
                     definição e um resultado sofisticado.
+
                 </p>
 
             </div>
+
 
             <div class="service reveal">
 
@@ -645,11 +956,14 @@ footer strong{
                 </h3>
 
                 <p>
+
                     Técnicas personalizadas para harmonizar seus traços
                     e valorizar sua beleza natural.
+
                 </p>
 
             </div>
+
 
             <div class="service reveal">
 
@@ -658,11 +972,14 @@ footer strong{
                 </h3>
 
                 <p>
+
                     Um design pensado para respeitar seus traços
                     e criar equilíbrio e harmonia.
+
                 </p>
 
             </div>
+
 
         </div>
 
@@ -670,11 +987,13 @@ footer strong{
 
 </section>
 
+
 <!-- PERSONAGEM / MENSAGEM -->
 
 <section>
 
     <div class="about">
+
 
         <div class="image-box reveal">
 
@@ -686,28 +1005,40 @@ footer strong{
 
         </div>
 
+
         <div class="message reveal">
 
             <div class="message-label">
+
                 Seja bem-vinda
+
             </div>
+
 
             <div class="message-line"></div>
 
+
             <p>
+
                 Obrigada por estar aqui! ✨
+
             </p>
 
+
             <small class="signature-message">
+
                 Será um prazer cuidar de você
                 e fazer parte do seu momento.
+
             </small>
 
         </div>
 
+
     </div>
 
 </section>
+
 
 <!-- CONTATO -->
 
@@ -715,46 +1046,64 @@ footer strong{
 
     <div class="contact reveal">
 
+
         <h2 class="section-title">
+
             Vamos <span>conversar?</span>
+
         </h2>
 
+
         <p>
+
             Entre em contato para conhecer os procedimentos,
             tirar suas dúvidas e consultar os horários disponíveis.
+
         </p>
+
 
         <a
             class="whatsapp"
             href="https://wa.me/5521987391225"
             target="_blank"
         >
+
             💬 Falar pelo WhatsApp
+
         </a>
+
 
     </div>
 
 </section>
+
 
 <!-- FOOTER -->
 
 <footer>
 
     <p>
+
         © 2026 <strong>Vanessa Signature</strong>
+
     </p>
 
+
     <p style="margin-top:8px;">
+
         Beleza • Precisão • Sofisticação
+
     </p>
 
 </footer>
+
 
 <script>
 
 /* ANIMAÇÕES AO ENTRAR NA TELA */
 
 const observer = new IntersectionObserver(
+
     entries => {
 
         entries.forEach(entry => {
@@ -768,10 +1117,13 @@ const observer = new IntersectionObserver(
         });
 
     },
+
     {
         threshold:0.12
     }
+
 );
+
 
 document
     .querySelectorAll(".reveal")
@@ -782,7 +1134,35 @@ document
     });
 
 
-/* EFEITO NOS CARDS DE SERVIÇOS */
+
+/* CARDS DO TOPO */
+
+document
+    .querySelectorAll(".interactive-info")
+    .forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            card.classList.remove("active-info");
+
+            void card.offsetWidth;
+
+            card.classList.add("active-info");
+
+
+            setTimeout(() => {
+
+                card.classList.remove("active-info");
+
+            },700);
+
+        });
+
+    });
+
+
+
+/* CARDS DE SERVIÇOS */
 
 document
     .querySelectorAll(".service")
@@ -796,6 +1176,7 @@ document
 
             card.classList.add("active-card");
 
+
             setTimeout(() => {
 
                 card.classList.remove("active-card");
@@ -807,26 +1188,33 @@ document
     });
 
 
+
 /* LUZ DO MOUSE NO HERO */
 
 const hero = document.querySelector(".hero");
+
 
 hero.addEventListener("pointermove", event => {
 
     const rect = hero.getBoundingClientRect();
 
     const x = event.clientX - rect.left;
+
     const y = event.clientY - rect.top;
 
+
     hero.style.background = `
+
         radial-gradient(
             500px circle at ${x}px ${y}px,
             rgba(216,160,176,.08),
             transparent 60%
         )
+
     `;
 
 });
+
 
 hero.addEventListener("pointerleave", () => {
 
