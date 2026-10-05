@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Vanessa Signature — Micro Labial, Dermopigmentação e Design de Sobrancelhas. Beleza, precisão e sofisticação em cada detalhe.">
 
-    <title>Vanessa Signature — Beleza que revela você</title>
-
-    <meta
-        name="description"
-        content="Vanessa Signature — Micro Labial, Dermopigmentação e Design de Sobrancelhas."
-    >
+    <title>Vanessa Signature</title>
 
     <style>
+        :root {
+            --black: #050505;
+            --black-2: #090909;
+            --rose: #d8a0b0;
+            --rose-light: #f0c9d5;
+            --rose-dark: #9e6375;
+            --copper: #b97862;
+            --copper-light: #e2ae98;
+            --white: #fff7fa;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -25,10 +33,18 @@
         body {
             min-height: 100vh;
             background:
-                radial-gradient(circle at 50% 0%, rgba(216,160,176,.10), transparent 35%),
-                radial-gradient(circle at 10% 80%, rgba(185,120,98,.07), transparent 30%),
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(216, 160, 176, .10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(185, 120, 98, .05),
+                    transparent 30%
+                ),
                 #050505;
-            color: #fff;
+            color: var(--white);
             font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
         }
@@ -41,39 +57,28 @@
             z-index: 1;
             opacity: .18;
             background-image:
-                linear-gradient(rgba(216,160,176,.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(216,160,176,.035) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(216,160,176,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(216,160,176,.035) 1px,
+                    transparent 1px
+                );
             background-size: 55px 55px;
-            mask-image: linear-gradient(to bottom, black, transparent 85%);
-            -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
         }
 
-        ::selection {
-            background: rgba(216,160,176,.35);
-            color: #fff;
-        }
-
-        :root {
-            --rose: #d8a0b0;
-            --rose-light: #f0c9d5;
-            --rose-soft: #e5b4c2;
-            --copper: #b97862;
-            --copper-light: #e2ae98;
-            --black: #050505;
-        }
-
-        /* =========================
-           PARTÍCULAS
-        ========================== */
+        /* =========================================================
+           PARTICLES
+        ========================================================= */
 
         #particles {
             position: fixed;
             inset: 0;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
-            z-index: 0;
             overflow: hidden;
+            z-index: 2;
         }
 
         .particle {
@@ -81,54 +86,59 @@
             width: 2px;
             height: 2px;
             border-radius: 50%;
-            background: rgba(240,201,213,.8);
-            box-shadow: 0 0 8px rgba(216,160,176,.7);
+            background: rgba(240, 201, 213, .65);
+            box-shadow: 0 0 8px rgba(216, 160, 176, .5);
             animation: particleFloat linear infinite;
         }
 
         @keyframes particleFloat {
-            0% {
+            from {
                 transform: translate3d(0, 110vh, 0);
                 opacity: 0;
             }
 
             15% {
-                opacity: .8;
+                opacity: .7;
             }
 
-            85% {
-                opacity: .5;
+            80% {
+                opacity: .45;
             }
 
-            100% {
-                transform: translate3d(var(--move-x), -15vh, 0);
+            to {
+                transform: translate3d(var(--move-x), -20vh, 0);
                 opacity: 0;
             }
         }
 
-        .mouse-light {
+        /* =========================================================
+           MOUSE LIGHT
+        ========================================================= */
+
+        #mouseLight {
             position: fixed;
-            width: 360px;
-            height: 360px;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 3;
             transform: translate(-50%, -50%);
             background:
                 radial-gradient(
                     circle,
-                    rgba(216,160,176,.10),
+                    rgba(216,160,176,.08) 0%,
                     rgba(216,160,176,.035) 30%,
                     transparent 70%
                 );
-            filter: blur(8px);
+            filter: blur(10px);
+            opacity: .8;
         }
 
-        /* =========================
-           HEADER
-        ========================== */
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
 
-        header {
+        nav {
             position: fixed;
             top: 0;
             left: 0;
@@ -137,112 +147,128 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 100;
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(5,5,5,.92),
-                    rgba(5,5,5,.35),
-                    transparent
-                );
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            z-index: 50;
+            background: rgba(5,5,5,.62);
+            border-bottom: 1px solid rgba(216,160,176,.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
-        nav {
-            width: min(1180px, 92%);
+        .nav-inner {
+            width: min(1150px, 92%);
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
 
-        nav a {
-            color: rgba(255,255,255,.72);
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: rgba(255,247,250,.78);
             text-decoration: none;
             font-size: 12px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin: 0 18px;
-            transition: .35s ease;
+            transition: .3s ease;
         }
 
-        nav a:hover {
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 0;
+            height: 1px;
+            transform: translateX(-50%);
+            background: var(--rose-light);
+            box-shadow: 0 0 8px rgba(216,160,176,.6);
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover {
             color: var(--rose-light);
-            text-shadow: 0 0 15px rgba(216,160,176,.55);
         }
 
-        /* =========================
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================================
            HERO
-        ========================== */
+        ========================================================= */
 
         .hero {
             position: relative;
             min-height: 100vh;
+            padding: 130px 20px 80px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 100px 20px 70px;
-            z-index: 2;
             overflow: hidden;
+            z-index: 5;
         }
 
         .hero-content {
-            width: min(1200px, 100%);
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            z-index: 8;
         }
 
-        /* =========================
-           SISTEMA DA LOGO
-        ========================== */
+        /* =========================================================
+           TECHNOLOGICAL LOGO SYSTEM
+        ========================================================= */
 
         .logo-area {
             position: relative;
-            width: 700px;
-            height: 700px;
-            max-width: 90vw;
-            max-height: 70vh;
+            width: min(700px, 94vw);
+            height: min(700px, 94vw);
             display: flex;
             align-items: center;
             justify-content: center;
             perspective: 1200px;
             transform-style: preserve-3d;
-            transition: transform .25s ease-out;
+            margin-bottom: 10px;
         }
 
         .logo-aura {
             position: absolute;
-            width: 470px;
-            height: 470px;
+            width: 74%;
+            height: 74%;
             border-radius: 50%;
             background:
                 radial-gradient(
                     circle,
-                    rgba(216,160,176,.16),
-                    rgba(185,120,98,.08) 38%,
+                    rgba(216,160,176,.18),
+                    rgba(185,120,98,.06) 42%,
                     transparent 72%
                 );
-            filter: blur(18px);
+            filter: blur(35px);
             animation: auraPulse 5s ease-in-out infinite;
         }
 
         @keyframes auraPulse {
-            0%, 100% {
+            0%,100% {
                 transform: scale(.95);
-                opacity: .6;
+                opacity: .55;
             }
 
             50% {
                 transform: scale(1.08);
-                opacity: 1;
+                opacity: .9;
             }
         }
-
-        /* =========================
-           ANÉIS
-        ========================== */
 
         .logo-outer-ring,
         .logo-main-ring {
@@ -252,107 +278,40 @@
         }
 
         .logo-outer-ring {
-            width: 640px;
-            height: 640px;
-            border: 1px solid rgba(216,160,176,.16);
+            width: 92%;
+            height: 92%;
+            border: 1px solid rgba(216,160,176,.14);
             box-shadow:
-                0 0 35px rgba(216,160,176,.05),
-                inset 0 0 35px rgba(216,160,176,.035);
-            animation: rotateReverse 26s linear infinite;
-        }
-
-        .logo-outer-ring::before,
-        .logo-outer-ring::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-        }
-
-        .logo-outer-ring::before {
-            inset: 16px;
-            border: 1px dashed rgba(185,120,98,.25);
-        }
-
-        .logo-outer-ring::after {
-            inset: 34px;
-            border: 1px solid rgba(240,201,213,.08);
+                0 0 50px rgba(216,160,176,.06),
+                inset 0 0 50px rgba(216,160,176,.03);
+            animation: rotateSlow 22s linear infinite;
         }
 
         .logo-main-ring {
-            width: 560px;
-            height: 560px;
-            border: 1px solid rgba(216,160,176,.30);
+            width: 80%;
+            height: 80%;
+            border: 1px solid rgba(226,174,152,.30);
             box-shadow:
-                0 0 30px rgba(216,160,176,.08),
-                inset 0 0 30px rgba(216,160,176,.04);
-            animation: rotate 18s linear infinite;
+                0 0 25px rgba(216,160,176,.08),
+                inset 0 0 30px rgba(216,160,176,.05);
+            animation: rotateReverse 15s linear infinite;
         }
 
-        .logo-main-ring::before {
-            content: "";
-            position: absolute;
-            inset: 16px;
-            border-radius: 50%;
-            border: 1px dashed rgba(226,174,152,.35);
-        }
-
-        .logo-main-ring::after {
-            content: "";
-            position: absolute;
-            inset: -5px;
-            border-radius: 50%;
-            background:
-                conic-gradient(
-                    from 0deg,
-                    transparent 0deg,
-                    rgba(240,201,213,.7) 20deg,
-                    transparent 42deg,
-                    transparent 130deg,
-                    rgba(185,120,98,.55) 160deg,
-                    transparent 185deg,
-                    transparent 280deg,
-                    rgba(216,160,176,.55) 310deg,
-                    transparent 335deg
-                );
-            -webkit-mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
-            mask-composite: exclude;
-            padding: 1px;
-            animation: rotate 8s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
+        @keyframes rotateSlow {
             to {
                 transform: rotate(360deg);
             }
         }
 
         @keyframes rotateReverse {
-            from {
-                transform: rotate(360deg);
-            }
-
             to {
-                transform: rotate(0deg);
+                transform: rotate(-360deg);
             }
         }
 
-        /* =========================
-           LINHAS
-        ========================== */
-
         .tech-line {
             position: absolute;
-            width: 480px;
+            width: 70%;
             height: 1px;
             background:
                 linear-gradient(
@@ -361,55 +320,25 @@
                     rgba(216,160,176,.55),
                     transparent
                 );
-            opacity: .5;
-            transform-origin: center;
+            transform: rotate(var(--rotation));
+            opacity: .45;
         }
 
         .tech-line:nth-of-type(1) {
-            transform: rotate(0deg);
-            animation: techLine1 9s ease-in-out infinite;
+            --rotation: 0deg;
         }
 
         .tech-line:nth-of-type(2) {
-            transform: rotate(45deg);
-            animation: techLine2 11s ease-in-out infinite;
+            --rotation: 45deg;
         }
 
         .tech-line:nth-of-type(3) {
-            transform: rotate(90deg);
-            animation: techLine1 13s ease-in-out infinite reverse;
+            --rotation: 90deg;
         }
 
         .tech-line:nth-of-type(4) {
-            transform: rotate(135deg);
-            animation: techLine2 10s ease-in-out infinite reverse;
+            --rotation: 135deg;
         }
-
-        @keyframes techLine1 {
-            0%, 100% {
-                opacity: .15;
-                transform: scaleX(.7) rotate(0deg);
-            }
-
-            50% {
-                opacity: .55;
-                transform: scaleX(1.2) rotate(0deg);
-            }
-        }
-
-        @keyframes techLine2 {
-            0%, 100% {
-                opacity: .15;
-            }
-
-            50% {
-                opacity: .5;
-            }
-        }
-
-        /* =========================
-           PONTOS
-        ========================== */
 
         .tech-point {
             position: absolute;
@@ -418,84 +347,86 @@
             border-radius: 50%;
             background: var(--rose-light);
             box-shadow:
-                0 0 10px rgba(240,201,213,.9),
-                0 0 22px rgba(216,160,176,.55);
-            z-index: 3;
+                0 0 8px var(--rose),
+                0 0 20px rgba(216,160,176,.7);
+            animation: pointPulse 3s ease-in-out infinite;
         }
 
         .tech-point:nth-of-type(5) {
-            top: 78px;
+            top: 10%;
             left: 50%;
-            transform: translateX(-50%);
         }
 
         .tech-point:nth-of-type(6) {
-            right: 78px;
+            right: 10%;
             top: 50%;
-            transform: translateY(-50%);
         }
 
         .tech-point:nth-of-type(7) {
-            bottom: 78px;
+            bottom: 10%;
             left: 50%;
-            transform: translateX(-50%);
         }
 
         .tech-point:nth-of-type(8) {
-            left: 78px;
+            left: 10%;
             top: 50%;
-            transform: translateY(-50%);
         }
 
-        /* =========================
-           SEGMENTOS
-        ========================== */
+        @keyframes pointPulse {
+            0%,100% {
+                transform: scale(.7);
+                opacity: .35;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+        }
 
         .tech-segment {
             position: absolute;
-            width: 85px;
-            height: 2px;
+            width: 11%;
+            height: 3px;
+            border-radius: 10px;
             background:
                 linear-gradient(
                     90deg,
                     transparent,
-                    var(--rose),
+                    var(--copper-light),
                     transparent
                 );
-            box-shadow: 0 0 12px rgba(216,160,176,.45);
+            box-shadow: 0 0 10px rgba(226,174,152,.25);
+            transform-origin: center;
         }
 
         .tech-segment:nth-of-type(9) {
-            top: 112px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 17%;
+            left: 22%;
+            transform: rotate(-25deg);
         }
 
         .tech-segment:nth-of-type(10) {
-            right: 112px;
-            top: 50%;
-            transform: translateY(-50%) rotate(90deg);
+            top: 20%;
+            right: 18%;
+            transform: rotate(25deg);
         }
 
         .tech-segment:nth-of-type(11) {
-            bottom: 112px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 18%;
+            left: 18%;
+            transform: rotate(25deg);
         }
 
         .tech-segment:nth-of-type(12) {
-            left: 112px;
-            top: 50%;
-            transform: translateY(-50%) rotate(90deg);
+            bottom: 16%;
+            right: 21%;
+            transform: rotate(-25deg);
         }
 
         /* =========================================================
-           NÚCLEO DA LOGO
-           
-           AQUI ESTÁ A CORREÇÃO PRINCIPAL:
-           A IMAGEM FICA TOTALMENTE CORTADA PELO CÍRCULO.
-           NENHUM CANTO DA FOTO JPEG CONSEGUE APARECER.
-        ========================================================== */
+           LOGO CORE
+        ========================================================= */
 
         .logo-core {
             position: absolute;
@@ -505,7 +436,6 @@
             max-height: 57%;
             border-radius: 50%;
             overflow: hidden;
-
             background:
                 radial-gradient(
                     circle at 50% 40%,
@@ -513,15 +443,12 @@
                     rgba(216,160,176,.025) 48%,
                     rgba(0,0,0,.70) 100%
                 );
-
             border: 1px solid rgba(226,174,152,.72);
-
             box-shadow:
                 0 0 0 2px rgba(216,160,176,.08),
                 0 0 22px rgba(216,160,176,.20),
                 0 0 55px rgba(185,120,98,.10),
                 inset 0 0 35px rgba(216,160,176,.09);
-
             z-index: 6;
             transform-style: preserve-3d;
             isolation: isolate;
@@ -563,20 +490,10 @@
         }
 
         @keyframes coreGlow {
-            from {
-                transform: rotate(0deg);
-            }
-
             to {
                 transform: rotate(360deg);
             }
         }
-
-        /*
-           O MASK É O QUE GARANTE O RECORTE.
-           A FOTO ORIGINAL PODE SER QUADRADA,
-           MAS SOMENTE A ÁREA CIRCULAR É EXIBIDA.
-        */
 
         .logo-core-mask {
             position: absolute;
@@ -594,95 +511,114 @@
 
         .brand-logo {
             position: absolute;
-
             width: 128%;
             height: 128%;
-
             max-width: none;
             max-height: none;
-
             object-fit: cover;
             object-position: center;
-
             left: 50%;
             top: 50%;
-
-            transform:
-                translate(-50%, -50%)
-                scale(1.03);
-
+            transform: translate(-50%, -50%) scale(1.03);
             user-select: none;
             -webkit-user-drag: none;
             display: block;
-
             filter:
                 contrast(1.04)
                 saturate(1.04)
                 brightness(.96);
-
             transition:
                 transform .6s cubic-bezier(.2,.8,.2,1),
                 filter .6s ease;
         }
 
         .logo-core:hover .brand-logo {
-            transform:
-                translate(-50%, -50%)
-                scale(1.09);
-
+            transform: translate(-50%, -50%) scale(1.09);
             filter:
                 contrast(1.08)
                 saturate(1.12)
                 brightness(1.02);
         }
 
-        /* =========================
-           NOME
-        ========================== */
+        /* =========================================================
+           BRAND NAME
+           ========================================================= */
+
+        .brand-name-wrap {
+            position: relative;
+            width: min(1100px, 94vw);
+            margin-top: 4px;
+
+            /*
+                Espaço vertical propositalmente maior para impedir
+                qualquer corte nas partes inferiores das letras.
+            */
+            padding:
+                18px
+                24px
+                30px;
+
+            overflow: visible;
+            isolation: isolate;
+        }
 
         .brand-name {
             position: relative;
-            margin-top: -35px;
-            z-index: 10;
+            display: block;
+            width: 100%;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: clamp(52px, 8vw, 108px);
-            line-height: .95;
+            /*
+                O line-height maior evita que a descida das letras
+                seja cortada pelo próprio box do texto.
+            */
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(46px, 8.3vw, 112px);
             font-weight: 500;
-            letter-spacing: -3px;
+            font-style: normal;
+            line-height: 1.16;
+            letter-spacing: clamp(1px, .35vw, 5px);
+
+            padding:
+                4px 0
+                12px;
+
+            margin: 0;
+
             text-align: center;
-            cursor: pointer;
-            user-select: none;
+            white-space: nowrap;
+
+            overflow: visible;
+
+            color: transparent;
 
             background:
                 linear-gradient(
                     105deg,
-                    #8e5a65 0%,
-                    #d8a0b0 18%,
-                    #f4d5df 32%,
-                    #b97862 46%,
-                    #f0c9d5 61%,
-                    #a96e7d 77%,
-                    #e6b8c5 90%,
-                    #8e5a65 100%
+                    #8e5264 0%,
+                    #d8a0b0 17%,
+                    #f2cbd6 31%,
+                    #b97862 43%,
+                    #f1c8d4 57%,
+                    #a86678 71%,
+                    #e2a9ba 86%,
+                    #8e5264 100%
                 );
 
-            background-size: 250% 100%;
+            background-size: 240% auto;
 
             -webkit-background-clip: text;
             background-clip: text;
 
-            color: transparent;
-
             text-shadow:
-                0 0 20px rgba(216,160,176,.10);
+                0 0 12px rgba(216,160,176,.14),
+                0 0 30px rgba(216,160,176,.07);
 
-            animation:
-                metallicText 7s linear infinite;
+            animation: metallicText 8s ease-in-out infinite;
+
+            cursor: pointer;
+
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         @keyframes metallicText {
@@ -690,47 +626,58 @@
                 background-position: 0% 50%;
             }
 
+            50% {
+                background-position: 100% 50%;
+            }
+
             100% {
-                background-position: 250% 50%;
+                background-position: 0% 50%;
             }
         }
 
-        .brand-name::after {
+        .brand-name::before {
             content: "";
             position: absolute;
-            left: 8%;
-            right: 8%;
-            bottom: -14px;
+            left: 50%;
+            bottom: 2px;
+            width: min(520px, 70%);
             height: 1px;
-
+            transform: translateX(-50%);
             background:
                 linear-gradient(
                     90deg,
                     transparent,
-                    rgba(216,160,176,.7),
-                    rgba(240,201,213,.9),
-                    rgba(216,160,176,.7),
+                    rgba(216,160,176,.55),
+                    rgba(240,201,213,.85),
+                    rgba(216,160,176,.55),
                     transparent
                 );
-
             box-shadow:
-                0 0 12px rgba(216,160,176,.25);
+                0 0 10px rgba(216,160,176,.22);
+            opacity: .75;
+        }
+
+        .brand-name:hover {
+            transform: translateY(-2px) scale(1.012);
+            text-shadow:
+                0 0 16px rgba(216,160,176,.20),
+                0 0 40px rgba(216,160,176,.10);
         }
 
         .brand-name.active {
             animation:
-                brandImpact .8s ease,
-                metallicText 7s linear infinite;
+                metallicText 8s ease-in-out infinite,
+                brandPulse .7s ease;
         }
 
-        @keyframes brandImpact {
+        @keyframes brandPulse {
             0% {
                 transform: scale(1);
             }
 
-            35% {
+            50% {
                 transform: scale(1.045);
-                filter: brightness(1.4);
+                filter: brightness(1.18);
             }
 
             100% {
@@ -738,144 +685,131 @@
             }
         }
 
-        /* =========================
-           TEXTOS
-        ========================== */
-
         .tagline {
-            margin-top: 42px;
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-            font-size: clamp(22px, 3vw, 34px);
-            color: var(--rose-light);
+            margin-top: 10px;
+            color: rgba(240,201,213,.88);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(19px, 2.5vw, 30px);
+            font-style: italic;
             letter-spacing: 1px;
         }
 
         .subtitle {
-            margin-top: 12px;
             max-width: 700px;
-            color: rgba(255,255,255,.58);
+            margin: 14px auto 0;
+            color: rgba(255,247,250,.58);
+            font-size: 13px;
+            line-height: 1.8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .hero-card {
+            position: relative;
+            width: min(680px, 92vw);
+            margin-top: 34px;
+            padding: 26px 30px;
+            border: 1px solid rgba(216,160,176,.16);
+            border-radius: 24px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.035),
+                    rgba(216,160,176,.025)
+                );
+            box-shadow:
+                0 20px 70px rgba(0,0,0,.35),
+                inset 0 0 30px rgba(216,160,176,.025);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .hero-card p {
+            color: rgba(255,247,250,.72);
             font-size: 14px;
             line-height: 1.8;
-            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
-        .hero-cta {
-            margin-top: 38px;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-description {
-            color: rgba(255,255,255,.62);
-            font-size: 14px;
-            max-width: 650px;
-            line-height: 1.7;
-        }
-
-        .btn {
-            position: relative;
+        .cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 240px;
-            padding: 16px 28px;
-
-            border: 1px solid rgba(216,160,176,.55);
+            min-height: 48px;
+            padding: 0 28px;
             border-radius: 999px;
-
-            color: #fff;
+            color: #130b0e;
+            background:
+                linear-gradient(
+                    110deg,
+                    #b97862,
+                    #d8a0b0,
+                    #f0c9d5,
+                    #b97862
+                );
+            background-size: 220% auto;
             text-decoration: none;
-
-            font-size: 12px;
+            font-size: 11px;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-
-            overflow: hidden;
-
-            transition: .4s ease;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    rgba(216,160,176,.07),
-                    rgba(185,120,98,.12)
-                );
-
             box-shadow:
-                0 0 25px rgba(216,160,176,.06),
-                inset 0 0 20px rgba(216,160,176,.04);
+                0 0 22px rgba(216,160,176,.16);
+            transition: .35s ease;
         }
 
-        .btn::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            transform: translateX(-110%);
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,.18),
-                    transparent
-                );
-
-            transition: .6s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-
-            border-color:
-                rgba(240,201,213,.9);
-
+        .cta:hover {
+            transform: translateY(-3px);
+            background-position: 100% center;
             box-shadow:
-                0 12px 40px rgba(216,160,176,.15),
-                0 0 25px rgba(216,160,176,.12);
+                0 10px 35px rgba(216,160,176,.18),
+                0 0 30px rgba(216,160,176,.15);
         }
 
-        .btn:hover::before {
-            transform: translateX(110%);
-        }
-
-        /* =========================
-           SEÇÕES
-        ========================== */
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
 
         section {
             position: relative;
-            z-index: 2;
-            width: min(1180px, 92%);
+            z-index: 5;
+        }
+
+        .section {
+            width: min(1150px, 92%);
             margin: 0 auto;
-            padding: 120px 0;
+            padding: 110px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-kicker {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--rose);
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .section-title {
-            text-align: center;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: clamp(38px, 5vw, 64px);
+            color: var(--white);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(34px, 5vw, 58px);
             font-weight: 400;
-            color: var(--rose-light);
-            margin-bottom: 18px;
         }
 
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 80px;
+        .section-line {
+            width: 90px;
             height: 1px;
             margin: 18px auto 0;
-
             background:
                 linear-gradient(
                     90deg,
@@ -885,379 +819,210 @@
                 );
         }
 
-        .section-description {
-            max-width: 680px;
-            margin: 0 auto 60px;
-            text-align: center;
-            color: rgba(255,255,255,.55);
-            line-height: 1.8;
-            font-size: 14px;
-        }
-
-        /* =========================
-           SERVIÇOS
-        ========================== */
+        /* =========================================================
+           SERVICES
+        ========================================================= */
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 22px;
-            perspective: 1200px;
         }
 
         .service-card {
             position: relative;
             min-height: 310px;
-            padding: 38px 28px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            overflow: hidden;
-
+            padding: 35px 28px;
+            border: 1px solid rgba(216,160,176,.13);
+            border-radius: 26px;
             background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(216,160,176,.08),
-                    transparent 45%
-                ),
-                rgba(255,255,255,.025);
-
-            border: 1px solid rgba(216,160,176,.14);
-            border-radius: 24px;
-
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.035),
+                    rgba(216,160,176,.018)
+                );
+            overflow: hidden;
             transform-style: preserve-3d;
-
             transition:
-                transform .2s ease,
-                border-color .4s ease,
-                box-shadow .4s ease;
+                transform .25s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
         }
 
         .service-card::before {
             content: "";
             position: absolute;
-            inset: 0;
-
+            width: 220px;
+            height: 220px;
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
             background:
-                linear-gradient(
-                    130deg,
-                    transparent 25%,
-                    rgba(216,160,176,.08),
-                    transparent 65%
+                radial-gradient(
+                    circle,
+                    rgba(216,160,176,.11),
+                    transparent 70%
                 );
-
-            transform: translateX(-100%);
-            transition: .8s ease;
+            filter: blur(10px);
         }
 
         .service-card:hover {
-            border-color:
-                rgba(216,160,176,.45);
-
+            border-color: rgba(216,160,176,.30);
             box-shadow:
-                0 25px 60px rgba(0,0,0,.35),
-                0 0 30px rgba(216,160,176,.08);
-        }
-
-        .service-card:hover::before {
-            transform: translateX(100%);
+                0 25px 70px rgba(0,0,0,.30),
+                0 0 35px rgba(216,160,176,.06);
         }
 
         .service-number {
-            position: absolute;
-            top: 24px;
-            right: 25px;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            color: rgba(216,160,176,.35);
-            font-size: 48px;
-        }
-
-        .service-icon {
-            position: absolute;
-            top: 35px;
-            left: 28px;
-
-            width: 44px;
-            height: 44px;
-
-            border:
-                1px solid rgba(216,160,176,.4);
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--rose-light);
-
-            box-shadow:
-                0 0 20px rgba(216,160,176,.07);
-        }
-
-        .service-icon::before {
-            content: "";
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--rose);
-            box-shadow: 0 0 14px var(--rose);
+            color: rgba(216,160,176,.6);
+            font-size: 11px;
+            letter-spacing: 3px;
         }
 
         .service-card h3 {
             position: relative;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 29px;
+            margin-top: 55px;
+            color: var(--rose-light);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
             font-weight: 400;
-
-            color: #f3d8df;
-            margin-bottom: 12px;
         }
 
         .service-card p {
             position: relative;
-
-            color: rgba(255,255,255,.52);
+            margin-top: 18px;
+            color: rgba(255,247,250,.57);
             font-size: 13px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        /* =========================
-           SOBRE
-        ========================== */
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            gap: 60px;
             align-items: center;
         }
 
         .about-image {
             position: relative;
-            border-radius: 28px;
+            border-radius: 30px;
             overflow: hidden;
-
-            border:
-                1px solid rgba(216,160,176,.2);
-
+            border: 1px solid rgba(216,160,176,.15);
             box-shadow:
-                0 30px 80px rgba(0,0,0,.4),
-                0 0 40px rgba(216,160,176,.06);
+                0 25px 80px rgba(0,0,0,.40);
         }
 
         .about-image::after {
             content: "";
             position: absolute;
             inset: 0;
-
             background:
                 linear-gradient(
                     135deg,
                     rgba(216,160,176,.12),
-                    transparent 45%,
-                    rgba(185,120,98,.08)
+                    transparent 50%
                 );
-
             pointer-events: none;
         }
 
         .about-image img {
             display: block;
             width: 100%;
-            height: 560px;
-            object-fit: cover;
+            height: auto;
+            transition: transform .7s ease;
         }
 
-        .about-content h2 {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+        .about-image:hover img {
+            transform: scale(1.035);
+        }
 
-            color: var(--rose-light);
-
-            font-size:
-                clamp(38px, 5vw, 58px);
-
+        .about-text h2 {
+            color: var(--white);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 4vw, 50px);
             font-weight: 400;
-            margin-bottom: 24px;
+            line-height: 1.2;
         }
 
-        .about-content p {
-            color: rgba(255,255,255,.58);
+        .about-text p {
+            margin-top: 22px;
+            color: rgba(255,247,250,.60);
+            font-size: 14px;
             line-height: 2;
-            font-size: 15px;
-            margin-bottom: 18px;
         }
 
-        .about-line {
-            width: 100px;
-            height: 1px;
-            margin: 28px 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--rose),
-                    transparent
-                );
-        }
-
-        /* =========================
-           CONTATO
-        ========================== */
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
         .contact-box {
             position: relative;
-            padding: 70px 30px;
-
-            border:
-                1px solid rgba(216,160,176,.16);
-
-            border-radius: 32px;
-
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 65px 30px;
             text-align: center;
-            overflow: hidden;
-
+            border: 1px solid rgba(216,160,176,.14);
+            border-radius: 35px;
             background:
                 radial-gradient(
-                    circle at 50% 0%,
-                    rgba(216,160,176,.08),
-                    transparent 55%
+                    circle at center,
+                    rgba(216,160,176,.07),
+                    transparent 65%
                 ),
-                rgba(255,255,255,.02);
-        }
-
-        .contact-box::before,
-        .contact-box::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            border:
-                1px solid rgba(216,160,176,.08);
-            pointer-events: none;
-        }
-
-        .contact-box::before {
-            width: 500px;
-            height: 500px;
-            top: -350px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .contact-box::after {
-            width: 700px;
-            height: 700px;
-            top: -500px;
-            left: 50%;
-            transform: translateX(-50%);
+                rgba(255,255,255,.018);
+            overflow: hidden;
         }
 
         .contact-box h2 {
-            position: relative;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
+            color: var(--white);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(34px, 5vw, 58px);
             font-weight: 400;
-
-            font-size:
-                clamp(38px, 5vw, 62px);
-
-            color: var(--rose-light);
-            margin-bottom: 16px;
         }
 
         .contact-box p {
-            position: relative;
-            color: rgba(255,255,255,.55);
-            max-width: 600px;
-            margin: 0 auto 30px;
+            max-width: 580px;
+            margin: 18px auto 30px;
+            color: rgba(255,247,250,.58);
+            font-size: 14px;
             line-height: 1.8;
         }
 
-        .whatsapp {
-            position: relative;
-
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-
-            padding: 16px 28px;
-
-            border-radius: 999px;
-
-            color: #fff;
-            text-decoration: none;
-
-            border:
-                1px solid rgba(216,160,176,.45);
-
-            background:
-                rgba(216,160,176,.07);
-
-            transition: .35s ease;
-        }
-
-        .whatsapp:hover {
-            transform: translateY(-4px);
-
-            background:
-                rgba(216,160,176,.13);
-
-            box-shadow:
-                0 15px 40px rgba(216,160,176,.12);
-        }
-
-        /* =========================
+        /* =========================================================
            FOOTER
-        ========================== */
+        ========================================================= */
 
         footer {
             position: relative;
-            z-index: 2;
-
-            border-top:
-                1px solid rgba(216,160,176,.08);
-
-            padding: 30px 20px;
-
+            z-index: 5;
+            padding: 45px 20px;
             text-align: center;
-
-            color: rgba(255,255,255,.35);
-
+            border-top: 1px solid rgba(216,160,176,.08);
+            color: rgba(255,247,250,.42);
             font-size: 11px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
 
-        footer span {
-            color: rgba(216,160,176,.65);
+        footer strong {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(216,160,176,.72);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            letter-spacing: 1px;
         }
 
-        /* =========================
+        /* =========================================================
            REVEAL
-        ========================== */
+        ========================================================= */
 
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
-
+            transform: translateY(30px);
             transition:
                 opacity .9s ease,
                 transform .9s cubic-bezier(.2,.8,.2,1);
@@ -1268,26 +1033,19 @@
             transform: translateY(0);
         }
 
-        /* =========================
-           RESPONSIVO
-        ========================== */
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
         @media (max-width: 900px) {
-
             .logo-area {
-                width: 620px;
-                height: 620px;
-                max-height: 65vh;
+                width: min(650px, 96vw);
+                height: min(650px, 96vw);
             }
 
-            .logo-outer-ring {
-                width: 560px;
-                height: 560px;
-            }
-
-            .logo-main-ring {
-                width: 490px;
-                height: 490px;
+            .logo-core {
+                width: 360px;
+                height: 360px;
             }
 
             .services-grid {
@@ -1295,174 +1053,125 @@
             }
 
             .service-card {
-                min-height: 270px;
+                min-height: 260px;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .about-image img {
-                height: 480px;
+                gap: 40px;
             }
         }
 
         @media (max-width: 600px) {
-
-            header {
-                height: 60px;
+            nav {
+                height: 64px;
             }
 
-            nav a {
+            .nav-links {
+                gap: 17px;
+            }
+
+            .nav-links a {
                 font-size: 9px;
-                letter-spacing: 2px;
-                margin: 0 9px;
+                letter-spacing: 1.2px;
             }
 
             .hero {
-                padding-top: 75px;
+                padding-top: 105px;
             }
 
             .logo-area {
-                width: 430px;
-                height: 430px;
-                max-width: 100vw;
-                max-height: none;
-            }
-
-            .logo-outer-ring {
-                width: 390px;
-                height: 390px;
-            }
-
-            .logo-main-ring {
-                width: 335px;
-                height: 335px;
+                width: 100vw;
+                height: 100vw;
+                max-height: 500px;
             }
 
             .logo-core {
-                width: 245px;
-                height: 245px;
-                max-width: none;
-                max-height: none;
+                width: 300px;
+                height: 300px;
+                max-width: 58%;
+                max-height: 58%;
             }
 
-            .tech-line {
-                width: 320px;
-            }
-
-            .tech-point:nth-of-type(5) {
-                top: 35px;
-            }
-
-            .tech-point:nth-of-type(6) {
-                right: 35px;
-            }
-
-            .tech-point:nth-of-type(7) {
-                bottom: 35px;
-            }
-
-            .tech-point:nth-of-type(8) {
-                left: 35px;
-            }
-
-            .tech-segment:nth-of-type(9) {
-                top: 60px;
-            }
-
-            .tech-segment:nth-of-type(10) {
-                right: 60px;
-            }
-
-            .tech-segment:nth-of-type(11) {
-                bottom: 60px;
-            }
-
-            .tech-segment:nth-of-type(12) {
-                left: 60px;
+            .brand-name-wrap {
+                width: 100%;
+                padding:
+                    12px
+                    12px
+                    24px;
             }
 
             .brand-name {
-                margin-top: -8px;
-                font-size: clamp(45px, 13vw, 68px);
-                letter-spacing: -2px;
-                max-width: 100%;
-                padding: 0 8px;
+                /*
+                    Mantém a frase inteira visível sem cortar
+                    as partes inferiores das letras no celular.
+                */
+                font-size: clamp(38px, 11vw, 58px);
+                line-height: 1.2;
+                letter-spacing: 1px;
+                padding-bottom: 10px;
+            }
+
+            .brand-name::before {
+                width: 65%;
+                bottom: 0;
             }
 
             .tagline {
-                margin-top: 32px;
-                font-size: 21px;
+                font-size: 19px;
             }
 
             .subtitle {
-                font-size: 12px;
-                padding: 0 15px;
+                font-size: 10px;
+                letter-spacing: 1.2px;
             }
 
-            section {
-                padding: 90px 0;
+            .hero-card {
+                padding: 23px 20px;
             }
 
-            .about-image img {
-                height: 390px;
-            }
-
-            .contact-box {
-                padding: 55px 20px;
+            .section {
+                padding: 80px 0;
             }
         }
 
         @media (max-width: 390px) {
-
-            nav a {
-                margin: 0 6px;
-                letter-spacing: 1px;
+            .nav-links {
+                gap: 12px;
             }
 
-            .logo-area {
-                width: 360px;
-                height: 360px;
-            }
-
-            .logo-outer-ring {
-                width: 325px;
-                height: 325px;
-            }
-
-            .logo-main-ring {
-                width: 280px;
-                height: 280px;
+            .nav-links a {
+                font-size: 8px;
             }
 
             .logo-core {
-                width: 210px;
-                height: 210px;
-            }
-
-            .tech-line {
-                width: 270px;
+                width: 250px;
+                height: 250px;
             }
 
             .brand-name {
-                font-size: 43px;
+                font-size: 35px;
+                line-height: 1.22;
+                padding-bottom: 12px;
+            }
+
+            .tagline {
+                font-size: 17px;
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
 
+        @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
             *::after {
                 animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
                 transition-duration: .01ms !important;
-            }
-
-            html {
-                scroll-behavior: auto;
             }
         }
     </style>
@@ -1471,17 +1180,26 @@
 <body>
 
     <div id="particles"></div>
+    <div id="mouseLight"></div>
 
-    <div class="mouse-light" id="mouseLight"></div>
+    <!-- =========================================================
+         NAV
+    ========================================================= -->
 
-    <header>
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
 
     <main>
 
@@ -1494,7 +1212,6 @@
                     <div class="logo-aura"></div>
 
                     <div class="logo-outer-ring"></div>
-
                     <div class="logo-main-ring"></div>
 
                     <div class="tech-line"></div>
@@ -1530,29 +1247,39 @@
 
                 </div>
 
-                <h1 class="brand-name" id="brandName">
-                    Vanessa Signature
-                </h1>
+                <!-- NOME DA MARCA -->
+
+                <div class="brand-name-wrap">
+
+                    <div
+                        class="brand-name"
+                        id="brandName"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Vanessa Signature"
+                    >
+                        Vanessa Signature
+                    </div>
+
+                </div>
 
                 <div class="tagline">
                     Beleza que revela você.
                 </div>
 
-                <p class="subtitle">
+                <div class="subtitle">
                     Precisão, delicadeza e sofisticação em cada detalhe.
-                </p>
+                </div>
 
-                <div class="hero-cta">
+                <div class="hero-card reveal">
 
-                    <p class="hero-description">
+                    <p>
                         Micro Labial • Dermopigmentação • Design de Sobrancelhas
-                    </p>
-
-                    <p class="hero-description">
+                        <br>
                         Um cuidado personalizado para realçar sua beleza.
                     </p>
 
-                    <a href="#servicos" class="btn">
+                    <a class="cta" href="#servicos">
                         Conheça nossos serviços
                     </a>
 
@@ -1562,118 +1289,83 @@
 
         </section>
 
-        <section id="servicos" class="reveal">
+        <!-- =====================================================
+             SERVIÇOS
+        ====================================================== -->
 
-            <h2 class="section-title">
-                Nossos Serviços
-            </h2>
+        <section id="servicos">
 
-            <p class="section-description">
-                Técnicas cuidadosamente executadas para valorizar
-                seus traços naturais com precisão, delicadeza e
-                sofisticação.
-            </p>
+            <div class="section">
 
-            <div class="services-grid">
+                <div class="section-header reveal">
 
-                <article class="service-card">
+                    <span class="section-kicker">
+                        Nossos serviços
+                    </span>
 
-                    <div class="service-number">
-                        01
-                    </div>
-
-                    <div class="service-icon"></div>
-
-                    <h3>
-                        Micro Labial
-                    </h3>
-
-                    <p>
-                        Realce da tonalidade e definição dos lábios
-                        através de uma técnica delicada e personalizada.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <div class="service-number">
-                        02
-                    </div>
-
-                    <div class="service-icon"></div>
-
-                    <h3>
-                        Dermopigmentação
-                    </h3>
-
-                    <p>
-                        Procedimentos personalizados para proporcionar
-                        equilíbrio, definição e harmonia à sua beleza.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <div class="service-number">
-                        03
-                    </div>
-
-                    <div class="service-icon"></div>
-
-                    <h3>
-                        Design de Sobrancelhas
-                    </h3>
-
-                    <p>
-                        Mapeamento e design pensado para respeitar
-                        seus traços e valorizar a expressão do rosto.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <section id="sobre" class="reveal">
-
-            <div class="about-grid">
-
-                <div class="about-image">
-
-                    <img
-                        src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
-                        alt="Vanessa Signature"
-                    >
-
-                </div>
-
-                <div class="about-content">
-
-                    <h2>
-                        Beleza em cada detalhe.
+                    <h2 class="section-title">
+                        Beleza em cada detalhe
                     </h2>
 
-                    <div class="about-line"></div>
+                    <div class="section-line"></div>
 
-                    <p>
-                        Cada procedimento é pensado de forma
-                        personalizada, respeitando a individualidade,
-                        os traços e a beleza natural de cada cliente.
-                    </p>
+                </div>
 
-                    <p>
-                        A Vanessa Signature une precisão técnica,
-                        delicadeza e sofisticação para proporcionar
-                        uma experiência única.
-                    </p>
+                <div class="services-grid">
 
-                    <p>
-                        Mais do que realçar a beleza, o objetivo é
-                        revelar aquilo que já existe em você.
-                    </p>
+                    <article class="service-card reveal">
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Micro Labial
+                        </h3>
+
+                        <p>
+                            Técnica delicada para realçar o contorno,
+                            uniformizar a aparência e valorizar a
+                            beleza natural dos lábios.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card reveal">
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Dermopigmentação
+                        </h3>
+
+                        <p>
+                            Precisão e personalização para criar um
+                            resultado sofisticado, equilibrado e
+                            pensado para cada rosto.
+                        </p>
+
+                    </article>
+
+                    <article class="service-card reveal">
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Design de Sobrancelhas
+                        </h3>
+
+                        <p>
+                            Harmonia, simetria e cuidado em cada detalhe
+                            para valorizar a expressão e a identidade
+                            de cada pessoa.
+                        </p>
+
+                    </article>
 
                 </div>
 
@@ -1681,27 +1373,89 @@
 
         </section>
 
-        <section id="contato" class="reveal">
+        <!-- =====================================================
+             SOBRE
+        ====================================================== -->
 
-            <div class="contact-box">
+        <section id="sobre">
 
-                <h2>
-                    Vamos conversar?
-                </h2>
+            <div class="section">
 
-                <p>
-                    Entre em contato para conhecer os procedimentos,
-                    tirar suas dúvidas e agendar seu atendimento.
-                </p>
+                <div class="about-grid">
 
-                <a
-                    class="whatsapp"
-                    href="https://wa.me/5521987391225"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    WhatsApp
-                </a>
+                    <div class="about-image reveal">
+
+                        <img
+                            src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
+                            alt="Vanessa Signature"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="about-text reveal">
+
+                        <span class="section-kicker">
+                            Vanessa Signature
+                        </span>
+
+                        <h2>
+                            Sofisticação que respeita sua essência.
+                        </h2>
+
+                        <p>
+                            Cada procedimento é pensado de forma
+                            personalizada, respeitando características,
+                            proporções e desejos individuais.
+                        </p>
+
+                        <p>
+                            O objetivo é valorizar aquilo que já existe,
+                            trazendo precisão, delicadeza e naturalidade
+                            para cada resultado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+             CONTATO
+        ====================================================== -->
+
+        <section id="contato">
+
+            <div class="section">
+
+                <div class="contact-box reveal">
+
+                    <span class="section-kicker">
+                        Entre em contato
+                    </span>
+
+                    <h2>
+                        Vamos realçar sua beleza?
+                    </h2>
+
+                    <p>
+                        Tire suas dúvidas, conheça os procedimentos
+                        e agende seu atendimento personalizado.
+                    </p>
+
+                    <a
+                        class="cta"
+                        href="https://wa.me/5521987391225"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Falar pelo WhatsApp
+                    </a>
+
+                </div>
 
             </div>
 
@@ -1709,11 +1463,21 @@
 
     </main>
 
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
     <footer>
 
-        © <span id="year"></span> Vanessa Signature
+        <strong>
+            Vanessa Signature
+        </strong>
 
-        <br><br>
+        <span>
+            © <span id="year"></span> Vanessa Signature
+        </span>
+
+        <br>
 
         <span>
             Beleza • Precisão • Sofisticação
@@ -1723,17 +1487,16 @@
 
     <script>
 
-        /* =========================
-           ANO
-        ========================== */
+        /* =========================================================
+           YEAR
+        ========================================================= */
 
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
-
-        /* =========================
-           PARTÍCULAS
-        ========================== */
+        /* =========================================================
+           PARTICLES
+        ========================================================= */
 
         const particlesContainer =
             document.getElementById("particles");
@@ -1743,59 +1506,49 @@
         for (let i = 0; i < particleCount; i++) {
 
             const particle =
-                document.createElement("div");
+                document.createElement("span");
 
             particle.className = "particle";
 
             particle.style.left =
                 Math.random() * 100 + "%";
 
-            particle.style.setProperty(
-                "--move-x",
-                (Math.random() * 300 - 150) + "px"
-            );
-
             particle.style.animationDuration =
-                (8 + Math.random() * 16) + "s";
+                (8 + Math.random() * 15) + "s";
 
             particle.style.animationDelay =
                 (-Math.random() * 20) + "s";
 
-            particle.style.opacity =
-                Math.random() * .7;
+            particle.style.setProperty(
+                "--move-x",
+                ((Math.random() - .5) * 220) + "px"
+            );
 
             const size =
-                1 + Math.random() * 2.5;
+                .7 + Math.random() * 2;
 
-            particle.style.width =
-                size + "px";
-
-            particle.style.height =
-                size + "px";
+            particle.style.width = size + "px";
+            particle.style.height = size + "px";
 
             particlesContainer.appendChild(particle);
         }
 
-
-        /* =========================
-           LUZ DO MOUSE
-        ========================== */
+        /* =========================================================
+           MOUSE LIGHT
+        ========================================================= */
 
         const mouseLight =
             document.getElementById("mouseLight");
 
-        let mouseX =
-            window.innerWidth / 2;
-
-        let mouseY =
-            window.innerHeight / 2;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
 
         let lightX = mouseX;
         let lightY = mouseY;
 
         window.addEventListener(
-            "mousemove",
-            (event) => {
+            "pointermove",
+            event => {
 
                 mouseX = event.clientX;
                 mouseY = event.clientY;
@@ -1806,17 +1559,11 @@
 
         function animateMouseLight() {
 
-            lightX +=
-                (mouseX - lightX) * .08;
+            lightX += (mouseX - lightX) * .08;
+            lightY += (mouseY - lightY) * .08;
 
-            lightY +=
-                (mouseY - lightY) * .08;
-
-            mouseLight.style.left =
-                lightX + "px";
-
-            mouseLight.style.top =
-                lightY + "px";
+            mouseLight.style.left = lightX + "px";
+            mouseLight.style.top = lightY + "px";
 
             requestAnimationFrame(
                 animateMouseLight
@@ -1825,10 +1572,9 @@
 
         animateMouseLight();
 
-
-        /* =========================
-           PARALLAX DA LOGO
-        ========================== */
+        /* =========================================================
+           LOGO PARALLAX
+        ========================================================= */
 
         const logoArea =
             document.getElementById("logoArea");
@@ -1836,56 +1582,47 @@
         const logoCore =
             document.getElementById("logoCore");
 
-        let targetRotateX = 0;
-        let targetRotateY = 0;
+        if (
+            logoArea &&
+            logoCore &&
+            window.matchMedia("(pointer: fine)").matches
+        ) {
 
-        let currentRotateX = 0;
-        let currentRotateY = 0;
+            logoArea.addEventListener(
+                "pointermove",
+                event => {
 
-        window.addEventListener(
-            "mousemove",
-            (event) => {
+                    const rect =
+                        logoArea.getBoundingClientRect();
 
-                const x =
-                    event.clientX /
-                    window.innerWidth - .5;
+                    const x =
+                        (event.clientX - rect.left)
+                        / rect.width - .5;
 
-                const y =
-                    event.clientY /
-                    window.innerHeight - .5;
+                    const y =
+                        (event.clientY - rect.top)
+                        / rect.height - .5;
 
-                targetRotateY =
-                    x * 8;
+                    logoCore.style.transform =
+                        `translate3d(${x * 10}px, ${y * 10}px, 0) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
 
-                targetRotateX =
-                    -y * 8;
+                }
+            );
 
-            },
-            { passive: true }
-        );
+            logoArea.addEventListener(
+                "pointerleave",
+                () => {
 
-        function animateLogo() {
+                    logoCore.style.transform =
+                        "";
 
-            currentRotateX +=
-                (targetRotateX - currentRotateX) * .08;
-
-            currentRotateY +=
-                (targetRotateY - currentRotateY) * .08;
-
-            logoArea.style.transform =
-                `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
-
-            requestAnimationFrame(
-                animateLogo
+                }
             );
         }
 
-        animateLogo();
-
-
-        /* =========================
-           CLIQUE NA LOGO
-        ========================== */
+        /* =========================================================
+           LOGO CLICK
+        ========================================================= */
 
         logoCore.addEventListener(
             "click",
@@ -1894,17 +1631,20 @@
                 logoCore.animate(
                     [
                         {
-                            transform: "scale(1)"
+                            transform:
+                                "scale(1)"
                         },
                         {
-                            transform: "scale(1.07)"
+                            transform:
+                                "scale(1.06)"
                         },
                         {
-                            transform: "scale(1)"
+                            transform:
+                                "scale(1)"
                         }
                     ],
                     {
-                        duration: 700,
+                        duration: 650,
                         easing:
                             "cubic-bezier(.2,.8,.2,1)"
                     }
@@ -1913,120 +1653,130 @@
             }
         );
 
-
-        /* =========================
-           CLIQUE NO NOME
-        ========================== */
+        /* =========================================================
+           BRAND NAME INTERACTION
+        ========================================================= */
 
         const brandName =
             document.getElementById("brandName");
 
+        function activateBrand() {
+
+            brandName.classList.remove("active");
+
+            void brandName.offsetWidth;
+
+            brandName.classList.add("active");
+
+        }
+
         brandName.addEventListener(
             "click",
-            () => {
+            activateBrand
+        );
 
-                brandName.classList.remove(
-                    "active"
-                );
+        brandName.addEventListener(
+            "keydown",
+            event => {
 
-                void brandName.offsetWidth;
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
 
-                brandName.classList.add(
-                    "active"
-                );
+                    event.preventDefault();
+
+                    activateBrand();
+
+                }
 
             }
         );
 
-
-        /* =========================
-           3D DOS CARDS
-        ========================== */
+        /* =========================================================
+           3D SERVICE CARDS
+        ========================================================= */
 
         const cards =
-            document.querySelectorAll(
-                ".service-card"
-            );
+            document.querySelectorAll(".service-card");
 
-        cards.forEach((card) => {
+        if (
+            window.matchMedia("(pointer: fine)").matches
+        ) {
 
-            card.addEventListener(
-                "mousemove",
-                (event) => {
+            cards.forEach(card => {
 
-                    const rect =
-                        card.getBoundingClientRect();
+                card.addEventListener(
+                    "pointermove",
+                    event => {
 
-                    const x =
-                        event.clientX -
-                        rect.left;
+                        const rect =
+                            card.getBoundingClientRect();
 
-                    const y =
-                        event.clientY -
-                        rect.top;
+                        const x =
+                            event.clientX -
+                            rect.left;
 
-                    const centerX =
-                        rect.width / 2;
+                        const y =
+                            event.clientY -
+                            rect.top;
 
-                    const centerY =
-                        rect.height / 2;
+                        const rotateY =
+                            ((x / rect.width) - .5) * 8;
 
-                    const rotateY =
-                        ((x - centerX) /
-                            centerX) * 7;
+                        const rotateX =
+                            ((y / rect.height) - .5) * -8;
 
-                    const rotateX =
-                        ((centerY - y) /
-                            centerY) * 7;
+                        card.style.transform =
+                            `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
 
-                    card.style.transform =
-                        `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                    }
+                );
 
-                }
-            );
+                card.addEventListener(
+                    "pointerleave",
+                    () => {
 
-            card.addEventListener(
-                "mouseleave",
-                () => {
+                        card.style.transform =
+                            "";
 
-                    card.style.transform =
-                        "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+                    }
+                );
 
-                }
-            );
+            });
 
-        });
+        }
 
-
-        /* =========================
-           REVEAL
-        ========================== */
+        /* =========================================================
+           REVEAL ON SCROLL
+        ========================================================= */
 
         const revealElements =
-            document.querySelectorAll(
-                ".reveal"
-            );
+            document.querySelectorAll(".reveal");
 
-        if ("IntersectionObserver" in window) {
+        if (
+            "IntersectionObserver" in window
+        ) {
 
             const observer =
                 new IntersectionObserver(
-                    (entries) => {
+                    entries => {
 
                         entries.forEach(
-                            (entry) => {
+                            entry => {
 
                                 if (
                                     entry.isIntersecting
                                 ) {
 
-                                    entry.target
-                                        .classList
-                                        .add("visible");
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
 
                                     observer.unobserve(
                                         entry.target
                                     );
+
                                 }
 
                             }
@@ -2034,115 +1784,104 @@
 
                     },
                     {
-                        threshold: .15
+                        threshold: .12
                     }
                 );
 
             revealElements.forEach(
-                (element) => {
-                    observer.observe(element);
-                }
+                element => observer.observe(element)
             );
 
         } else {
 
             revealElements.forEach(
-                (element) => {
-                    element.classList.add(
-                        "visible"
-                    );
-                }
+                element =>
+                    element.classList.add("visible")
             );
 
         }
 
+        /* =========================================================
+           SMOOTH ANCHOR SCROLL
+        ========================================================= */
 
-        /* =========================
-           LINKS SUAVES
-        ========================== */
+        document.querySelectorAll(
+            'a[href^="#"]'
+        ).forEach(anchor => {
 
-        document
-            .querySelectorAll(
-                'a[href^="#"]'
-            )
-            .forEach(
-                (link) => {
+            anchor.addEventListener(
+                "click",
+                event => {
 
-                    link.addEventListener(
-                        "click",
-                        (event) => {
+                    const targetId =
+                        anchor.getAttribute("href");
 
-                            const targetId =
-                                link.getAttribute(
-                                    "href"
-                                );
+                    const target =
+                        document.querySelector(targetId);
 
-                            const target =
-                                document.querySelector(
-                                    targetId
-                                );
+                    if (!target) return;
 
-                            if (!target) {
-                                return;
-                            }
+                    event.preventDefault();
 
-                            event.preventDefault();
-
-                            target.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start"
-                            });
-
-                        }
-                    );
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
                 }
             );
 
+        });
 
-        /* =========================
-           PROFUNDIDADE NO SCROLL
-        ========================== */
+        /* =========================================================
+           SCROLL AURA
+        ========================================================= */
 
-        const aura =
-            document.querySelector(
-                ".logo-aura"
-            );
+        let lastScroll = 0;
 
         window.addEventListener(
             "scroll",
             () => {
 
-                const scroll =
+                const currentScroll =
                     window.scrollY;
+
+                const direction =
+                    currentScroll > lastScroll
+                        ? 1
+                        : -1;
+
+                const aura =
+                    document.querySelector(
+                        ".logo-aura"
+                    );
 
                 if (aura) {
 
                     aura.style.transform =
-                        `translateY(${scroll * .08}px) scale(${1 + Math.min(scroll / 5000, .08)})`;
+                        `translateY(${direction * 2}px)`;
 
                 }
+
+                lastScroll = currentScroll;
 
             },
             { passive: true }
         );
 
+        /* =========================================================
+           PREVENT IMAGE DRAG
+        ========================================================= */
 
-        /* =========================
-           PROTEÇÃO DA IMAGEM
-        ========================== */
+        document.querySelectorAll("img")
+            .forEach(img => {
 
-        const logoImage =
-            document.getElementById(
-                "logoImage"
-            );
+                img.addEventListener(
+                    "dragstart",
+                    event => event.preventDefault()
+                );
 
-        logoImage.addEventListener(
-            "dragstart",
-            (event) => {
-                event.preventDefault();
-            }
-        );
+            });
 
     </script>
 
