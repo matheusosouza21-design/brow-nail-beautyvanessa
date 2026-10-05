@@ -3,30 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vanessa Signature</title>
-
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 html{
     scroll-behavior:smooth;
 }
-
 body{
     background:#050505;
     color:#f5f0f1;
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
-
 /* FUNDO */
-
 body::before{
     content:"";
     position:fixed;
@@ -45,9 +38,7 @@ body::before{
         );
     z-index:-2;
 }
-
 /* PARTÍCULAS */
-
 .particles{
     position:fixed;
     inset:0;
@@ -55,7 +46,6 @@ body::before{
     z-index:-1;
     overflow:hidden;
 }
-
 .particle{
     position:absolute;
     width:2px;
@@ -65,31 +55,23 @@ body::before{
     opacity:.35;
     animation:floatParticle linear infinite;
 }
-
 @keyframes floatParticle{
-
     from{
         transform:translateY(100vh);
         opacity:0;
     }
-
     20%{
         opacity:.35;
     }
-
     80%{
         opacity:.25;
     }
-
     to{
         transform:translateY(-20vh);
         opacity:0;
     }
-
 }
-
 /* HERO */
-
 .hero{
     min-height:100vh;
     display:flex;
@@ -100,29 +82,219 @@ body::before{
     position:relative;
     overflow:hidden;
 }
-
 .hero-content{
     max-width:1000px;
     width:100%;
     animation:heroIn 1.2s ease forwards;
 }
-
 @keyframes heroIn{
-
     from{
         opacity:0;
         transform:translateY(35px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
-
 }
-
-/* NOME DA MARCA */
-
+/* =========================================================
+   LOGO PREMIUM / TECNOLÓGICA
+   ========================================================= */
+.logo-area{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:28px;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+}
+/* Halo externo */
+.logo-area::before{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,160,176,.16),
+            rgba(216,160,176,.06) 38%,
+            transparent 70%
+        );
+    filter:blur(4px);
+    opacity:.75;
+    animation:
+        logoAura 4s ease-in-out infinite;
+    pointer-events:none;
+}
+/* Anel tecnológico */
+.logo-area::after{
+    content:"";
+    position:absolute;
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    border:1px solid rgba(216,160,176,.28);
+    border-top-color:#d8a0b0;
+    border-bottom-color:rgba(216,160,176,.08);
+    box-shadow:
+        0 0 18px rgba(216,160,176,.12),
+        inset 0 0 18px rgba(216,160,176,.05);
+    animation:
+        logoOrbit 8s linear infinite;
+    pointer-events:none;
+}
+/* Imagem da logo */
+.brand-logo{
+    position:relative;
+    width:125px;
+    height:125px;
+    object-fit:contain;
+    display:block;
+    border-radius:50%;
+    z-index:2;
+    /*
+       Mantém a proporção original da imagem.
+       Não estica e não comprime a logo.
+    */
+    filter:
+        drop-shadow(0 0 10px rgba(216,160,176,.20))
+        drop-shadow(0 12px 28px rgba(0,0,0,.65));
+    transform:translateZ(0);
+    transition:
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        filter .55s ease;
+    animation:logoEntrance 1.4s cubic-bezier(.16,1,.3,1) both;
+}
+/* Entrada da logo */
+@keyframes logoEntrance{
+    0%{
+        opacity:0;
+        transform:scale(.65) rotate(-8deg);
+        filter:
+            blur(8px)
+            drop-shadow(0 0 0 rgba(216,160,176,0));
+    }
+    65%{
+        opacity:1;
+        transform:scale(1.05) rotate(2deg);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1) rotate(0);
+        filter:
+            drop-shadow(0 0 10px rgba(216,160,176,.20))
+            drop-shadow(0 12px 28px rgba(0,0,0,.65));
+    }
+}
+/* Respiração da aura */
+@keyframes logoAura{
+    0%,100%{
+        transform:scale(.92);
+        opacity:.55;
+    }
+    50%{
+        transform:scale(1.08);
+        opacity:.85;
+    }
+}
+/* Rotação do anel */
+@keyframes logoOrbit{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+/* Hover */
+.logo-area:hover .brand-logo{
+    transform:
+        scale(1.055)
+        translateY(-4px);
+    filter:
+        drop-shadow(0 0 18px rgba(216,160,176,.40))
+        drop-shadow(0 15px 32px rgba(0,0,0,.75));
+}
+/* Clique / toque */
+.logo-area.logo-active .brand-logo{
+    animation:
+        logoClick .75s cubic-bezier(.16,1,.3,1);
+}
+.logo-area.logo-active::after{
+    animation:
+        logoBurst .75s cubic-bezier(.16,1,.3,1);
+}
+@keyframes logoClick{
+    0%{
+        transform:scale(1);
+    }
+    20%{
+        transform:scale(.88) rotate(-4deg);
+    }
+    45%{
+        transform:scale(1.13) rotate(5deg);
+    }
+    70%{
+        transform:scale(1.04) rotate(-2deg);
+    }
+    100%{
+        transform:scale(1) rotate(0);
+    }
+}
+@keyframes logoBurst{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:scale(1.45);
+        opacity:0;
+    }
+}
+/* Linha tecnológica abaixo da logo */
+.logo-line{
+    position:relative;
+    width:90px;
+    height:1px;
+    margin-top:18px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d8a0b0,
+            transparent
+        );
+    box-shadow:
+        0 0 12px rgba(216,160,176,.35);
+    opacity:.8;
+}
+.logo-line::before,
+.logo-line::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#d8a0b0;
+    box-shadow:
+        0 0 8px rgba(216,160,176,.8);
+    transform:translateY(-50%);
+}
+.logo-line::before{
+    left:0;
+}
+.logo-line::after{
+    right:0;
+}
+/* =========================================================
+   NOME DA MARCA
+   ========================================================= */
 .brand-name{
     font-family:Georgia, "Times New Roman", serif;
     font-size:clamp(48px, 8vw, 92px);
@@ -135,9 +307,7 @@ body::before{
         0 0 50px rgba(216,160,176,.10);
     margin-bottom:28px;
 }
-
 /* SUBTÍTULO */
-
 .hero h2{
     font-size:clamp(25px, 4vw, 48px);
     font-weight:400;
@@ -145,7 +315,6 @@ body::before{
     margin-bottom:20px;
     color:#f5f0f1;
 }
-
 .hero-subtitle{
     max-width:700px;
     margin:0 auto 40px;
@@ -153,9 +322,7 @@ body::before{
     font-size:18px;
     line-height:1.7;
 }
-
 /* CARDS INFORMATIVOS */
-
 .hero-info{
     display:flex;
     justify-content:center;
@@ -163,7 +330,6 @@ body::before{
     flex-wrap:wrap;
     margin-bottom:40px;
 }
-
 .info-card{
     position:relative;
     overflow:hidden;
@@ -176,44 +342,28 @@ body::before{
     font-size:14px;
     letter-spacing:.5px;
     box-shadow:0 15px 40px rgba(0,0,0,.3);
-
     cursor:pointer;
     user-select:none;
     -webkit-tap-highlight-color:transparent;
-
     transition:
         transform .3s ease,
         border-color .3s ease,
         box-shadow .3s ease;
 }
-
-/* EFEITO AO PASSAR O MOUSE */
-
 .info-card:hover{
-
     transform:translateY(-4px);
-
     border-color:#d8a0b0;
-
     box-shadow:
         0 0 18px rgba(216,160,176,.16),
         0 15px 40px rgba(0,0,0,.4);
 }
-
-/* LUZ DE VARREDURA */
-
 .info-card::after{
-
     content:"";
-
     position:absolute;
-
     top:0;
     left:-120%;
-
     width:80%;
     height:100%;
-
     background:
         linear-gradient(
             110deg,
@@ -221,228 +371,139 @@ body::before{
             rgba(216,160,176,.30),
             transparent
         );
-
     transform:skewX(-20deg);
-
     pointer-events:none;
 }
-
-/* CARD ATIVADO */
-
 .info-card.active-info{
-
     animation:infoPulse .65s ease;
-
     border-color:#d8a0b0;
-
     box-shadow:
         0 0 20px rgba(216,160,176,.28),
         0 0 55px rgba(216,160,176,.12),
         0 15px 40px rgba(0,0,0,.5);
 }
-
 .info-card.active-info::after{
-
     animation:infoScan .65s ease;
 }
-
 @keyframes infoPulse{
-
     0%{
         transform:scale(1) rotateZ(0);
     }
-
     25%{
         transform:scale(1.025) rotateZ(-1deg);
     }
-
     50%{
         transform:scale(1.04) rotateZ(1deg);
     }
-
     75%{
         transform:scale(1.02) rotateZ(-.5deg);
     }
-
     100%{
         transform:scale(1) rotateZ(0);
     }
-
 }
-
 @keyframes infoScan{
-
     0%{
         left:-120%;
     }
-
     100%{
         left:140%;
     }
-
 }
-
 /* BOTÃO */
-
 .cta{
-
     display:inline-block;
-
     text-decoration:none;
-
     color:#080808;
-
     background:#d8a0b0;
-
     padding:17px 32px;
-
     border-radius:50px;
-
     font-weight:bold;
-
     letter-spacing:.5px;
-
     transition:.3s ease;
-
     box-shadow:
         0 0 20px rgba(216,160,176,.18),
         0 10px 30px rgba(0,0,0,.5);
 }
-
 .cta:hover{
-
     transform:translateY(-3px);
-
     box-shadow:
         0 0 30px rgba(216,160,176,.35),
         0 15px 40px rgba(0,0,0,.6);
 }
-
 /* SEÇÕES */
-
 section{
     padding:100px 20px;
 }
-
 .container{
     max-width:1100px;
     margin:auto;
 }
-
 .section-title{
-
     text-align:center;
-
     font-family:Georgia, "Times New Roman", serif;
-
     font-size:clamp(34px,5vw,55px);
-
     font-weight:400;
-
     margin-bottom:15px;
 }
-
 .section-title span{
     color:#d8a0b0;
 }
-
 .section-subtitle{
-
     text-align:center;
-
     color:#91898c;
-
     margin-bottom:55px;
-
     font-size:16px;
 }
-
 /* SERVIÇOS */
-
 .services-grid{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:22px;
 }
-
 .service{
-
     position:relative;
-
     padding:38px 28px;
-
     min-height:230px;
-
     border:1px solid rgba(216,160,176,.15);
-
     border-radius:25px;
-
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
             rgba(255,255,255,.012)
         );
-
     backdrop-filter:blur(12px);
-
     overflow:hidden;
-
     cursor:pointer;
-
     transform-style:preserve-3d;
-
     -webkit-tap-highlight-color:transparent;
-
     transition:.35s ease;
 }
-
 .service:hover{
-
     transform:translateY(-8px);
-
     border-color:rgba(216,160,176,.4);
-
     box-shadow:
         0 0 25px rgba(216,160,176,.10),
         0 25px 60px rgba(0,0,0,.5);
 }
-
 .service h3{
-
     color:#d8a0b0;
-
     font-family:Georgia, "Times New Roman", serif;
-
     font-size:27px;
-
     font-weight:400;
-
     margin-bottom:18px;
 }
-
 .service p{
-
     color:#aaa2a5;
-
     line-height:1.7;
-
     font-size:15px;
 }
-
 .service::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     border-radius:25px;
-
     background:
         linear-gradient(
             120deg,
@@ -450,779 +511,484 @@ section{
             rgba(216,160,176,.18),
             transparent 80%
         );
-
     opacity:0;
-
     transform:translateX(-100%);
-
     transition:.5s;
-
     pointer-events:none;
 }
-
 .service.active-card{
-
     animation:futurePulse .65s ease;
-
     border-color:#d8a0b0;
-
     box-shadow:
         0 0 20px rgba(216,160,176,.22),
         0 0 55px rgba(216,160,176,.12),
         0 25px 60px rgba(0,0,0,.6);
 }
-
 .service.active-card::after{
-
     opacity:1;
-
     animation:scanLight .65s ease;
 }
-
 @keyframes futurePulse{
-
     0%{
         transform:scale(1) rotateZ(0deg);
     }
-
     25%{
         transform:scale(1.025) rotateZ(-1.2deg);
     }
-
     50%{
         transform:scale(1.035) rotateZ(1.2deg);
     }
-
     75%{
         transform:scale(1.02) rotateZ(-.6deg);
     }
-
     100%{
         transform:scale(1) rotateZ(0deg);
     }
-
 }
-
 @keyframes scanLight{
-
     0%{
         transform:translateX(-100%);
     }
-
     100%{
         transform:translateX(100%);
     }
-
 }
-
 /* ÁREA DA PERSONAGEM */
-
 .about{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     align-items:center;
-
     gap:70px;
-
     max-width:1000px;
-
     margin:auto;
 }
-
 .image-box{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 }
-
 .character{
-
     width:min(100%,430px);
-
     max-height:650px;
-
     object-fit:contain;
-
     display:block;
-
     filter:
         drop-shadow(0 20px 40px rgba(0,0,0,.7))
         drop-shadow(0 0 25px rgba(216,160,176,.10));
 }
-
 .message{
     text-align:left;
 }
-
 .message-label{
-
     font-family:Georgia, "Times New Roman", serif;
-
     font-size:clamp(36px,5vw,60px);
-
     color:#f4e9ec;
-
     margin-bottom:18px;
 }
-
 .message-line{
-
     width:80px;
-
     height:1px;
-
     background:#d8a0b0;
-
     margin-bottom:25px;
-
     box-shadow:0 0 12px rgba(216,160,176,.35);
 }
-
 .message p{
-
     color:#d8a0b0;
-
     font-size:22px;
-
     line-height:1.6;
-
     margin-bottom:10px;
 }
-
 .signature-message{
-
     display:block;
-
     margin-top:24px;
-
     color:#d8a0b0;
-
     font-size:19px;
-
     line-height:1.75;
-
     font-weight:500;
-
     text-shadow:0 0 14px rgba(216,160,176,.22);
 }
-
 /* CONTATO */
-
 .contact{
-
     text-align:center;
-
     max-width:700px;
-
     margin:auto;
 }
-
 .contact p{
-
     color:#aaa2a5;
-
     font-size:17px;
-
     line-height:1.7;
-
     margin-bottom:30px;
 }
-
 .whatsapp{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:17px 28px;
-
     border-radius:50px;
-
     background:#d8a0b0;
-
     color:#080808;
-
     text-decoration:none;
-
     font-weight:bold;
-
     transition:.3s ease;
-
     box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
-
 .whatsapp:hover{
-
     transform:translateY(-3px);
-
     box-shadow:
         0 0 25px rgba(216,160,176,.25),
         0 15px 40px rgba(0,0,0,.6);
 }
-
 /* FOOTER */
-
 footer{
-
     border-top:1px solid rgba(216,160,176,.1);
-
     text-align:center;
-
     padding:35px 20px;
-
     color:#716b6e;
-
     font-size:13px;
 }
-
 footer strong{
-
     color:#d8a0b0;
-
     font-weight:500;
 }
-
 /* ANIMAÇÃO DE ENTRADA */
-
 .reveal{
-
     opacity:0;
-
     transform:translateY(30px);
-
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
-
 .reveal.visible{
-
     opacity:1;
-
     transform:translateY(0);
 }
-
 /* RESPONSIVO */
-
 @media(max-width:800px){
-
     .hero{
-
         min-height:95vh;
-
         padding:50px 20px;
     }
-
+    .logo-area{
+        margin-bottom:24px;
+    }
+    .brand-logo{
+        width:105px;
+        height:105px;
+    }
+    .logo-area::before{
+        width:165px;
+        height:165px;
+    }
+    .logo-area::after{
+        width:125px;
+        height:125px;
+    }
     .brand-name{
-
         font-size:clamp(43px,12vw,68px);
-
         letter-spacing:1px;
     }
-
     .hero h2{
-
         font-size:30px;
     }
-
     .hero-subtitle{
-
         font-size:16px;
     }
-
     .hero-info{
-
         flex-direction:column;
-
         align-items:center;
     }
-
     .info-card{
-
         width:100%;
-
         max-width:500px;
     }
-
     .services-grid{
-
         grid-template-columns:1fr;
     }
-
     .about{
-
         grid-template-columns:1fr;
-
         gap:45px;
     }
-
     .message{
-
         text-align:center;
     }
-
     .message-line{
-
         margin-left:auto;
-
         margin-right:auto;
     }
-
     .message-label{
-
         font-size:43px;
     }
-
     .signature-message{
-
         font-size:18px;
     }
-
     section{
-
         padding:75px 20px;
     }
-
 }
-
 @media(max-width:480px){
-
+    .logo-area{
+        margin-bottom:22px;
+    }
+    .brand-logo{
+        width:92px;
+        height:92px;
+    }
+    .logo-area::before{
+        width:145px;
+        height:145px;
+    }
+    .logo-area::after{
+        width:112px;
+        height:112px;
+    }
+    .logo-line{
+        width:72px;
+        margin-top:15px;
+    }
     .brand-name{
-
         font-size:46px;
     }
-
     .hero h2{
-
         font-size:27px;
     }
-
     .info-card{
-
         width:100%;
     }
-
     .service{
-
         padding:32px 24px;
     }
-
     .section-title{
-
         font-size:36px;
     }
-
     .character{
-
         width:90%;
     }
-
 }
-
 </style>
 </head>
-
 <body>
-
 <!-- PARTÍCULAS -->
-
 <div class="particles">
-
     <span class="particle" style="left:5%;animation-duration:12s;animation-delay:1s;"></span>
-
     <span class="particle" style="left:12%;animation-duration:17s;animation-delay:4s;"></span>
-
     <span class="particle" style="left:21%;animation-duration:14s;animation-delay:2s;"></span>
-
     <span class="particle" style="left:32%;animation-duration:19s;animation-delay:6s;"></span>
-
     <span class="particle" style="left:44%;animation-duration:13s;animation-delay:3s;"></span>
-
     <span class="particle" style="left:55%;animation-duration:18s;animation-delay:7s;"></span>
-
     <span class="particle" style="left:67%;animation-duration:15s;animation-delay:1s;"></span>
-
     <span class="particle" style="left:78%;animation-duration:20s;animation-delay:5s;"></span>
-
     <span class="particle" style="left:89%;animation-duration:16s;animation-delay:8s;"></span>
-
     <span class="particle" style="left:96%;animation-duration:13s;animation-delay:2s;"></span>
-
 </div>
-
-
 <!-- HERO -->
-
 <header class="hero">
-
     <div class="hero-content">
-
+        <!-- LOGO -->
+        <div class="logo-area" id="brandLogo">
+            <img
+                class="brand-logo"
+                src="IMG_0344_Original.jpeg"
+                alt="Logo Vanessa Signature"
+                draggable="false"
+            >
+            <div class="logo-line"></div>
+        </div>
+        <!-- NOME DA MARCA -->
         <div class="brand-name">
             Vanessa Signature
         </div>
-
         <h2>
             Beleza que revela você.
         </h2>
-
         <p class="hero-subtitle">
             Precisão, delicadeza e sofisticação em cada detalhe.
         </p>
-
-
         <!-- CARDS INTERATIVOS -->
-
         <div class="hero-info">
-
             <div class="info-card interactive-info">
-
                 Micro Labial • Dermopigmentação • Design de Sobrancelhas
-
             </div>
-
-
             <div class="info-card interactive-info">
-
                 Um cuidado personalizado para realçar sua beleza.
-
             </div>
-
         </div>
-
-
         <a href="#servicos" class="cta">
-
             Conheça nossos serviços
-
         </a>
-
     </div>
-
 </header>
-
-
 <!-- SERVIÇOS -->
-
 <section id="servicos">
-
     <div class="container">
-
         <h2 class="section-title reveal">
-
             Nossos <span>serviços</span>
-
         </h2>
-
-
         <p class="section-subtitle reveal">
-
             Técnicas pensadas para valorizar sua beleza
             com naturalidade e precisão.
-
         </p>
-
-
         <div class="services-grid">
-
-
             <div class="service reveal">
-
                 <h3>
                     Micro Labial
                 </h3>
-
                 <p>
-
                     Realce a beleza dos seus lábios com delicadeza,
                     definição e um resultado sofisticado.
-
                 </p>
-
             </div>
-
-
             <div class="service reveal">
-
                 <h3>
                     Dermopigmentação
                 </h3>
-
                 <p>
-
                     Técnicas personalizadas para harmonizar seus traços
                     e valorizar sua beleza natural.
-
                 </p>
-
             </div>
-
-
             <div class="service reveal">
-
                 <h3>
                     Design de Sobrancelhas
                 </h3>
-
                 <p>
-
                     Um design pensado para respeitar seus traços
                     e criar equilíbrio e harmonia.
-
                 </p>
-
             </div>
-
-
         </div>
-
     </div>
-
 </section>
-
-
 <!-- PERSONAGEM / MENSAGEM -->
-
 <section>
-
     <div class="about">
-
-
         <div class="image-box reveal">
-
             <img
                 class="character"
                 src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
                 alt="Personagem Vanessa Signature"
             >
-
         </div>
-
-
         <div class="message reveal">
-
             <div class="message-label">
-
                 Seja bem-vinda(o)
-
             </div>
-
-
             <div class="message-line"></div>
-
-
             <p>
-
                 Obrigada por estar aqui! ✨
-
             </p>
-
-
             <small class="signature-message">
-
                 Será um prazer cuidar de você
                 e fazer parte do seu momento.
-
             </small>
-
         </div>
-
-
     </div>
-
 </section>
-
-
 <!-- CONTATO -->
-
 <section>
-
     <div class="contact reveal">
-
-
         <h2 class="section-title">
-
             Vamos <span>conversar?</span>
-
         </h2>
-
-
         <p>
-
             Entre em contato para conhecer os procedimentos,
             tirar suas dúvidas e consultar os horários disponíveis.
-
         </p>
-
-
         <a
             class="whatsapp"
             href="https://wa.me/5521987391225"
             target="_blank"
         >
-
             💬 Falar pelo WhatsApp
-
         </a>
-
-
     </div>
-
 </section>
-
-
 <!-- FOOTER -->
-
 <footer>
-
     <p>
-
         © 2026 <strong>Vanessa Signature</strong>
-
     </p>
-
-
     <p style="margin-top:8px;">
-
         Beleza • Precisão • Sofisticação
-
     </p>
-
 </footer>
-
-
 <script>
-
 /* ANIMAÇÕES AO ENTRAR NA TELA */
-
 const observer = new IntersectionObserver(
-
     entries => {
-
         entries.forEach(entry => {
-
             if(entry.isIntersecting){
-
                 entry.target.classList.add("visible");
-
             }
-
         });
-
     },
-
     {
         threshold:0.12
     }
-
 );
-
-
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
-
         observer.observe(element);
-
     });
-
-
-
+/* =========================================================
+   LOGO INTERATIVA
+   ========================================================= */
+const brandLogo = document.querySelector(".logo-area");
+brandLogo.addEventListener("click", () => {
+    brandLogo.classList.remove("logo-active");
+    /*
+       Força o navegador a reiniciar
+       a animação a cada clique.
+    */
+    void brandLogo.offsetWidth;
+    brandLogo.classList.add("logo-active");
+    setTimeout(() => {
+        brandLogo.classList.remove("logo-active");
+    },800);
+});
 /* CARDS DO TOPO */
-
 document
     .querySelectorAll(".interactive-info")
     .forEach(card => {
-
         card.addEventListener("click", () => {
-
             card.classList.remove("active-info");
-
             void card.offsetWidth;
-
             card.classList.add("active-info");
-
-
             setTimeout(() => {
-
                 card.classList.remove("active-info");
-
             },700);
-
         });
-
     });
-
-
-
 /* CARDS DE SERVIÇOS */
-
 document
     .querySelectorAll(".service")
     .forEach(card => {
-
         card.addEventListener("click", () => {
-
             card.classList.remove("active-card");
-
             void card.offsetWidth;
-
             card.classList.add("active-card");
-
-
             setTimeout(() => {
-
                 card.classList.remove("active-card");
-
             },700);
-
         });
-
     });
-
-
-
 /* LUZ DO MOUSE NO HERO */
-
 const hero = document.querySelector(".hero");
-
-
 hero.addEventListener("pointermove", event => {
-
     const rect = hero.getBoundingClientRect();
-
     const x = event.clientX - rect.left;
-
     const y = event.clientY - rect.top;
-
-
     hero.style.background = `
-
         radial-gradient(
             500px circle at ${x}px ${y}px,
             rgba(216,160,176,.08),
             transparent 60%
         )
-
     `;
-
 });
-
-
 hero.addEventListener("pointerleave", () => {
-
     hero.style.background = "transparent";
-
 });
-
 </script>
-
 </body>
 </html>
