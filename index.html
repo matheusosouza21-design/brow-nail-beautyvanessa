@@ -19,7 +19,9 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
-/* FUNDO */
+/* =========================================================
+   FUNDO
+   ========================================================= */
 body::before{
     content:"";
     position:fixed;
@@ -38,7 +40,9 @@ body::before{
         );
     z-index:-2;
 }
-/* PARTÍCULAS */
+/* =========================================================
+   PARTÍCULAS
+   ========================================================= */
 .particles{
     position:fixed;
     inset:0;
@@ -71,7 +75,9 @@ body::before{
         opacity:0;
     }
 }
-/* HERO */
+/* =========================================================
+   HERO
+   ========================================================= */
 .hero{
     min-height:100vh;
     display:flex;
@@ -106,92 +112,92 @@ body::before{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    margin-bottom:28px;
+    margin-bottom:25px;
     cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
     user-select:none;
+    -webkit-tap-highlight-color:transparent;
 }
-/* Halo externo */
+/* HALO */
 .logo-area::before{
     content:"";
     position:absolute;
-    width:190px;
-    height:190px;
+    width:220px;
+    height:220px;
     border-radius:50%;
     background:
         radial-gradient(
             circle,
-            rgba(216,160,176,.16),
+            rgba(216,160,176,.17),
             rgba(216,160,176,.06) 38%,
             transparent 70%
         );
-    filter:blur(4px);
+    filter:blur(5px);
     opacity:.75;
-    animation:
-        logoAura 4s ease-in-out infinite;
+    animation:logoAura 4s ease-in-out infinite;
     pointer-events:none;
 }
-/* Anel tecnológico */
+/* ANEL TECNOLÓGICO */
 .logo-area::after{
     content:"";
     position:absolute;
-    width:145px;
-    height:145px;
+    width:175px;
+    height:175px;
     border-radius:50%;
     border:1px solid rgba(216,160,176,.28);
     border-top-color:#d8a0b0;
     border-bottom-color:rgba(216,160,176,.08);
     box-shadow:
-        0 0 18px rgba(216,160,176,.12),
-        inset 0 0 18px rgba(216,160,176,.05);
-    animation:
-        logoOrbit 8s linear infinite;
+        0 0 20px rgba(216,160,176,.14),
+        inset 0 0 20px rgba(216,160,176,.05);
+    animation:logoOrbit 8s linear infinite;
     pointer-events:none;
 }
-/* Imagem da logo */
+/* LOGO */
 .brand-logo{
     position:relative;
-    width:125px;
-    height:125px;
+    width:155px;
+    height:155px;
     object-fit:contain;
     display:block;
     border-radius:50%;
     z-index:2;
-    /*
-       Mantém a proporção original da imagem.
-       Não estica e não comprime a logo.
-    */
     filter:
-        drop-shadow(0 0 10px rgba(216,160,176,.20))
-        drop-shadow(0 12px 28px rgba(0,0,0,.65));
+        drop-shadow(0 0 12px rgba(216,160,176,.24))
+        drop-shadow(0 15px 32px rgba(0,0,0,.70));
     transform:translateZ(0);
     transition:
         transform .55s cubic-bezier(.2,.8,.2,1),
         filter .55s ease;
     animation:logoEntrance 1.4s cubic-bezier(.16,1,.3,1) both;
 }
-/* Entrada da logo */
+/* ENTRADA */
 @keyframes logoEntrance{
     0%{
         opacity:0;
-        transform:scale(.65) rotate(-8deg);
+        transform:
+            scale(.65)
+            rotate(-8deg);
         filter:
             blur(8px)
             drop-shadow(0 0 0 rgba(216,160,176,0));
     }
     65%{
         opacity:1;
-        transform:scale(1.05) rotate(2deg);
+        transform:
+            scale(1.05)
+            rotate(2deg);
     }
     100%{
         opacity:1;
-        transform:scale(1) rotate(0);
+        transform:
+            scale(1)
+            rotate(0);
         filter:
-            drop-shadow(0 0 10px rgba(216,160,176,.20))
-            drop-shadow(0 12px 28px rgba(0,0,0,.65));
+            drop-shadow(0 0 12px rgba(216,160,176,.24))
+            drop-shadow(0 15px 32px rgba(0,0,0,.70));
     }
 }
-/* Respiração da aura */
+/* AURA */
 @keyframes logoAura{
     0%,100%{
         transform:scale(.92);
@@ -202,7 +208,7 @@ body::before{
         opacity:.85;
     }
 }
-/* Rotação do anel */
+/* ANEL GIRANDO */
 @keyframes logoOrbit{
     from{
         transform:rotate(0deg);
@@ -211,16 +217,16 @@ body::before{
         transform:rotate(360deg);
     }
 }
-/* Hover */
+/* HOVER */
 .logo-area:hover .brand-logo{
     transform:
         scale(1.055)
         translateY(-4px);
     filter:
-        drop-shadow(0 0 18px rgba(216,160,176,.40))
-        drop-shadow(0 15px 32px rgba(0,0,0,.75));
+        drop-shadow(0 0 22px rgba(216,160,176,.45))
+        drop-shadow(0 18px 36px rgba(0,0,0,.75));
 }
-/* Clique / toque */
+/* CLIQUE */
 .logo-area.logo-active .brand-logo{
     animation:
         logoClick .75s cubic-bezier(.16,1,.3,1);
@@ -256,10 +262,10 @@ body::before{
         opacity:0;
     }
 }
-/* Linha tecnológica abaixo da logo */
+/* LINHA TECNOLÓGICA */
 .logo-line{
     position:relative;
-    width:90px;
+    width:100px;
     height:1px;
     margin-top:18px;
     background:
@@ -270,8 +276,8 @@ body::before{
             transparent
         );
     box-shadow:
-        0 0 12px rgba(216,160,176,.35);
-    opacity:.8;
+        0 0 14px rgba(216,160,176,.40);
+    opacity:.85;
 }
 .logo-line::before,
 .logo-line::after{
@@ -283,7 +289,7 @@ body::before{
     border-radius:50%;
     background:#d8a0b0;
     box-shadow:
-        0 0 8px rgba(216,160,176,.8);
+        0 0 9px rgba(216,160,176,.85);
     transform:translateY(-50%);
 }
 .logo-line::before{
@@ -307,7 +313,9 @@ body::before{
         0 0 50px rgba(216,160,176,.10);
     margin-bottom:28px;
 }
-/* SUBTÍTULO */
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
 .hero h2{
     font-size:clamp(25px, 4vw, 48px);
     font-weight:400;
@@ -322,7 +330,9 @@ body::before{
     font-size:18px;
     line-height:1.7;
 }
-/* CARDS INFORMATIVOS */
+/* =========================================================
+   CARDS DO HERO
+   ========================================================= */
 .hero-info{
     display:flex;
     justify-content:center;
@@ -410,7 +420,9 @@ body::before{
         left:140%;
     }
 }
-/* BOTÃO */
+/* =========================================================
+   BOTÃO
+   ========================================================= */
 .cta{
     display:inline-block;
     text-decoration:none;
@@ -431,7 +443,9 @@ body::before{
         0 0 30px rgba(216,160,176,.35),
         0 15px 40px rgba(0,0,0,.6);
 }
-/* SEÇÕES */
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
 section{
     padding:100px 20px;
 }
@@ -455,7 +469,9 @@ section{
     margin-bottom:55px;
     font-size:16px;
 }
-/* SERVIÇOS */
+/* =========================================================
+   SERVIÇOS
+   ========================================================= */
 .services-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -553,7 +569,9 @@ section{
         transform:translateX(100%);
     }
 }
-/* ÁREA DA PERSONAGEM */
+/* =========================================================
+   PERSONAGEM
+   ========================================================= */
 .about{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -607,7 +625,9 @@ section{
     font-weight:500;
     text-shadow:0 0 14px rgba(216,160,176,.22);
 }
-/* CONTATO */
+/* =========================================================
+   CONTATO
+   ========================================================= */
 .contact{
     text-align:center;
     max-width:700px;
@@ -638,7 +658,9 @@ section{
         0 0 25px rgba(216,160,176,.25),
         0 15px 40px rgba(0,0,0,.6);
 }
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 footer{
     border-top:1px solid rgba(216,160,176,.1);
     text-align:center;
@@ -650,7 +672,9 @@ footer strong{
     color:#d8a0b0;
     font-weight:500;
 }
-/* ANIMAÇÃO DE ENTRADA */
+/* =========================================================
+   REVEAL
+   ========================================================= */
 .reveal{
     opacity:0;
     transform:translateY(30px);
@@ -662,7 +686,9 @@ footer strong{
     opacity:1;
     transform:translateY(0);
 }
-/* RESPONSIVO */
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
 @media(max-width:800px){
     .hero{
         min-height:95vh;
@@ -672,16 +698,16 @@ footer strong{
         margin-bottom:24px;
     }
     .brand-logo{
-        width:105px;
-        height:105px;
-    }
-    .logo-area::before{
-        width:165px;
-        height:165px;
-    }
-    .logo-area::after{
         width:125px;
         height:125px;
+    }
+    .logo-area::before{
+        width:180px;
+        height:180px;
+    }
+    .logo-area::after{
+        width:145px;
+        height:145px;
     }
     .brand-name{
         font-size:clamp(43px,12vw,68px);
@@ -730,19 +756,19 @@ footer strong{
         margin-bottom:22px;
     }
     .brand-logo{
-        width:92px;
-        height:92px;
+        width:115px;
+        height:115px;
     }
     .logo-area::before{
-        width:145px;
-        height:145px;
+        width:165px;
+        height:165px;
     }
     .logo-area::after{
-        width:112px;
-        height:112px;
+        width:135px;
+        height:135px;
     }
     .logo-line{
-        width:72px;
+        width:80px;
         margin-top:15px;
     }
     .brand-name{
@@ -767,7 +793,9 @@ footer strong{
 </style>
 </head>
 <body>
-<!-- PARTÍCULAS -->
+<!-- =========================================================
+     PARTÍCULAS
+     ========================================================= -->
 <div class="particles">
     <span class="particle" style="left:5%;animation-duration:12s;animation-delay:1s;"></span>
     <span class="particle" style="left:12%;animation-duration:17s;animation-delay:4s;"></span>
@@ -780,7 +808,9 @@ footer strong{
     <span class="particle" style="left:89%;animation-duration:16s;animation-delay:8s;"></span>
     <span class="particle" style="left:96%;animation-duration:13s;animation-delay:2s;"></span>
 </div>
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 <header class="hero">
     <div class="hero-content">
         <!-- LOGO -->
@@ -793,7 +823,7 @@ footer strong{
             >
             <div class="logo-line"></div>
         </div>
-        <!-- NOME DA MARCA -->
+        <!-- NOME -->
         <div class="brand-name">
             Vanessa Signature
         </div>
@@ -803,7 +833,7 @@ footer strong{
         <p class="hero-subtitle">
             Precisão, delicadeza e sofisticação em cada detalhe.
         </p>
-        <!-- CARDS INTERATIVOS -->
+        <!-- CARDS -->
         <div class="hero-info">
             <div class="info-card interactive-info">
                 Micro Labial • Dermopigmentação • Design de Sobrancelhas
@@ -817,7 +847,9 @@ footer strong{
         </a>
     </div>
 </header>
-<!-- SERVIÇOS -->
+<!-- =========================================================
+     SERVIÇOS
+     ========================================================= -->
 <section id="servicos">
     <div class="container">
         <h2 class="section-title reveal">
@@ -858,7 +890,9 @@ footer strong{
         </div>
     </div>
 </section>
-<!-- PERSONAGEM / MENSAGEM -->
+<!-- =========================================================
+     PERSONAGEM / MENSAGEM
+     ========================================================= -->
 <section>
     <div class="about">
         <div class="image-box reveal">
@@ -883,7 +917,9 @@ footer strong{
         </div>
     </div>
 </section>
-<!-- CONTATO -->
+<!-- =========================================================
+     CONTATO
+     ========================================================= -->
 <section>
     <div class="contact reveal">
         <h2 class="section-title">
@@ -902,7 +938,9 @@ footer strong{
         </a>
     </div>
 </section>
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 <footer>
     <p>
         © 2026 <strong>Vanessa Signature</strong>
@@ -912,7 +950,9 @@ footer strong{
     </p>
 </footer>
 <script>
-/* ANIMAÇÕES AO ENTRAR NA TELA */
+/* =========================================================
+   ANIMAÇÕES AO ENTRAR NA TELA
+   ========================================================= */
 const observer = new IntersectionObserver(
     entries => {
         entries.forEach(entry => {
@@ -936,17 +976,15 @@ document
 const brandLogo = document.querySelector(".logo-area");
 brandLogo.addEventListener("click", () => {
     brandLogo.classList.remove("logo-active");
-    /*
-       Força o navegador a reiniciar
-       a animação a cada clique.
-    */
     void brandLogo.offsetWidth;
     brandLogo.classList.add("logo-active");
     setTimeout(() => {
         brandLogo.classList.remove("logo-active");
     },800);
 });
-/* CARDS DO TOPO */
+/* =========================================================
+   CARDS DO TOPO
+   ========================================================= */
 document
     .querySelectorAll(".interactive-info")
     .forEach(card => {
@@ -959,7 +997,9 @@ document
             },700);
         });
     });
-/* CARDS DE SERVIÇOS */
+/* =========================================================
+   CARDS DE SERVIÇOS
+   ========================================================= */
 document
     .querySelectorAll(".service")
     .forEach(card => {
@@ -972,7 +1012,9 @@ document
             },700);
         });
     });
-/* LUZ DO MOUSE NO HERO */
+/* =========================================================
+   LUZ DO MOUSE NO HERO
+   ========================================================= */
 const hero = document.querySelector(".hero");
 hero.addEventListener("pointermove", event => {
     const rect = hero.getBoundingClientRect();
