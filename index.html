@@ -12,10 +12,6 @@
     >
 
     <style>
-        /* =========================================================
-           RESET
-        ========================================================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -49,17 +45,13 @@
                 linear-gradient(90deg, rgba(216,160,176,.035) 1px, transparent 1px);
             background-size: 55px 55px;
             mask-image: linear-gradient(to bottom, black, transparent 85%);
+            -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
         }
 
         ::selection {
             background: rgba(216,160,176,.35);
             color: #fff;
         }
-
-
-        /* =========================================================
-           VARIÁVEIS
-        ========================================================= */
 
         :root {
             --rose: #d8a0b0;
@@ -68,14 +60,11 @@
             --copper: #b97862;
             --copper-light: #e2ae98;
             --black: #050505;
-            --card: rgba(255,255,255,.035);
-            --border: rgba(216,160,176,.18);
         }
 
-
-        /* =========================================================
-           FUNDO
-        ========================================================= */
+        /* =========================
+           PARTÍCULAS
+        ========================== */
 
         #particles {
             position: fixed;
@@ -125,19 +114,19 @@
             pointer-events: none;
             z-index: 1;
             transform: translate(-50%, -50%);
-            background: radial-gradient(
-                circle,
-                rgba(216,160,176,.10),
-                rgba(216,160,176,.035) 30%,
-                transparent 70%
-            );
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(216,160,176,.10),
+                    rgba(216,160,176,.035) 30%,
+                    transparent 70%
+                );
             filter: blur(8px);
         }
 
-
-        /* =========================================================
+        /* =========================
            HEADER
-        ========================================================= */
+        ========================== */
 
         header {
             position: fixed;
@@ -149,13 +138,15 @@
             align-items: center;
             justify-content: center;
             z-index: 100;
-            background: linear-gradient(
-                to bottom,
-                rgba(5,5,5,.92),
-                rgba(5,5,5,.35),
-                transparent
-            );
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(5,5,5,.92),
+                    rgba(5,5,5,.35),
+                    transparent
+                );
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         nav {
@@ -180,10 +171,9 @@
             text-shadow: 0 0 15px rgba(216,160,176,.55);
         }
 
-
-        /* =========================================================
+        /* =========================
            HERO
-        ========================================================= */
+        ========================== */
 
         .hero {
             position: relative;
@@ -204,10 +194,9 @@
             text-align: center;
         }
 
-
-        /* =========================================================
-           SISTEMA TECNOLÓGICO DA LOGO
-        ========================================================= */
+        /* =========================
+           SISTEMA DA LOGO
+        ========================== */
 
         .logo-area {
             position: relative;
@@ -240,7 +229,7 @@
         }
 
         @keyframes auraPulse {
-            0%,100% {
+            0%, 100% {
                 transform: scale(.95);
                 opacity: .6;
             }
@@ -251,10 +240,9 @@
             }
         }
 
-
-        /* =========================================================
-           ANÉIS EXTERNOS
-        ========================================================= */
+        /* =========================
+           ANÉIS
+        ========================== */
 
         .logo-outer-ring,
         .logo-main-ring {
@@ -277,8 +265,11 @@
         .logo-outer-ring::after {
             content: "";
             position: absolute;
-            inset: 16px;
             border-radius: 50%;
+        }
+
+        .logo-outer-ring::before {
+            inset: 16px;
             border: 1px dashed rgba(185,120,98,.25);
         }
 
@@ -323,8 +314,13 @@
                     rgba(216,160,176,.55) 310deg,
                     transparent 335deg
                 );
-            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
             -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
             mask-composite: exclude;
             padding: 1px;
             animation: rotate 8s linear infinite;
@@ -350,10 +346,9 @@
             }
         }
 
-
-        /* =========================================================
-           LINHAS TECNOLÓGICAS
-        ========================================================= */
+        /* =========================
+           LINHAS
+        ========================== */
 
         .tech-line {
             position: absolute;
@@ -391,7 +386,7 @@
         }
 
         @keyframes techLine1 {
-            0%,100% {
+            0%, 100% {
                 opacity: .15;
                 transform: scaleX(.7) rotate(0deg);
             }
@@ -403,7 +398,7 @@
         }
 
         @keyframes techLine2 {
-            0%,100% {
+            0%, 100% {
                 opacity: .15;
             }
 
@@ -412,10 +407,9 @@
             }
         }
 
-
-        /* =========================================================
+        /* =========================
            PONTOS
-        ========================================================= */
+        ========================== */
 
         .tech-point {
             position: absolute;
@@ -453,10 +447,9 @@
             transform: translateY(-50%);
         }
 
-
-        /* =========================================================
+        /* =========================
            SEGMENTOS
-        ========================================================= */
+        ========================== */
 
         .tech-segment {
             position: absolute;
@@ -475,7 +468,7 @@
         .tech-segment:nth-of-type(9) {
             top: 112px;
             left: 50%;
-            transform: translateX(-50%) rotate(0deg);
+            transform: translateX(-50%);
         }
 
         .tech-segment:nth-of-type(10) {
@@ -496,10 +489,13 @@
             transform: translateY(-50%) rotate(90deg);
         }
 
-
         /* =========================================================
            NÚCLEO DA LOGO
-        ========================================================= */
+           
+           AQUI ESTÁ A CORREÇÃO PRINCIPAL:
+           A IMAGEM FICA TOTALMENTE CORTADA PELO CÍRCULO.
+           NENHUM CANTO DA FOTO JPEG CONSEGUE APARECER.
+        ========================================================== */
 
         .logo-core {
             position: absolute;
@@ -509,21 +505,26 @@
             max-height: 57%;
             border-radius: 50%;
             overflow: hidden;
+
             background:
                 radial-gradient(
                     circle at 50% 40%,
-                    rgba(255,255,255,.05),
+                    rgba(255,255,255,.035),
                     rgba(216,160,176,.025) 48%,
-                    rgba(0,0,0,.55) 100%
+                    rgba(0,0,0,.70) 100%
                 );
-            border: 1px solid rgba(226,174,152,.7);
+
+            border: 1px solid rgba(226,174,152,.72);
+
             box-shadow:
                 0 0 0 2px rgba(216,160,176,.08),
                 0 0 22px rgba(216,160,176,.20),
                 0 0 55px rgba(185,120,98,.10),
                 inset 0 0 35px rgba(216,160,176,.09);
+
             z-index: 6;
             transform-style: preserve-3d;
+            isolation: isolate;
         }
 
         .logo-core::before {
@@ -535,7 +536,7 @@
             box-shadow:
                 inset 0 0 15px rgba(216,160,176,.12),
                 0 0 12px rgba(185,120,98,.08);
-            z-index: 8;
+            z-index: 10;
             pointer-events: none;
         }
 
@@ -556,7 +557,7 @@
                     transparent 285deg
                 );
             animation: coreGlow 7s linear infinite;
-            z-index: 9;
+            z-index: 11;
             pointer-events: none;
             mix-blend-mode: screen;
         }
@@ -571,55 +572,84 @@
             }
         }
 
+        /*
+           O MASK É O QUE GARANTE O RECORTE.
+           A FOTO ORIGINAL PODE SER QUADRADA,
+           MAS SOMENTE A ÁREA CIRCULAR É EXIBIDA.
+        */
+
         .logo-core-mask {
             position: absolute;
             inset: 0;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             overflow: hidden;
+            clip-path: circle(50% at 50% 50%);
+            -webkit-clip-path: circle(50% at 50% 50%);
             z-index: 7;
             pointer-events: none;
+            background: transparent;
         }
 
         .brand-logo {
             position: absolute;
+
             width: 128%;
             height: 128%;
+
             max-width: none;
             max-height: none;
+
             object-fit: cover;
             object-position: center;
+
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%) scale(1.03);
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.03);
+
             user-select: none;
             -webkit-user-drag: none;
+            display: block;
+
             filter:
                 contrast(1.04)
                 saturate(1.04)
                 brightness(.96);
+
             transition:
                 transform .6s cubic-bezier(.2,.8,.2,1),
                 filter .6s ease;
         }
 
         .logo-core:hover .brand-logo {
-            transform: translate(-50%, -50%) scale(1.09);
+            transform:
+                translate(-50%, -50%)
+                scale(1.09);
+
             filter:
                 contrast(1.08)
                 saturate(1.12)
                 brightness(1.02);
         }
 
-
-        /* =========================================================
-           TEXTO DA MARCA
-        ========================================================= */
+        /* =========================
+           NOME
+        ========================== */
 
         .brand-name {
             position: relative;
             margin-top: -35px;
             z-index: 10;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             font-size: clamp(52px, 8vw, 108px);
             line-height: .95;
             font-weight: 500;
@@ -642,14 +672,17 @@
                 );
 
             background-size: 250% 100%;
+
             -webkit-background-clip: text;
             background-clip: text;
+
             color: transparent;
 
             text-shadow:
                 0 0 20px rgba(216,160,176,.10);
 
-            animation: metallicText 7s linear infinite;
+            animation:
+                metallicText 7s linear infinite;
         }
 
         @keyframes metallicText {
@@ -669,6 +702,7 @@
             right: 8%;
             bottom: -14px;
             height: 1px;
+
             background:
                 linear-gradient(
                     90deg,
@@ -678,7 +712,9 @@
                     rgba(216,160,176,.7),
                     transparent
                 );
-            box-shadow: 0 0 12px rgba(216,160,176,.25);
+
+            box-shadow:
+                0 0 12px rgba(216,160,176,.25);
         }
 
         .brand-name.active {
@@ -702,14 +738,16 @@
             }
         }
 
-
-        /* =========================================================
-           TAGLINE
-        ========================================================= */
+        /* =========================
+           TEXTOS
+        ========================== */
 
         .tagline {
             margin-top: 42px;
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
             font-size: clamp(22px, 3vw, 34px);
             color: var(--rose-light);
             letter-spacing: 1px;
@@ -723,11 +761,6 @@
             line-height: 1.8;
             letter-spacing: 1px;
         }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
 
         .hero-cta {
             margin-top: 38px;
@@ -751,21 +784,28 @@
             justify-content: center;
             min-width: 240px;
             padding: 16px 28px;
+
             border: 1px solid rgba(216,160,176,.55);
             border-radius: 999px;
+
             color: #fff;
             text-decoration: none;
+
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
+
             overflow: hidden;
+
             transition: .4s ease;
+
             background:
                 linear-gradient(
                     120deg,
                     rgba(216,160,176,.07),
                     rgba(185,120,98,.12)
                 );
+
             box-shadow:
                 0 0 25px rgba(216,160,176,.06),
                 inset 0 0 20px rgba(216,160,176,.04);
@@ -776,6 +816,7 @@
             position: absolute;
             inset: 0;
             transform: translateX(-110%);
+
             background:
                 linear-gradient(
                     90deg,
@@ -783,12 +824,16 @@
                     rgba(255,255,255,.18),
                     transparent
                 );
+
             transition: .6s ease;
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            border-color: rgba(240,201,213,.9);
+
+            border-color:
+                rgba(240,201,213,.9);
+
             box-shadow:
                 0 12px 40px rgba(216,160,176,.15),
                 0 0 25px rgba(216,160,176,.12);
@@ -798,10 +843,9 @@
             transform: translateX(110%);
         }
 
-
-        /* =========================================================
+        /* =========================
            SEÇÕES
-        ========================================================= */
+        ========================== */
 
         section {
             position: relative;
@@ -813,7 +857,12 @@
 
         .section-title {
             text-align: center;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             font-size: clamp(38px, 5vw, 64px);
             font-weight: 400;
             color: var(--rose-light);
@@ -826,6 +875,7 @@
             width: 80px;
             height: 1px;
             margin: 18px auto 0;
+
             background:
                 linear-gradient(
                     90deg,
@@ -844,10 +894,9 @@
             font-size: 14px;
         }
 
-
-        /* =========================================================
+        /* =========================
            SERVIÇOS
-        ========================================================= */
+        ========================== */
 
         .services-grid {
             display: grid;
@@ -860,9 +909,11 @@
             position: relative;
             min-height: 310px;
             padding: 38px 28px;
+
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+
             overflow: hidden;
 
             background:
@@ -888,6 +939,7 @@
             content: "";
             position: absolute;
             inset: 0;
+
             background:
                 linear-gradient(
                     130deg,
@@ -895,12 +947,15 @@
                     rgba(216,160,176,.08),
                     transparent 65%
                 );
+
             transform: translateX(-100%);
             transition: .8s ease;
         }
 
         .service-card:hover {
-            border-color: rgba(216,160,176,.45);
+            border-color:
+                rgba(216,160,176,.45);
+
             box-shadow:
                 0 25px 60px rgba(0,0,0,.35),
                 0 0 30px rgba(216,160,176,.08);
@@ -914,7 +969,12 @@
             position: absolute;
             top: 24px;
             right: 25px;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             color: rgba(216,160,176,.35);
             font-size: 48px;
         }
@@ -923,15 +983,23 @@
             position: absolute;
             top: 35px;
             left: 28px;
+
             width: 44px;
             height: 44px;
-            border: 1px solid rgba(216,160,176,.4);
+
+            border:
+                1px solid rgba(216,160,176,.4);
+
             border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             color: var(--rose-light);
-            box-shadow: 0 0 20px rgba(216,160,176,.07);
+
+            box-shadow:
+                0 0 20px rgba(216,160,176,.07);
         }
 
         .service-icon::before {
@@ -945,24 +1013,30 @@
 
         .service-card h3 {
             position: relative;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             font-size: 29px;
             font-weight: 400;
+
             color: #f3d8df;
             margin-bottom: 12px;
         }
 
         .service-card p {
             position: relative;
+
             color: rgba(255,255,255,.52);
             font-size: 13px;
             line-height: 1.7;
         }
 
-
-        /* =========================================================
+        /* =========================
            SOBRE
-        ========================================================= */
+        ========================== */
 
         .about-grid {
             display: grid;
@@ -975,7 +1049,10 @@
             position: relative;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(216,160,176,.2);
+
+            border:
+                1px solid rgba(216,160,176,.2);
+
             box-shadow:
                 0 30px 80px rgba(0,0,0,.4),
                 0 0 40px rgba(216,160,176,.06);
@@ -985,6 +1062,7 @@
             content: "";
             position: absolute;
             inset: 0;
+
             background:
                 linear-gradient(
                     135deg,
@@ -992,6 +1070,7 @@
                     transparent 45%,
                     rgba(185,120,98,.08)
                 );
+
             pointer-events: none;
         }
 
@@ -1003,9 +1082,16 @@
         }
 
         .about-content h2 {
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             color: var(--rose-light);
-            font-size: clamp(38px, 5vw, 58px);
+
+            font-size:
+                clamp(38px, 5vw, 58px);
+
             font-weight: 400;
             margin-bottom: 24px;
         }
@@ -1021,6 +1107,7 @@
             width: 100px;
             height: 1px;
             margin: 28px 0;
+
             background:
                 linear-gradient(
                     90deg,
@@ -1029,18 +1116,22 @@
                 );
         }
 
-
-        /* =========================================================
+        /* =========================
            CONTATO
-        ========================================================= */
+        ========================== */
 
         .contact-box {
             position: relative;
             padding: 70px 30px;
-            border: 1px solid rgba(216,160,176,.16);
+
+            border:
+                1px solid rgba(216,160,176,.16);
+
             border-radius: 32px;
+
             text-align: center;
             overflow: hidden;
+
             background:
                 radial-gradient(
                     circle at 50% 0%,
@@ -1055,7 +1146,8 @@
             content: "";
             position: absolute;
             border-radius: 50%;
-            border: 1px solid rgba(216,160,176,.08);
+            border:
+                1px solid rgba(216,160,176,.08);
             pointer-events: none;
         }
 
@@ -1077,9 +1169,17 @@
 
         .contact-box h2 {
             position: relative;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             font-weight: 400;
-            font-size: clamp(38px, 5vw, 62px);
+
+            font-size:
+                clamp(38px, 5vw, 62px);
+
             color: var(--rose-light);
             margin-bottom: 16px;
         }
@@ -1094,36 +1194,54 @@
 
         .whatsapp {
             position: relative;
+
             display: inline-flex;
             align-items: center;
             gap: 10px;
+
             padding: 16px 28px;
+
             border-radius: 999px;
+
             color: #fff;
             text-decoration: none;
-            border: 1px solid rgba(216,160,176,.45);
-            background: rgba(216,160,176,.07);
+
+            border:
+                1px solid rgba(216,160,176,.45);
+
+            background:
+                rgba(216,160,176,.07);
+
             transition: .35s ease;
         }
 
         .whatsapp:hover {
             transform: translateY(-4px);
-            background: rgba(216,160,176,.13);
-            box-shadow: 0 15px 40px rgba(216,160,176,.12);
+
+            background:
+                rgba(216,160,176,.13);
+
+            box-shadow:
+                0 15px 40px rgba(216,160,176,.12);
         }
 
-
-        /* =========================================================
+        /* =========================
            FOOTER
-        ========================================================= */
+        ========================== */
 
         footer {
             position: relative;
             z-index: 2;
-            border-top: 1px solid rgba(216,160,176,.08);
+
+            border-top:
+                1px solid rgba(216,160,176,.08);
+
             padding: 30px 20px;
+
             text-align: center;
+
             color: rgba(255,255,255,.35);
+
             font-size: 11px;
             letter-spacing: 2px;
         }
@@ -1132,14 +1250,14 @@
             color: rgba(216,160,176,.65);
         }
 
-
-        /* =========================================================
+        /* =========================
            REVEAL
-        ========================================================= */
+        ========================== */
 
         .reveal {
             opacity: 0;
             transform: translateY(35px);
+
             transition:
                 opacity .9s ease,
                 transform .9s cubic-bezier(.2,.8,.2,1);
@@ -1150,10 +1268,9 @@
             transform: translateY(0);
         }
 
-
-        /* =========================================================
+        /* =========================
            RESPONSIVO
-        ========================================================= */
+        ========================== */
 
         @media (max-width: 900px) {
 
@@ -1190,7 +1307,6 @@
                 height: 480px;
             }
         }
-
 
         @media (max-width: 600px) {
 
@@ -1299,7 +1415,6 @@
             }
         }
 
-
         @media (max-width: 390px) {
 
             nav a {
@@ -1336,11 +1451,6 @@
             }
         }
 
-
-        /* =========================================================
-           REDUZIR MOVIMENTO
-        ========================================================= */
-
         @media (prefers-reduced-motion: reduce) {
 
             *,
@@ -1358,20 +1468,11 @@
     </style>
 </head>
 
-
 <body>
 
-    <!-- =========================================================
-         FUNDO
-    ========================================================== -->
-
     <div id="particles"></div>
+
     <div class="mouse-light" id="mouseLight"></div>
-
-
-    <!-- =========================================================
-         MENU
-    ========================================================== -->
 
     <header>
         <nav>
@@ -1381,11 +1482,6 @@
             <a href="#contato">Contato</a>
         </nav>
     </header>
-
-
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
 
     <main>
 
@@ -1416,9 +1512,6 @@
                     <div class="tech-segment"></div>
                     <div class="tech-segment"></div>
 
-
-                    <!-- NÚCLEO REDONDO DA LOGO -->
-
                     <div class="logo-core" id="logoCore">
 
                         <div class="logo-core-mask">
@@ -1437,23 +1530,17 @@
 
                 </div>
 
-
-                <!-- NOME -->
-
                 <h1 class="brand-name" id="brandName">
                     Vanessa Signature
                 </h1>
-
 
                 <div class="tagline">
                     Beleza que revela você.
                 </div>
 
-
                 <p class="subtitle">
                     Precisão, delicadeza e sofisticação em cada detalhe.
                 </p>
-
 
                 <div class="hero-cta">
 
@@ -1475,12 +1562,6 @@
 
         </section>
 
-
-
-        <!-- =====================================================
-             SERVIÇOS
-        ====================================================== -->
-
         <section id="servicos" class="reveal">
 
             <h2 class="section-title">
@@ -1493,9 +1574,7 @@
                 sofisticação.
             </p>
 
-
             <div class="services-grid">
-
 
                 <article class="service-card">
 
@@ -1516,8 +1595,6 @@
 
                 </article>
 
-
-
                 <article class="service-card">
 
                     <div class="service-number">
@@ -1536,8 +1613,6 @@
                     </p>
 
                 </article>
-
-
 
                 <article class="service-card">
 
@@ -1562,12 +1637,6 @@
 
         </section>
 
-
-
-        <!-- =====================================================
-             SOBRE
-        ====================================================== -->
-
         <section id="sobre" class="reveal">
 
             <div class="about-grid">
@@ -1580,7 +1649,6 @@
                     >
 
                 </div>
-
 
                 <div class="about-content">
 
@@ -1613,12 +1681,6 @@
 
         </section>
 
-
-
-        <!-- =====================================================
-             CONTATO
-        ====================================================== -->
-
         <section id="contato" class="reveal">
 
             <div class="contact-box">
@@ -1647,12 +1709,6 @@
 
     </main>
 
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
     <footer>
 
         © <span id="year"></span> Vanessa Signature
@@ -1665,26 +1721,19 @@
 
     </footer>
 
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
-
     <script>
 
-        /* =========================================================
-           ANO AUTOMÁTICO
-        ========================================================== */
+        /* =========================
+           ANO
+        ========================== */
 
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
 
-
-        /* =========================================================
+        /* =========================
            PARTÍCULAS
-        ========================================================== */
+        ========================== */
 
         const particlesContainer =
             document.getElementById("particles");
@@ -1718,52 +1767,68 @@
             const size =
                 1 + Math.random() * 2.5;
 
-            particle.style.width = size + "px";
-            particle.style.height = size + "px";
+            particle.style.width =
+                size + "px";
+
+            particle.style.height =
+                size + "px";
 
             particlesContainer.appendChild(particle);
         }
 
 
-
-        /* =========================================================
-           LUZ QUE ACOMPANHA O MOUSE
-        ========================================================== */
+        /* =========================
+           LUZ DO MOUSE
+        ========================== */
 
         const mouseLight =
             document.getElementById("mouseLight");
 
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
+        let mouseX =
+            window.innerWidth / 2;
+
+        let mouseY =
+            window.innerHeight / 2;
 
         let lightX = mouseX;
         let lightY = mouseY;
 
-        window.addEventListener("mousemove", (event) => {
+        window.addEventListener(
+            "mousemove",
+            (event) => {
 
-            mouseX = event.clientX;
-            mouseY = event.clientY;
+                mouseX = event.clientX;
+                mouseY = event.clientY;
 
-        });
+            },
+            { passive: true }
+        );
 
         function animateMouseLight() {
 
-            lightX += (mouseX - lightX) * .08;
-            lightY += (mouseY - lightY) * .08;
+            lightX +=
+                (mouseX - lightX) * .08;
 
-            mouseLight.style.left = lightX + "px";
-            mouseLight.style.top = lightY + "px";
+            lightY +=
+                (mouseY - lightY) * .08;
 
-            requestAnimationFrame(animateMouseLight);
+            mouseLight.style.left =
+                lightX + "px";
+
+            mouseLight.style.top =
+                lightY + "px";
+
+            requestAnimationFrame(
+                animateMouseLight
+            );
         }
 
         animateMouseLight();
 
 
-
-        /* =========================================================
+        /* =========================
            PARALLAX DA LOGO
-        ========================================================== */
+        ========================== */
 
         const logoArea =
             document.getElementById("logoArea");
@@ -1777,19 +1842,27 @@
         let currentRotateX = 0;
         let currentRotateY = 0;
 
-        window.addEventListener("mousemove", (event) => {
+        window.addEventListener(
+            "mousemove",
+            (event) => {
 
-            const x =
-                event.clientX / window.innerWidth - .5;
+                const x =
+                    event.clientX /
+                    window.innerWidth - .5;
 
-            const y =
-                event.clientY / window.innerHeight - .5;
+                const y =
+                    event.clientY /
+                    window.innerHeight - .5;
 
-            targetRotateY = x * 8;
-            targetRotateX = -y * 8;
+                targetRotateY =
+                    x * 8;
 
-        });
+                targetRotateX =
+                    -y * 8;
 
+            },
+            { passive: true }
+        );
 
         function animateLogo() {
 
@@ -1802,212 +1875,274 @@
             logoArea.style.transform =
                 `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
 
-            requestAnimationFrame(animateLogo);
+            requestAnimationFrame(
+                animateLogo
+            );
         }
 
         animateLogo();
 
 
-
-        /* =========================================================
+        /* =========================
            CLIQUE NA LOGO
-        ========================================================== */
+        ========================== */
 
-        logoCore.addEventListener("click", () => {
+        logoCore.addEventListener(
+            "click",
+            () => {
 
-            logoCore.animate(
-                [
+                logoCore.animate(
+                    [
+                        {
+                            transform: "scale(1)"
+                        },
+                        {
+                            transform: "scale(1.07)"
+                        },
+                        {
+                            transform: "scale(1)"
+                        }
+                    ],
                     {
-                        transform: "scale(1)"
-                    },
-                    {
-                        transform: "scale(1.07)"
-                    },
-                    {
-                        transform: "scale(1)"
+                        duration: 700,
+                        easing:
+                            "cubic-bezier(.2,.8,.2,1)"
                     }
-                ],
-                {
-                    duration: 700,
-                    easing: "cubic-bezier(.2,.8,.2,1)"
-                }
-            );
+                );
 
-        });
+            }
+        );
 
 
-
-        /* =========================================================
+        /* =========================
            CLIQUE NO NOME
-        ========================================================== */
+        ========================== */
 
         const brandName =
             document.getElementById("brandName");
 
-        brandName.addEventListener("click", () => {
+        brandName.addEventListener(
+            "click",
+            () => {
 
-            brandName.classList.remove("active");
+                brandName.classList.remove(
+                    "active"
+                );
 
-            void brandName.offsetWidth;
+                void brandName.offsetWidth;
 
-            brandName.classList.add("active");
+                brandName.classList.add(
+                    "active"
+                );
 
-        });
+            }
+        );
 
 
-
-        /* =========================================================
-           3D NOS CARDS
-        ========================================================== */
+        /* =========================
+           3D DOS CARDS
+        ========================== */
 
         const cards =
-            document.querySelectorAll(".service-card");
+            document.querySelectorAll(
+                ".service-card"
+            );
 
         cards.forEach((card) => {
 
-            card.addEventListener("mousemove", (event) => {
+            card.addEventListener(
+                "mousemove",
+                (event) => {
 
-                const rect =
-                    card.getBoundingClientRect();
+                    const rect =
+                        card.getBoundingClientRect();
 
-                const x =
-                    event.clientX - rect.left;
+                    const x =
+                        event.clientX -
+                        rect.left;
 
-                const y =
-                    event.clientY - rect.top;
+                    const y =
+                        event.clientY -
+                        rect.top;
 
-                const centerX =
-                    rect.width / 2;
+                    const centerX =
+                        rect.width / 2;
 
-                const centerY =
-                    rect.height / 2;
+                    const centerY =
+                        rect.height / 2;
 
-                const rotateY =
-                    ((x - centerX) / centerX) * 7;
+                    const rotateY =
+                        ((x - centerX) /
+                            centerX) * 7;
 
-                const rotateX =
-                    ((centerY - y) / centerY) * 7;
+                    const rotateX =
+                        ((centerY - y) /
+                            centerY) * 7;
 
-                card.style.transform =
-                    `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                    card.style.transform =
+                        `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
 
-            });
+                }
+            );
 
+            card.addEventListener(
+                "mouseleave",
+                () => {
 
-            card.addEventListener("mouseleave", () => {
+                    card.style.transform =
+                        "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
 
-                card.style.transform =
-                    "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
-
-            });
+                }
+            );
 
         });
 
 
-
-        /* =========================================================
-           REVEAL AO ROLAR
-        ========================================================== */
+        /* =========================
+           REVEAL
+        ========================== */
 
         const revealElements =
-            document.querySelectorAll(".reveal");
+            document.querySelectorAll(
+                ".reveal"
+            );
 
-        const observer =
-            new IntersectionObserver(
-                (entries) => {
+        if ("IntersectionObserver" in window) {
 
-                    entries.forEach((entry) => {
+            const observer =
+                new IntersectionObserver(
+                    (entries) => {
 
-                        if (entry.isIntersecting) {
+                        entries.forEach(
+                            (entry) => {
 
-                            entry.target.classList.add("visible");
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
-                            observer.unobserve(entry.target);
+                                    entry.target
+                                        .classList
+                                        .add("visible");
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold: .15
+                    }
+                );
+
+            revealElements.forEach(
+                (element) => {
+                    observer.observe(element);
+                }
+            );
+
+        } else {
+
+            revealElements.forEach(
+                (element) => {
+                    element.classList.add(
+                        "visible"
+                    );
+                }
+            );
+
+        }
+
+
+        /* =========================
+           LINKS SUAVES
+        ========================== */
+
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                (link) => {
+
+                    link.addEventListener(
+                        "click",
+                        (event) => {
+
+                            const targetId =
+                                link.getAttribute(
+                                    "href"
+                                );
+
+                            const target =
+                                document.querySelector(
+                                    targetId
+                                );
+
+                            if (!target) {
+                                return;
+                            }
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
 
                         }
+                    );
 
-                    });
-
-                },
-                {
-                    threshold: .15
                 }
             );
 
 
-        revealElements.forEach((element) => {
-
-            observer.observe(element);
-
-        });
-
-
-
-        /* =========================================================
-           CLIQUES SUAVES NOS LINKS
-        ========================================================== */
-
-        document
-            .querySelectorAll('a[href^="#"]')
-            .forEach((link) => {
-
-                link.addEventListener("click", (event) => {
-
-                    const targetId =
-                        link.getAttribute("href");
-
-                    const target =
-                        document.querySelector(targetId);
-
-                    if (!target) return;
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                });
-
-            });
-
-
-
-        /* =========================================================
-           EFEITO DE PROFUNDIDADE NO SCROLL
-        ========================================================== */
+        /* =========================
+           PROFUNDIDADE NO SCROLL
+        ========================== */
 
         const aura =
-            document.querySelector(".logo-aura");
+            document.querySelector(
+                ".logo-aura"
+            );
 
-        window.addEventListener("scroll", () => {
+        window.addEventListener(
+            "scroll",
+            () => {
 
-            const scroll =
-                window.scrollY;
+                const scroll =
+                    window.scrollY;
 
-            if (aura) {
+                if (aura) {
 
-                aura.style.transform =
-                    `translateY(${scroll * .08}px) scale(${1 + Math.min(scroll / 5000, .08)})`;
+                    aura.style.transform =
+                        `translateY(${scroll * .08}px) scale(${1 + Math.min(scroll / 5000, .08)})`;
 
-            }
+                }
 
-        });
+            },
+            { passive: true }
+        );
 
 
+        /* =========================
+           PROTEÇÃO DA IMAGEM
+        ========================== */
 
-        /* =========================================================
-           PROTEÇÃO CONTRA ARRASTAR A LOGO
-        ========================================================== */
+        const logoImage =
+            document.getElementById(
+                "logoImage"
+            );
 
-        document
-            .getElementById("logoImage")
-            .addEventListener("dragstart", (event) => {
-
+        logoImage.addEventListener(
+            "dragstart",
+            (event) => {
                 event.preventDefault();
-
-            });
+            }
+        );
 
     </script>
 
