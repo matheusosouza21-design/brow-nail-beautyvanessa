@@ -7,7 +7,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color" content="#030303">
+
 <title>Vanessa Signature</title>
+
 
 <style>
 
@@ -31,7 +34,10 @@ body{
 
     color:#f5eeee;
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     overflow-x:hidden;
 
@@ -58,26 +64,28 @@ body::before{
 
         radial-gradient(
             circle at 50% 5%,
-            rgba(216,160,176,.13),
+            rgba(216,160,176,.14),
             transparent 34%
         ),
 
         radial-gradient(
-            circle at 15% 75%,
-            rgba(170,90,110,.06),
+            circle at 12% 72%,
+            rgba(170,90,110,.07),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 85% 55%,
-            rgba(216,160,176,.05),
-            transparent 28%
+            circle at 88% 52%,
+            rgba(216,160,176,.06),
+            transparent 30%
         );
 
 }
 
 
-/* textura extremamente sutil */
+/* =========================================================
+   TEXTURA DO FUNDO
+========================================================= */
 
 body::after{
 
@@ -138,7 +146,10 @@ body::after{
 
     opacity:.35;
 
-    animation:particleFloat linear infinite;
+    animation:
+        particleFloat
+        linear
+        infinite;
 
 }
 
@@ -191,13 +202,15 @@ body::after{
 
     text-align:center;
 
-    padding:60px 20px;
+    padding:
+        60px 20px;
 
     position:relative;
 
     overflow:hidden;
 
-    transition:background .15s ease;
+    transition:
+        background .15s ease;
 
 }
 
@@ -205,9 +218,13 @@ body::after{
 
     width:100%;
 
-    max-width:1200px;
+    max-width:1250px;
 
-    animation:heroEntrance 1.3s ease forwards;
+    animation:
+        heroEntrance
+        1.3s
+        ease
+        forwards;
 
 }
 
@@ -217,7 +234,8 @@ body::after{
 
         opacity:0;
 
-        transform:translateY(35px);
+        transform:
+            translateY(35px);
 
     }
 
@@ -225,7 +243,8 @@ body::after{
 
         opacity:1;
 
-        transform:translateY(0);
+        transform:
+            translateY(0);
 
     }
 
@@ -233,7 +252,7 @@ body::after{
 
 
 /* =========================================================
-   LOGO GRANDE
+   ÁREA DA LOGO
 ========================================================= */
 
 .logo-area{
@@ -246,11 +265,12 @@ body::after{
 
     align-items:center;
 
-    margin:0 auto 42px;
+    margin:
+        0 auto 52px;
 
-    width:340px;
+    width:410px;
 
-    height:340px;
+    height:410px;
 
     cursor:pointer;
 
@@ -261,7 +281,9 @@ body::after{
 }
 
 
-/* AURA EXTERNA */
+/* =========================================================
+   AURA EXTERNA
+========================================================= */
 
 .logo-area::before{
 
@@ -269,9 +291,9 @@ body::after{
 
     position:absolute;
 
-    width:360px;
+    width:450px;
 
-    height:360px;
+    height:450px;
 
     border-radius:50%;
 
@@ -279,19 +301,25 @@ body::after{
 
         radial-gradient(
             circle,
-            rgba(216,160,176,.20),
-            rgba(216,160,176,.07) 42%,
-            transparent 72%
+            rgba(216,160,176,.23),
+            rgba(216,160,176,.08) 42%,
+            transparent 73%
         );
 
-    filter:blur(7px);
+    filter:blur(9px);
 
-    animation:logoAura 4s ease-in-out infinite;
+    animation:
+        logoAura
+        4s
+        ease-in-out
+        infinite;
 
 }
 
 
-/* ANEL TECNOLÓGICO */
+/* =========================================================
+   PRIMEIRO ANEL TECNOLÓGICO
+========================================================= */
 
 .logo-area::after{
 
@@ -299,55 +327,124 @@ body::after{
 
     position:absolute;
 
-    width:325px;
+    width:390px;
 
-    height:325px;
+    height:390px;
 
     border-radius:50%;
 
     border:
-
         1px solid rgba(216,160,176,.20);
 
     border-top-color:#d8a0b0;
 
-    border-right-color:rgba(216,160,176,.65);
+    border-right-color:
+        rgba(216,160,176,.70);
 
-    border-bottom-color:rgba(216,160,176,.08);
+    border-bottom-color:
+        rgba(216,160,176,.08);
 
-    border-left-color:rgba(216,160,176,.30);
+    border-left-color:
+        rgba(216,160,176,.32);
 
     box-shadow:
 
-        0 0 25px rgba(216,160,176,.12),
+        0 0 30px
+        rgba(216,160,176,.14),
 
-        inset 0 0 25px rgba(216,160,176,.05);
+        inset 0 0 30px
+        rgba(216,160,176,.06);
 
-    animation:logoOrbit 10s linear infinite;
+    animation:
+        logoOrbit
+        10s
+        linear
+        infinite;
 
 }
 
 
-/* SEGUNDO ANEL */
+/* =========================================================
+   SEGUNDO ANEL
+========================================================= */
 
-.logo-area .logo-ring-extra{
+.logo-ring-extra{
 
     position:absolute;
 
-    width:300px;
+    width:355px;
 
-    height:300px;
+    height:355px;
 
     border-radius:50%;
 
-    border:1px dashed rgba(216,160,176,.18);
+    border:
+        1px dashed
+        rgba(216,160,176,.21);
 
-    animation:logoOrbitReverse 16s linear infinite;
+    box-shadow:
+
+        0 0 18px
+        rgba(216,160,176,.06);
+
+    animation:
+        logoOrbitReverse
+        16s
+        linear
+        infinite;
 
 }
 
 
-/* IMAGEM REAL DA LOGO */
+/* =========================================================
+   PEQUENOS MARCADORES TECNOLÓGICOS
+========================================================= */
+
+.logo-tech{
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#e7b7c2;
+
+    box-shadow:
+        0 0 15px
+        rgba(216,160,176,.85);
+
+    z-index:4;
+
+}
+
+.logo-tech.one{
+
+    top:35px;
+    right:94px;
+
+}
+
+.logo-tech.two{
+
+    bottom:67px;
+    left:54px;
+
+}
+
+.logo-tech.three{
+
+    top:112px;
+    left:28px;
+
+}
+
+
+/* =========================================================
+   LOGO ORIGINAL
+========================================================= */
 
 .brand-logo{
 
@@ -355,35 +452,50 @@ body::after{
 
     z-index:3;
 
-    width:300px;
+    width:365px;
 
-    height:300px;
+    height:365px;
 
     object-fit:contain;
 
     display:block;
 
-    border-radius:50%;
+    border-radius:0;
 
     filter:
 
         drop-shadow(
-            0 0 16px rgba(216,160,176,.28)
+            0 0 18px
+            rgba(216,160,176,.32)
         )
 
         drop-shadow(
-            0 25px 45px rgba(0,0,0,.80)
+            0 28px 55px
+            rgba(0,0,0,.85)
         );
 
     transition:
 
-        transform .6s cubic-bezier(.16,1,.3,1),
+        transform
+        .6s
+        cubic-bezier(.16,1,.3,1),
 
-        filter .5s ease;
+        filter
+        .5s
+        ease;
 
-    animation:logoEntrance 1.5s cubic-bezier(.16,1,.3,1) both;
+    animation:
+        logoEntrance
+        1.5s
+        cubic-bezier(.16,1,.3,1)
+        both;
 
 }
+
+
+/* =========================================================
+   ENTRADA DA LOGO
+========================================================= */
 
 @keyframes logoEntrance{
 
@@ -392,17 +504,14 @@ body::after{
         opacity:0;
 
         transform:
-
             scale(.55)
-
             rotate(-10deg);
 
         filter:
-
             blur(10px)
-
             drop-shadow(
-                0 0 0 rgba(216,160,176,0)
+                0 0 0
+                rgba(216,160,176,0)
             );
 
     }
@@ -412,9 +521,7 @@ body::after{
         opacity:1;
 
         transform:
-
             scale(1.06)
-
             rotate(2deg);
 
     }
@@ -424,9 +531,7 @@ body::after{
         opacity:1;
 
         transform:
-
             scale(1)
-
             rotate(0);
 
     }
@@ -434,7 +539,9 @@ body::after{
 }
 
 
-/* AURA */
+/* =========================================================
+   AURA
+========================================================= */
 
 @keyframes logoAura{
 
@@ -457,7 +564,9 @@ body::after{
 }
 
 
-/* ANEL */
+/* =========================================================
+   ÓRBITAS
+========================================================= */
 
 @keyframes logoOrbit{
 
@@ -484,34 +593,42 @@ body::after{
 }
 
 
-/* HOVER */
+/* =========================================================
+   HOVER DA LOGO
+========================================================= */
 
 .logo-area:hover .brand-logo{
 
     transform:
 
         scale(1.045)
-
-        translateY(-5px);
+        translateY(-7px);
 
     filter:
 
         drop-shadow(
-            0 0 30px rgba(216,160,176,.45)
+            0 0 35px
+            rgba(216,160,176,.50)
         )
 
         drop-shadow(
-            0 28px 50px rgba(0,0,0,.85)
+            0 30px 58px
+            rgba(0,0,0,.90)
         );
 
 }
 
 
-/* CLIQUE */
+/* =========================================================
+   CLIQUE DA LOGO
+========================================================= */
 
 .logo-area.logo-active .brand-logo{
 
-    animation:logoClick .8s cubic-bezier(.16,1,.3,1);
+    animation:
+        logoClick
+        .85s
+        cubic-bezier(.16,1,.3,1);
 
 }
 
@@ -522,11 +639,17 @@ body::after{
     }
 
     20%{
-        transform:scale(.88) rotate(-4deg);
+        transform:
+            scale(.88)
+            rotate(-4deg);
     }
 
     45%{
-        transform:scale(1.10) rotate(4deg);
+
+        transform:
+            scale(1.10)
+            rotate(4deg);
+
     }
 
     70%{
@@ -541,16 +664,16 @@ body::after{
 
 
 /* =========================================================
-   LINHA
+   LINHA ABAIXO DA LOGO
 ========================================================= */
 
 .logo-line{
 
     position:absolute;
 
-    bottom:-34px;
+    bottom:-40px;
 
-    width:130px;
+    width:150px;
 
     height:1px;
 
@@ -565,7 +688,8 @@ body::after{
 
     box-shadow:
 
-        0 0 15px rgba(216,160,176,.45);
+        0 0 15px
+        rgba(216,160,176,.45);
 
     z-index:4;
 
@@ -590,9 +714,11 @@ body::after{
 
     box-shadow:
 
-        0 0 12px #d8a0b0;
+        0 0 12px
+        #d8a0b0;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
 }
 
@@ -607,7 +733,6 @@ body::after{
 
 /* =========================================================
    VANESSA SIGNATURE
-   TEXTO MARMORIZADO ROSÉ
 ========================================================= */
 
 .brand-name{
@@ -616,9 +741,11 @@ body::after{
 
     display:inline-block;
 
-    margin-top:55px;
+    margin:
+        65px auto 28px;
 
-    margin-bottom:28px;
+    padding:
+        10px 18px;
 
     font-family:
 
@@ -629,9 +756,9 @@ body::after{
     font-size:
 
         clamp(
-            58px,
-            8vw,
-            108px
+            60px,
+            8.5vw,
+            118px
         );
 
     font-weight:500;
@@ -640,7 +767,11 @@ body::after{
 
     line-height:1;
 
-    /* BASE METÁLICA ROSÉ */
+    cursor:pointer;
+
+    user-select:none;
+
+    -webkit-tap-highlight-color:transparent;
 
     background:
 
@@ -680,16 +811,32 @@ body::after{
 
     animation:
 
-        marbleFlow 9s ease-in-out infinite,
+        marbleFlow
+        9s
+        ease-in-out
+        infinite,
 
-        nameEntrance 1.3s cubic-bezier(.16,1,.3,1) both;
+        nameEntrance
+        1.3s
+        cubic-bezier(.16,1,.3,1)
+        both;
 
-    text-shadow:none;
+    transition:
+
+        transform
+        .45s
+        cubic-bezier(.16,1,.3,1),
+
+        filter
+        .45s
+        ease;
 
 }
 
 
-/* TEXTURA MARMORIZADA */
+/* =========================================================
+   BORDA DE LUZ DO NOME
+========================================================= */
 
 .brand-name::before{
 
@@ -697,7 +844,8 @@ body::after{
 
     position:absolute;
 
-    inset:0;
+    inset:
+        10px 18px;
 
     z-index:-1;
 
@@ -735,14 +883,16 @@ body::after{
 
     -webkit-text-fill-color:transparent;
 
-    opacity:.65;
+    opacity:.68;
 
     filter:blur(.25px);
 
 }
 
 
-/* BRILHO */
+/* =========================================================
+   REFLEXO METÁLICO
+========================================================= */
 
 .brand-name::after{
 
@@ -750,33 +900,158 @@ body::after{
 
     position:absolute;
 
-    top:0;
+    top:5%;
 
-    left:-20%;
+    left:-25%;
 
     width:20%;
 
-    height:100%;
+    height:90%;
 
     background:
 
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.65),
+            rgba(255,255,255,.78),
             transparent
         );
 
-    transform:skewX(-20deg);
+    transform:
+        skewX(-20deg);
 
-    animation:nameShine 5s ease-in-out infinite;
+    animation:
+        nameShine
+        5s
+        ease-in-out
+        infinite;
 
     pointer-events:none;
 
 }
 
 
-/* MOVIMENTO MARMORIZADO */
+/* =========================================================
+   HOVER NOME
+========================================================= */
+
+.brand-name:hover{
+
+    transform:
+
+        translateY(-5px)
+        scale(1.025);
+
+    filter:
+
+        drop-shadow(
+            0 0 20px
+            rgba(216,160,176,.34)
+        );
+
+}
+
+
+/* =========================================================
+   CLIQUE NOME
+========================================================= */
+
+.brand-name.name-active{
+
+    animation:
+
+        nameClick
+        .85s
+        cubic-bezier(.16,1,.3,1),
+
+        marbleFlow
+        9s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DO NOME
+========================================================= */
+
+@keyframes nameClick{
+
+    0%{
+
+        transform:
+            scale(1);
+
+        filter:
+            brightness(1);
+
+    }
+
+    20%{
+
+        transform:
+            scale(.94);
+
+        filter:
+
+            brightness(1.15)
+
+            drop-shadow(
+                0 0 10px
+                rgba(216,160,176,.35)
+            );
+
+    }
+
+    45%{
+
+        transform:
+            scale(1.07);
+
+        filter:
+
+            brightness(1.38)
+
+            drop-shadow(
+                0 0 30px
+                rgba(216,160,176,.60)
+            );
+
+    }
+
+    70%{
+
+        transform:
+            scale(1.025);
+
+        filter:
+
+            brightness(1.12)
+
+            drop-shadow(
+                0 0 17px
+                rgba(216,160,176,.38)
+            );
+
+    }
+
+    100%{
+
+        transform:
+            scale(1);
+
+        filter:
+            brightness(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   MARMORIZADO
+========================================================= */
 
 @keyframes marbleFlow{
 
@@ -791,7 +1066,9 @@ body::after{
 }
 
 
-/* ENTRADA */
+/* =========================================================
+   ENTRADA DO NOME
+========================================================= */
 
 @keyframes nameEntrance{
 
@@ -800,9 +1077,7 @@ body::after{
         opacity:0;
 
         transform:
-
             translateY(25px)
-
             scale(.94);
 
         filter:blur(8px);
@@ -814,9 +1089,7 @@ body::after{
         opacity:1;
 
         transform:
-
             translateY(0)
-
             scale(1);
 
         filter:blur(0);
@@ -826,27 +1099,25 @@ body::after{
 }
 
 
-/* REFLEXO */
+/* =========================================================
+   REFLEXO
+========================================================= */
 
 @keyframes nameShine{
 
     0%,60%{
-
         left:-25%;
-
     }
 
     100%{
-
         left:125%;
-
     }
 
 }
 
 
 /* =========================================================
-   SUBTÍTULO
+   SUBTÍTULO PRINCIPAL
 ========================================================= */
 
 .hero h2{
@@ -869,13 +1140,11 @@ body::after{
 
 }
 
-
 .hero-subtitle{
 
     max-width:760px;
 
     margin:
-
         0 auto 40px;
 
     color:#b7adaf;
@@ -888,7 +1157,7 @@ body::after{
 
 
 /* =========================================================
-   INFO CARDS
+   CARDS HERO
 ========================================================= */
 
 .hero-info{
@@ -912,20 +1181,19 @@ body::after{
     overflow:hidden;
 
     padding:
-
         18px 25px;
 
     border:
-
-        1px solid rgba(216,160,176,.20);
+        1px solid
+        rgba(216,160,176,.20);
 
     border-radius:18px;
 
     background:
-
         rgba(255,255,255,.025);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     color:#d8a0b0;
 
@@ -941,19 +1209,24 @@ body::after{
 
 .info-card:hover{
 
-    transform:translateY(-5px);
+    transform:
+        translateY(-5px);
 
     border-color:#d8a0b0;
 
     box-shadow:
 
-        0 0 25px rgba(216,160,176,.15);
+        0 0 25px
+        rgba(216,160,176,.15);
 
 }
 
 .info-card.active{
 
-    animation:cardPulse .65s ease;
+    animation:
+        cardPulse
+        .65s
+        ease;
 
 }
 
@@ -975,7 +1248,7 @@ body::after{
 
 
 /* =========================================================
-   BOTÃO
+   CTA
 ========================================================= */
 
 .cta{
@@ -983,7 +1256,6 @@ body::after{
     display:inline-block;
 
     padding:
-
         18px 35px;
 
     border-radius:50px;
@@ -1009,9 +1281,11 @@ body::after{
 
     box-shadow:
 
-        0 0 20px rgba(216,160,176,.15),
+        0 0 20px
+        rgba(216,160,176,.15),
 
-        0 15px 40px rgba(0,0,0,.5);
+        0 15px 40px
+        rgba(0,0,0,.5);
 
     transition:.4s ease;
 
@@ -1019,15 +1293,18 @@ body::after{
 
 .cta:hover{
 
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
     background-position:100%;
 
     box-shadow:
 
-        0 0 35px rgba(216,160,176,.35),
+        0 0 35px
+        rgba(216,160,176,.35),
 
-        0 20px 50px rgba(0,0,0,.65);
+        0 20px 50px
+        rgba(0,0,0,.65);
 
 }
 
@@ -1039,7 +1316,6 @@ body::after{
 section{
 
     padding:
-
         110px 20px;
 
 }
@@ -1102,11 +1378,7 @@ section{
     display:grid;
 
     grid-template-columns:
-
-        repeat(
-            3,
-            1fr
-        );
+        repeat(3,1fr);
 
     gap:22px;
 
@@ -1118,11 +1390,12 @@ section{
 
     min-height:240px;
 
-    padding:38px 28px;
+    padding:
+        38px 28px;
 
     border:
-
-        1px solid rgba(216,160,176,.15);
+        1px solid
+        rgba(216,160,176,.15);
 
     border-radius:25px;
 
@@ -1134,7 +1407,8 @@ section{
             rgba(255,255,255,.01)
         );
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     overflow:hidden;
 
@@ -1144,25 +1418,60 @@ section{
 
 }
 
+.service::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(216,160,176,.08),
+            transparent 70%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:.7s ease;
+
+}
+
+.service:hover::before{
+
+    transform:
+        translateX(100%);
+
+}
+
 .service:hover{
 
     transform:
-
         translateY(-8px);
 
     border-color:
-
         rgba(216,160,176,.45);
 
     box-shadow:
 
-        0 0 30px rgba(216,160,176,.10),
+        0 0 30px
+        rgba(216,160,176,.10),
 
-        0 25px 60px rgba(0,0,0,.55);
+        0 25px 60px
+        rgba(0,0,0,.55);
 
 }
 
 .service h3{
+
+    position:relative;
+
+    z-index:2;
 
     color:#d8a0b0;
 
@@ -1182,6 +1491,10 @@ section{
 
 .service p{
 
+    position:relative;
+
+    z-index:2;
+
     color:#aaa2a5;
 
     line-height:1.8;
@@ -1192,7 +1505,10 @@ section{
 
 .service.active{
 
-    animation:servicePulse .65s ease;
+    animation:
+        servicePulse
+        .65s
+        ease;
 
 }
 
@@ -1226,7 +1542,6 @@ section{
     display:grid;
 
     grid-template-columns:
-
         1fr 1fr;
 
     align-items:center;
@@ -1254,12 +1569,25 @@ section{
     filter:
 
         drop-shadow(
-            0 25px 45px rgba(0,0,0,.8)
+            0 25px 45px
+            rgba(0,0,0,.8)
         )
 
         drop-shadow(
-            0 0 25px rgba(216,160,176,.10)
+            0 0 25px
+            rgba(216,160,176,.10)
         );
+
+    transition:
+        transform .5s ease;
+
+}
+
+.image-box:hover .character{
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
 
 }
 
@@ -1303,7 +1631,8 @@ section{
 
     box-shadow:
 
-        0 0 12px rgba(216,160,176,.35);
+        0 0 12px
+        rgba(216,160,176,.35);
 
 }
 
@@ -1365,7 +1694,6 @@ section{
     gap:10px;
 
     padding:
-
         17px 30px;
 
     border-radius:50px;
@@ -1390,11 +1718,13 @@ section{
 
 .whatsapp:hover{
 
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
 
-        0 0 30px rgba(216,160,176,.25);
+        0 0 30px
+        rgba(216,160,176,.25);
 
 }
 
@@ -1407,11 +1737,12 @@ footer{
 
     text-align:center;
 
-    padding:35px 20px;
+    padding:
+        35px 20px;
 
     border-top:
-
-        1px solid rgba(216,160,176,.10);
+        1px solid
+        rgba(216,160,176,.10);
 
     color:#716b6e;
 
@@ -1436,7 +1767,8 @@ footer strong{
 
     opacity:0;
 
-    transform:translateY(30px);
+    transform:
+        translateY(30px);
 
     transition:
 
@@ -1450,7 +1782,8 @@ footer strong{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 
 }
 
@@ -1461,45 +1794,73 @@ footer strong{
 
 @media(max-width:800px){
 
+    .hero{
+
+        padding:
+            55px 20px;
+
+    }
+
     .logo-area{
 
-        width:260px;
+        width:310px;
 
-        height:260px;
+        height:310px;
 
-        margin-bottom:35px;
+        margin-bottom:40px;
 
     }
 
     .brand-logo{
 
-        width:225px;
+        width:275px;
 
-        height:225px;
+        height:275px;
 
     }
 
     .logo-area::before{
 
-        width:285px;
+        width:335px;
 
-        height:285px;
+        height:335px;
 
     }
 
     .logo-area::after{
 
-        width:250px;
+        width:295px;
 
-        height:250px;
+        height:295px;
 
     }
 
-    .logo-area .logo-ring-extra{
+    .logo-ring-extra{
 
-        width:230px;
+        width:270px;
 
-        height:230px;
+        height:270px;
+
+    }
+
+    .logo-tech.one{
+
+        top:32px;
+        right:68px;
+
+    }
+
+    .logo-tech.two{
+
+        bottom:48px;
+        left:38px;
+
+    }
+
+    .logo-tech.three{
+
+        top:88px;
+        left:20px;
 
     }
 
@@ -1510,10 +1871,10 @@ footer strong{
             clamp(
                 50px,
                 11vw,
-                80px
+                82px
             );
 
-        margin-top:45px;
+        margin-top:50px;
 
     }
 
@@ -1556,51 +1917,89 @@ footer strong{
 
     .hero{
 
-        padding:
+        min-height:100svh;
 
-            45px 18px;
+        padding:
+            40px 18px 50px;
 
     }
 
     .logo-area{
 
-        width:215px;
+        width:245px;
 
-        height:215px;
+        height:245px;
 
-        margin-bottom:30px;
+        margin-bottom:33px;
 
     }
 
     .brand-logo{
 
-        width:185px;
+        width:215px;
 
-        height:185px;
+        height:215px;
 
     }
 
     .logo-area::before{
 
-        width:235px;
+        width:270px;
 
-        height:235px;
+        height:270px;
 
     }
 
     .logo-area::after{
 
-        width:205px;
+        width:228px;
 
-        height:205px;
+        height:228px;
 
     }
 
-    .logo-area .logo-ring-extra{
+    .logo-ring-extra{
 
-        width:190px;
+        width:207px;
 
-        height:190px;
+        height:207px;
+
+    }
+
+    .logo-tech{
+
+        width:6px;
+
+        height:6px;
+
+    }
+
+    .logo-tech.one{
+
+        top:25px;
+        right:53px;
+
+    }
+
+    .logo-tech.two{
+
+        bottom:42px;
+        left:28px;
+
+    }
+
+    .logo-tech.three{
+
+        top:69px;
+        left:16px;
+
+    }
+
+    .logo-line{
+
+        width:95px;
+
+        bottom:-29px;
 
     }
 
@@ -1609,22 +2008,17 @@ footer strong{
         font-size:
 
             clamp(
-                43px,
-                13vw,
-                60px
+                42px,
+                12.8vw,
+                61px
             );
 
         letter-spacing:1px;
 
-        margin-top:38px;
+        margin-top:40px;
 
-    }
-
-    .logo-line{
-
-        width:90px;
-
-        bottom:-28px;
+        padding:
+            7px 7px;
 
     }
 
@@ -1638,18 +2032,38 @@ footer strong{
 
         font-size:15px;
 
+        line-height:1.7;
+
+    }
+
+    .hero-info{
+
+        gap:12px;
+
     }
 
     .info-card{
 
         width:100%;
 
+        font-size:13px;
+
+        line-height:1.6;
+
+    }
+
+    .cta{
+
+        padding:
+            17px 27px;
+
+        font-size:14px;
+
     }
 
     section{
 
         padding:
-
             80px 18px;
 
     }
@@ -1692,34 +2106,44 @@ footer strong{
 <div class="particles">
 
     <span class="particle"
-        style="left:4%;animation-duration:14s;animation-delay:1s;"></span>
+        style="left:4%;animation-duration:14s;animation-delay:1s;">
+    </span>
 
     <span class="particle"
-        style="left:12%;animation-duration:18s;animation-delay:4s;"></span>
+        style="left:12%;animation-duration:18s;animation-delay:4s;">
+    </span>
 
     <span class="particle"
-        style="left:22%;animation-duration:15s;animation-delay:2s;"></span>
+        style="left:22%;animation-duration:15s;animation-delay:2s;">
+    </span>
 
     <span class="particle"
-        style="left:31%;animation-duration:20s;animation-delay:7s;"></span>
+        style="left:31%;animation-duration:20s;animation-delay:7s;">
+    </span>
 
     <span class="particle"
-        style="left:42%;animation-duration:13s;animation-delay:3s;"></span>
+        style="left:42%;animation-duration:13s;animation-delay:3s;">
+    </span>
 
     <span class="particle"
-        style="left:54%;animation-duration:19s;animation-delay:6s;"></span>
+        style="left:54%;animation-duration:19s;animation-delay:6s;">
+    </span>
 
     <span class="particle"
-        style="left:66%;animation-duration:16s;animation-delay:1s;"></span>
+        style="left:66%;animation-duration:16s;animation-delay:1s;">
+    </span>
 
     <span class="particle"
-        style="left:76%;animation-duration:21s;animation-delay:5s;"></span>
+        style="left:76%;animation-duration:21s;animation-delay:5s;">
+    </span>
 
     <span class="particle"
-        style="left:87%;animation-duration:15s;animation-delay:8s;"></span>
+        style="left:87%;animation-duration:15s;animation-delay:8s;">
+    </span>
 
     <span class="particle"
-        style="left:96%;animation-duration:18s;animation-delay:2s;"></span>
+        style="left:96%;animation-duration:18s;animation-delay:2s;">
+    </span>
 
 </div>
 
@@ -1733,11 +2157,24 @@ footer strong{
 <div class="hero-content">
 
 
-    <!-- LOGO ORIGINAL -->
+    <!-- =====================================================
+         LOGO
+    ====================================================== -->
 
-    <div class="logo-area" id="brandLogo">
+    <div
+        class="logo-area"
+        id="brandLogo"
+    >
 
         <div class="logo-ring-extra"></div>
+
+
+        <div class="logo-tech one"></div>
+
+        <div class="logo-tech two"></div>
+
+        <div class="logo-tech three"></div>
+
 
         <img
             class="brand-logo"
@@ -1746,14 +2183,23 @@ footer strong{
             draggable="false"
         >
 
+
         <div class="logo-line"></div>
 
     </div>
 
 
-    <!-- NOME MARMORIZADO -->
+    <!-- =====================================================
+         NOME
+    ====================================================== -->
 
-    <div class="brand-name">
+    <div
+        class="brand-name"
+        id="brandName"
+        role="button"
+        tabindex="0"
+        aria-label="Vanessa Signature"
+    >
 
         Vanessa Signature
 
@@ -1769,30 +2215,41 @@ footer strong{
 
     <p class="hero-subtitle">
 
-        Precisão, delicadeza e sofisticação em cada detalhe.
+        Precisão, delicadeza e sofisticação
+        em cada detalhe.
 
     </p>
 
+
+    <!-- =====================================================
+         INFORMAÇÕES
+    ====================================================== -->
 
     <div class="hero-info">
 
 
         <div class="info-card interactive-info">
 
-            Micro Labial • Dermopigmentação • Design de Sobrancelhas
+            Micro Labial • Dermopigmentação •
+            Design de Sobrancelhas
 
         </div>
 
 
         <div class="info-card interactive-info">
 
-            Um cuidado personalizado para realçar sua beleza.
+            Um cuidado personalizado para
+            realçar sua beleza.
 
         </div>
 
 
     </div>
 
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
 
     <a
         href="#servicos"
@@ -1846,8 +2303,9 @@ footer strong{
 
             <p>
 
-                Realce a beleza dos seus lábios com delicadeza,
-                definição e um resultado sofisticado.
+                Realce a beleza dos seus lábios com
+                delicadeza, definição e um resultado
+                sofisticado.
 
             </p>
 
@@ -1864,8 +2322,8 @@ footer strong{
 
             <p>
 
-                Técnicas personalizadas para harmonizar seus traços
-                e valorizar sua beleza natural.
+                Técnicas personalizadas para harmonizar
+                seus traços e valorizar sua beleza natural.
 
             </p>
 
@@ -1882,8 +2340,8 @@ footer strong{
 
             <p>
 
-                Um design pensado para respeitar seus traços
-                e criar equilíbrio e harmonia.
+                Um design pensado para respeitar seus
+                traços e criar equilíbrio e harmonia.
 
             </p>
 
@@ -1919,6 +2377,7 @@ footer strong{
 
     <div class="message reveal">
 
+
         <div class="message-label">
 
             Seja bem-vinda(o)
@@ -1943,8 +2402,8 @@ footer strong{
 
         </small>
 
-    </div>
 
+    </div>
 
 </div>
 
@@ -1970,7 +2429,8 @@ footer strong{
     <p>
 
         Entre em contato para conhecer os procedimentos,
-        tirar suas dúvidas e consultar os horários disponíveis.
+        tirar suas dúvidas e consultar os horários
+        disponíveis.
 
     </p>
 
@@ -1979,6 +2439,7 @@ footer strong{
         class="whatsapp"
         href="https://wa.me/5521987391225"
         target="_blank"
+        rel="noopener noreferrer"
     >
 
         💬 Falar pelo WhatsApp
@@ -2003,6 +2464,7 @@ footer strong{
 
     </p>
 
+
     <p style="margin-top:8px;">
 
         Beleza • Precisão • Sofisticação
@@ -2018,27 +2480,30 @@ footer strong{
    REVEAL AO ROLAR
 ========================================================= */
 
-const observer = new IntersectionObserver(
+const observer =
+    new IntersectionObserver(
 
-    entries => {
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+                if(entry.isIntersecting){
 
-                entry.target.classList.add("visible");
+                    entry.target
+                        .classList
+                        .add("visible");
 
-            }
+                }
 
-        });
+            });
 
-    },
+        },
 
-    {
-        threshold:.12
-    }
+        {
+            threshold:.12
+        }
 
-);
+    );
 
 
 document
@@ -2054,37 +2519,108 @@ document
    LOGO INTERATIVA
 ========================================================= */
 
-const brandLogo = document.querySelector(".logo-area");
+const brandLogo =
+    document.querySelector(".logo-area");
 
 
-brandLogo.addEventListener("click", () => {
+brandLogo.addEventListener(
+    "click",
+    () => {
 
-    brandLogo.classList.remove("logo-active");
+        brandLogo
+            .classList
+            .remove("logo-active");
 
-    void brandLogo.offsetWidth;
+        void brandLogo.offsetWidth;
 
-    brandLogo.classList.add("logo-active");
+        brandLogo
+            .classList
+            .add("logo-active");
 
-});
+    }
+);
 
 
 /* =========================================================
-   CARDS DO HERO
+   VANESSA SIGNATURE — INTERATIVO
+========================================================= */
+
+const brandName =
+    document.querySelector("#brandName");
+
+
+function activateBrandName(){
+
+    brandName
+        .classList
+        .remove("name-active");
+
+    void brandName.offsetWidth;
+
+    brandName
+        .classList
+        .add("name-active");
+
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
+
+brandName.addEventListener(
+    "click",
+    activateBrandName
+);
+
+
+/* =========================================================
+   TECLADO
+========================================================= */
+
+brandName.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Enter" ||
+            event.key === " "
+        ){
+
+            event.preventDefault();
+
+            activateBrandName();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CARDS HERO
 ========================================================= */
 
 document
     .querySelectorAll(".interactive-info")
     .forEach(card => {
 
-        card.addEventListener("click", () => {
+        card.addEventListener(
+            "click",
+            () => {
 
-            card.classList.remove("active");
+                card
+                    .classList
+                    .remove("active");
 
-            void card.offsetWidth;
+                void card.offsetWidth;
 
-            card.classList.add("active");
+                card
+                    .classList
+                    .add("active");
 
-        });
+            }
+        );
 
     });
 
@@ -2097,15 +2633,22 @@ document
     .querySelectorAll(".service")
     .forEach(card => {
 
-        card.addEventListener("click", () => {
+        card.addEventListener(
+            "click",
+            () => {
 
-            card.classList.remove("active");
+                card
+                    .classList
+                    .remove("active");
 
-            void card.offsetWidth;
+                void card.offsetWidth;
 
-            card.classList.add("active");
+                card
+                    .classList
+                    .add("active");
 
-        });
+            }
+        );
 
     });
 
@@ -2114,91 +2657,138 @@ document
    LUZ QUE ACOMPANHA O MOUSE
 ========================================================= */
 
-const hero = document.querySelector(".hero");
+const hero =
+    document.querySelector(".hero");
 
 
-hero.addEventListener("pointermove", event => {
+hero.addEventListener(
+    "pointermove",
+    event => {
 
-    const rect =
-        hero.getBoundingClientRect();
-
-
-    const x =
-        event.clientX - rect.left;
+        const rect =
+            hero.getBoundingClientRect();
 
 
-    const y =
-        event.clientY - rect.top;
+        const x =
+            event.clientX - rect.left;
 
 
-    hero.style.background = `
-
-        radial-gradient(
-            550px circle at ${x}px ${y}px,
-            rgba(216,160,176,.075),
-            transparent 65%
-        )
-
-    `;
-
-});
+        const y =
+            event.clientY - rect.top;
 
 
-hero.addEventListener("pointerleave", () => {
+        hero.style.background = `
 
-    hero.style.background = "transparent";
+            radial-gradient(
+                550px circle at
+                ${x}px ${y}px,
 
-});
+                rgba(216,160,176,.075),
+
+                transparent 65%
+            )
+
+        `;
+
+    }
+);
+
+
+hero.addEventListener(
+    "pointerleave",
+    () => {
+
+        hero.style.background =
+            "transparent";
+
+    }
+);
 
 
 /* =========================================================
-   EFEITO 3D SUAVE NOS CARDS
+   EFEITO 3D DOS CARDS
 ========================================================= */
 
 document
     .querySelectorAll(".service")
     .forEach(card => {
 
-        card.addEventListener("pointermove", event => {
 
-            const rect =
-                card.getBoundingClientRect();
+        card.addEventListener(
+            "pointermove",
+            event => {
 
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
+                const rect =
+                    card.getBoundingClientRect();
 
 
-            const rotateX =
-                ((y / rect.height) - .5) * -5;
+                const x =
+                    event.clientX -
+                    rect.left;
 
 
-            const rotateY =
-                ((x / rect.width) - .5) * 5;
+                const y =
+                    event.clientY -
+                    rect.top;
 
 
-            card.style.transform = `
-
-                perspective(700px)
-
-                rotateX(${rotateX}deg)
-
-                rotateY(${rotateY}deg)
-
-                translateY(-6px)
-
-            `;
-
-        });
+                const rotateX =
+                    ((y / rect.height) - .5) * -5;
 
 
-        card.addEventListener("pointerleave", () => {
+                const rotateY =
+                    ((x / rect.width) - .5) * 5;
 
-            card.style.transform = "";
 
-        });
+                card.style.transform = `
+
+                    perspective(700px)
+
+                    rotateX(${rotateX}deg)
+
+                    rotateY(${rotateY}deg)
+
+                    translateY(-6px)
+
+                `;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "pointerleave",
+            () => {
+
+                card.style.transform =
+                    "";
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   PEQUENA INTERAÇÃO EXTRA NO TOQUE
+========================================================= */
+
+document
+    .querySelectorAll(".brand-name, .logo-area")
+    .forEach(element => {
+
+        element.addEventListener(
+            "touchstart",
+            () => {
+
+                element.style.webkitTapHighlightColor =
+                    "transparent";
+
+            },
+            {
+                passive:true
+            }
+        );
 
     });
 
