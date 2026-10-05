@@ -1,2305 +1,2015 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#030303">
-<title>Vanessa Signature</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#030303;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
-}
-
-/* =====================================================
-   FUNDO
-===================================================== */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-5;
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(216,160,176,.10),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 10% 80%,
-            rgba(216,160,176,.045),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 65%,
-            rgba(216,160,176,.035),
-            transparent 25%
-        ),
-        #030303;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:30;
-    pointer-events:none;
-    opacity:.025;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.35) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.35) 1px,
-            transparent 1px
-        );
-
-    background-size:50px 50px;
-}
-
-/* =====================================================
-   PARTÍCULAS
-===================================================== */
-
-#particles{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-}
-
-.particle{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:#d8a0b0;
-
-    box-shadow:
-        0 0 7px #d8a0b0,
-        0 0 14px rgba(216,160,176,.4);
-
-    animation:floatParticle linear infinite;
-}
-
-@keyframes floatParticle{
-
-    0%{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-
-    15%{
-        opacity:.8;
-    }
-
-    85%{
-        opacity:.5;
-    }
-
-    100%{
-        transform:translateY(-10vh);
-        opacity:0;
-    }
-
-}
-
-/* =====================================================
-   LUZ DO MOUSE
-===================================================== */
-
-.mouse-light{
-    position:fixed;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-
-    pointer-events:none;
-    z-index:1;
-
-    transform:translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(216,160,176,.075),
-            rgba(216,160,176,.02) 38%,
-            transparent 70%
-        );
-
-    mix-blend-mode:screen;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:
-        40px
-        20px
-        100px;
-
-    overflow:hidden;
-
-    z-index:2;
-}
-
-/* =====================================================
-   SISTEMA TECNOLÓGICO DA LOGO
-===================================================== */
-
-.logo-area{
-
-    position:relative;
-
-    width:640px;
-    height:640px;
-
-    max-width:94vw;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-bottom:-20px;
-
-    perspective:1200px;
-    transform-style:preserve-3d;
-
-    --mouse-x:0;
-    --mouse-y:0;
-}
-
-/* =====================================================
-   FUNDO DA LOGO DENTRO DO SISTEMA
-===================================================== */
-
-.logo-background{
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    z-index:1;
-
-    overflow:hidden;
-
-    opacity:.10;
-
-    filter:
-        grayscale(100%)
-        blur(2px);
-
-    transform:
-        translateZ(-80px)
-        scale(1.15);
-
-    pointer-events:none;
-
-    mix-blend-mode:screen;
-
-}
-
-.logo-background img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    opacity:.7;
-
-    filter:
-        brightness(.8)
-        contrast(1.15);
-
-}
-
-/* =====================================================
-   AURA
-===================================================== */
-
-.logo-aura{
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    border-radius:50%;
-
-    z-index:2;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(216,160,176,.13),
-            rgba(216,160,176,.05) 35%,
-            transparent 72%
-        );
-
-    filter:blur(7px);
-
-    animation:auraPulse 4.5s ease-in-out infinite;
-
-}
-
-@keyframes auraPulse{
-
-    0%,100%{
-        transform:scale(.94);
-        opacity:.65;
-    }
-
-    50%{
-        transform:scale(1.07);
-        opacity:1;
-    }
-
-}
-
-/* =====================================================
-   ANEL PRINCIPAL
-===================================================== */
-
-.logo-main-ring{
-
-    position:absolute;
-
-    width:510px;
-    height:510px;
-
-    border-radius:50%;
-
-    z-index:3;
-
-    border:
-        1px solid
-        rgba(216,160,176,.28);
-
-    box-shadow:
-        0 0 25px rgba(216,160,176,.08),
-        inset 0 0 30px rgba(216,160,176,.035);
-
-    animation:
-        mainRingRotate
-        15s
-        linear
-        infinite;
-
-}
-
-.logo-main-ring::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:18px;
-
-    border-radius:50%;
-
-    border:
-        1px
-        dashed
-        rgba(216,160,176,.16);
-
-    animation:
-        reverseRing
-        11s
-        linear
-        infinite;
-
-}
-
-.logo-main-ring::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:45px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(216,160,176,.09);
-
-}
-
-@keyframes mainRingRotate{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-@keyframes reverseRing{
-
-    from{
-        transform:rotate(360deg);
-    }
-
-    to{
-        transform:rotate(0deg);
-    }
-
-}
-
-/* =====================================================
-   ANEL EXTERNO
-===================================================== */
-
-.logo-outer-ring{
-
-    position:absolute;
-
-    width:585px;
-    height:585px;
-
-    border-radius:50%;
-
-    z-index:3;
-
-    border:
-        1px solid
-        rgba(216,160,176,.12);
-
-    animation:
-        outerRotate
-        24s
-        linear
-        infinite;
-
-}
-
-.logo-outer-ring::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:25px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(216,160,176,.07);
-
-}
-
-.logo-outer-ring::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-12px;
-
-    border-radius:50%;
-
-    border:
-        1px
-        solid
-        rgba(216,160,176,.035);
-
-}
-
-@keyframes outerRotate{
-
-    from{
-        transform:rotate(360deg);
-    }
-
-    to{
-        transform:rotate(0deg);
-    }
-
-}
-
-/* =====================================================
-   LINHAS TECNOLÓGICAS
-===================================================== */
-
-.tech-line{
-
-    position:absolute;
-
-    z-index:4;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(216,160,176,.65),
-            transparent
-        );
-
-    transform-origin:center;
-
-    opacity:.65;
-}
-
-.tech-line.line1{
-
-    width:560px;
-    transform:rotate(0deg);
-
-}
-
-.tech-line.line2{
-
-    width:560px;
-    transform:rotate(90deg);
-
-}
-
-.tech-line.line3{
-
-    width:420px;
-    transform:rotate(45deg);
-
-    opacity:.25;
-
-}
-
-.tech-line.line4{
-
-    width:420px;
-    transform:rotate(-45deg);
-
-    opacity:.25;
-
-}
-
-/* =====================================================
-   LOGO PRINCIPAL
-===================================================== */
-
-.brand-logo{
-
-    position:relative;
-
-    z-index:10;
-
-    width:365px;
-    height:auto;
-
-    max-width:66%;
-
-    display:block;
-
-    object-fit:contain;
-
-    user-select:none;
-
-    transition:
-        transform .55s
-        cubic-bezier(.2,.8,.2,1),
-
-        filter .45s ease;
-
-    filter:
-        drop-shadow(
-            0 0 12px
-            rgba(216,160,176,.28)
-        )
-        drop-shadow(
-            0 0 38px
-            rgba(216,160,176,.12)
-        );
-
-}
-
-/* =====================================================
-   HOVER DA LOGO
-===================================================== */
-
-.logo-area:hover .brand-logo{
-
-    filter:
-        drop-shadow(
-            0 0 15px
-            rgba(216,160,176,.55)
-        )
-        drop-shadow(
-            0 0 50px
-            rgba(216,160,176,.24)
-        );
-
-}
-
-/* =====================================================
-   PONTOS DE TECNOLOGIA
-===================================================== */
-
-.tech-point{
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    z-index:12;
-
-    background:#e5b5c2;
-
-    box-shadow:
-        0 0 8px #d8a0b0,
-        0 0 22px rgba(216,160,176,.8);
-
-    animation:
-        techPulse
-        2.3s
-        ease-in-out
-        infinite;
-
-}
-
-.tech-point.p1{
-
-    top:28px;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-}
-
-.tech-point.p2{
-
-    right:28px;
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    animation-delay:.7s;
-
-}
-
-.tech-point.p3{
-
-    bottom:28px;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    animation-delay:1.4s;
-
-}
-
-.tech-point.p4{
-
-    left:28px;
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    animation-delay:2s;
-
-}
-
-@keyframes techPulse{
-
-    0%,100%{
-
-        opacity:.45;
-
-        box-shadow:
-            0 0 5px #d8a0b0,
-            0 0 12px rgba(216,160,176,.4);
-
-    }
-
-    50%{
-
-        opacity:1;
-
-        box-shadow:
-            0 0 10px #d8a0b0,
-            0 0 30px rgba(216,160,176,.9);
-
-    }
-
-}
-
-/* =====================================================
-   PEQUENOS SEGMENTOS
-===================================================== */
-
-.tech-segment{
-
-    position:absolute;
-
-    width:45px;
-    height:3px;
-
-    z-index:6;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d8a0b0
-        );
-
-    box-shadow:
-        0 0 8px
-        rgba(216,160,176,.5);
-
-}
-
-.segment1{
-
-    top:90px;
-    left:125px;
-
-    transform:rotate(-45deg);
-
-}
-
-.segment2{
-
-    top:90px;
-    right:125px;
-
-    transform:rotate(45deg);
-
-}
-
-.segment3{
-
-    bottom:90px;
-    left:125px;
-
-    transform:rotate(45deg);
-
-}
-
-.segment4{
-
-    bottom:90px;
-    right:125px;
-
-    transform:rotate(-45deg);
-
-}
-
-/* =====================================================
-   NOME
-===================================================== */
-
-.brand-name{
-
-    position:relative;
-
-    z-index:15;
-
-    width:100%;
-
-    padding:
-        0
-        12px;
-
-    margin-top:5px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            48px,
-            8.2vw,
-            112px
-        );
-
-    font-weight:700;
-
-    line-height:1.08;
-
-    letter-spacing:
-        clamp(
-            -3px,
-            -.35vw,
-            -1px
-        );
-
-    white-space:nowrap;
-
-    cursor:pointer;
-
-    background:
-        linear-gradient(
-            115deg,
-            #8d5969 0%,
-            #efc5d0 17%,
-            #ae6e80 32%,
-            #f5dce3 48%,
-            #a65f72 64%,
-            #eec0cd 80%,
-            #8d5969 100%
-        );
-
-    background-size:250% 100%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    text-shadow:
-        0 0 20px
-        rgba(216,160,176,.08);
-
-    animation:
-        marbleMove
-        7s
-        ease-in-out
-        infinite;
-
-    transition:
-        transform .45s ease,
-        filter .45s ease;
-
-}
-
-.brand-name::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:15%;
-    right:15%;
-
-    bottom:-16px;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(216,160,176,.7),
-            transparent
-        );
-
-    box-shadow:
-        0 0 15px
-        rgba(216,160,176,.35);
-
-}
-
-.brand-name:hover{
-
-    transform:
-        scale(1.018);
-
-    filter:
-        drop-shadow(
-            0 0 15px
-            rgba(216,160,176,.45)
-        );
-
-}
-
-@keyframes marbleMove{
-
-    0%,100%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-}
-
-/* =====================================================
-   TAGLINE
-===================================================== */
-
-.tagline{
-
-    margin-top:38px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            20px,
-            3vw,
-            31px
-        );
-
-    color:#e5bdc8;
-
-    letter-spacing:2px;
-
-}
-
-/* =====================================================
-   SUBTÍTULO
-===================================================== */
-
-.subtitle{
-
-    margin-top:15px;
-
-    max-width:720px;
-
-    color:
-        rgba(255,255,255,.62);
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    letter-spacing:1px;
-
-}
-
-/* =====================================================
-   BOTÃO
-===================================================== */
-
-.cta{
-
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    margin-top:35px;
-
-    padding:
-        16px
-        32px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.45);
-
-    border-radius:50px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    letter-spacing:1px;
-
-    background:
-        rgba(216,160,176,.055);
-
-    backdrop-filter:blur(12px);
-
-    transition:.4s ease;
-
-}
-
-.cta:hover{
-
-    transform:
-        translateY(-4px);
-
-    background:
-        rgba(216,160,176,.12);
-
-    box-shadow:
-        0 0 30px
-        rgba(216,160,176,.16);
-
-}
-
-/* =====================================================
-   SEÇÕES
-===================================================== */
-
-section{
-
-    position:relative;
-
-    z-index:2;
-
-    padding:
-        120px 7%;
-
-}
-
-.section-title{
-
-    text-align:center;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            38px,
-            5vw,
-            65px
-        );
-
-    color:#e4b6c2;
-
-    margin-bottom:60px;
-
-}
-
-/* =====================================================
-   SERVIÇOS
-===================================================== */
-
-.services{
-
-    max-width:1250px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:25px;
-
-}
-
-.card{
-
-    position:relative;
-
-    min-height:260px;
-
-    padding:
-        38px 28px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.13);
-
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.035),
-            rgba(216,160,176,.018)
-        );
-
-    backdrop-filter:blur(12px);
-
-    overflow:hidden;
-
-    transition:
-        transform .45s ease,
-        border-color .45s ease,
-        box-shadow .45s ease;
-
-    transform-style:preserve-3d;
-
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at
-            var(--mouse-x,50%)
-            var(--mouse-y,50%),
-            rgba(216,160,176,.17),
-            transparent 32%
-        );
-
-    opacity:0;
-
-    transition:.4s;
-
-}
-
-.card:hover::before{
-    opacity:1;
-}
-
-.card:hover{
-
-    border-color:
-        rgba(216,160,176,.35);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.45);
-
-}
-
-.card h3{
-
-    position:relative;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:28px;
-
-    color:#e6b8c4;
-
-    margin-bottom:18px;
-
-}
-
-.card p{
-
-    position:relative;
-
-    color:
-        rgba(255,255,255,.62);
-
-    line-height:1.8;
-
-}
-
-/* =====================================================
-   SOBRE
-===================================================== */
-
-.about{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:70px;
-
-    align-items:center;
-
-}
-
-.about-image{
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-.character{
-
-    width:100%;
-
-    max-width:450px;
-
-    border-radius:25px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.16);
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.5);
-
-}
-
-.about-text h2{
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:48px;
-
-    color:#e2b1bd;
-
-    margin-bottom:25px;
-
-}
-
-.about-text p{
-
-    color:
-        rgba(255,255,255,.65);
-
-    line-height:2;
-
-    font-size:16px;
-
-}
-
-/* =====================================================
-   CONTATO
-===================================================== */
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-
-    color:
-        rgba(255,255,255,.62);
-
-    margin-bottom:30px;
-
-}
-
-.whatsapp{
-
-    display:inline-flex;
-
-    padding:
-        17px
-        32px;
-
-    border-radius:50px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border:
-        1px solid
-        rgba(216,160,176,.4);
-
-    background:
-        rgba(216,160,176,.07);
-
-    transition:.4s ease;
-
-}
-
-.whatsapp:hover{
-
-    transform:
-        translateY(-4px)
-        scale(1.02);
-
-    box-shadow:
-        0 0 35px
-        rgba(216,160,176,.18);
-
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    position:relative;
-
-    z-index:2;
-
-    padding:
-        35px 20px;
-
-    text-align:center;
-
-    border-top:
-        1px solid
-        rgba(216,160,176,.08);
-
-    color:
-        rgba(255,255,255,.38);
-
-    font-size:13px;
-
-    letter-spacing:1px;
-
-}
-
-footer span{
-    color:#c98b9d;
-}
-
-/* =====================================================
-   REVEAL
-===================================================== */
-
-.reveal{
-
-    opacity:0;
-
-    transform:
-        translateY(45px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-
-}
-
-.reveal.active{
-
-    opacity:1;
-
-    transform:
-        translateY(0);
-
-}
-
-/* =====================================================
-   CLIQUE LOGO
-===================================================== */
-
-.logo-click{
-
-    animation:
-        logoClick
-        .8s
-        cubic-bezier(.2,.8,.2,1);
-
-}
-
-@keyframes logoClick{
-
-    0%{
-        transform:scale(1);
-    }
-
-    35%{
-
-        transform:
-            scale(1.07);
-
-        filter:
-            drop-shadow(
-                0 0 25px
-                rgba(216,160,176,.8)
-            )
-            drop-shadow(
-                0 0 70px
-                rgba(216,160,176,.4)
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vanessa Signature — Beleza que revela você</title>
+
+    <meta
+        name="description"
+        content="Vanessa Signature — Micro Labial, Dermopigmentação e Design de Sobrancelhas."
+    >
+
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(216,160,176,.10), transparent 35%),
+                radial-gradient(circle at 10% 80%, rgba(185,120,98,.07), transparent 30%),
+                #050505;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: .18;
+            background-image:
+                linear-gradient(rgba(216,160,176,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(216,160,176,.035) 1px, transparent 1px);
+            background-size: 55px 55px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        ::selection {
+            background: rgba(216,160,176,.35);
+            color: #fff;
+        }
+
+
+        /* =========================================================
+           VARIÁVEIS
+        ========================================================= */
+
+        :root {
+            --rose: #d8a0b0;
+            --rose-light: #f0c9d5;
+            --rose-soft: #e5b4c2;
+            --copper: #b97862;
+            --copper-light: #e2ae98;
+            --black: #050505;
+            --card: rgba(255,255,255,.035);
+            --border: rgba(216,160,176,.18);
+        }
+
+
+        /* =========================================================
+           FUNDO
+        ========================================================= */
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: rgba(240,201,213,.8);
+            box-shadow: 0 0 8px rgba(216,160,176,.7);
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translate3d(0, 110vh, 0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .8;
+            }
+
+            85% {
+                opacity: .5;
+            }
+
+            100% {
+                transform: translate3d(var(--move-x), -15vh, 0);
+                opacity: 0;
+            }
+        }
+
+        .mouse-light {
+            position: fixed;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(
+                circle,
+                rgba(216,160,176,.10),
+                rgba(216,160,176,.035) 30%,
+                transparent 70%
             );
+            filter: blur(8px);
+        }
 
-    }
 
-    100%{
-        transform:scale(1);
-    }
+        /* =========================================================
+           HEADER
+        ========================================================= */
 
-}
-
-/* =====================================================
-   CLIQUE NO NOME
-===================================================== */
-
-.name-active{
-
-    animation:
-        nameClick
-        .8s
-        ease;
-
-}
-
-@keyframes nameClick{
-
-    0%{
-        transform:scale(1);
-    }
-
-    40%{
-
-        transform:
-            scale(1.06);
-
-        filter:
-            drop-shadow(
-                0 0 25px
-                rgba(216,160,176,.75)
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            background: linear-gradient(
+                to bottom,
+                rgba(5,5,5,.92),
+                rgba(5,5,5,.35),
+                transparent
             );
-
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media(max-width:900px){
-
-    .logo-area{
-
-        width:560px;
-        height:560px;
-
-    }
-
-    .logo-main-ring{
-
-        width:460px;
-        height:460px;
-
-    }
-
-    .logo-outer-ring{
-
-        width:520px;
-        height:520px;
-
-    }
-
-    .logo-background{
-
-        width:430px;
-        height:430px;
-
-    }
-
-    .brand-logo{
-
-        width:365px;
-        max-width:68%;
-
-    }
-
-    .tech-line.line1,
-    .tech-line.line2{
-
-        width:500px;
-
-    }
-
-    .services{
-
-        grid-template-columns:1fr;
-
-        max-width:600px;
-
-    }
-
-    .about{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media(max-width:600px){
-
-    .hero{
-
-        padding:
-            25px
-            10px
-            80px;
-
-    }
-
-    .logo-area{
-
-        width:440px;
-        height:440px;
-
-        max-width:108vw;
-
-        margin-bottom:0;
-
-    }
-
-    .logo-main-ring{
-
-        width:370px;
-        height:370px;
-
-    }
-
-    .logo-outer-ring{
-
-        width:415px;
-        height:415px;
-
-    }
-
-    .logo-background{
-
-        width:350px;
-        height:350px;
-
-        opacity:.07;
-
-    }
-
-    .logo-aura{
-
-        width:350px;
-        height:350px;
-
-    }
-
-    .brand-logo{
-
-        width:310px;
-
-        max-width:70%;
-
-    }
-
-    .tech-line.line1,
-    .tech-line.line2{
-
-        width:390px;
-
-    }
-
-    .tech-line.line3,
-    .tech-line.line4{
-
-        width:300px;
-
-    }
-
-    .tech-point.p1{
-
-        top:18px;
-
-    }
-
-    .tech-point.p2{
-
-        right:18px;
-
-    }
-
-    .tech-point.p3{
-
-        bottom:18px;
-
-    }
-
-    .tech-point.p4{
-
-        left:18px;
-
-    }
-
-    .tech-segment{
-
-        width:32px;
-
-    }
-
-    .segment1{
-        left:82px;
-        top:70px;
-    }
-
-    .segment2{
-        right:82px;
-        top:70px;
-    }
-
-    .segment3{
-        left:82px;
-        bottom:70px;
-    }
-
-    .segment4{
-        right:82px;
-        bottom:70px;
-    }
-
-    /*
-       CORREÇÃO DO NOME:
-       nunca deixa cortar nas laterais.
-    */
-
-    .brand-name{
-
-        width:100%;
-
-        padding:
-            0
-            8px;
-
-        font-size:
-            clamp(
-                42px,
-                11.8vw,
-                68px
-            );
-
-        letter-spacing:-2px;
-
-        white-space:normal;
-
-        overflow:visible;
-
-    }
-
-    .brand-name::after{
-
-        left:12%;
-        right:12%;
-
-    }
-
-    .tagline{
-
-        margin-top:35px;
-
-        font-size:20px;
-
-    }
-
-    section{
-
-        padding:
-            85px
-            20px;
-
-    }
-
-    .about-text h2{
-
-        font-size:38px;
-
-    }
-
-}
-
-/* =====================================================
-   TELAS MUITO PEQUENAS
-===================================================== */
-
-@media(max-width:390px){
-
-    .logo-area{
-
-        width:390px;
-        height:390px;
-
-    }
-
-    .logo-main-ring{
-
-        width:330px;
-        height:330px;
-
-    }
-
-    .logo-outer-ring{
-
-        width:365px;
-        height:365px;
-
-    }
-
-    .logo-background{
-
-        width:310px;
-        height:310px;
-
-    }
-
-    .brand-logo{
-
-        width:275px;
-
-    }
-
-    .tech-line.line1,
-    .tech-line.line2{
-
-        width:340px;
-
-    }
-
-    .brand-name{
-
-        font-size:
-            clamp(
-                38px,
-                11vw,
-                52px
-            );
-
-    }
-
-}
-
-/* =====================================================
-   REDUÇÃO DE MOVIMENTO
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:.01ms !important;
-
-        animation-iteration-count:1 !important;
-
-        scroll-behavior:auto !important;
-
-    }
-
-}
-
-</style>
+            backdrop-filter: blur(8px);
+        }
+
+        nav {
+            width: min(1180px, 92%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgba(255,255,255,.72);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 18px;
+            transition: .35s ease;
+        }
+
+        nav a:hover {
+            color: var(--rose-light);
+            text-shadow: 0 0 15px rgba(216,160,176,.55);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 70px;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: min(1200px, 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           SISTEMA TECNOLÓGICO DA LOGO
+        ========================================================= */
+
+        .logo-area {
+            position: relative;
+            width: 700px;
+            height: 700px;
+            max-width: 90vw;
+            max-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            transition: transform .25s ease-out;
+        }
+
+        .logo-aura {
+            position: absolute;
+            width: 470px;
+            height: 470px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(216,160,176,.16),
+                    rgba(185,120,98,.08) 38%,
+                    transparent 72%
+                );
+            filter: blur(18px);
+            animation: auraPulse 5s ease-in-out infinite;
+        }
+
+        @keyframes auraPulse {
+            0%,100% {
+                transform: scale(.95);
+                opacity: .6;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================================================
+           ANÉIS EXTERNOS
+        ========================================================= */
+
+        .logo-outer-ring,
+        .logo-main-ring {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .logo-outer-ring {
+            width: 640px;
+            height: 640px;
+            border: 1px solid rgba(216,160,176,.16);
+            box-shadow:
+                0 0 35px rgba(216,160,176,.05),
+                inset 0 0 35px rgba(216,160,176,.035);
+            animation: rotateReverse 26s linear infinite;
+        }
+
+        .logo-outer-ring::before,
+        .logo-outer-ring::after {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border-radius: 50%;
+            border: 1px dashed rgba(185,120,98,.25);
+        }
+
+        .logo-outer-ring::after {
+            inset: 34px;
+            border: 1px solid rgba(240,201,213,.08);
+        }
+
+        .logo-main-ring {
+            width: 560px;
+            height: 560px;
+            border: 1px solid rgba(216,160,176,.30);
+            box-shadow:
+                0 0 30px rgba(216,160,176,.08),
+                inset 0 0 30px rgba(216,160,176,.04);
+            animation: rotate 18s linear infinite;
+        }
+
+        .logo-main-ring::before {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border-radius: 50%;
+            border: 1px dashed rgba(226,174,152,.35);
+        }
+
+        .logo-main-ring::after {
+            content: "";
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background:
+                conic-gradient(
+                    from 0deg,
+                    transparent 0deg,
+                    rgba(240,201,213,.7) 20deg,
+                    transparent 42deg,
+                    transparent 130deg,
+                    rgba(185,120,98,.55) 160deg,
+                    transparent 185deg,
+                    transparent 280deg,
+                    rgba(216,160,176,.55) 310deg,
+                    transparent 335deg
+                );
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1px;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateReverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        /* =========================================================
+           LINHAS TECNOLÓGICAS
+        ========================================================= */
+
+        .tech-line {
+            position: absolute;
+            width: 480px;
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(216,160,176,.55),
+                    transparent
+                );
+            opacity: .5;
+            transform-origin: center;
+        }
+
+        .tech-line:nth-of-type(1) {
+            transform: rotate(0deg);
+            animation: techLine1 9s ease-in-out infinite;
+        }
+
+        .tech-line:nth-of-type(2) {
+            transform: rotate(45deg);
+            animation: techLine2 11s ease-in-out infinite;
+        }
+
+        .tech-line:nth-of-type(3) {
+            transform: rotate(90deg);
+            animation: techLine1 13s ease-in-out infinite reverse;
+        }
+
+        .tech-line:nth-of-type(4) {
+            transform: rotate(135deg);
+            animation: techLine2 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes techLine1 {
+            0%,100% {
+                opacity: .15;
+                transform: scaleX(.7) rotate(0deg);
+            }
+
+            50% {
+                opacity: .55;
+                transform: scaleX(1.2) rotate(0deg);
+            }
+        }
+
+        @keyframes techLine2 {
+            0%,100% {
+                opacity: .15;
+            }
+
+            50% {
+                opacity: .5;
+            }
+        }
+
+
+        /* =========================================================
+           PONTOS
+        ========================================================= */
+
+        .tech-point {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--rose-light);
+            box-shadow:
+                0 0 10px rgba(240,201,213,.9),
+                0 0 22px rgba(216,160,176,.55);
+            z-index: 3;
+        }
+
+        .tech-point:nth-of-type(5) {
+            top: 78px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tech-point:nth-of-type(6) {
+            right: 78px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .tech-point:nth-of-type(7) {
+            bottom: 78px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tech-point:nth-of-type(8) {
+            left: 78px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+        /* =========================================================
+           SEGMENTOS
+        ========================================================= */
+
+        .tech-segment {
+            position: absolute;
+            width: 85px;
+            height: 2px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--rose),
+                    transparent
+                );
+            box-shadow: 0 0 12px rgba(216,160,176,.45);
+        }
+
+        .tech-segment:nth-of-type(9) {
+            top: 112px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .tech-segment:nth-of-type(10) {
+            right: 112px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .tech-segment:nth-of-type(11) {
+            bottom: 112px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tech-segment:nth-of-type(12) {
+            left: 112px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+
+        /* =========================================================
+           NÚCLEO DA LOGO
+        ========================================================= */
+
+        .logo-core {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            max-width: 57%;
+            max-height: 57%;
+            border-radius: 50%;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255,255,255,.05),
+                    rgba(216,160,176,.025) 48%,
+                    rgba(0,0,0,.55) 100%
+                );
+            border: 1px solid rgba(226,174,152,.7);
+            box-shadow:
+                0 0 0 2px rgba(216,160,176,.08),
+                0 0 22px rgba(216,160,176,.20),
+                0 0 55px rgba(185,120,98,.10),
+                inset 0 0 35px rgba(216,160,176,.09);
+            z-index: 6;
+            transform-style: preserve-3d;
+        }
+
+        .logo-core::before {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border-radius: 50%;
+            border: 1px solid rgba(240,201,213,.38);
+            box-shadow:
+                inset 0 0 15px rgba(216,160,176,.12),
+                0 0 12px rgba(185,120,98,.08);
+            z-index: 8;
+            pointer-events: none;
+        }
+
+        .logo-core::after {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            border-radius: 50%;
+            background:
+                conic-gradient(
+                    from 0deg,
+                    transparent 0deg,
+                    rgba(240,201,213,0) 45deg,
+                    rgba(240,201,213,.55) 70deg,
+                    transparent 95deg,
+                    transparent 210deg,
+                    rgba(185,120,98,.42) 250deg,
+                    transparent 285deg
+                );
+            animation: coreGlow 7s linear infinite;
+            z-index: 9;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes coreGlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo-core-mask {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 7;
+            pointer-events: none;
+        }
+
+        .brand-logo {
+            position: absolute;
+            width: 128%;
+            height: 128%;
+            max-width: none;
+            max-height: none;
+            object-fit: cover;
+            object-position: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1.03);
+            user-select: none;
+            -webkit-user-drag: none;
+            filter:
+                contrast(1.04)
+                saturate(1.04)
+                brightness(.96);
+            transition:
+                transform .6s cubic-bezier(.2,.8,.2,1),
+                filter .6s ease;
+        }
+
+        .logo-core:hover .brand-logo {
+            transform: translate(-50%, -50%) scale(1.09);
+            filter:
+                contrast(1.08)
+                saturate(1.12)
+                brightness(1.02);
+        }
+
+
+        /* =========================================================
+           TEXTO DA MARCA
+        ========================================================= */
+
+        .brand-name {
+            position: relative;
+            margin-top: -35px;
+            z-index: 10;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(52px, 8vw, 108px);
+            line-height: .95;
+            font-weight: 500;
+            letter-spacing: -3px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    #8e5a65 0%,
+                    #d8a0b0 18%,
+                    #f4d5df 32%,
+                    #b97862 46%,
+                    #f0c9d5 61%,
+                    #a96e7d 77%,
+                    #e6b8c5 90%,
+                    #8e5a65 100%
+                );
+
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            text-shadow:
+                0 0 20px rgba(216,160,176,.10);
+
+            animation: metallicText 7s linear infinite;
+        }
+
+        @keyframes metallicText {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 250% 50%;
+            }
+        }
+
+        .brand-name::after {
+            content: "";
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            bottom: -14px;
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(216,160,176,.7),
+                    rgba(240,201,213,.9),
+                    rgba(216,160,176,.7),
+                    transparent
+                );
+            box-shadow: 0 0 12px rgba(216,160,176,.25);
+        }
+
+        .brand-name.active {
+            animation:
+                brandImpact .8s ease,
+                metallicText 7s linear infinite;
+        }
+
+        @keyframes brandImpact {
+            0% {
+                transform: scale(1);
+            }
+
+            35% {
+                transform: scale(1.045);
+                filter: brightness(1.4);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================================================
+           TAGLINE
+        ========================================================= */
+
+        .tagline {
+            margin-top: 42px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(22px, 3vw, 34px);
+            color: var(--rose-light);
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            margin-top: 12px;
+            max-width: 700px;
+            color: rgba(255,255,255,.58);
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .hero-cta {
+            margin-top: 38px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-description {
+            color: rgba(255,255,255,.62);
+            font-size: 14px;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 240px;
+            padding: 16px 28px;
+            border: 1px solid rgba(216,160,176,.55);
+            border-radius: 999px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .4s ease;
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(216,160,176,.07),
+                    rgba(185,120,98,.12)
+                );
+            box-shadow:
+                0 0 25px rgba(216,160,176,.06),
+                inset 0 0 20px rgba(216,160,176,.04);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-110%);
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.18),
+                    transparent
+                );
+            transition: .6s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            border-color: rgba(240,201,213,.9);
+            box-shadow:
+                0 12px 40px rgba(216,160,176,.15),
+                0 0 25px rgba(216,160,176,.12);
+        }
+
+        .btn:hover::before {
+            transform: translateX(110%);
+        }
+
+
+        /* =========================================================
+           SEÇÕES
+        ========================================================= */
+
+        section {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, 92%);
+            margin: 0 auto;
+            padding: 120px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 400;
+            color: var(--rose-light);
+            margin-bottom: 18px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 1px;
+            margin: 18px auto 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--rose),
+                    transparent
+                );
+        }
+
+        .section-description {
+            max-width: 680px;
+            margin: 0 auto 60px;
+            text-align: center;
+            color: rgba(255,255,255,.55);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           SERVIÇOS
+        ========================================================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            perspective: 1200px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 310px;
+            padding: 38px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(216,160,176,.08),
+                    transparent 45%
+                ),
+                rgba(255,255,255,.025);
+
+            border: 1px solid rgba(216,160,176,.14);
+            border-radius: 24px;
+
+            transform-style: preserve-3d;
+
+            transition:
+                transform .2s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    130deg,
+                    transparent 25%,
+                    rgba(216,160,176,.08),
+                    transparent 65%
+                );
+            transform: translateX(-100%);
+            transition: .8s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(216,160,176,.45);
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.35),
+                0 0 30px rgba(216,160,176,.08);
+        }
+
+        .service-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 24px;
+            right: 25px;
+            font-family: Georgia, "Times New Roman", serif;
+            color: rgba(216,160,176,.35);
+            font-size: 48px;
+        }
+
+        .service-icon {
+            position: absolute;
+            top: 35px;
+            left: 28px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(216,160,176,.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rose-light);
+            box-shadow: 0 0 20px rgba(216,160,176,.07);
+        }
+
+        .service-icon::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--rose);
+            box-shadow: 0 0 14px var(--rose);
+        }
+
+        .service-card h3 {
+            position: relative;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 29px;
+            font-weight: 400;
+            color: #f3d8df;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            position: relative;
+            color: rgba(255,255,255,.52);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           SOBRE
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(216,160,176,.2);
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.4),
+                0 0 40px rgba(216,160,176,.06);
+        }
+
+        .about-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(216,160,176,.12),
+                    transparent 45%,
+                    rgba(185,120,98,.08)
+                );
+            pointer-events: none;
+        }
+
+        .about-image img {
+            display: block;
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--rose-light);
+            font-size: clamp(38px, 5vw, 58px);
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            color: rgba(255,255,255,.58);
+            line-height: 2;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .about-line {
+            width: 100px;
+            height: 1px;
+            margin: 28px 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--rose),
+                    transparent
+                );
+        }
+
+
+        /* =========================================================
+           CONTATO
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+            padding: 70px 30px;
+            border: 1px solid rgba(216,160,176,.16);
+            border-radius: 32px;
+            text-align: center;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(216,160,176,.08),
+                    transparent 55%
+                ),
+                rgba(255,255,255,.02);
+        }
+
+        .contact-box::before,
+        .contact-box::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(216,160,176,.08);
+            pointer-events: none;
+        }
+
+        .contact-box::before {
+            width: 500px;
+            height: 500px;
+            top: -350px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-box::after {
+            width: 700px;
+            height: 700px;
+            top: -500px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-box h2 {
+            position: relative;
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 400;
+            font-size: clamp(38px, 5vw, 62px);
+            color: var(--rose-light);
+            margin-bottom: 16px;
+        }
+
+        .contact-box p {
+            position: relative;
+            color: rgba(255,255,255,.55);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .whatsapp {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            border-radius: 999px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(216,160,176,.45);
+            background: rgba(216,160,176,.07);
+            transition: .35s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-4px);
+            background: rgba(216,160,176,.13);
+            box-shadow: 0 15px 40px rgba(216,160,176,.12);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(216,160,176,.08);
+            padding: 30px 20px;
+            text-align: center;
+            color: rgba(255,255,255,.35);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        footer span {
+            color: rgba(216,160,176,.65);
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity .9s ease,
+                transform .9s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .logo-area {
+                width: 620px;
+                height: 620px;
+                max-height: 65vh;
+            }
+
+            .logo-outer-ring {
+                width: 560px;
+                height: 560px;
+            }
+
+            .logo-main-ring {
+                width: 490px;
+                height: 490px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-height: 270px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .about-image img {
+                height: 480px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 60px;
+            }
+
+            nav a {
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin: 0 9px;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            .logo-area {
+                width: 430px;
+                height: 430px;
+                max-width: 100vw;
+                max-height: none;
+            }
+
+            .logo-outer-ring {
+                width: 390px;
+                height: 390px;
+            }
+
+            .logo-main-ring {
+                width: 335px;
+                height: 335px;
+            }
+
+            .logo-core {
+                width: 245px;
+                height: 245px;
+                max-width: none;
+                max-height: none;
+            }
+
+            .tech-line {
+                width: 320px;
+            }
+
+            .tech-point:nth-of-type(5) {
+                top: 35px;
+            }
+
+            .tech-point:nth-of-type(6) {
+                right: 35px;
+            }
+
+            .tech-point:nth-of-type(7) {
+                bottom: 35px;
+            }
+
+            .tech-point:nth-of-type(8) {
+                left: 35px;
+            }
+
+            .tech-segment:nth-of-type(9) {
+                top: 60px;
+            }
+
+            .tech-segment:nth-of-type(10) {
+                right: 60px;
+            }
+
+            .tech-segment:nth-of-type(11) {
+                bottom: 60px;
+            }
+
+            .tech-segment:nth-of-type(12) {
+                left: 60px;
+            }
+
+            .brand-name {
+                margin-top: -8px;
+                font-size: clamp(45px, 13vw, 68px);
+                letter-spacing: -2px;
+                max-width: 100%;
+                padding: 0 8px;
+            }
+
+            .tagline {
+                margin-top: 32px;
+                font-size: 21px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .about-image img {
+                height: 390px;
+            }
+
+            .contact-box {
+                padding: 55px 20px;
+            }
+        }
+
+
+        @media (max-width: 390px) {
+
+            nav a {
+                margin: 0 6px;
+                letter-spacing: 1px;
+            }
+
+            .logo-area {
+                width: 360px;
+                height: 360px;
+            }
+
+            .logo-outer-ring {
+                width: 325px;
+                height: 325px;
+            }
+
+            .logo-main-ring {
+                width: 280px;
+                height: 280px;
+            }
+
+            .logo-core {
+                width: 210px;
+                height: 210px;
+            }
+
+            .tech-line {
+                width: 270px;
+            }
+
+            .brand-name {
+                font-size: 43px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUZIR MOVIMENTO
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
-<div id="particles"></div>
+    <!-- =========================================================
+         FUNDO
+    ========================================================== -->
 
-<div
-    class="mouse-light"
-    id="mouseLight">
-</div>
+    <div id="particles"></div>
+    <div class="mouse-light" id="mouseLight"></div>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- =========================================================
+         MENU
+    ========================================================== -->
 
-<header class="hero">
+    <header>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
 
-    <!-- SISTEMA DA LOGO -->
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-    <div
-        class="logo-area"
-        id="brandLogo"
-    >
+    <main>
 
+        <section class="hero" id="inicio">
 
-        <!-- LOGO AO FUNDO -->
+            <div class="hero-content">
 
-        <div class="logo-background">
+                <div class="logo-area" id="logoArea">
 
-            <img
-                src="IMG_0344_Original.jpeg"
-                alt=""
-                aria-hidden="true"
-            >
+                    <div class="logo-aura"></div>
 
-        </div>
+                    <div class="logo-outer-ring"></div>
 
+                    <div class="logo-main-ring"></div>
 
-        <!-- AURA -->
+                    <div class="tech-line"></div>
+                    <div class="tech-line"></div>
+                    <div class="tech-line"></div>
+                    <div class="tech-line"></div>
 
-        <div class="logo-aura"></div>
+                    <div class="tech-point"></div>
+                    <div class="tech-point"></div>
+                    <div class="tech-point"></div>
+                    <div class="tech-point"></div>
 
+                    <div class="tech-segment"></div>
+                    <div class="tech-segment"></div>
+                    <div class="tech-segment"></div>
+                    <div class="tech-segment"></div>
 
-        <!-- ANÉIS -->
 
-        <div class="logo-main-ring"></div>
+                    <!-- NÚCLEO REDONDO DA LOGO -->
 
-        <div class="logo-outer-ring"></div>
+                    <div class="logo-core" id="logoCore">
 
+                        <div class="logo-core-mask">
 
-        <!-- LINHAS -->
+                            <img
+                                class="brand-logo"
+                                id="logoImage"
+                                src="IMG_0344_Original.jpeg"
+                                alt="Logo Vanessa Signature"
+                                draggable="false"
+                            >
 
-        <div class="tech-line line1"></div>
+                        </div>
 
-        <div class="tech-line line2"></div>
+                    </div>
 
-        <div class="tech-line line3"></div>
+                </div>
 
-        <div class="tech-line line4"></div>
 
+                <!-- NOME -->
 
-        <!-- PONTOS -->
+                <h1 class="brand-name" id="brandName">
+                    Vanessa Signature
+                </h1>
 
-        <div class="tech-point p1"></div>
 
-        <div class="tech-point p2"></div>
+                <div class="tagline">
+                    Beleza que revela você.
+                </div>
 
-        <div class="tech-point p3"></div>
 
-        <div class="tech-point p4"></div>
+                <p class="subtitle">
+                    Precisão, delicadeza e sofisticação em cada detalhe.
+                </p>
 
 
-        <!-- SEGMENTOS -->
+                <div class="hero-cta">
 
-        <div class="tech-segment segment1"></div>
+                    <p class="hero-description">
+                        Micro Labial • Dermopigmentação • Design de Sobrancelhas
+                    </p>
 
-        <div class="tech-segment segment2"></div>
+                    <p class="hero-description">
+                        Um cuidado personalizado para realçar sua beleza.
+                    </p>
 
-        <div class="tech-segment segment3"></div>
+                    <a href="#servicos" class="btn">
+                        Conheça nossos serviços
+                    </a>
 
-        <div class="tech-segment segment4"></div>
+                </div>
 
+            </div>
 
-        <!-- LOGO ORIGINAL -->
+        </section>
 
-        <img
-            class="brand-logo"
-            id="logoImage"
-            src="IMG_0344_Original.jpeg"
-            alt="Logo Vanessa Signature"
-            draggable="false"
-        >
 
-    </div>
 
+        <!-- =====================================================
+             SERVIÇOS
+        ====================================================== -->
 
-    <!-- NOME -->
+        <section id="servicos" class="reveal">
 
-    <div
-        class="brand-name"
-        id="brandName"
-        role="button"
-        tabindex="0"
-        aria-label="Vanessa Signature"
-    >
-        Vanessa Signature
-    </div>
-
-
-    <div class="tagline">
-        Beleza que revela você.
-    </div>
-
-
-    <p class="subtitle">
-        Precisão, delicadeza e sofisticação em cada detalhe.
-    </p>
-
-
-    <a
-        class="cta"
-        href="#servicos"
-    >
-        Conheça nossos serviços
-    </a>
-
-</header>
-
-
-<!-- =====================================================
-     SERVIÇOS
-===================================================== -->
-
-<section id="servicos">
-
-    <h2 class="section-title reveal">
-        Nossos Serviços
-    </h2>
-
-
-    <div class="services">
-
-
-        <article class="card reveal">
-
-            <h3>
-                Micro Labial
-            </h3>
-
-            <p>
-                Realce a beleza natural dos lábios com delicadeza,
-                precisão e um acabamento sofisticado.
-            </p>
-
-        </article>
-
-
-        <article class="card reveal">
-
-            <h3>
-                Dermopigmentação
-            </h3>
-
-            <p>
-                Técnicas personalizadas para valorizar seus traços
-                e proporcionar um resultado elegante e harmonioso.
-            </p>
-
-        </article>
-
-
-        <article class="card reveal">
-
-            <h3>
-                Design de Sobrancelhas
-            </h3>
-
-            <p>
-                Um desenho pensado para respeitar sua fisionomia
-                e destacar sua beleza natural.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SOBRE
-===================================================== -->
-
-<section>
-
-    <div class="about">
-
-
-        <div class="about-image reveal">
-
-            <img
-                class="character"
-                src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
-                alt="Vanessa Signature"
-            >
-
-        </div>
-
-
-        <div class="about-text reveal">
-
-            <h2>
-                Vanessa Signature
+            <h2 class="section-title">
+                Nossos Serviços
             </h2>
 
-            <p>
-                Um espaço dedicado à beleza, precisão e sofisticação.
-                Cada procedimento é pensado de forma personalizada,
-                respeitando a individualidade e os detalhes que tornam
-                cada pessoa única.
+            <p class="section-description">
+                Técnicas cuidadosamente executadas para valorizar
+                seus traços naturais com precisão, delicadeza e
+                sofisticação.
             </p>
 
-        </div>
 
+            <div class="services-grid">
 
-    </div>
 
-</section>
+                <article class="service-card">
 
+                    <div class="service-number">
+                        01
+                    </div>
 
-<!-- =====================================================
-     CONTATO
-===================================================== -->
+                    <div class="service-icon"></div>
 
-<section class="contact">
+                    <h3>
+                        Micro Labial
+                    </h3>
 
+                    <p>
+                        Realce da tonalidade e definição dos lábios
+                        através de uma técnica delicada e personalizada.
+                    </p>
 
-    <h2 class="section-title reveal">
-        Vamos realçar sua beleza?
-    </h2>
+                </article>
 
 
-    <p class="reveal">
-        Entre em contato e descubra o procedimento ideal para você.
-    </p>
 
+                <article class="service-card">
 
-    <a
-        class="whatsapp reveal"
-        href="https://wa.me/5521987391225"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        💬 Falar pelo WhatsApp
-    </a>
+                    <div class="service-number">
+                        02
+                    </div>
 
+                    <div class="service-icon"></div>
 
-</section>
+                    <h3>
+                        Dermopigmentação
+                    </h3>
 
+                    <p>
+                        Procedimentos personalizados para proporcionar
+                        equilíbrio, definição e harmonia à sua beleza.
+                    </p>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+                </article>
 
-<footer>
 
-    © 2026 Vanessa Signature
 
-    <br>
+                <article class="service-card">
 
-    <span>
-        Beleza • Precisão • Sofisticação
-    </span>
+                    <div class="service-number">
+                        03
+                    </div>
 
-</footer>
+                    <div class="service-icon"></div>
 
+                    <h3>
+                        Design de Sobrancelhas
+                    </h3>
 
-<script>
+                    <p>
+                        Mapeamento e design pensado para respeitar
+                        seus traços e valorizar a expressão do rosto.
+                    </p>
 
-/* =====================================================
-   PARTÍCULAS
-===================================================== */
+                </article>
 
-const particles =
-    document.getElementById("particles");
+            </div>
 
-for(let i = 0; i < 70; i++){
+        </section>
 
-    const particle =
-        document.createElement("span");
 
-    particle.className =
-        "particle";
 
-    particle.style.left =
-        Math.random() * 100 + "%";
+        <!-- =====================================================
+             SOBRE
+        ====================================================== -->
 
-    particle.style.animationDuration =
-        (6 + Math.random() * 12) + "s";
+        <section id="sobre" class="reveal">
 
-    particle.style.animationDelay =
-        (-Math.random() * 15) + "s";
+            <div class="about-grid">
 
-    const size =
-        .7 + Math.random() * 1.8;
+                <div class="about-image">
 
-    particle.style.width =
-        size + "px";
+                    <img
+                        src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
+                        alt="Vanessa Signature"
+                    >
 
-    particle.style.height =
-        size + "px";
+                </div>
 
-    particles.appendChild(particle);
 
-}
+                <div class="about-content">
 
+                    <h2>
+                        Beleza em cada detalhe.
+                    </h2>
 
-/* =====================================================
-   LUZ DO MOUSE
-===================================================== */
+                    <div class="about-line"></div>
 
-const mouseLight =
-    document.getElementById("mouseLight");
+                    <p>
+                        Cada procedimento é pensado de forma
+                        personalizada, respeitando a individualidade,
+                        os traços e a beleza natural de cada cliente.
+                    </p>
 
-window.addEventListener(
-    "mousemove",
-    function(e){
+                    <p>
+                        A Vanessa Signature une precisão técnica,
+                        delicadeza e sofisticação para proporcionar
+                        uma experiência única.
+                    </p>
 
-        mouseLight.style.left =
-            e.clientX + "px";
+                    <p>
+                        Mais do que realçar a beleza, o objetivo é
+                        revelar aquilo que já existe em você.
+                    </p>
 
-        mouseLight.style.top =
-            e.clientY + "px";
+                </div>
 
-    }
-);
+            </div>
 
+        </section>
 
-/* =====================================================
-   MOVIMENTO 3D DA LOGO
-===================================================== */
 
-const logoArea =
-    document.getElementById("brandLogo");
 
-const logoImage =
-    document.getElementById("logoImage");
+        <!-- =====================================================
+             CONTATO
+        ====================================================== -->
 
-logoArea.addEventListener(
-    "mousemove",
-    function(e){
+        <section id="contato" class="reveal">
 
-        const rect =
-            logoArea.getBoundingClientRect();
+            <div class="contact-box">
 
-        const x =
-            e.clientX - rect.left;
+                <h2>
+                    Vamos conversar?
+                </h2>
 
-        const y =
-            e.clientY - rect.top;
+                <p>
+                    Entre em contato para conhecer os procedimentos,
+                    tirar suas dúvidas e agendar seu atendimento.
+                </p>
 
-        const centerX =
-            rect.width / 2;
+                <a
+                    class="whatsapp"
+                    href="https://wa.me/5521987391225"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
 
-        const centerY =
-            rect.height / 2;
+            </div>
 
-        const rotateY =
-            (x - centerX) / 42;
+        </section>
 
-        const rotateX =
-            -(y - centerY) / 42;
+    </main>
 
-        logoImage.style.transform =
-            `
-            perspective(1000px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            scale(1.035)
-            `;
 
-    }
-);
 
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
-logoArea.addEventListener(
-    "mouseleave",
-    function(){
+    <footer>
 
-        logoImage.style.transform =
-            `
-            perspective(1000px)
-            rotateX(0deg)
-            rotateY(0deg)
-            scale(1)
-            `;
+        © <span id="year"></span> Vanessa Signature
 
-    }
-);
+        <br><br>
 
+        <span>
+            Beleza • Precisão • Sofisticação
+        </span>
 
-/* =====================================================
-   CLIQUE NA LOGO
-===================================================== */
+    </footer>
 
-logoArea.addEventListener(
-    "click",
-    function(){
 
-        logoImage.classList.remove(
-            "logo-click"
-        );
 
-        void logoImage.offsetWidth;
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
-        logoImage.classList.add(
-            "logo-click"
-        );
+    <script>
 
-    }
-);
+        /* =========================================================
+           ANO AUTOMÁTICO
+        ========================================================== */
 
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-/* =====================================================
-   NOME INTERATIVO
-===================================================== */
 
-const brandName =
-    document.getElementById("brandName");
 
+        /* =========================================================
+           PARTÍCULAS
+        ========================================================== */
 
-function activateName(){
+        const particlesContainer =
+            document.getElementById("particles");
 
-    brandName.classList.remove(
-        "name-active"
-    );
+        const particleCount = 70;
 
-    void brandName.offsetWidth;
+        for (let i = 0; i < particleCount; i++) {
 
-    brandName.classList.add(
-        "name-active"
-    );
+            const particle =
+                document.createElement("div");
 
-}
+            particle.className = "particle";
 
+            particle.style.left =
+                Math.random() * 100 + "%";
 
-brandName.addEventListener(
-    "click",
-    activateName
-);
+            particle.style.setProperty(
+                "--move-x",
+                (Math.random() * 300 - 150) + "px"
+            );
 
+            particle.style.animationDuration =
+                (8 + Math.random() * 16) + "s";
 
-brandName.addEventListener(
-    "keydown",
-    function(e){
+            particle.style.animationDelay =
+                (-Math.random() * 20) + "s";
 
-        if(
-            e.key === "Enter" ||
-            e.key === " "
-        ){
+            particle.style.opacity =
+                Math.random() * .7;
 
-            e.preventDefault();
+            const size =
+                1 + Math.random() * 2.5;
 
-            activateName();
+            particle.style.width = size + "px";
+            particle.style.height = size + "px";
 
+            particlesContainer.appendChild(particle);
         }
 
-    }
-);
 
 
-/* =====================================================
-   CARDS 3D
-===================================================== */
+        /* =========================================================
+           LUZ QUE ACOMPANHA O MOUSE
+        ========================================================== */
 
-document
-.querySelectorAll(".card")
-.forEach(function(card){
+        const mouseLight =
+            document.getElementById("mouseLight");
 
-    card.addEventListener(
-        "mousemove",
-        function(e){
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
 
-            const rect =
-                card.getBoundingClientRect();
+        let lightX = mouseX;
+        let lightY = mouseY;
+
+        window.addEventListener("mousemove", (event) => {
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+        });
+
+        function animateMouseLight() {
+
+            lightX += (mouseX - lightX) * .08;
+            lightY += (mouseY - lightY) * .08;
+
+            mouseLight.style.left = lightX + "px";
+            mouseLight.style.top = lightY + "px";
+
+            requestAnimationFrame(animateMouseLight);
+        }
+
+        animateMouseLight();
+
+
+
+        /* =========================================================
+           PARALLAX DA LOGO
+        ========================================================== */
+
+        const logoArea =
+            document.getElementById("logoArea");
+
+        const logoCore =
+            document.getElementById("logoCore");
+
+        let targetRotateX = 0;
+        let targetRotateY = 0;
+
+        let currentRotateX = 0;
+        let currentRotateY = 0;
+
+        window.addEventListener("mousemove", (event) => {
 
             const x =
-                e.clientX - rect.left;
+                event.clientX / window.innerWidth - .5;
 
             const y =
-                e.clientY - rect.top;
+                event.clientY / window.innerHeight - .5;
 
-            const rotateY =
-                ((x / rect.width) - .5) * 9;
+            targetRotateY = x * 8;
+            targetRotateX = -y * 8;
 
-            const rotateX =
-                -((y / rect.height) - .5) * 9;
+        });
 
-            card.style.setProperty(
-                "--mouse-x",
-                (x / rect.width * 100) + "%"
-            );
 
-            card.style.setProperty(
-                "--mouse-y",
-                (y / rect.height * 100) + "%"
-            );
+        function animateLogo() {
 
-            card.style.transform =
-                `
-                perspective(900px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                translateY(-7px)
-                `;
+            currentRotateX +=
+                (targetRotateX - currentRotateX) * .08;
 
+            currentRotateY +=
+                (targetRotateY - currentRotateY) * .08;
+
+            logoArea.style.transform =
+                `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+
+            requestAnimationFrame(animateLogo);
         }
-    );
+
+        animateLogo();
 
 
-    card.addEventListener(
-        "mouseleave",
-        function(){
 
-            card.style.transform =
-                `
-                perspective(900px)
-                rotateX(0deg)
-                rotateY(0deg)
-                translateY(0)
-                `;
+        /* =========================================================
+           CLIQUE NA LOGO
+        ========================================================== */
 
-        }
-    );
+        logoCore.addEventListener("click", () => {
 
-});
-
-
-/* =====================================================
-   REVEAL
-===================================================== */
-
-const observer =
-    new IntersectionObserver(
-        function(entries){
-
-            entries.forEach(
-                function(entry){
-
-                    if(
-                        entry.isIntersecting
-                    ){
-
-                        entry.target.classList.add(
-                            "active"
-                        );
-
+            logoCore.animate(
+                [
+                    {
+                        transform: "scale(1)"
+                    },
+                    {
+                        transform: "scale(1.07)"
+                    },
+                    {
+                        transform: "scale(1)"
                     }
-
+                ],
+                {
+                    duration: 700,
+                    easing: "cubic-bezier(.2,.8,.2,1)"
                 }
             );
 
-        },
-        {
-            threshold:.15
-        }
-    );
+        });
 
 
-document
-.querySelectorAll(".reveal")
-.forEach(function(element){
 
-    observer.observe(element);
+        /* =========================================================
+           CLIQUE NO NOME
+        ========================================================== */
 
-});
+        const brandName =
+            document.getElementById("brandName");
 
-</script>
+        brandName.addEventListener("click", () => {
+
+            brandName.classList.remove("active");
+
+            void brandName.offsetWidth;
+
+            brandName.classList.add("active");
+
+        });
+
+
+
+        /* =========================================================
+           3D NOS CARDS
+        ========================================================== */
+
+        const cards =
+            document.querySelectorAll(".service-card");
+
+        cards.forEach((card) => {
+
+            card.addEventListener("mousemove", (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+                const rotateY =
+                    ((x - centerX) / centerX) * 7;
+
+                const rotateX =
+                    ((centerY - y) / centerY) * 7;
+
+                card.style.transform =
+                    `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+
+            });
+
+
+            card.addEventListener("mouseleave", () => {
+
+                card.style.transform =
+                    "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+            });
+
+        });
+
+
+
+        /* =========================================================
+           REVEAL AO ROLAR
+        ========================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: .15
+                }
+            );
+
+
+        revealElements.forEach((element) => {
+
+            observer.observe(element);
+
+        });
+
+
+
+        /* =========================================================
+           CLIQUES SUAVES NOS LINKS
+        ========================================================== */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach((link) => {
+
+                link.addEventListener("click", (event) => {
+
+                    const targetId =
+                        link.getAttribute("href");
+
+                    const target =
+                        document.querySelector(targetId);
+
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                });
+
+            });
+
+
+
+        /* =========================================================
+           EFEITO DE PROFUNDIDADE NO SCROLL
+        ========================================================== */
+
+        const aura =
+            document.querySelector(".logo-aura");
+
+        window.addEventListener("scroll", () => {
+
+            const scroll =
+                window.scrollY;
+
+            if (aura) {
+
+                aura.style.transform =
+                    `translateY(${scroll * .08}px) scale(${1 + Math.min(scroll / 5000, .08)})`;
+
+            }
+
+        });
+
+
+
+        /* =========================================================
+           PROTEÇÃO CONTRA ARRASTAR A LOGO
+        ========================================================== */
+
+        document
+            .getElementById("logoImage")
+            .addEventListener("dragstart", (event) => {
+
+                event.preventDefault();
+
+            });
+
+    </script>
 
 </body>
 </html>
