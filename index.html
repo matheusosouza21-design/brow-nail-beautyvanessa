@@ -1,3122 +1,2221 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
-<meta name="color-scheme" content="dark">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vanessa Signature</title>
+  <title>Vanessa Signature | Beleza, precisão e sofisticação</title>
 
-<style>
+  <meta
+    name="description"
+    content="Vanessa Signature — Micro Labial, Dermopigmentação e Design de Sobrancelhas."
+  >
 
-/* =========================================================
-   RESET / BASE
-========================================================= */
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-html{
-    scroll-behavior:smooth;
-}
+  <style>
+    :root {
+      --black: #030303;
+      --black-2: #080808;
+      --black-3: #101010;
 
-:root{
-    --rose:#d8a0b0;
-    --rose-light:#f1ccd7;
-    --rose-dark:#865568;
-    --rose-deep:#351c28;
-    --black:#030303;
-    --glass:rgba(18,10,14,.72);
+      --rose: #d8a0b0;
+      --rose-light: #f1cbd5;
+      --rose-dark: #8d5265;
+      --rose-deep: #5d3040;
 
-    --mouse-x:50vw;
-    --mouse-y:50vh;
-}
+      --white: #f8f4f5;
+      --gray: #a99fa2;
 
-body{
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
+      --glass: rgba(255,255,255,.055);
+      --border: rgba(216,160,176,.25);
 
-    background:#030303;
-    color:#f4dce3;
+      --shadow:
+        0 30px 100px rgba(0,0,0,.65),
+        0 0 80px rgba(216,160,176,.08);
+    }
 
-    overflow-x:hidden;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-}
+    html {
+      scroll-behavior: smooth;
+      background: var(--black);
+    }
 
-/* =========================================================
-   SCANLINES / GRID GLOBAL
-========================================================= */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(216,160,176,.10), transparent 35%),
+        radial-gradient(circle at 0% 50%, rgba(216,160,176,.035), transparent 30%),
+        #030303;
+      color: var(--white);
+      font-family: "Inter", sans-serif;
+    }
 
-body::before{
-    content:"";
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    position:fixed;
-    inset:0;
+    button {
+      font: inherit;
+    }
 
-    pointer-events:none;
-    z-index:90;
+    /* =========================================================
+       MARBLE ENGINE
+       ========================================================= */
 
-    opacity:.20;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent 49.8%,
-            rgba(216,160,176,.055) 50%,
-            transparent 50.2%
-        ),
-        linear-gradient(
-            0deg,
-            transparent 49.8%,
-            rgba(216,160,176,.055) 50%,
-            transparent 50.2%
-        );
-
-    background-size:85px 85px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 92%
-        );
-}
-
-body::after{
-    content:"";
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-    z-index:89;
-
-    background:
+    .marble {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
         radial-gradient(
-            circle 260px at var(--mouse-x) var(--mouse-y),
-            rgba(216,160,176,.105),
-            transparent 70%
-        );
-}
-
-/* =========================================================
-   PARTÍCULAS
-========================================================= */
-
-.particles{
-    position:fixed;
-    inset:0;
-
-    overflow:hidden;
-    pointer-events:none;
-
-    z-index:5;
-}
-
-.p{
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
-    border-radius:50%;
-
-    background:#d8a0b0;
-
-    box-shadow:
-        0 0 8px #d8a0b0,
-        0 0 20px rgba(216,160,176,.85),
-        0 0 35px rgba(216,160,176,.35);
-
-    animation:
-        particleFloat linear infinite;
-}
-
-.p:nth-child(1){
-    left:4%;
-    animation-duration:13s;
-}
-
-.p:nth-child(2){
-    left:12%;
-    animation-duration:17s;
-    animation-delay:-5s;
-}
-
-.p:nth-child(3){
-    left:23%;
-    animation-duration:11s;
-    animation-delay:-3s;
-}
-
-.p:nth-child(4){
-    left:35%;
-    animation-duration:19s;
-    animation-delay:-9s;
-}
-
-.p:nth-child(5){
-    left:48%;
-    animation-duration:14s;
-    animation-delay:-4s;
-}
-
-.p:nth-child(6){
-    left:61%;
-    animation-duration:18s;
-    animation-delay:-12s;
-}
-
-.p:nth-child(7){
-    left:74%;
-    animation-duration:12s;
-    animation-delay:-6s;
-}
-
-.p:nth-child(8){
-    left:87%;
-    animation-duration:16s;
-    animation-delay:-10s;
-}
-
-.p:nth-child(9){
-    left:95%;
-    animation-duration:20s;
-    animation-delay:-8s;
-}
-
-.p:nth-child(10){
-    left:28%;
-    animation-duration:22s;
-    animation-delay:-15s;
-}
-
-.p:nth-child(11){
-    left:69%;
-    animation-duration:15s;
-    animation-delay:-7s;
-}
-
-@keyframes particleFloat{
-
-    0%{
-        transform:
-            translateY(110vh)
-            translateX(0)
-            scale(.2);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:.7;
-    }
-
-    50%{
-        transform:
-            translateY(50vh)
-            translateX(30px)
-            scale(1);
-    }
-
-    85%{
-        opacity:.35;
-    }
-
-    100%{
-        transform:
-            translateY(-15vh)
-            translateX(-25px)
-            scale(1.5);
-
-        opacity:0;
-    }
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-header{
-    min-height:100svh;
-
-    position:relative;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:
-        90px 20px 100px;
-
-    overflow:hidden;
-
-    isolation:isolate;
-
-    background:
-        radial-gradient(
-            circle 500px at var(--mouse-x) var(--mouse-y),
-            rgba(216,160,176,.14),
-            transparent 70%
+          ellipse at 20% 20%,
+          rgba(255,255,255,.11) 0%,
+          transparent 23%
         ),
         radial-gradient(
-            ellipse at 50% 45%,
-            rgba(102,47,68,.22),
-            transparent 50%
+          ellipse at 80% 70%,
+          rgba(216,160,176,.10) 0%,
+          transparent 30%
         ),
         linear-gradient(
-            135deg,
-            #020202 0%,
-            #10080c 45%,
-            #030303 100%
+          125deg,
+          #020202 0%,
+          #111 17%,
+          #030303 31%,
+          #181416 44%,
+          #020202 58%,
+          #111 72%,
+          #030303 100%
         );
-}
+    }
 
-/* =========================================================
-   MÁRMORE TECNOLÓGICO DO HERO
-========================================================= */
+    .marble::before {
+      content: "";
+      position: absolute;
+      inset: -35%;
+      z-index: -2;
 
-.marble-background{
-    position:absolute;
-    inset:-15%;
-
-    z-index:-4;
-
-    opacity:.28;
-
-    background:
-        radial-gradient(
-            ellipse at 20% 30%,
-            rgba(255,210,223,.14),
-            transparent 20%
-        ),
-        radial-gradient(
-            ellipse at 80% 65%,
-            rgba(216,160,176,.16),
-            transparent 24%
+      background:
+        repeating-linear-gradient(
+          112deg,
+          transparent 0 22px,
+          rgba(255,255,255,.025) 23px 25px,
+          transparent 26px 58px
         ),
         repeating-linear-gradient(
-            117deg,
-            transparent 0 38px,
-            rgba(216,160,176,.06) 39px,
-            transparent 41px 72px
+          68deg,
+          transparent 0 34px,
+          rgba(216,160,176,.035) 35px 38px,
+          transparent 39px 82px
         ),
         repeating-linear-gradient(
-            67deg,
-            transparent 0 95px,
-            rgba(255,220,230,.035) 97px,
-            transparent 100px 170px
+          128deg,
+          transparent 0 90px,
+          rgba(255,255,255,.06) 91px 94px,
+          transparent 95px 170px
         );
 
-    filter:
-        blur(.2px)
-        contrast(115%);
+      filter: blur(2px);
+      transform: rotate(-4deg) scale(1.15);
+      animation: marbleFlow 18s ease-in-out infinite alternate;
+    }
 
-    transform:
-        scale(1.08)
-        rotate(-2deg);
+    .marble::after {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      z-index: -1;
 
-    animation:
-        marbleDrift 24s ease-in-out infinite alternate;
-}
+      background:
+        conic-gradient(
+          from 45deg at 30% 40%,
+          transparent,
+          rgba(216,160,176,.13),
+          transparent 16%,
+          rgba(255,255,255,.08),
+          transparent 32%,
+          rgba(216,160,176,.08),
+          transparent 50%
+        );
 
-@keyframes marbleDrift{
+      mix-blend-mode: screen;
+      filter: blur(25px);
+      opacity: .65;
 
-    0%{
+      animation: marbleGlow 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes marbleFlow {
+      0% {
+        transform: rotate(-4deg) scale(1.15) translate3d(-2%, -1%, 0);
+      }
+
+      50% {
+        transform: rotate(-1deg) scale(1.18) translate3d(2%, 2%, 0);
+      }
+
+      100% {
+        transform: rotate(-5deg) scale(1.16) translate3d(-1%, 3%, 0);
+      }
+    }
+
+    @keyframes marbleGlow {
+      0% {
+        transform: translate3d(-4%, -2%, 0) rotate(0deg);
+        opacity: .35;
+      }
+
+      100% {
+        transform: translate3d(4%, 3%, 0) rotate(12deg);
+        opacity: .8;
+      }
+    }
+
+    /* =========================================================
+       GLOBAL TECHNOLOGY BACKGROUND
+       ========================================================= */
+
+    .background-tech {
+      position: fixed;
+      inset: 0;
+      z-index: -20;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 30%),
+        rgba(216,160,176,.08),
+        transparent 25%);
+    }
+
+    .background-tech::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+
+      background-size: 70px 70px;
+
+      mask-image:
+        linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .ambient {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .09;
+    }
+
+    .ambient.one {
+      top: -250px;
+      left: -200px;
+      background: var(--rose);
+    }
+
+    .ambient.two {
+      right: -300px;
+      top: 25%;
+      background: #8d5265;
+    }
+
+    .ambient.three {
+      left: 25%;
+      bottom: -400px;
+      background: #d8a0b0;
+    }
+
+    /* =========================================================
+       CLICK TECHNOLOGY EFFECT
+       ========================================================= */
+
+    .tech-target {
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tech-target::after {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(.92);
+      border: 1px solid rgba(216,160,176,.8);
+      box-shadow:
+        0 0 20px rgba(216,160,176,.45),
+        inset 0 0 20px rgba(216,160,176,.12);
+    }
+
+    .tech-target.tech-active::after {
+      animation: targetPulse .7s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes targetPulse {
+      0% {
+        opacity: 0;
+        transform: scale(.88);
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.12);
+      }
+    }
+
+    .click-wave {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+
+      border: 1px solid rgba(241,203,213,.95);
+
+      box-shadow:
+        0 0 10px rgba(216,160,176,.9),
+        0 0 35px rgba(216,160,176,.5),
+        inset 0 0 15px rgba(216,160,176,.3);
+
+      transform: translate(-50%, -50%) scale(0);
+      animation: clickWave .8s cubic-bezier(.15,.7,.2,1) forwards;
+    }
+
+    @keyframes clickWave {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+      }
+
+      60% {
+        opacity: .7;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 0;
+      }
+    }
+
+    .click-particle {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--rose-light);
+      pointer-events: none;
+      z-index: 1000000;
+      box-shadow: 0 0 12px var(--rose);
+      animation: particleFly .8s ease-out forwards;
+    }
+
+    @keyframes particleFly {
+      0% {
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+      }
+
+      100% {
+        opacity: 0;
         transform:
-            scale(1.08)
-            translate3d(-1%,0,0)
-            rotate(-2deg);
+          translate(
+            calc(var(--dx) * 1px),
+            calc(var(--dy) * 1px)
+          )
+          scale(.1);
+      }
     }
 
-    100%{
-        transform:
-            scale(1.13)
-            translate3d(1.5%,-1%,0)
-            rotate(1deg);
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    header {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 22px 90px;
+      overflow: hidden;
     }
-}
 
-/* =========================================================
-   GRID 3D
-========================================================= */
-
-.grid{
-    position:absolute;
-    inset:-20%;
-
-    z-index:-3;
-
-    background:
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .35;
+      background:
         linear-gradient(
-            rgba(216,160,176,.045) 1px,
-            transparent 1px
+          90deg,
+          transparent 49.8%,
+          rgba(216,160,176,.08) 50%,
+          transparent 50.2%
         ),
         linear-gradient(
-            90deg,
-            rgba(216,160,176,.045) 1px,
-            transparent 1px
+          0deg,
+          transparent 49.8%,
+          rgba(216,160,176,.05) 50%,
+          transparent 50.2%
         );
-
-    background-size:60px 60px;
-
-    transform:
-        perspective(800px)
-        rotateX(60deg)
-        translateY(18%);
-
-    mask-image:
-        linear-gradient(
-            to top,
-            black,
-            transparent 72%
-        );
-
-    animation:
-        gridMove 18s linear infinite;
-}
-
-@keyframes gridMove{
-
-    from{
-        background-position:0 0;
+      background-size: 160px 160px;
+      mask-image: radial-gradient(circle, black, transparent 75%);
     }
 
-    to{
-        background-position:0 60px;
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      width: min(1100px, 100%);
+      text-align: center;
     }
-}
 
-/* =========================================================
-   VÉU / LUZ CENTRAL
-========================================================= */
+    /* =========================================================
+       LOGO SYSTEM
+       ========================================================= */
 
-.hero-light{
-    position:absolute;
+    .logo-area {
+      position: relative;
+      width: min(390px, 82vw);
+      aspect-ratio: 1;
+      margin: 0 auto 25px;
+      display: grid;
+      place-items: center;
 
-    width:min(850px,100vw);
-    aspect-ratio:1;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
 
-    border-radius:50%;
+    .logo-marble {
+      position: absolute;
+      width: 91%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
 
-    z-index:-2;
-
-    background:
+      background:
         radial-gradient(
-            circle,
-            rgba(216,160,176,.13),
-            rgba(216,160,176,.04) 35%,
-            transparent 68%
-        );
-
-    filter:blur(20px);
-
-    animation:
-        heroLightPulse 7s ease-in-out infinite;
-}
-
-@keyframes heroLightPulse{
-
-    0%,100%{
-        transform:scale(.92);
-        opacity:.65;
-    }
-
-    50%{
-        transform:scale(1.08);
-        opacity:1;
-    }
-}
-
-/* =========================================================
-   ANÉIS TECNOLÓGICOS
-========================================================= */
-
-.tech-ring{
-    position:absolute;
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:-1;
-
-    transform-style:preserve-3d;
-}
-
-.tech-ring.one{
-    width:min(950px,115vw);
-    aspect-ratio:1;
-
-    border:
-        1px solid
-        rgba(216,160,176,.13);
-
-    box-shadow:
-        0 0 40px rgba(216,160,176,.035);
-
-    animation:
-        rotateRing 32s linear infinite;
-}
-
-.tech-ring.two{
-    width:min(810px,96vw);
-    aspect-ratio:1;
-
-    border:
-        1px dashed
-        rgba(216,160,176,.13);
-
-    animation:
-        rotateRingReverse 24s linear infinite;
-}
-
-.tech-ring.three{
-    width:min(650px,78vw);
-    aspect-ratio:1;
-
-    border:
-        1px solid
-        rgba(216,160,176,.08);
-
-    animation:
-        rotateRing 18s linear infinite;
-}
-
-.tech-ring.four{
-    width:min(1080px,130vw);
-    aspect-ratio:1;
-
-    border:
-        1px dotted
-        rgba(216,160,176,.07);
-
-    animation:
-        rotateRingReverse 48s linear infinite;
-}
-
-.tech-ring::before,
-.tech-ring::after{
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#e6bbc8;
-
-    box-shadow:
-        0 0 10px #d8a0b0,
-        0 0 25px rgba(216,160,176,.8),
-        0 0 45px rgba(216,160,176,.3);
-}
-
-.tech-ring::before{
-    top:0;
-    left:50%;
-
-    transform:
-        translate(-50%,-50%);
-}
-
-.tech-ring::after{
-    bottom:0;
-    left:50%;
-
-    transform:
-        translate(-50%,50%);
-}
-
-@keyframes rotateRing{
-
-    from{
-        transform:rotate(0);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes rotateRingReverse{
-
-    from{
-        transform:rotate(360deg);
-    }
-
-    to{
-        transform:rotate(0);
-    }
-}
-
-/* =========================================================
-   HUD DECORATIVO
-========================================================= */
-
-.hud{
-    position:absolute;
-
-    z-index:2;
-
-    color:rgba(237,201,212,.55);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    pointer-events:none;
-}
-
-.hud.top-left{
-    top:35px;
-    left:35px;
-}
-
-.hud.top-right{
-    top:35px;
-    right:35px;
-
-    text-align:right;
-}
-
-.hud.bottom-left{
-    bottom:30px;
-    left:35px;
-}
-
-.hud.bottom-right{
-    bottom:30px;
-    right:35px;
-
-    text-align:right;
-}
-
-.hud-line{
-    width:95px;
-    height:1px;
-
-    margin:7px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--rose),
-            transparent
-        );
-}
-
-.hud.top-right .hud-line,
-.hud.bottom-right .hud-line{
-    margin-left:auto;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--rose)
-        );
-}
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero{
-    width:100%;
-    max-width:1300px;
-
-    position:relative;
-    z-index:10;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-/* =========================================================
-   LOGO AREA
-========================================================= */
-
-.logo-area{
-    position:relative;
-
-    width:min(590px,88vw);
-    aspect-ratio:1;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-bottom:28px;
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .18s ease-out;
-
-    isolation:isolate;
-}
-
-/* MÁRMORE ATRÁS DA LOGO */
-
-.logo-marble{
-    position:absolute;
-
-    inset:3%;
-
-    border-radius:50%;
-
-    z-index:-2;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            ellipse at 25% 25%,
-            rgba(244,204,216,.24),
-            transparent 25%
+          circle at 35% 25%,
+          rgba(255,255,255,.08),
+          transparent 30%
         ),
-        radial-gradient(
-            ellipse at 75% 70%,
-            rgba(160,83,107,.30),
-            transparent 32%
-        ),
-        linear-gradient(
-            135deg,
-            #12090d,
-            #3b202c 38%,
-            #13090e 72%,
-            #5b2f40
-        );
+        #030303;
 
-    box-shadow:
-        0 0 100px rgba(216,160,176,.16),
-        inset 0 0 70px rgba(0,0,0,.85);
+      box-shadow:
+        0 0 0 1px rgba(216,160,176,.28),
+        0 0 30px rgba(216,160,176,.12),
+        0 30px 90px rgba(0,0,0,.9),
+        inset 0 0 50px rgba(0,0,0,.95);
 
-    transform:
-        translateZ(-20px)
-        scale(.98);
+      transform: translateZ(-15px);
+    }
 
-    animation:
-        marbleCore 13s ease-in-out infinite alternate;
-}
+    .logo-marble::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
 
-.logo-marble::before{
-    content:"";
-
-    position:absolute;
-    inset:-20%;
-
-    background:
+      background:
         repeating-linear-gradient(
-            118deg,
-            transparent 0 28px,
-            rgba(255,220,229,.08) 30px,
-            rgba(111,53,72,.14) 34px,
-            transparent 39px 76px
+          118deg,
+          transparent 0 25px,
+          rgba(255,255,255,.07) 26px 28px,
+          transparent 29px 62px
         ),
         repeating-linear-gradient(
-            64deg,
-            transparent 0 75px,
-            rgba(255,220,229,.045) 77px,
-            transparent 82px 140px
+          64deg,
+          transparent 0 45px,
+          rgba(216,160,176,.14) 46px 49px,
+          transparent 50px 95px
+        ),
+        conic-gradient(
+          from 130deg,
+          transparent,
+          rgba(216,160,176,.12),
+          transparent 20%,
+          rgba(255,255,255,.06),
+          transparent 42%,
+          rgba(216,160,176,.08),
+          transparent 65%
         );
 
-    filter:
-        blur(2px);
+      filter: blur(2px);
+      transform: rotate(-10deg) scale(1.2);
 
-    transform:
-        rotate(-7deg)
-        scale(1.15);
-
-    animation:
-        marbleVeins 18s linear infinite alternate;
-}
-
-.logo-marble::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            transparent 42%,
-            rgba(0,0,0,.42) 80%,
-            rgba(0,0,0,.75)
-        );
-
-    pointer-events:none;
-}
-
-@keyframes marbleCore{
-
-    0%{
-        transform:
-            translateZ(-20px)
-            scale(.98)
-            rotate(-1deg);
+      animation: logoMarble 12s ease-in-out infinite alternate;
     }
 
-    100%{
-        transform:
-            translateZ(-20px)
-            scale(1.025)
-            rotate(1deg);
-    }
-}
-
-@keyframes marbleVeins{
-
-    from{
-        transform:
-            rotate(-7deg)
-            scale(1.15)
-            translate3d(-2%,0,0);
-    }
-
-    to{
-        transform:
-            rotate(-4deg)
-            scale(1.2)
-            translate3d(2%,-2%,0);
-    }
-}
-
-/* =========================================================
-   AURA
-========================================================= */
-
-.logo-aura{
-    position:absolute;
-
-    inset:0;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(216,160,176,.26),
-            rgba(216,160,176,.08) 38%,
-            transparent 68%
-        );
-
-    filter:blur(28px);
-
-    animation:
-        auraPulse 4s ease-in-out infinite;
-
-    z-index:-3;
-}
-
-@keyframes auraPulse{
-
-    0%,100%{
-        transform:scale(.91);
-        opacity:.48;
-    }
-
-    50%{
-        transform:scale(1.08);
-        opacity:.95;
-    }
-}
-
-/* =========================================================
-   FRAME
-========================================================= */
-
-.logo-frame{
-    position:absolute;
-
-    inset:1%;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(216,160,176,.18);
-
-    box-shadow:
-        0 0 45px rgba(216,160,176,.10),
-        inset 0 0 35px rgba(216,160,176,.06);
-
-    animation:
-        frameBreath 5s ease-in-out infinite;
-}
-
-.logo-frame::before{
-    content:"";
-
-    position:absolute;
-
-    inset:3%;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(216,160,176,.10);
-
-    border-top-color:
-        rgba(216,160,176,.75);
-
-    border-right-color:
-        rgba(216,160,176,.30);
-
-    animation:
-        rotateRingReverse 11s linear infinite;
-}
-
-.logo-frame::after{
-    content:"";
-
-    position:absolute;
-
-    top:50%;
-    left:-4px;
-
-    width:12px;
-    height:12px;
-
-    border-radius:50%;
-
-    background:#e8bfcb;
-
-    box-shadow:
-        0 0 10px #d8a0b0,
-        0 0 35px rgba(216,160,176,.9);
-}
-
-@keyframes frameBreath{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:.7;
-    }
-
-    50%{
-        transform:scale(1.018);
-        opacity:1;
-    }
-}
-
-/* =========================================================
-   LOGO CORE
-========================================================= */
-
-.logo-core{
-    position:absolute;
-
-    width:86%;
-    height:86%;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    z-index:5;
-
-    border:
-        1px solid
-        rgba(216,160,176,.22);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(35,18,25,.7),
-            #070507 75%
-        );
-
-    box-shadow:
-        0 35px 85px rgba(0,0,0,.78),
-        0 0 55px rgba(216,160,176,.13),
-        inset 0 0 50px rgba(216,160,176,.07);
-
-    transform:
-        translateZ(25px);
-
-    transition:
-        box-shadow .4s ease,
-        transform .4s ease;
-}
-
-.logo-core::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:2;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            120deg,
-            transparent 25%,
-            rgba(255,255,255,.15) 48%,
-            transparent 58%
-        );
-
-    transform:
-        translateX(-130%);
-
-    animation:
-        logoReflection 5s ease-in-out infinite;
-}
-
-.logo-core::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    border-radius:50%;
-
-    box-shadow:
-        inset 0 0 45px rgba(0,0,0,.72);
-
-    pointer-events:none;
-
-    z-index:3;
-}
-
-@keyframes logoReflection{
-
-    0%,45%{
-        transform:translateX(-130%);
-    }
-
-    65%,100%{
-        transform:translateX(130%);
-    }
-}
-
-.logo-core-mask{
-    position:absolute;
-    inset:0;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* =========================================================
-   LOGO ORIGINAL
-========================================================= */
-
-.brand-logo{
-    width:112%;
-    height:112%;
-
-    object-fit:contain;
-
-    display:block;
-
-    user-select:none;
-    -webkit-user-drag:none;
-
-    filter:
-        drop-shadow(0 18px 25px rgba(0,0,0,.55))
-        drop-shadow(0 0 18px rgba(216,160,176,.18));
-
-    transition:
-        transform .5s cubic-bezier(.2,.8,.2,1),
-        filter .5s ease;
-}
-
-/* =========================================================
-   MINI HUD AO REDOR DA LOGO
-========================================================= */
-
-.logo-status{
-    position:absolute;
-
-    bottom:6%;
-    right:3%;
-
-    z-index:15;
-
-    padding:9px 13px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.22);
-
-    border-radius:999px;
-
-    background:
-        rgba(6,4,5,.72);
-
-    backdrop-filter:
-        blur(12px);
-
-    color:
-        rgba(239,207,216,.75);
-
-    font:
-        9px "Courier New",monospace;
-
-    letter-spacing:1.5px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.45);
-}
-
-.logo-status::before{
-    content:"";
-
-    display:inline-block;
-
-    width:6px;
-    height:6px;
-
-    margin-right:7px;
-
-    border-radius:50%;
-
-    background:#d8a0b0;
-
-    box-shadow:
-        0 0 10px #d8a0b0;
-
-    animation:
-        statusBlink 1.6s ease-in-out infinite;
-}
-
-@keyframes statusBlink{
-
-    0%,100%{
-        opacity:.4;
-    }
-
-    50%{
-        opacity:1;
-    }
-}
-
-/* =========================================================
-   TÍTULO
-========================================================= */
-
-.hero-title{
-    position:relative;
-
-    font:
-        500 clamp(48px,7vw,82px)
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    letter-spacing:
-        clamp(2px,1vw,6px);
-
-    text-align:center;
-
-    line-height:1.08;
-
-    margin-bottom:20px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #8c566a 0%,
-            #e6bac8 15%,
-            #a9697c 27%,
-            #f4d4dc 40%,
-            #9e5f74 53%,
-            #e7b4c2 67%,
-            #995c71 82%,
-            #f0ccd6 100%
-        );
-
-    background-size:
-        400% 400%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        marbleFlow 10s ease-in-out infinite;
-
-    filter:
-        drop-shadow(0 0 15px rgba(216,160,176,.18));
-
-    transition:
-        transform .4s ease,
-        filter .4s ease;
-}
-
-.hero-title::before{
-    content:"";
-
-    position:absolute;
-
-    inset:-18px -35px;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(216,160,176,.13),
-            transparent 65%
-        );
-
-    filter:blur(16px);
-
-    z-index:-1;
-}
-
-.hero-title::after{
-    content:"";
-
-    position:absolute;
-
-    top:-20%;
-    left:-35%;
-
-    width:22%;
-    height:140%;
-
-    transform:
-        skewX(-25deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.55),
-            transparent
-        );
-
-    animation:
-        titleShine 5s ease-in-out infinite;
-}
-
-.hero-title:hover{
-    transform:
-        translateY(-5px)
-        scale(1.025);
-
-    filter:
-        drop-shadow(0 0 28px rgba(216,160,176,.35));
-}
-
-@keyframes marbleFlow{
-
-    0%,100%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-}
-
-@keyframes titleShine{
-
-    0%,35%{
-        left:-35%;
-    }
-
-    65%,100%{
-        left:125%;
-    }
-}
-
-/* =========================================================
-   SUBTÍTULO
-========================================================= */
-
-.hero-subtitle{
-    max-width:900px;
-
-    margin-bottom:38px;
-
-    text-align:center;
-
-    color:#e1ccd3;
-
-    font-size:
-        clamp(17px,2.2vw,25px);
-
-    line-height:1.65;
-
-    letter-spacing:1px;
-
-    text-shadow:
+    .logo-marble::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      border: 1px solid rgba(216,160,176,.2);
+      box-shadow:
+        inset 0 0 30px rgba(216,160,176,.08),
         0 0 20px rgba(216,160,176,.08);
-
-    transition:
-        transform .4s ease,
-        letter-spacing .4s ease;
-}
-
-.hero-subtitle:hover{
-    transform:translateY(-3px);
-    letter-spacing:1.8px;
-}
-
-/* =========================================================
-   TAGS
-========================================================= */
-
-.hero-info{
-    width:100%;
-
-    display:flex;
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:16px;
-
-    margin-bottom:42px;
-}
-
-.hero-info span{
-    position:relative;
-
-    padding:16px 24px;
-
-    border-radius:999px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.28);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(49,27,36,.76),
-            rgba(8,8,8,.72)
-        );
-
-    backdrop-filter:
-        blur(18px);
-
-    color:#f2dfe5;
-
-    font-size:16px;
-    font-weight:600;
-
-    letter-spacing:.6px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.35),
-        inset 0 1px rgba(255,255,255,.04);
-
-    transition:
-        transform .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
-
-.hero-info span::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    border-radius:inherit;
-
-    background:
-        linear-gradient(
-            110deg,
-            transparent,
-            rgba(255,255,255,.07),
-            transparent
-        );
-
-    transform:
-        translateX(-120%);
-
-    transition:
-        transform .7s ease;
-}
-
-.hero-info span:hover::before{
-    transform:
-        translateX(120%);
-}
-
-.hero-info span:hover{
-    transform:
-        translateY(-8px)
-        scale(1.045);
-
-    border-color:
-        rgba(216,160,176,.78);
-
-    box-shadow:
-        0 22px 50px rgba(0,0,0,.5),
-        0 0 30px rgba(216,160,176,.13);
-}
-
-/* =========================================================
-   BOTÃO
-========================================================= */
-
-.button{
-    position:relative;
-
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-width:290px;
-
-    padding:19px 36px;
-
-    border-radius:999px;
-
-    text-decoration:none;
-
-    background:
-        linear-gradient(
-            120deg,
-            #f1ccd6,
-            #bc7c91,
-            #e8bac7,
-            #a9667b
-        );
-
-    background-size:300% 300%;
-
-    color:#10090c;
-
-    font-size:17px;
-    font-weight:800;
-
-    letter-spacing:.5px;
-
-    box-shadow:
-        0 18px 50px rgba(216,160,176,.23),
-        inset 0 1px rgba(255,255,255,.65);
-
-    overflow:hidden;
-
-    animation:
-        buttonGlow 6s ease-in-out infinite;
-
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
-}
-
-.button::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:65%;
-    height:100%;
-
-    transform:skewX(-25deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.65),
-            transparent
-        );
-
-    transition:
-        left .8s ease;
-}
-
-.button:hover{
-    transform:
-        translateY(-7px)
-        scale(1.045);
-
-    box-shadow:
-        0 28px 70px rgba(216,160,176,.36),
-        0 0 30px rgba(216,160,176,.14);
-}
-
-.button:hover::before{
-    left:150%;
-}
-
-@keyframes buttonGlow{
-
-    0%,100%{
-        background-position:0% 50%;
     }
 
-    50%{
-        background-position:100% 50%;
+    @keyframes logoMarble {
+      from {
+        transform: rotate(-10deg) scale(1.2) translate(-2%, -1%);
+      }
+
+      to {
+        transform: rotate(7deg) scale(1.25) translate(3%, 2%);
+      }
     }
-}
 
-/* =========================================================
-   SEÇÕES
-========================================================= */
-
-section{
-    position:relative;
-
-    padding:
-        135px 25px;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    isolation:isolate;
-
-    background:
+    .logo-aura {
+      position: absolute;
+      width: 105%;
+      height: 105%;
+      border-radius: 50%;
+      background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(216,160,176,.09),
-            transparent 45%
+          circle,
+          transparent 52%,
+          rgba(216,160,176,.12) 54%,
+          transparent 59%
+        );
+      filter: blur(1px);
+      animation: auraSpin 12s linear infinite;
+    }
+
+    .logo-aura::before,
+    .logo-aura::after {
+      content: "";
+      position: absolute;
+      inset: 4%;
+      border-radius: 50%;
+      border: 1px solid rgba(216,160,176,.16);
+    }
+
+    .logo-aura::after {
+      inset: 9%;
+      border-color: rgba(255,255,255,.07);
+      transform: rotate(65deg);
+    }
+
+    @keyframes auraSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .logo-frame {
+      position: absolute;
+      width: 94%;
+      height: 94%;
+      border-radius: 50%;
+      border: 1px solid rgba(216,160,176,.4);
+      box-shadow:
+        0 0 30px rgba(216,160,176,.13),
+        inset 0 0 30px rgba(216,160,176,.08);
+
+      transform-style: preserve-3d;
+      transition: transform .18s ease-out;
+    }
+
+    .logo-frame::before,
+    .logo-frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(216,160,176,.18);
+    }
+
+    .logo-frame::before {
+      inset: 7%;
+      animation: frameRotate 16s linear infinite reverse;
+    }
+
+    .logo-frame::after {
+      inset: -7%;
+      border-color: rgba(255,255,255,.06);
+      animation: frameRotate 22s linear infinite;
+    }
+
+    @keyframes frameRotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .logo-core {
+      position: relative;
+      width: 73%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 8px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.2),
+          rgba(216,160,176,.35) 25%,
+          rgba(55,28,36,.9) 65%,
+          rgba(0,0,0,.95)
+        );
+
+      box-shadow:
+        0 25px 55px rgba(0,0,0,.8),
+        0 0 45px rgba(216,160,176,.14);
+
+      transform-style: preserve-3d;
+      transition:
+        transform .18s ease-out,
+        box-shadow .3s ease;
+    }
+
+    .logo-core-mask {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      background: #050505;
+
+      box-shadow:
+        inset 0 0 35px rgba(0,0,0,.9),
+        inset 0 0 8px rgba(216,160,176,.35);
+    }
+
+    .logo-core-mask::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          115deg,
+          rgba(255,255,255,.16),
+          transparent 23%,
+          transparent 65%,
+          rgba(216,160,176,.09)
+        );
+
+      mix-blend-mode: screen;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+
+      position: relative;
+      z-index: 2;
+
+      transform: translateZ(30px);
+      filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.75))
+        drop-shadow(0 0 15px rgba(216,160,176,.12));
+    }
+
+    .logo-status {
+      position: absolute;
+      bottom: 7%;
+      right: 8%;
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 7px 11px;
+      border: 1px solid rgba(216,160,176,.3);
+      border-radius: 100px;
+
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(12px);
+
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+
+      color: var(--rose-light);
+
+      z-index: 20;
+    }
+
+    .status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rose-light);
+      box-shadow: 0 0 12px var(--rose-light);
+      animation: statusPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes statusPulse {
+      50% {
+        opacity: .35;
+        transform: scale(.65);
+      }
+    }
+
+    /* =========================================================
+       HERO TITLE — MARBLE ROSÉ
+       ========================================================= */
+
+    .hero-title-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      padding: 5px 15px 10px;
+      margin-top: -8px;
+    }
+
+    .hero-title {
+      position: relative;
+      display: inline-block;
+
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      line-height: .98;
+      font-weight: 600;
+      letter-spacing: -.055em;
+
+      /* MARBLE ROSÉ */
+      background:
+        radial-gradient(
+          ellipse at 15% 20%,
+          #fff4f7 0%,
+          transparent 19%
         ),
-        #070707;
-}
-
-section::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:7%;
-    right:7%;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(216,160,176,.5),
-            transparent
-        );
-}
-
-section::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
         radial-gradient(
-            circle at var(--mouse-x) var(--mouse-y),
-            rgba(216,160,176,.055),
-            transparent 25%
+          ellipse at 75% 70%,
+          #9e6073 0%,
+          transparent 25%
+        ),
+        repeating-linear-gradient(
+          122deg,
+          #d8a0b0 0px,
+          #f3cbd5 7px,
+          #a8677a 13px,
+          #e7b7c3 18px,
+          #8d5265 24px,
+          #e7b7c3 31px,
+          #c68598 39px,
+          #f5d4dc 45px
         );
-}
 
-h2{
-    position:relative;
+      background-size:
+        170% 170%,
+        150% 150%,
+        190% 190%;
 
-    font:
-        500 clamp(38px,5vw,60px)
-        Georgia,
-        serif;
+      background-position:
+        0% 0%,
+        100% 100%,
+        0% 50%;
 
-    color:#e0aeba;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
 
-    margin-bottom:65px;
+      filter:
+        drop-shadow(0 10px 20px rgba(0,0,0,.65))
+        drop-shadow(0 0 22px rgba(216,160,176,.16));
 
-    letter-spacing:1px;
+      animation: titleMarble 9s ease-in-out infinite alternate;
 
-    text-shadow:
-        0 0 22px rgba(216,160,176,.16);
+      /* evita clipping */
+      padding-bottom: .08em;
+    }
 
-    transition:
-        transform .4s ease,
-        letter-spacing .4s ease;
-}
+    .hero-title::after {
+      content: "Vanessa Signature";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
 
-h2:hover{
-    transform:
-        translateY(-5px);
+      font: inherit;
+      letter-spacing: inherit;
 
-    letter-spacing:3px;
-}
+      color: transparent;
 
-h2::after{
-    content:"";
+      text-shadow:
+        0 0 35px rgba(216,160,176,.12),
+        0 0 70px rgba(216,160,176,.06);
+    }
 
-    display:block;
+    @keyframes titleMarble {
+      0% {
+        background-position:
+          0% 0%,
+          100% 100%,
+          0% 50%;
+      }
 
-    width:90px;
-    height:1px;
+      100% {
+        background-position:
+          100% 40%,
+          20% 80%,
+          100% 50%;
+      }
+    }
 
-    margin:18px auto 0;
+    .hero-subtitle {
+      max-width: 650px;
+      margin: 15px auto 0;
 
-    background:
+      color: #c8bfc2;
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: .04em;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .hero-info span {
+      padding: 8px 13px;
+
+      border: 1px solid rgba(216,160,176,.17);
+      border-radius: 100px;
+
+      background: rgba(255,255,255,.025);
+
+      color: #bcaeb2;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      backdrop-filter: blur(10px);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .hero-info span:hover {
+      transform: translateY(-3px);
+      border-color: rgba(216,160,176,.5);
+      color: var(--rose-light);
+      box-shadow: 0 8px 30px rgba(216,160,176,.08);
+    }
+
+    .hero-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      margin-top: 34px;
+      padding: 15px 26px;
+
+      border: 1px solid rgba(216,160,176,.45);
+      border-radius: 100px;
+
+      background:
         linear-gradient(
-            90deg,
-            transparent,
-            #d8a0b0,
-            transparent
+          135deg,
+          rgba(216,160,176,.18),
+          rgba(216,160,176,.035)
         );
 
-    box-shadow:
-        0 0 15px rgba(216,160,176,.45);
-}
+      color: var(--rose-light);
 
-/* =========================================================
-   SERVIÇOS
-========================================================= */
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
 
-.services{
-    width:100%;
-    max-width:1250px;
+      backdrop-filter: blur(15px);
 
-    margin:auto;
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.35),
+        inset 0 0 20px rgba(216,160,176,.04);
 
-    display:grid;
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
 
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(280px,1fr)
-        );
+    .hero-button:hover {
+      transform: translateY(-5px) scale(1.025);
+      border-color: rgba(241,203,213,.75);
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.5),
+        0 0 35px rgba(216,160,176,.14);
+    }
 
-    gap:30px;
+    .hero-button::after {
+      content: "↘";
+      font-size: 15px;
+      transition: transform .3s ease;
+    }
 
-    perspective:1200px;
-}
+    .hero-button:hover::after {
+      transform: translateY(3px);
+    }
 
-.service{
-    position:relative;
+    /* =========================================================
+       SECTION SYSTEM
+       ========================================================= */
 
-    padding:52px 32px;
+    section {
+      position: relative;
+      padding: 110px 22px;
+    }
 
-    min-height:285px;
+    .section-container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    .section-head {
+      text-align: center;
+      margin-bottom: 55px;
+    }
 
-    border-radius:30px;
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 13px;
 
-    background:
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -.035em;
+
+      background:
         linear-gradient(
-            145deg,
-            rgba(40,23,30,.92),
-            rgba(7,7,7,.96)
+          115deg,
+          #fff,
+          #f0cbd4 35%,
+          #9f6173 70%,
+          #f2cbd5
         );
 
-    border:
-        1px solid
-        rgba(216,160,176,.22);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-    box-shadow:
-        0 25px 65px rgba(0,0,0,.5),
-        inset 0 1px rgba(255,255,255,.04);
+    .section-description {
+      max-width: 620px;
+      margin: 17px auto 0;
 
-    backdrop-filter:
-        blur(18px);
+      color: #9f9699;
+      line-height: 1.8;
+      font-size: .95rem;
+    }
 
-    transform-style:preserve-3d;
+    /* =========================================================
+       SERVICES
+       ========================================================= */
 
-    overflow:hidden;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-    transition:
-        transform .2s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
+    .service-card {
+      position: relative;
+      min-height: 340px;
+      padding: 30px;
 
-.service::before{
-    content:"";
+      border: 1px solid rgba(216,160,176,.14);
+      border-radius: 25px;
 
-    position:absolute;
-    inset:-100%;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
 
-    background:
+      overflow: hidden;
+
+      transform-style: preserve-3d;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+      transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+
+      background:
         conic-gradient(
-            from 0deg,
-            transparent,
-            rgba(216,160,176,.12),
-            transparent 30%
+          from 180deg,
+          transparent,
+          rgba(216,160,176,.1),
+          transparent 22%,
+          rgba(255,255,255,.04),
+          transparent 45%
         );
 
-    animation:
-        cardRotate 8s linear infinite;
+      animation: cardGlow 12s linear infinite;
+    }
 
-    opacity:.7;
-}
+    @keyframes cardGlow {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-.service::after{
-    content:"";
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      top: -90px;
+      right: -90px;
 
-    position:absolute;
-    inset:1px;
+      border-radius: 50%;
+      background: rgba(216,160,176,.09);
+      filter: blur(45px);
+    }
 
-    border-radius:29px;
+    .service-card:hover {
+      border-color: rgba(216,160,176,.38);
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.55),
+        0 0 45px rgba(216,160,176,.07);
+    }
 
-    background:
+    .service-number {
+      position: relative;
+      z-index: 2;
+
+      color: rgba(216,160,176,.4);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+    }
+
+    .service-icon {
+      position: relative;
+      z-index: 2;
+
+      width: 55px;
+      height: 55px;
+
+      margin: 45px 0 30px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(216,160,176,.28);
+      border-radius: 16px;
+
+      color: var(--rose-light);
+      font-size: 20px;
+
+      background:
         linear-gradient(
-            145deg,
-            rgba(255,255,255,.025),
-            transparent 35%
+          145deg,
+          rgba(216,160,176,.14),
+          rgba(216,160,176,.02)
         );
 
-    pointer-events:none;
-}
-
-@keyframes cardRotate{
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.service > *{
-    position:relative;
-    z-index:3;
-}
-
-.service:hover{
-    border-color:
-        rgba(216,160,176,.72);
-
-    box-shadow:
-        0 38px 90px rgba(0,0,0,.65),
-        0 0 40px rgba(216,160,176,.12);
-}
-
-.service h3{
-    color:#e4afbd;
-
-    font:
-        600 29px
-        Georgia,
-        serif;
-
-    margin-bottom:18px;
-
-    transition:
-        transform .4s ease,
-        letter-spacing .4s ease;
-}
-
-.service:hover h3{
-    transform:
-        translateZ(28px);
-
-    letter-spacing:1px;
-}
-
-.service p{
-    color:#d8c4cb;
-
-    line-height:1.8;
-
-    font-size:17px;
-
-    transition:
-        transform .4s ease;
-}
-
-.service:hover p{
-    transform:
-        translateZ(16px);
-}
-
-/* =========================================================
-   VANESSA / FOTO
-========================================================= */
-
-.vanessa{
-    min-height:800px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:90px;
-
-    flex-wrap:wrap;
-
-    background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(216,160,176,.12),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 82% 50%,
-            rgba(70,25,45,.18),
-            transparent 35%
-        ),
-        #070707;
-}
-
-/* FOTO SEM FILTRO */
-
-.character-wrap{
-    position:relative;
-
-    width:min(570px,92vw);
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .25s ease;
-}
-
-.character-wrap::before{
-    content:"";
-
-    position:absolute;
-
-    inset:-28px;
-
-    border-radius:42px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.13);
-
-    box-shadow:
-        0 0 75px rgba(216,160,176,.09);
-
-    animation:
-        photoAura 5s ease-in-out infinite;
-}
-
-.character-wrap::after{
-    content:"";
-
-    position:absolute;
-
-    inset:-12px;
-
-    border-radius:36px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.06);
-
-    pointer-events:none;
-
-    animation:
-        photoFrame 9s linear infinite;
-}
-
-@keyframes photoAura{
-
-    0%,100%{
-        transform:scale(.98);
-        opacity:.6;
+      box-shadow:
+        inset 0 0 20px rgba(216,160,176,.05),
+        0 10px 30px rgba(0,0,0,.3);
     }
 
-    50%{
-        transform:scale(1.02);
-        opacity:1;
-    }
-}
+    .service-card h3 {
+      position: relative;
+      z-index: 2;
 
-@keyframes photoFrame{
-
-    from{
-        transform:rotate(0deg);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
-    to{
-        transform:rotate(360deg);
+    .service-card p {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 15px;
+
+      color: #999094;
+      font-size: .88rem;
+      line-height: 1.7;
     }
-}
 
-.character{
-    position:relative;
+    /* =========================================================
+       VANESSA / PHOTO
+       ========================================================= */
 
-    display:block;
+    .vanessa-section {
+      overflow: hidden;
+    }
 
-    width:100%;
-    height:auto;
+    .vanessa-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: center;
+      gap: 70px;
+    }
 
-    /*
-       IMPORTANTE:
-       Sem filtro.
-       Sem blur.
-       Sem compressão via CSS.
-       Sem object-fit que possa cortar a imagem.
-    */
+    .vanessa-copy h2 {
+      margin-top: 10px;
 
-    border-radius:30px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 1;
+    }
 
-    border:
-        1px solid
-        rgba(216,160,176,.38);
+    .vanessa-copy p {
+      margin-top: 25px;
 
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.72),
-        0 0 45px rgba(216,160,176,.12);
+      color: #a49b9e;
+      line-height: 1.9;
+      font-size: .95rem;
+    }
 
-    transition:
-        transform .6s cubic-bezier(.2,.8,.2,1),
-        box-shadow .5s ease;
-}
+    .vanessa-photo-wrap {
+      position: relative;
+      border-radius: 30px;
+      padding: 10px;
 
-.character-wrap:hover .character{
-    transform:
-        perspective(1100px)
-        rotateY(-5deg)
-        translateY(-10px)
-        scale(1.015);
-
-    box-shadow:
-        0 45px 100px rgba(0,0,0,.78),
-        0 0 60px rgba(216,160,176,.18);
-}
-
-.message{
-    width:min(500px,92vw);
-
-    text-align:left;
-}
-
-.message .name{
-    font:
-        500 clamp(48px,6vw,72px)
-        Georgia,
-        serif;
-
-    background:
+      background:
         linear-gradient(
-            120deg,
-            #a9687b,
-            #f0cbd5,
-            #b56f84,
-            #e5b6c3,
-            #9f6074
+          135deg,
+          rgba(216,160,176,.4),
+          rgba(216,160,176,.04) 35%,
+          rgba(255,255,255,.08)
         );
 
-    background-size:250% 250%;
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.65),
+        0 0 70px rgba(216,160,176,.08);
 
-    -webkit-background-clip:text;
-    background-clip:text;
+      transform-style: preserve-3d;
+      transition: transform .25s ease;
+    }
 
-    color:transparent;
+    .vanessa-photo-inner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 23px;
+      background: #080808;
+    }
 
-    animation:
-        marbleFlow 8s ease-in-out infinite;
+    .vanessa-photo-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
 
-    margin-bottom:20px;
-
-    transition:
-        transform .4s ease;
-}
-
-.message .name:hover{
-    transform:
-        translateX(8px)
-        scale(1.03);
-}
-
-.message p{
-    color:#f1e0e5;
-
-    font-size:
-        clamp(23px,3vw,30px);
-
-    line-height:1.6;
-}
-
-/* =========================================================
-   CONTATO
-========================================================= */
-
-.contact{
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(216,160,176,.10),
-            transparent 48%
-        ),
-        #070707;
-}
-
-.contact-box{
-    position:relative;
-
-    width:min(820px,92vw);
-
-    margin:auto;
-
-    padding:60px 35px;
-
-    border-radius:38px;
-
-    border:
-        1px solid
-        rgba(216,160,176,.30);
-
-    background:
+      background:
         linear-gradient(
-            145deg,
-            rgba(38,22,29,.94),
-            rgba(7,7,7,.97)
+          120deg,
+          rgba(255,255,255,.07),
+          transparent 25%,
+          transparent 72%,
+          rgba(216,160,176,.05)
         );
 
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
-
-    overflow:hidden;
-
-    transition:
-        transform .5s ease,
-        border-color .5s ease,
-        box-shadow .5s ease;
-}
-
-.contact-box::before{
-    content:"";
-
-    position:absolute;
-    inset:-100%;
-
-    background:
-        conic-gradient(
-            transparent,
-            rgba(216,160,176,.12),
-            transparent 30%
-        );
-
-    animation:
-        contactSpin 10s linear infinite;
-}
-
-.contact-box > *{
-    position:relative;
-    z-index:2;
-}
-
-@keyframes contactSpin{
-
-    to{
-        transform:rotate(360deg);
+      pointer-events: none;
     }
-}
 
-.contact-box:hover{
-    transform:
-        translateY(-10px);
+    .vanessa-photo {
+      width: 100%;
+      height: auto;
 
-    border-color:
-        rgba(216,160,176,.70);
+      display: block;
 
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.65),
-        0 0 40px rgba(216,160,176,.11);
-}
+      /* FOTO ORIGINAL — SEM FILTRO / SEM CROP */
+      object-fit: contain;
 
-.contact-title{
-    font:
-        500 clamp(34px,5vw,50px)
-        Georgia,
-        serif;
-
-    color:#dfaeba;
-
-    margin-bottom:35px;
-}
-
-.whatsapp{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:15px;
-
-    padding:20px 34px;
-
-    border-radius:20px;
-
-    background:#101010;
-
-    color:#f3e3e8;
-
-    text-decoration:none;
-
-    font-size:22px;
-    font-weight:700;
-
-    border:
-        1px solid
-        rgba(216,160,176,.42);
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.04);
-
-    transition:
-        transform .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
-
-.whatsapp:hover{
-    transform:
-        translateY(-6px)
-        scale(1.04);
-
-    border-color:#d8a0b0;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.5),
-        0 0 25px rgba(216,160,176,.10);
-}
-
-.icon{
-    width:40px;
-    height:40px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    background:#25d366;
-
-    color:white;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 0 20px rgba(37,211,102,.25);
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    position:relative;
-
-    padding:45px 25px;
-
-    text-align:center;
-
-    background:#030303;
-
-    color:#d8a0b0;
-
-    border-top:
-        1px solid
-        #302027;
-
-    font-size:16px;
-
-    letter-spacing:.7px;
-}
-
-footer::before{
-    content:"";
-
-    position:absolute;
-
-    top:-1px;
-    left:50%;
-
-    width:100px;
-    height:1px;
-
-    transform:translateX(-50%);
-
-    background:#d8a0b0;
-
-    box-shadow:
-        0 0 20px rgba(216,160,176,.8);
-}
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal{
-    opacity:0;
-
-    transform:
-        translateY(55px)
-        scale(.97);
-
-    transition:
-        opacity 1s cubic-bezier(.2,.8,.2,1),
-        transform 1s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.active{
-    opacity:1;
-
-    transform:none;
-}
-
-/* =========================================================
-   CLIQUE
-========================================================= */
-
-.click{
-    position:fixed;
-
-    width:18px;
-    height:18px;
-
-    border:
-        2px solid
-        #d8a0b0;
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:99999;
-
-    transform:
-        translate(-50%,-50%);
-
-    animation:
-        clickPulse .8s ease-out forwards;
-}
-
-@keyframes clickPulse{
-
-    to{
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(5);
+      transform: translateZ(20px);
     }
-}
 
-/* =========================================================
-   RESPONSIVO
-========================================================= */
+    .photo-corner {
+      position: absolute;
+      z-index: 5;
 
-@media(max-width:800px){
+      width: 35px;
+      height: 35px;
 
-    header{
+      border-color: rgba(216,160,176,.65);
+    }
+
+    .photo-corner.tl {
+      top: 20px;
+      left: 20px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .photo-corner.tr {
+      top: 20px;
+      right: 20px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .photo-corner.bl {
+      bottom: 20px;
+      left: 20px;
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .photo-corner.br {
+      bottom: 20px;
+      right: 20px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact-box {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+
+      padding: 70px 35px;
+
+      border: 1px solid rgba(216,160,176,.17);
+      border-radius: 35px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(216,160,176,.10),
+          transparent 45%
+        ),
+        rgba(255,255,255,.025);
+
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+
+      left: 50%;
+      top: -200px;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background: rgba(216,160,176,.1);
+      filter: blur(70px);
+    }
+
+    .contact-box h2 {
+      position: relative;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1;
+    }
+
+    .contact-box p {
+      position: relative;
+
+      max-width: 550px;
+      margin: 20px auto 30px;
+
+      color: #a39a9d;
+      line-height: 1.8;
+    }
+
+    .whatsapp {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 15px 24px;
+
+      border: 1px solid rgba(216,160,176,.35);
+      border-radius: 100px;
+
+      color: var(--rose-light);
+
+      background: rgba(216,160,176,.06);
+
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-4px);
+      border-color: rgba(216,160,176,.65);
+      box-shadow: 0 15px 40px rgba(216,160,176,.12);
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 45px 22px;
+
+      border-top: 1px solid rgba(216,160,176,.08);
+
+      text-align: center;
+
+      color: #6f686b;
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    footer strong {
+      color: var(--rose-dark);
+    }
+
+    /* =========================================================
+       REVEAL
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 850px) {
+
+      header {
+        padding-top: 40px;
+      }
+
+      .logo-area {
+        width: min(340px, 85vw);
+        margin-bottom: 20px;
+      }
+
+      .hero-title-wrap {
+        margin-top: -2px;
+        padding-inline: 5px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 290px;
+      }
+
+      .vanessa-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .vanessa-copy {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      header {
+        min-height: auto;
         padding:
-            65px 18px 90px;
+          35px 16px
+          85px;
+      }
+
+      .logo-area {
+        width: min(310px, 88vw);
+      }
+
+      .hero-title {
+        font-size: clamp(2.65rem, 13vw, 4.2rem);
+      }
+
+      .hero-subtitle {
+        font-size: .88rem;
+      }
+
+      .hero-info {
+        gap: 7px;
+      }
+
+      .hero-info span {
+        font-size: 7px;
+        padding: 7px 9px;
+      }
+
+      section {
+        padding: 80px 16px;
+      }
+
+      .service-card {
+        padding: 25px;
+      }
+
+      .contact-box {
+        padding: 55px 22px;
+      }
     }
 
-    .logo-area{
-        width:min(500px,94vw);
+    /* =========================================================
+       REDUCE MOTION
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
     }
-
-    .hud{
-        display:none;
-    }
-
-    .hero-info{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .hero-info span{
-        width:100%;
-        max-width:430px;
-        text-align:center;
-    }
-
-    section{
-        padding:
-            100px 20px;
-    }
-
-    .vanessa{
-        gap:60px;
-    }
-
-    .message{
-        text-align:center;
-    }
-
-    .character-wrap{
-        width:min(540px,90vw);
-    }
-}
-
-@media(max-width:600px){
-
-    header{
-        min-height:100svh;
-    }
-
-    .logo-area{
-        width:96vw;
-    }
-
-    .logo-core{
-        width:87%;
-        height:87%;
-    }
-
-    .logo-marble{
-        inset:4%;
-    }
-
-    .tech-ring.one{
-        width:115vw;
-    }
-
-    .tech-ring.two{
-        width:96vw;
-    }
-
-    .tech-ring.three{
-        width:77vw;
-    }
-
-    .tech-ring.four{
-        width:130vw;
-    }
-
-    .hero-title{
-        font-size:43px;
-        letter-spacing:2px;
-    }
-
-    .hero-subtitle{
-        font-size:17px;
-    }
-
-    .hero-info span{
-        font-size:16px;
-    }
-
-    .button{
-        width:100%;
-        max-width:340px;
-    }
-
-    .services{
-        grid-template-columns:1fr;
-    }
-
-    .service{
-        min-height:245px;
-    }
-
-    .service h3{
-        font-size:25px;
-    }
-
-    .service p{
-        font-size:17px;
-    }
-
-    .message .name{
-        font-size:45px;
-    }
-
-    .message p{
-        font-size:22px;
-    }
-
-    .whatsapp{
-        width:100%;
-        font-size:19px;
-    }
-
-    .contact-box{
-        padding:
-            50px 22px;
-    }
-}
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        scroll-behavior:auto !important;
-        transition-duration:.01ms !important;
-    }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- =======================================================
-     PARTÍCULAS
-======================================================= -->
+  <!-- =======================================================
+       BACKGROUND
+       ======================================================== -->
 
-<div class="particles">
+  <div class="background-tech">
+    <div class="ambient one"></div>
+    <div class="ambient two"></div>
+    <div class="ambient three"></div>
+  </div>
 
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
-    <i class="p"></i>
+  <!-- =======================================================
+       HERO
+       ======================================================== -->
 
-</div>
+  <header id="inicio">
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+    <div class="hero-grid"></div>
 
-<header id="inicio">
+    <div class="hero-content">
 
-    <div class="marble-background"></div>
+      <div
+        class="logo-area tech-target"
+        data-tech="logo"
+        id="logo3d"
+      >
 
-    <div class="hero-light"></div>
+        <!-- MÁRMORE PRETO ATRÁS DA LOGO -->
+        <div class="logo-marble marble"></div>
 
-    <div class="grid"></div>
+        <div class="logo-aura"></div>
 
-    <div class="tech-ring one"></div>
-    <div class="tech-ring two"></div>
-    <div class="tech-ring three"></div>
-    <div class="tech-ring four"></div>
+        <div class="logo-frame" id="logoFrame">
 
-    <!-- HUD -->
+          <div class="logo-core" id="logoCore">
 
-    <div class="hud top-left">
-        VANESSA // SIGNATURE
-        <div class="hud-line"></div>
-        BEAUTY SYSTEM
-    </div>
+            <div class="logo-core-mask">
 
-    <div class="hud top-right">
-        PREMIUM BEAUTY
-        <div class="hud-line"></div>
-        ROSÉ EDITION // 2026
-    </div>
-
-    <div class="hud bottom-left">
-        PRECISION
-        <div class="hud-line"></div>
-        ELEGANCE
-    </div>
-
-    <div class="hud bottom-right">
-        SIGNATURE
-        <div class="hud-line"></div>
-        SYSTEM ONLINE
-    </div>
-
-    <div class="hero">
-
-        <!-- =================================================
-             LOGO
-        ================================================== -->
-
-        <div
-            class="logo-area reveal"
-            id="logoArea"
-            aria-label="Logo Vanessa Signature"
-        >
-
-            <div class="logo-aura"></div>
-
-            <!-- MÁRMORE ATRÁS DA LOGO -->
-
-            <div class="logo-marble"></div>
-
-            <div class="logo-frame"></div>
-
-            <div class="logo-core">
-
-                <div class="logo-core-mask">
-
-                    <img
-                        class="brand-logo"
-                        src="E1DE0041-E95A-45C9-A681-5A2D740A3AF9.png"
-                        alt="Logo Vanessa Signature"
-                        draggable="false"
-                    >
-
-                </div>
+              <!-- LOGO ORIGINAL -->
+              <img
+                class="brand-logo"
+                src="E1DE0041-E95A-45C9-A681-5A2D740A3AF9.png"
+                alt="Logo Vanessa Signature"
+                draggable="false"
+              >
 
             </div>
 
-            <div class="logo-status">
-                SIGNATURE // ACTIVE
-            </div>
+          </div>
 
         </div>
 
-        <!-- =================================================
-             NOME
-        ================================================== -->
+        <div class="logo-status tech-target">
+          <span class="status-dot"></span>
+          Vanessa Signature
+        </div>
 
-        <h1 class="hero-title reveal">
-            Vanessa Signature
+      </div>
+
+      <!-- NOME -->
+      <div class="hero-title-wrap tech-target">
+
+        <h1 class="hero-title">
+          Vanessa Signature
         </h1>
 
-        <p class="hero-subtitle reveal">
-            Beleza, precisão e sofisticação em cada detalhe.
+      </div>
+
+      <p class="hero-subtitle tech-target">
+        Beleza, precisão e sofisticação em cada detalhe.
+      </p>
+
+      <div class="hero-info">
+
+        <span class="tech-target">
+          Micro Labial
+        </span>
+
+        <span class="tech-target">
+          Dermopigmentação
+        </span>
+
+        <span class="tech-target">
+          Design de Sobrancelhas
+        </span>
+
+      </div>
+
+      <a
+        href="#servicos"
+        class="hero-button tech-target"
+      >
+        Explorar serviços
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       SERVIÇOS
+       ======================================================== -->
+
+  <section id="servicos">
+
+    <div class="section-container">
+
+      <div class="section-head reveal">
+
+        <span class="section-kicker tech-target">
+          Signature Experience
+        </span>
+
+        <h2 class="section-title tech-target">
+          Serviços
+        </h2>
+
+        <p class="section-description tech-target">
+          Técnicas desenvolvidas para valorizar sua beleza com
+          precisão, naturalidade e acabamento sofisticado.
         </p>
 
-        <!-- =================================================
-             SERVIÇOS RÁPIDOS
-        ================================================== -->
+      </div>
 
-        <div class="hero-info">
 
-            <span class="reveal">
-                Micro Labial
-            </span>
+      <div class="services-grid">
 
-            <span class="reveal">
-                Dermopigmentação
-            </span>
+        <article class="service-card tech-target reveal">
 
-            <span class="reveal">
-                Design de Sobrancelhas
-            </span>
+          <span class="service-number">
+            01 / SIGNATURE
+          </span>
+
+          <div class="service-icon">
+            ✦
+          </div>
+
+          <h3>
+            Micro Labial
+          </h3>
+
+          <p>
+            Realce sofisticado dos lábios, buscando definição,
+            equilíbrio e um resultado elegante e natural.
+          </p>
+
+        </article>
+
+
+        <article class="service-card tech-target reveal">
+
+          <span class="service-number">
+            02 / SIGNATURE
+          </span>
+
+          <div class="service-icon">
+            ◇
+          </div>
+
+          <h3>
+            Dermopigmentação
+          </h3>
+
+          <p>
+            Técnica personalizada para criar harmonia,
+            definição e um acabamento cuidadosamente planejado.
+          </p>
+
+        </article>
+
+
+        <article class="service-card tech-target reveal">
+
+          <span class="service-number">
+            03 / SIGNATURE
+          </span>
+
+          <div class="service-icon">
+            ∿
+          </div>
+
+          <h3>
+            Design de Sobrancelhas
+          </h3>
+
+          <p>
+            Modelagem personalizada respeitando o formato do
+            rosto e valorizando a expressão natural.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       VANESSA / FOTO
+       ======================================================== -->
+
+  <section class="vanessa-section">
+
+    <div class="section-container">
+
+      <div class="vanessa-layout">
+
+        <div class="vanessa-copy reveal">
+
+          <span class="section-kicker tech-target">
+            Vanessa Signature
+          </span>
+
+          <h2 class="tech-target">
+            Beleza que<br>
+            deixa assinatura.
+          </h2>
+
+          <p class="tech-target">
+            Cada detalhe é pensado para criar uma experiência
+            sofisticada, personalizada e alinhada à identidade
+            de cada mulher.
+          </p>
 
         </div>
+
+
+        <div
+          class="vanessa-photo-wrap tech-target reveal"
+          id="photo3d"
+        >
+
+          <div class="vanessa-photo-inner">
+
+            <!-- FOTO ORIGINAL — NÃO ALTERADA -->
+            <img
+              class="vanessa-photo"
+              src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
+              alt="Vanessa Signature"
+              loading="lazy"
+              draggable="false"
+            >
+
+          </div>
+
+          <span class="photo-corner tl"></span>
+          <span class="photo-corner tr"></span>
+          <span class="photo-corner bl"></span>
+          <span class="photo-corner br"></span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CONTATO
+       ======================================================== -->
+
+  <section>
+
+    <div class="section-container">
+
+      <div class="contact-box reveal">
+
+        <span class="section-kicker tech-target">
+          Contact
+        </span>
+
+        <h2 class="tech-target">
+          Vamos criar sua<br>
+          Signature?
+        </h2>
+
+        <p class="tech-target">
+          Entre em contato para conhecer os procedimentos,
+          tirar suas dúvidas e agendar seu atendimento.
+        </p>
 
         <a
-            class="button reveal"
-            href="#servicos"
+          class="whatsapp tech-target"
+          href="https://wa.me/5521987391225"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-            Conheça nossos serviços
+          Falar pelo WhatsApp
+          <span>↗</span>
         </a>
 
-    </div>
-
-</header>
-
-<!-- =======================================================
-     SERVIÇOS
-======================================================= -->
-
-<section id="servicos">
-
-    <h2 class="reveal">
-        Nossos Serviços
-    </h2>
-
-    <div class="services">
-
-        <div class="service reveal">
-
-            <h3>
-                Micro Labial
-            </h3>
-
-            <p>
-                Realce e definição dos lábios com um resultado
-                delicado, sofisticado e personalizado.
-            </p>
-
-        </div>
-
-        <div class="service reveal">
-
-            <h3>
-                Dermopigmentação
-            </h3>
-
-            <p>
-                Procedimentos realizados com cuidado,
-                precisão e foco em resultados naturais.
-            </p>
-
-        </div>
-
-        <div class="service reveal">
-
-            <h3>
-                Design de Sobrancelhas
-            </h3>
-
-            <p>
-                Design personalizado para valorizar o olhar
-                e harmonizar os seus traços.
-            </p>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<!-- =======================================================
-     FOTO DA VANESSA
-======================================================= -->
 
-<section class="vanessa">
+  <!-- =======================================================
+       FOOTER
+       ======================================================== -->
 
-    <div class="character-wrap reveal">
+  <footer>
 
-        <!--
-            FOTO ORIGINAL.
-            Sem filtro.
-            Sem object-fit.
-            Sem crop.
-            Mantém proporção natural.
-        -->
+    <span class="tech-target">
+      © <strong id="year"></strong> Vanessa Signature —
+      Beleza, precisão e sofisticação.
+    </span>
 
-        <img
-            class="character"
-            src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
-            alt="Vanessa Signature"
-            draggable="false"
-        >
+  </footer>
 
-    </div>
 
-    <div class="message reveal">
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================== -->
 
-        <div class="name">
-            Vanessa
-        </div>
+  <script>
 
-        <p>
-            Obrigada por estar aqui! ✨
-        </p>
+    /* =======================================================
+       YEAR
+       ======================================================== */
 
-    </div>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-</section>
 
-<!-- =======================================================
-     CONTATO
-======================================================= -->
+    /* =======================================================
+       MOUSE LIGHT
+       ======================================================== */
 
-<section class="contact">
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
-    <div class="contact-box reveal">
+    document.addEventListener("pointermove", (event) => {
 
-        <div class="contact-title">
-            Agende seu atendimento
-        </div>
+      mouseX = event.clientX;
+      mouseY = event.clientY;
 
-        <a
-            class="whatsapp"
-            href="https://wa.me/5521987391225"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
+      const x =
+        (event.clientX / window.innerWidth) * 100;
 
-            <span class="icon">
-                ☎
-            </span>
+      const y =
+        (event.clientY / window.innerHeight) * 100;
 
-            (21) 98739-1225
+      document.documentElement.style.setProperty(
+        "--mx",
+        `${x}%`
+      );
 
-        </a>
-
-        <p
-            style="
-                margin-top:20px;
-                color:#bcaab0;
-                font-size:17px;
-            "
-        >
-            Clique para falar diretamente pelo WhatsApp
-        </p>
-
-    </div>
-
-</section>
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer>
-    © 2026 Vanessa Signature
-</footer>
-
-<script>
-
-/* =========================================================
-   REVEAL AO ROLAR
-========================================================= */
-
-const observer =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add("active");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold:.12
-        }
-
-    );
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(element =>
-        observer.observe(element)
-    );
-
-
-/* =========================================================
-   LUZ GLOBAL SEGUINDO O MOUSE
-========================================================= */
-
-document.addEventListener(
-    "pointermove",
-    event => {
-
-        document.documentElement.style.setProperty(
-            "--mouse-x",
-            `${event.clientX}px`
-        );
-
-        document.documentElement.style.setProperty(
-            "--mouse-y",
-            `${event.clientY}px`
-        );
-
-    }
-);
-
-
-/* =========================================================
-   LOGO 3D INTERATIVA
-========================================================= */
-
-const logoArea =
-    document.getElementById("logoArea");
-
-if(
-    logoArea &&
-    window.matchMedia("(pointer:fine)").matches
-){
-
-    logoArea.addEventListener(
-        "pointermove",
-        event => {
-
-            const rect =
-                logoArea.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left)
-                / rect.width
-                - .5;
-
-            const y =
-                (event.clientY - rect.top)
-                / rect.height
-                - .5;
-
-            const rotateX =
-                y * -12;
-
-            const rotateY =
-                x * 12;
-
-            logoArea.style.transform =
-                `
-                perspective(1100px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                scale(1.025)
-                `;
-
-        }
-    );
-
-    logoArea.addEventListener(
-        "pointerleave",
-        () => {
-
-            logoArea.style.transform =
-                `
-                perspective(1100px)
-                rotateX(0deg)
-                rotateY(0deg)
-                scale(1)
-                `;
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CLIQUE NA LOGO
-========================================================= */
-
-if(logoArea){
-
-    logoArea.addEventListener(
-        "click",
-        event => {
-
-            logoArea.animate(
-                [
-                    {
-                        transform:"scale(1)"
-                    },
-                    {
-                        transform:"scale(1.055)"
-                    },
-                    {
-                        transform:"scale(1)"
-                    }
-                ],
-                {
-                    duration:650,
-                    easing:"cubic-bezier(.2,.8,.2,1)"
-                }
-            );
-
-            const burst =
-                document.createElement("div");
-
-            burst.style.position =
-                "fixed";
-
-            burst.style.left =
-                `${event.clientX}px`;
-
-            burst.style.top =
-                `${event.clientY}px`;
-
-            burst.style.width =
-                "12px";
-
-            burst.style.height =
-                "12px";
-
-            burst.style.borderRadius =
-                "50%";
-
-            burst.style.border =
-                "1px solid #d8a0b0";
-
-            burst.style.boxShadow =
-                "0 0 25px rgba(216,160,176,.8)";
-
-            burst.style.pointerEvents =
-                "none";
-
-            burst.style.zIndex =
-                "99999";
-
-            burst.style.transform =
-                "translate(-50%,-50%)";
-
-            document.body.appendChild(burst);
-
-            burst.animate(
-                [
-                    {
-                        transform:
-                            "translate(-50%,-50%) scale(1)",
-                        opacity:1
-                    },
-                    {
-                        transform:
-                            "translate(-50%,-50%) scale(10)",
-                        opacity:0
-                    }
-                ],
-                {
-                    duration:700,
-                    easing:"ease-out"
-                }
-            );
-
-            setTimeout(
-                () => burst.remove(),
-                750
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   EFEITO GLOBAL DE CLIQUE
-========================================================= */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        const effect =
-            document.createElement("div");
-
-        effect.className =
-            "click";
-
-        effect.style.left =
-            `${event.clientX}px`;
-
-        effect.style.top =
-            `${event.clientY}px`;
-
-        document.body.appendChild(effect);
-
-        setTimeout(
-            () => effect.remove(),
-            850
-        );
-
-    }
-);
-
-
-/* =========================================================
-   CARDS 3D
-========================================================= */
-
-document
-    .querySelectorAll(".service")
-    .forEach(card => {
-
-        card.addEventListener(
-            "pointermove",
-            event => {
-
-                if(
-                    !window.matchMedia(
-                        "(pointer:fine)"
-                    ).matches
-                ){
-                    return;
-                }
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    (event.clientX - rect.left)
-                    / rect.width
-                    - .5;
-
-                const y =
-                    (event.clientY - rect.top)
-                    / rect.height
-                    - .5;
-
-                card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(${y * -8}deg)
-                    rotateY(${x * 8}deg)
-                    translateY(-15px)
-                    scale(1.025)
-                    `;
-
-            }
-        );
-
-        card.addEventListener(
-            "pointerleave",
-            () => {
-
-                card.style.transform = "";
-
-            }
-        );
+      document.documentElement.style.setProperty(
+        "--my",
+        `${y}%`
+      );
 
     });
 
 
-/* =========================================================
-   FOTO VANESSA — PARALLAX 3D
-========================================================= */
+    /* =======================================================
+       LOGO 3D
+       ======================================================== */
 
-const characterWrap =
-    document.querySelector(".character-wrap");
+    const logoArea =
+      document.getElementById("logo3d");
 
-if(
-    characterWrap &&
-    window.matchMedia("(pointer:fine)").matches
-){
+    const logoCore =
+      document.getElementById("logoCore");
 
-    characterWrap.addEventListener(
-        "pointermove",
-        event => {
+    const logoFrame =
+      document.getElementById("logoFrame");
 
-            const rect =
-                characterWrap.getBoundingClientRect();
 
-            const x =
-                (event.clientX - rect.left)
-                / rect.width
-                - .5;
+    logoArea.addEventListener(
+      "pointermove",
+      (event) => {
 
-            const y =
-                (event.clientY - rect.top)
-                / rect.height
-                - .5;
+        const rect =
+          logoArea.getBoundingClientRect();
 
-            characterWrap.style.transform =
-                `
-                perspective(1100px)
-                rotateX(${y * -5}deg)
-                rotateY(${x * 6}deg)
-                translateY(-5px)
-                `;
+        const x =
+          (event.clientX - rect.left) / rect.width;
 
-        }
+        const y =
+          (event.clientY - rect.top) / rect.height;
+
+        const rotateY =
+          (x - .5) * 18;
+
+        const rotateX =
+          (y - .5) * -18;
+
+        logoCore.style.transform =
+          `rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)
+           translateZ(18px)`;
+
+        logoFrame.style.transform =
+          `rotateX(${rotateX * .5}deg)
+           rotateY(${rotateY * .5}deg)`;
+
+      }
     );
 
-    characterWrap.addEventListener(
+
+    logoArea.addEventListener(
+      "pointerleave",
+      () => {
+
+        logoCore.style.transform =
+          "rotateX(0deg) rotateY(0deg) translateZ(0)";
+
+        logoFrame.style.transform =
+          "rotateX(0deg) rotateY(0deg)";
+
+      }
+    );
+
+
+    /* =======================================================
+       PHOTO 3D
+       ======================================================== */
+
+    const photo =
+      document.getElementById("photo3d");
+
+    if (photo) {
+
+      photo.addEventListener(
+        "pointermove",
+        (event) => {
+
+          const rect =
+            photo.getBoundingClientRect();
+
+          const x =
+            (event.clientX - rect.left) / rect.width;
+
+          const y =
+            (event.clientY - rect.top) / rect.height;
+
+          const rotateY =
+            (x - .5) * 8;
+
+          const rotateX =
+            (y - .5) * -8;
+
+          photo.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-3px)`;
+
+        }
+      );
+
+      photo.addEventListener(
         "pointerleave",
         () => {
 
-            characterWrap.style.transform =
-                "";
+          photo.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg)";
 
         }
-    );
+      );
 
-}
+    }
 
 
-/* =========================================================
-   PARALLAX SUAVE DOS ANÉIS
-========================================================= */
+    /* =======================================================
+       SERVICE CARDS 3D
+       ======================================================== */
 
-if(
-    window.matchMedia("(pointer:fine)").matches
-){
+    document
+      .querySelectorAll(".service-card")
+      .forEach((card) => {
 
-    document.addEventListener(
-        "pointermove",
-        event => {
+        card.addEventListener(
+          "pointermove",
+          (event) => {
+
+            const rect =
+              card.getBoundingClientRect();
 
             const x =
-                (event.clientX /
-                window.innerWidth -
-                .5);
+              (event.clientX - rect.left) / rect.width;
 
             const y =
-                (event.clientY /
-                window.innerHeight -
-                .5);
+              (event.clientY - rect.top) / rect.height;
 
-            const rings =
-                document.querySelectorAll(
-                    ".tech-ring"
-                );
+            const rotateY =
+              (x - .5) * 8;
 
-            rings.forEach(
-                (ring,index) => {
+            const rotateX =
+              (y - .5) * -8;
 
-                    const depth =
-                        (index + 1) * 7;
+            card.style.transform =
+              `perspective(900px)
+               rotateX(${rotateX}deg)
+               rotateY(${rotateY}deg)
+               translateY(-5px)`;
 
-                    ring.style.marginLeft =
-                        `${x * depth}px`;
+          }
+        );
 
-                    ring.style.marginTop =
-                        `${y * depth}px`;
+        card.addEventListener(
+          "pointerleave",
+          () => {
 
-                }
-            );
+            card.style.transform =
+              "perspective(900px) rotateX(0deg) rotateY(0deg)";
 
-        }
+          }
+        );
+
+      });
+
+
+    /* =======================================================
+       UNIVERSAL TECHNOLOGY CLICK
+       ======================================================== */
+
+    function createTechInteraction(
+      x,
+      y,
+      target
+    ) {
+
+      /* Pulse no próprio elemento */
+
+      if (target) {
+
+        target.classList.remove("tech-active");
+
+        void target.offsetWidth;
+
+        target.classList.add("tech-active");
+
+        setTimeout(() => {
+
+          target.classList.remove("tech-active");
+
+        }, 800);
+
+      }
+
+
+      /* Anel principal */
+
+      const wave =
+        document.createElement("div");
+
+      wave.className = "click-wave";
+
+      wave.style.left = `${x}px`;
+      wave.style.top = `${y}px`;
+
+      document.body.appendChild(wave);
+
+
+      /* Partículas */
+
+      const particleCount = 14;
+
+      for (
+        let i = 0;
+        i < particleCount;
+        i++
+      ) {
+
+        const particle =
+          document.createElement("span");
+
+        particle.className =
+          "click-particle";
+
+        const angle =
+          Math.random() * Math.PI * 2;
+
+        const distance =
+          25 + Math.random() * 65;
+
+        const dx =
+          Math.cos(angle) * distance;
+
+        const dy =
+          Math.sin(angle) * distance;
+
+        particle.style.left =
+          `${x}px`;
+
+        particle.style.top =
+          `${y}px`;
+
+        particle.style.setProperty(
+          "--dx",
+          dx
+        );
+
+        particle.style.setProperty(
+          "--dy",
+          dy
+        );
+
+        document.body.appendChild(
+          particle
+        );
+
+        setTimeout(() => {
+
+          particle.remove();
+
+        }, 850);
+
+      }
+
+
+      setTimeout(() => {
+
+        wave.remove();
+
+      }, 900);
+
+    }
+
+
+    /* =======================================================
+       CLICK EM TODOS OS ELEMENTOS TECNOLÓGICOS
+       ======================================================== */
+
+    document.addEventListener(
+      "pointerdown",
+      (event) => {
+
+        const target =
+          event.target.closest(".tech-target");
+
+        if (!target) return;
+
+        createTechInteraction(
+          event.clientX,
+          event.clientY,
+          target
+        );
+
+      }
     );
 
-}
 
+    /* =======================================================
+       REVEAL ON SCROLL
+       ======================================================== */
 
-/* =========================================================
-   ANO AUTOMÁTICO
-========================================================= */
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
 
-const footer =
-    document.querySelector("footer");
+          entries.forEach((entry) => {
 
-if(footer){
+            if (
+              entry.isIntersecting
+            ) {
 
-    footer.innerHTML =
-        `© ${new Date().getFullYear()} Vanessa Signature`;
+              entry.target.classList.add(
+                "visible"
+              );
 
-}
+              revealObserver.unobserve(
+                entry.target
+              );
 
+            }
 
-/* =========================================================
-   PROTEÇÃO VISUAL DA FOTO
-========================================================= */
+          });
 
-const character =
-    document.querySelector(".character");
-
-if(character){
-
-    character.addEventListener(
-        "dragstart",
-        event => {
-
-            event.preventDefault();
-
+        },
+        {
+          threshold: .12
         }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        revealObserver.observe(
+          element
+        );
+
+      });
+
+
+    /* =======================================================
+       STAGGER DOS CARDS
+       ======================================================== */
+
+    document
+      .querySelectorAll(".service-card")
+      .forEach((card, index) => {
+
+        card.style.transitionDelay =
+          `${index * 100}ms`;
+
+      });
+
+
+    /* =======================================================
+       PARALLAX SUAVE DO HERO
+       ======================================================== */
+
+    const heroContent =
+      document.querySelector(".hero-content");
+
+    document.addEventListener(
+      "pointermove",
+      (event) => {
+
+        if (
+          window.innerWidth < 700
+        ) return;
+
+        const x =
+          (event.clientX /
+            window.innerWidth -
+            .5);
+
+        const y =
+          (event.clientY /
+            window.innerHeight -
+            .5);
+
+        heroContent.style.transform =
+          `translate3d(
+            ${x * 5}px,
+            ${y * 4}px,
+            0
+          )`;
+
+      }
     );
 
-}
 
-</script>
+    /* =======================================================
+       RESET HERO
+       ======================================================== */
+
+    document.addEventListener(
+      "pointerleave",
+      () => {
+
+        if (!heroContent) return;
+
+        heroContent.style.transform =
+          "translate3d(0,0,0)";
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
