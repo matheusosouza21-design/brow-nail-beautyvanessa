@@ -413,9 +413,6 @@
 
       z-index: 1000000;
 
-      box-shadow:
-        0 0 12px var(--rose);
-
       animation:
         particleFly
         .8s
@@ -507,7 +504,7 @@
     }
 
     /* =========================================================
-       LOGO — CORREÇÃO DO ENQUADRAMENTO
+       LOGO — ÚNICA ALTERAÇÃO
        ========================================================= */
 
     .logo-area {
@@ -524,7 +521,7 @@
       display: grid;
       place-items: center;
 
-      perspective: 1000px;
+      perspective: 1100px;
 
       transform-style: preserve-3d;
     }
@@ -772,16 +769,24 @@
     }
 
     /*
-      CORREÇÃO PRINCIPAL:
-      o círculo interno agora possui overflow hidden
-      e a imagem fica limitada a uma área segura.
+      LOGO AUMENTADA:
+      Antes:
+      width / height = 73%
+      imagem = 86%
+
+      Agora:
+      width / height = 82%
+      imagem = 94%
+
+      Isso faz a logo preencher muito melhor
+      o círculo interno sem escapar do enquadramento.
     */
 
     .logo-core {
       position: absolute;
 
-      width: 73%;
-      height: 73%;
+      width: 82%;
+      height: 82%;
 
       left: 50%;
       top: 50%;
@@ -791,23 +796,26 @@
 
       border-radius: 50%;
 
-      padding: 7px;
+      padding: 6px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.2),
-          rgba(216,160,176,.35) 25%,
+          rgba(255,255,255,.24),
+          rgba(216,160,176,.42) 25%,
           rgba(55,28,36,.9) 65%,
-          rgba(0,0,0,.95)
+          rgba(0,0,0,.98)
         );
 
       box-shadow:
-        0 25px 55px
-        rgba(0,0,0,.8),
+        0 28px 65px
+        rgba(0,0,0,.85),
 
-        0 0 45px
-        rgba(216,160,176,.14);
+        0 0 55px
+        rgba(216,160,176,.18),
+
+        inset 0 0 18px
+        rgba(255,255,255,.05);
 
       transform-style: preserve-3d;
 
@@ -831,14 +839,46 @@
       justify-content: center;
 
       background:
+        radial-gradient(
+          circle at 35% 25%,
+          rgba(255,255,255,.06),
+          transparent 35%
+        ),
         #050505;
 
       box-shadow:
         inset 0 0 35px
-        rgba(0,0,0,.9),
+        rgba(0,0,0,.95),
 
-        inset 0 0 8px
-        rgba(216,160,176,.35);
+        inset 0 0 12px
+        rgba(216,160,176,.4);
+    }
+
+    .logo-core-mask::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 30% 20%,
+          rgba(255,255,255,.10),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 75% 80%,
+          rgba(216,160,176,.10),
+          transparent 35%
+        );
+
+      z-index: 4;
+
+      pointer-events: none;
+
+      mix-blend-mode: screen;
     }
 
     .logo-core-mask::after {
@@ -856,14 +896,21 @@
       background:
         linear-gradient(
           115deg,
-          rgba(255,255,255,.16),
+          rgba(255,255,255,.18),
           transparent 23%,
-          transparent 65%,
-          rgba(216,160,176,.09)
+          transparent 62%,
+          rgba(216,160,176,.12)
         );
 
       mix-blend-mode: screen;
     }
+
+    /*
+      LOGO MAIOR:
+      94% da área interna.
+      Como o container possui overflow:hidden,
+      ela continua perfeitamente presa ao círculo.
+    */
 
     .brand-logo {
       position: relative;
@@ -871,11 +918,11 @@
 
       display: block;
 
-      width: 86%;
-      height: 86%;
+      width: 94%;
+      height: 94%;
 
-      max-width: 86%;
-      max-height: 86%;
+      max-width: 94%;
+      max-height: 94%;
 
       margin: auto;
 
@@ -885,16 +932,40 @@
 
       border-radius: 50%;
 
-      transform: translateZ(30px);
+      transform:
+        translateZ(38px)
+        scale(1.015);
+
+      transform-origin: center;
 
       filter:
         drop-shadow(
-          0 8px 18px
-          rgba(0,0,0,.75)
+          0 10px 20px
+          rgba(0,0,0,.8)
         )
         drop-shadow(
-          0 0 15px
-          rgba(216,160,176,.12)
+          0 0 18px
+          rgba(216,160,176,.16)
+        );
+
+      transition:
+        filter .3s ease,
+        transform .3s ease;
+    }
+
+    .logo-area:hover .brand-logo {
+      transform:
+        translateZ(42px)
+        scale(1.025);
+
+      filter:
+        drop-shadow(
+          0 12px 24px
+          rgba(0,0,0,.85)
+        )
+        drop-shadow(
+          0 0 24px
+          rgba(216,160,176,.24)
         );
     }
 
@@ -1635,10 +1706,6 @@
         600;
     }
 
-    /*
-      TEXTO MAIOR + TIPOGRAFIA MAIS ELEGANTE
-    */
-
     .vanessa-copy p {
       margin-top:
         28px;
@@ -1830,7 +1897,7 @@
     }
 
     /* =========================================================
-       FINAL CTA — NOVO
+       FINAL CTA
        ========================================================= */
 
     .final-section {
@@ -1988,11 +2055,6 @@
         uppercase;
     }
 
-    /*
-      VANESSA SIGNATURE FINAL
-      GRANDE + ROBUSTO + MÁRMORE ROSÉ
-    */
-
     .final-brand {
       position:
         relative;
@@ -2102,10 +2164,6 @@
       }
     }
 
-    /*
-      NOVA FRASE DE ATRAÇÃO
-    */
-
     .final-title {
       position:
         relative;
@@ -2173,10 +2231,6 @@
       line-height:
         1.55;
     }
-
-    /*
-      MENSAGEM FINAL
-    */
 
     .thank-you {
       position:
@@ -2257,6 +2311,7 @@
 
       align-items:
         center;
+
       justify-content:
         center;
 
@@ -2530,10 +2585,6 @@
 
 <body>
 
-  <!-- =======================================================
-       BACKGROUND
-       ======================================================== -->
-
   <div class="background-tech">
 
     <div class="ambient one"></div>
@@ -2552,8 +2603,6 @@
     <div class="hero-grid"></div>
 
     <div class="hero-content">
-
-      <!-- LOGO -->
 
       <div
         class="logo-area tech-target"
@@ -2600,8 +2649,6 @@
 
       </div>
 
-
-      <!-- NOME -->
 
       <div
         class="hero-title-wrap tech-target"
@@ -2817,7 +2864,7 @@
 
 
   <!-- =======================================================
-       FINAL — EXPERIÊNCIA / CTA
+       FINAL CTA
        ======================================================== -->
 
   <section class="final-section">
@@ -2831,47 +2878,31 @@
         </span>
 
 
-        <!-- VANESSA SIGNATURE GRANDE -->
-
-        <div
-          class="final-brand tech-target"
-        >
+        <div class="final-brand tech-target">
           Vanessa Signature
         </div>
 
 
-        <!-- TEXTO CHAMATIVO -->
-
-        <h2
-          class="final-title tech-target"
-        >
+        <h2 class="final-title tech-target">
           Realce a sua beleza.
           <br>
           Revele a sua melhor versão.
         </h2>
 
 
-        <p
-          class="final-description tech-target"
-        >
+        <p class="final-description tech-target">
           Um atendimento pensado para você, com delicadeza,
           precisão e um resultado que valoriza aquilo que
           torna sua beleza única.
         </p>
 
 
-        <!-- AGRADECIMENTO -->
-
-        <div
-          class="thank-you tech-target"
-        >
+        <div class="thank-you tech-target">
           Obrigada por estar aqui.
           <br>
           Será um prazer te atender.
         </div>
 
-
-        <!-- CTA -->
 
         <a
           class="whatsapp tech-target"
@@ -2909,15 +2940,7 @@
   </footer>
 
 
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================== -->
-
   <script>
-
-    /* =======================================================
-       ANO
-       ======================================================== */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
