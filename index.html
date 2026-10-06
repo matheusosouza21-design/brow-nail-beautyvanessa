@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -23,18 +23,16 @@
     :root {
       --black: #030303;
       --black-2: #080808;
-      --black-3: #101010;
+      --black-3: #111010;
 
       --rose: #d8a0b0;
-      --rose-light: #f1cbd5;
+      --rose-light: #f5d8df;
+      --rose-bright: #efbccb;
       --rose-dark: #8d5265;
-      --rose-deep: #5d3040;
+      --rose-deep: #542c3a;
 
-      --white: #f8f4f5;
-      --gray: #a99fa2;
-
-      --glass: rgba(255,255,255,.055);
-      --border: rgba(216,160,176,.25);
+      --white: #faf6f7;
+      --gray: #aaa0a4;
 
       --shadow:
         0 30px 100px rgba(0,0,0,.65),
@@ -49,16 +47,26 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--black);
+      background: #030303;
     }
 
     body {
       min-height: 100vh;
       overflow-x: hidden;
+
       background:
-        radial-gradient(circle at 50% -10%, rgba(216,160,176,.10), transparent 35%),
-        radial-gradient(circle at 0% 50%, rgba(216,160,176,.035), transparent 30%),
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(216,160,176,.10),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 0% 50%,
+          rgba(216,160,176,.035),
+          transparent 30%
+        ),
         #030303;
+
       color: var(--white);
       font-family: "Inter", sans-serif;
     }
@@ -68,27 +76,24 @@
       text-decoration: none;
     }
 
-    button {
-      font: inherit;
-    }
-
     /* =========================================================
-       MARBLE ENGINE
+       MARBLE
        ========================================================= */
 
     .marble {
       position: relative;
       isolation: isolate;
       overflow: hidden;
+
       background:
         radial-gradient(
           ellipse at 20% 20%,
-          rgba(255,255,255,.11) 0%,
+          rgba(255,255,255,.11),
           transparent 23%
         ),
         radial-gradient(
           ellipse at 80% 70%,
-          rgba(216,160,176,.10) 0%,
+          rgba(216,160,176,.10),
           transparent 30%
         ),
         linear-gradient(
@@ -130,8 +135,17 @@
         );
 
       filter: blur(2px);
-      transform: rotate(-4deg) scale(1.15);
-      animation: marbleFlow 18s ease-in-out infinite alternate;
+
+      transform:
+        rotate(-4deg)
+        scale(1.15);
+
+      animation:
+        marbleFlow
+        18s
+        ease-in-out
+        infinite
+        alternate;
     }
 
     .marble::after {
@@ -156,37 +170,55 @@
       filter: blur(25px);
       opacity: .65;
 
-      animation: marbleGlow 14s ease-in-out infinite alternate;
+      animation:
+        marbleGlow
+        14s
+        ease-in-out
+        infinite
+        alternate;
     }
 
     @keyframes marbleFlow {
       0% {
-        transform: rotate(-4deg) scale(1.15) translate3d(-2%, -1%, 0);
+        transform:
+          rotate(-4deg)
+          scale(1.15)
+          translate3d(-2%, -1%, 0);
       }
 
       50% {
-        transform: rotate(-1deg) scale(1.18) translate3d(2%, 2%, 0);
+        transform:
+          rotate(-1deg)
+          scale(1.18)
+          translate3d(2%, 2%, 0);
       }
 
       100% {
-        transform: rotate(-5deg) scale(1.16) translate3d(-1%, 3%, 0);
+        transform:
+          rotate(-5deg)
+          scale(1.16)
+          translate3d(-1%, 3%, 0);
       }
     }
 
     @keyframes marbleGlow {
       0% {
-        transform: translate3d(-4%, -2%, 0) rotate(0deg);
+        transform:
+          translate3d(-4%, -2%, 0)
+          rotate(0deg);
         opacity: .35;
       }
 
       100% {
-        transform: translate3d(4%, 3%, 0) rotate(12deg);
+        transform:
+          translate3d(4%, 3%, 0)
+          rotate(12deg);
         opacity: .8;
       }
     }
 
     /* =========================================================
-       GLOBAL TECHNOLOGY BACKGROUND
+       BACKGROUND
        ========================================================= */
 
     .background-tech {
@@ -195,10 +227,13 @@
       z-index: -20;
       pointer-events: none;
       overflow: hidden;
+
       background:
-        radial-gradient(circle at var(--mx, 50%) var(--my, 30%),
-        rgba(216,160,176,.08),
-        transparent 25%);
+        radial-gradient(
+          circle at var(--mx, 50%) var(--my, 30%),
+          rgba(216,160,176,.08),
+          transparent 25%
+        );
     }
 
     .background-tech::before {
@@ -207,19 +242,31 @@
       inset: 0;
 
       background-image:
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
 
       background-size: 70px 70px;
 
       mask-image:
-        linear-gradient(to bottom, black, transparent 85%);
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 85%
+        );
     }
 
     .ambient {
       position: absolute;
       width: 600px;
       height: 600px;
+
       border-radius: 50%;
       filter: blur(100px);
       opacity: .09;
@@ -234,41 +281,54 @@
     .ambient.two {
       right: -300px;
       top: 25%;
-      background: #8d5265;
+      background: var(--rose-dark);
     }
 
     .ambient.three {
       left: 25%;
       bottom: -400px;
-      background: #d8a0b0;
+      background: var(--rose);
     }
 
     /* =========================================================
-       CLICK TECHNOLOGY EFFECT
+       TECHNOLOGY CLICK
        ========================================================= */
 
     .tech-target {
       position: relative;
       cursor: pointer;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .tech-target::after {
       content: "";
+
       position: absolute;
       inset: -8px;
+
       border-radius: inherit;
+
       pointer-events: none;
+
       opacity: 0;
+
       transform: scale(.92);
-      border: 1px solid rgba(216,160,176,.8);
+
+      border:
+        1px solid
+        rgba(216,160,176,.8);
+
       box-shadow:
         0 0 20px rgba(216,160,176,.45),
         inset 0 0 20px rgba(216,160,176,.12);
     }
 
     .tech-target.tech-active::after {
-      animation: targetPulse .7s cubic-bezier(.2,.8,.2,1);
+      animation:
+        targetPulse
+        .7s
+        cubic-bezier(.2,.8,.2,1);
     }
 
     @keyframes targetPulse {
@@ -289,26 +349,40 @@
 
     .click-wave {
       position: fixed;
+
       width: 18px;
       height: 18px;
+
       border-radius: 50%;
+
       pointer-events: none;
       z-index: 999999;
 
-      border: 1px solid rgba(241,203,213,.95);
+      border:
+        1px solid
+        rgba(241,203,213,.95);
 
       box-shadow:
         0 0 10px rgba(216,160,176,.9),
         0 0 35px rgba(216,160,176,.5),
         inset 0 0 15px rgba(216,160,176,.3);
 
-      transform: translate(-50%, -50%) scale(0);
-      animation: clickWave .8s cubic-bezier(.15,.7,.2,1) forwards;
+      transform:
+        translate(-50%, -50%)
+        scale(0);
+
+      animation:
+        clickWave
+        .8s
+        cubic-bezier(.15,.7,.2,1)
+        forwards;
     }
 
     @keyframes clickWave {
       0% {
-        transform: translate(-50%, -50%) scale(0);
+        transform:
+          translate(-50%, -50%)
+          scale(0);
         opacity: 1;
       }
 
@@ -317,31 +391,50 @@
       }
 
       100% {
-        transform: translate(-50%, -50%) scale(10);
+        transform:
+          translate(-50%, -50%)
+          scale(10);
         opacity: 0;
       }
     }
 
     .click-particle {
       position: fixed;
+
       width: 3px;
       height: 3px;
+
       border-radius: 50%;
-      background: var(--rose-light);
+
+      background:
+        var(--rose-light);
+
       pointer-events: none;
+
       z-index: 1000000;
-      box-shadow: 0 0 12px var(--rose);
-      animation: particleFly .8s ease-out forwards;
+
+      box-shadow:
+        0 0 12px var(--rose);
+
+      animation:
+        particleFly
+        .8s
+        ease-out
+        forwards;
     }
 
     @keyframes particleFly {
       0% {
         opacity: 1;
-        transform: translate(0,0) scale(1);
+
+        transform:
+          translate(0,0)
+          scale(1);
       }
 
       100% {
         opacity: 0;
+
         transform:
           translate(
             calc(var(--dx) * 1px),
@@ -357,19 +450,29 @@
 
     header {
       position: relative;
+
       min-height: 100svh;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 22px 90px;
+
+      padding:
+        60px
+        22px
+        90px;
+
       overflow: hidden;
     }
 
     .hero-grid {
       position: absolute;
       inset: 0;
+
       pointer-events: none;
+
       opacity: .35;
+
       background:
         linear-gradient(
           90deg,
@@ -383,38 +486,57 @@
           rgba(216,160,176,.05) 50%,
           transparent 50.2%
         );
+
       background-size: 160px 160px;
-      mask-image: radial-gradient(circle, black, transparent 75%);
+
+      mask-image:
+        radial-gradient(
+          circle,
+          black,
+          transparent 75%
+        );
     }
 
     .hero-content {
       position: relative;
       z-index: 5;
+
       width: min(1100px, 100%);
+
       text-align: center;
     }
 
     /* =========================================================
-       LOGO SYSTEM
+       LOGO — CORREÇÃO DO ENQUADRAMENTO
        ========================================================= */
 
     .logo-area {
       position: relative;
+
       width: min(390px, 82vw);
       aspect-ratio: 1;
-      margin: 0 auto 25px;
+
+      margin:
+        0
+        auto
+        25px;
+
       display: grid;
       place-items: center;
 
       perspective: 1000px;
+
       transform-style: preserve-3d;
     }
 
     .logo-marble {
       position: absolute;
+
       width: 91%;
-      aspect-ratio: 1;
+      height: 91%;
+
       border-radius: 50%;
+
       overflow: hidden;
 
       background:
@@ -426,16 +548,25 @@
         #030303;
 
       box-shadow:
-        0 0 0 1px rgba(216,160,176,.28),
-        0 0 30px rgba(216,160,176,.12),
-        0 30px 90px rgba(0,0,0,.9),
-        inset 0 0 50px rgba(0,0,0,.95);
+        0 0 0 1px
+        rgba(216,160,176,.28),
 
-      transform: translateZ(-15px);
+        0 0 30px
+        rgba(216,160,176,.12),
+
+        0 30px 90px
+        rgba(0,0,0,.9),
+
+        inset 0 0 50px
+        rgba(0,0,0,.95);
+
+      transform:
+        translateZ(-15px);
     }
 
     .logo-marble::before {
       content: "";
+
       position: absolute;
       inset: -30%;
 
@@ -446,12 +577,14 @@
           rgba(255,255,255,.07) 26px 28px,
           transparent 29px 62px
         ),
+
         repeating-linear-gradient(
           64deg,
           transparent 0 45px,
           rgba(216,160,176,.14) 46px 49px,
           transparent 50px 95px
         ),
+
         conic-gradient(
           from 130deg,
           transparent,
@@ -464,37 +597,63 @@
         );
 
       filter: blur(2px);
-      transform: rotate(-10deg) scale(1.2);
 
-      animation: logoMarble 12s ease-in-out infinite alternate;
+      transform:
+        rotate(-10deg)
+        scale(1.2);
+
+      animation:
+        logoMarble
+        12s
+        ease-in-out
+        infinite
+        alternate;
     }
 
     .logo-marble::after {
       content: "";
+
       position: absolute;
       inset: 12%;
+
       border-radius: 50%;
-      border: 1px solid rgba(216,160,176,.2);
+
+      border:
+        1px solid
+        rgba(216,160,176,.2);
+
       box-shadow:
-        inset 0 0 30px rgba(216,160,176,.08),
-        0 0 20px rgba(216,160,176,.08);
+        inset 0 0 30px
+        rgba(216,160,176,.08),
+
+        0 0 20px
+        rgba(216,160,176,.08);
     }
 
     @keyframes logoMarble {
       from {
-        transform: rotate(-10deg) scale(1.2) translate(-2%, -1%);
+        transform:
+          rotate(-10deg)
+          scale(1.2)
+          translate(-2%, -1%);
       }
 
       to {
-        transform: rotate(7deg) scale(1.25) translate(3%, 2%);
+        transform:
+          rotate(7deg)
+          scale(1.25)
+          translate(3%, 2%);
       }
     }
 
     .logo-aura {
       position: absolute;
+
       width: 105%;
       height: 105%;
+
       border-radius: 50%;
+
       background:
         radial-gradient(
           circle,
@@ -502,76 +661,137 @@
           rgba(216,160,176,.12) 54%,
           transparent 59%
         );
+
       filter: blur(1px);
-      animation: auraSpin 12s linear infinite;
+
+      animation:
+        auraSpin
+        12s
+        linear
+        infinite;
     }
 
     .logo-aura::before,
     .logo-aura::after {
       content: "";
+
       position: absolute;
       inset: 4%;
+
       border-radius: 50%;
-      border: 1px solid rgba(216,160,176,.16);
+
+      border:
+        1px solid
+        rgba(216,160,176,.16);
     }
 
     .logo-aura::after {
       inset: 9%;
-      border-color: rgba(255,255,255,.07);
-      transform: rotate(65deg);
+
+      border-color:
+        rgba(255,255,255,.07);
+
+      transform:
+        rotate(65deg);
     }
 
     @keyframes auraSpin {
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
 
     .logo-frame {
       position: absolute;
+
       width: 94%;
       height: 94%;
+
       border-radius: 50%;
-      border: 1px solid rgba(216,160,176,.4);
+
+      border:
+        1px solid
+        rgba(216,160,176,.4);
+
       box-shadow:
-        0 0 30px rgba(216,160,176,.13),
-        inset 0 0 30px rgba(216,160,176,.08);
+        0 0 30px
+        rgba(216,160,176,.13),
+
+        inset 0 0 30px
+        rgba(216,160,176,.08);
 
       transform-style: preserve-3d;
-      transition: transform .18s ease-out;
+
+      transition:
+        transform .18s ease-out;
     }
 
     .logo-frame::before,
     .logo-frame::after {
       content: "";
+
       position: absolute;
+
       border-radius: 50%;
-      border: 1px dashed rgba(216,160,176,.18);
+
+      border:
+        1px dashed
+        rgba(216,160,176,.18);
     }
 
     .logo-frame::before {
       inset: 7%;
-      animation: frameRotate 16s linear infinite reverse;
+
+      animation:
+        frameRotate
+        16s
+        linear
+        infinite
+        reverse;
     }
 
     .logo-frame::after {
       inset: -7%;
-      border-color: rgba(255,255,255,.06);
-      animation: frameRotate 22s linear infinite;
+
+      border-color:
+        rgba(255,255,255,.06);
+
+      animation:
+        frameRotate
+        22s
+        linear
+        infinite;
     }
 
     @keyframes frameRotate {
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
 
+    /*
+      CORREÇÃO PRINCIPAL:
+      o círculo interno agora possui overflow hidden
+      e a imagem fica limitada a uma área segura.
+    */
+
     .logo-core {
-      position: relative;
+      position: absolute;
+
       width: 73%;
-      aspect-ratio: 1;
+      height: 73%;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
       border-radius: 50%;
-      padding: 8px;
+
+      padding: 7px;
 
       background:
         linear-gradient(
@@ -583,10 +803,14 @@
         );
 
       box-shadow:
-        0 25px 55px rgba(0,0,0,.8),
-        0 0 45px rgba(216,160,176,.14);
+        0 25px 55px
+        rgba(0,0,0,.8),
+
+        0 0 45px
+        rgba(216,160,176,.14);
 
       transform-style: preserve-3d;
+
       transition:
         transform .18s ease-out,
         box-shadow .3s ease;
@@ -594,24 +818,40 @@
 
     .logo-core-mask {
       position: relative;
+
       width: 100%;
       height: 100%;
+
       border-radius: 50%;
+
       overflow: hidden;
 
-      background: #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        #050505;
 
       box-shadow:
-        inset 0 0 35px rgba(0,0,0,.9),
-        inset 0 0 8px rgba(216,160,176,.35);
+        inset 0 0 35px
+        rgba(0,0,0,.9),
+
+        inset 0 0 8px
+        rgba(216,160,176,.35);
     }
 
     .logo-core-mask::after {
       content: "";
+
       position: absolute;
       inset: 0;
+
       border-radius: 50%;
+
       pointer-events: none;
+
+      z-index: 5;
 
       background:
         linear-gradient(
@@ -626,22 +866,41 @@
     }
 
     .brand-logo {
-      width: 100%;
-      height: 100%;
+      position: relative;
+      z-index: 3;
+
       display: block;
+
+      width: 86%;
+      height: 86%;
+
+      max-width: 86%;
+      max-height: 86%;
+
+      margin: auto;
+
       object-fit: contain;
 
-      position: relative;
-      z-index: 2;
+      object-position: center;
+
+      border-radius: 50%;
 
       transform: translateZ(30px);
+
       filter:
-        drop-shadow(0 8px 18px rgba(0,0,0,.75))
-        drop-shadow(0 0 15px rgba(216,160,176,.12));
+        drop-shadow(
+          0 8px 18px
+          rgba(0,0,0,.75)
+        )
+        drop-shadow(
+          0 0 15px
+          rgba(216,160,176,.12)
+        );
     }
 
     .logo-status {
       position: absolute;
+
       bottom: 7%;
       right: 8%;
 
@@ -649,19 +908,30 @@
       align-items: center;
       gap: 7px;
 
-      padding: 7px 11px;
-      border: 1px solid rgba(216,160,176,.3);
+      padding:
+        7px
+        11px;
+
+      border:
+        1px solid
+        rgba(216,160,176,.3);
+
       border-radius: 100px;
 
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(12px);
+      background:
+        rgba(0,0,0,.72);
+
+      backdrop-filter:
+        blur(12px);
 
       font-size: 8px;
       font-weight: 700;
+
       letter-spacing: .18em;
       text-transform: uppercase;
 
-      color: var(--rose-light);
+      color:
+        var(--rose-light);
 
       z-index: 20;
     }
@@ -669,10 +939,21 @@
     .status-dot {
       width: 5px;
       height: 5px;
+
       border-radius: 50%;
-      background: var(--rose-light);
-      box-shadow: 0 0 12px var(--rose-light);
-      animation: statusPulse 1.5s ease-in-out infinite;
+
+      background:
+        var(--rose-light);
+
+      box-shadow:
+        0 0 12px
+        var(--rose-light);
+
+      animation:
+        statusPulse
+        1.5s
+        ease-in-out
+        infinite;
     }
 
     @keyframes statusPulse {
@@ -683,39 +964,56 @@
     }
 
     /* =========================================================
-       HERO TITLE — MARBLE ROSÉ
+       HERO TITLE
        ========================================================= */
 
     .hero-title-wrap {
       position: relative;
+
       display: inline-block;
+
       max-width: 100%;
-      padding: 5px 15px 10px;
+
+      padding:
+        5px
+        15px
+        10px;
+
       margin-top: -8px;
     }
 
     .hero-title {
       position: relative;
+
       display: inline-block;
 
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(3rem, 8vw, 7.5rem);
+
       line-height: .98;
+
       font-weight: 600;
+
       letter-spacing: -.055em;
 
-      /* MARBLE ROSÉ */
       background:
         radial-gradient(
           ellipse at 15% 20%,
           #fff4f7 0%,
           transparent 19%
         ),
+
         radial-gradient(
           ellipse at 75% 70%,
           #9e6073 0%,
           transparent 25%
         ),
+
         repeating-linear-gradient(
           122deg,
           #d8a0b0 0px,
@@ -740,32 +1038,27 @@
 
       -webkit-background-clip: text;
       background-clip: text;
+
       color: transparent;
 
       filter:
-        drop-shadow(0 10px 20px rgba(0,0,0,.65))
-        drop-shadow(0 0 22px rgba(216,160,176,.16));
+        drop-shadow(
+          0 10px 20px
+          rgba(0,0,0,.65)
+        )
+        drop-shadow(
+          0 0 22px
+          rgba(216,160,176,.16)
+        );
 
-      animation: titleMarble 9s ease-in-out infinite alternate;
+      animation:
+        titleMarble
+        9s
+        ease-in-out
+        infinite
+        alternate;
 
-      /* evita clipping */
       padding-bottom: .08em;
-    }
-
-    .hero-title::after {
-      content: "Vanessa Signature";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-
-      font: inherit;
-      letter-spacing: inherit;
-
-      color: transparent;
-
-      text-shadow:
-        0 0 35px rgba(216,160,176,.12),
-        0 0 70px rgba(216,160,176,.06);
     }
 
     @keyframes titleMarble {
@@ -786,12 +1079,22 @@
 
     .hero-subtitle {
       max-width: 650px;
-      margin: 15px auto 0;
 
-      color: #c8bfc2;
-      font-size: clamp(.95rem, 2vw, 1.15rem);
+      margin:
+        15px
+        auto
+        0;
+
+      color:
+        #c8bfc2;
+
+      font-size:
+        clamp(.95rem, 2vw, 1.15rem);
+
       font-weight: 300;
+
       line-height: 1.8;
+
       letter-spacing: .04em;
     }
 
@@ -799,24 +1102,37 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+
       gap: 10px;
+
       margin-top: 26px;
     }
 
     .hero-info span {
-      padding: 8px 13px;
+      padding:
+        8px
+        13px;
 
-      border: 1px solid rgba(216,160,176,.17);
+      border:
+        1px solid
+        rgba(216,160,176,.17);
+
       border-radius: 100px;
 
-      background: rgba(255,255,255,.025);
+      background:
+        rgba(255,255,255,.025);
 
-      color: #bcaeb2;
+      color:
+        #bcaeb2;
+
       font-size: 9px;
+
       letter-spacing: .15em;
+
       text-transform: uppercase;
 
-      backdrop-filter: blur(10px);
+      backdrop-filter:
+        blur(10px);
 
       transition:
         transform .25s ease,
@@ -826,23 +1142,40 @@
     }
 
     .hero-info span:hover {
-      transform: translateY(-3px);
-      border-color: rgba(216,160,176,.5);
-      color: var(--rose-light);
-      box-shadow: 0 8px 30px rgba(216,160,176,.08);
+      transform:
+        translateY(-3px);
+
+      border-color:
+        rgba(216,160,176,.5);
+
+      color:
+        var(--rose-light);
+
+      box-shadow:
+        0 8px 30px
+        rgba(216,160,176,.08);
     }
 
     .hero-button {
       position: relative;
+
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
+
       gap: 12px;
 
       margin-top: 34px;
-      padding: 15px 26px;
 
-      border: 1px solid rgba(216,160,176,.45);
+      padding:
+        15px
+        26px;
+
+      border:
+        1px solid
+        rgba(216,160,176,.45);
+
       border-radius: 100px;
 
       background:
@@ -852,18 +1185,26 @@
           rgba(216,160,176,.035)
         );
 
-      color: var(--rose-light);
+      color:
+        var(--rose-light);
 
       font-size: 10px;
+
       font-weight: 700;
+
       letter-spacing: .19em;
+
       text-transform: uppercase;
 
-      backdrop-filter: blur(15px);
+      backdrop-filter:
+        blur(15px);
 
       box-shadow:
-        0 10px 35px rgba(0,0,0,.35),
-        inset 0 0 20px rgba(216,160,176,.04);
+        0 10px 35px
+        rgba(0,0,0,.35),
+
+        inset 0 0 20px
+        rgba(216,160,176,.04);
 
       transition:
         transform .3s ease,
@@ -872,59 +1213,101 @@
     }
 
     .hero-button:hover {
-      transform: translateY(-5px) scale(1.025);
-      border-color: rgba(241,203,213,.75);
+      transform:
+        translateY(-5px)
+        scale(1.025);
+
+      border-color:
+        rgba(241,203,213,.75);
+
       box-shadow:
-        0 18px 45px rgba(0,0,0,.5),
-        0 0 35px rgba(216,160,176,.14);
+        0 18px 45px
+        rgba(0,0,0,.5),
+
+        0 0 35px
+        rgba(216,160,176,.14);
     }
 
     .hero-button::after {
       content: "↘";
+
       font-size: 15px;
-      transition: transform .3s ease;
+
+      transition:
+        transform .3s ease;
     }
 
     .hero-button:hover::after {
-      transform: translateY(3px);
+      transform:
+        translateY(3px);
     }
 
     /* =========================================================
-       SECTION SYSTEM
+       SECTIONS
        ========================================================= */
 
     section {
       position: relative;
-      padding: 110px 22px;
+
+      padding:
+        110px
+        22px;
     }
 
     .section-container {
-      width: min(1120px, 100%);
-      margin: 0 auto;
+      width:
+        min(1120px, 100%);
+
+      margin:
+        0 auto;
     }
 
     .section-head {
       text-align: center;
-      margin-bottom: 55px;
+
+      margin-bottom:
+        55px;
     }
 
     .section-kicker {
       display: inline-block;
-      margin-bottom: 13px;
 
-      color: var(--rose);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .28em;
-      text-transform: uppercase;
+      margin-bottom:
+        13px;
+
+      color:
+        var(--rose);
+
+      font-size:
+        9px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .28em;
+
+      text-transform:
+        uppercase;
     }
 
     .section-title {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      line-height: 1.05;
-      font-weight: 600;
-      letter-spacing: -.035em;
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(2.3rem, 5vw, 4.5rem);
+
+      line-height:
+        1.05;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        -.035em;
 
       background:
         linear-gradient(
@@ -935,18 +1318,31 @@
           #f2cbd5
         );
 
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
     }
 
     .section-description {
-      max-width: 620px;
-      margin: 17px auto 0;
+      max-width:
+        620px;
 
-      color: #9f9699;
-      line-height: 1.8;
-      font-size: .95rem;
+      margin:
+        17px auto 0;
+
+      color:
+        #9f9699;
+
+      line-height:
+        1.8;
+
+      font-size:
+        .95rem;
     }
 
     /* =========================================================
@@ -954,18 +1350,32 @@
        ========================================================= */
 
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        18px;
     }
 
     .service-card {
-      position: relative;
-      min-height: 340px;
-      padding: 30px;
+      position:
+        relative;
 
-      border: 1px solid rgba(216,160,176,.14);
-      border-radius: 25px;
+      min-height:
+        340px;
+
+      padding:
+        30px;
+
+      border:
+        1px solid
+        rgba(216,160,176,.14);
+
+      border-radius:
+        25px;
 
       background:
         linear-gradient(
@@ -974,24 +1384,36 @@
           rgba(255,255,255,.018)
         );
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
-      transform-style: preserve-3d;
+      transform-style:
+        preserve-3d;
 
       box-shadow:
-        0 25px 70px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.04);
+        0 25px 70px
+        rgba(0,0,0,.35),
+
+        inset 0 1px 0
+        rgba(255,255,255,.04);
 
       transition:
-        transform .35s cubic-bezier(.2,.8,.2,1),
+        transform .35s
+        cubic-bezier(.2,.8,.2,1),
+
         border-color .3s ease,
+
         box-shadow .3s ease;
     }
 
     .service-card::before {
       content: "";
-      position: absolute;
-      inset: -50%;
+
+      position:
+        absolute;
+
+      inset:
+        -50%;
 
       background:
         conic-gradient(
@@ -1003,62 +1425,116 @@
           transparent 45%
         );
 
-      animation: cardGlow 12s linear infinite;
+      animation:
+        cardGlow
+        12s
+        linear
+        infinite;
     }
 
     @keyframes cardGlow {
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
 
     .service-card::after {
       content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      top: -90px;
-      right: -90px;
 
-      border-radius: 50%;
-      background: rgba(216,160,176,.09);
-      filter: blur(45px);
+      position:
+        absolute;
+
+      width:
+        180px;
+
+      height:
+        180px;
+
+      top:
+        -90px;
+
+      right:
+        -90px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(216,160,176,.09);
+
+      filter:
+        blur(45px);
     }
 
     .service-card:hover {
-      border-color: rgba(216,160,176,.38);
+      border-color:
+        rgba(216,160,176,.38);
+
       box-shadow:
-        0 35px 90px rgba(0,0,0,.55),
-        0 0 45px rgba(216,160,176,.07);
+        0 35px 90px
+        rgba(0,0,0,.55),
+
+        0 0 45px
+        rgba(216,160,176,.07);
     }
 
     .service-number {
-      position: relative;
-      z-index: 2;
+      position:
+        relative;
 
-      color: rgba(216,160,176,.4);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .2em;
+      z-index:
+        2;
+
+      color:
+        rgba(216,160,176,.4);
+
+      font-size:
+        10px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .2em;
     }
 
     .service-icon {
-      position: relative;
-      z-index: 2;
+      position:
+        relative;
 
-      width: 55px;
-      height: 55px;
+      z-index:
+        2;
 
-      margin: 45px 0 30px;
+      width:
+        55px;
 
-      display: grid;
-      place-items: center;
+      height:
+        55px;
 
-      border: 1px solid rgba(216,160,176,.28);
-      border-radius: 16px;
+      margin:
+        45px
+        0
+        30px;
 
-      color: var(--rose-light);
-      font-size: 20px;
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border:
+        1px solid
+        rgba(216,160,176,.28);
+
+      border-radius:
+        16px;
+
+      color:
+        var(--rose-light);
+
+      font-size:
+        20px;
 
       background:
         linear-gradient(
@@ -1068,66 +1544,142 @@
         );
 
       box-shadow:
-        inset 0 0 20px rgba(216,160,176,.05),
-        0 10px 30px rgba(0,0,0,.3);
+        inset 0 0 20px
+        rgba(216,160,176,.05),
+
+        0 10px 30px
+        rgba(0,0,0,.3);
     }
 
     .service-card h3 {
-      position: relative;
-      z-index: 2;
+      position:
+        relative;
 
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      line-height: 1.1;
+      z-index:
+        2;
+
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-size:
+        1.7rem;
+
+      font-weight:
+        600;
+
+      line-height:
+        1.1;
     }
 
     .service-card p {
-      position: relative;
-      z-index: 2;
+      position:
+        relative;
 
-      margin-top: 15px;
+      z-index:
+        2;
 
-      color: #999094;
-      font-size: .88rem;
-      line-height: 1.7;
+      margin-top:
+        15px;
+
+      color:
+        #999094;
+
+      font-size:
+        .88rem;
+
+      line-height:
+        1.7;
     }
 
     /* =========================================================
-       VANESSA / PHOTO
+       VANESSA
        ========================================================= */
 
     .vanessa-section {
-      overflow: hidden;
+      overflow:
+        hidden;
     }
 
     .vanessa-layout {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      align-items: center;
-      gap: 70px;
+      display:
+        grid;
+
+      grid-template-columns:
+        .8fr 1.2fr;
+
+      align-items:
+        center;
+
+      gap:
+        70px;
     }
 
     .vanessa-copy h2 {
-      margin-top: 10px;
+      margin-top:
+        10px;
 
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.5rem, 5vw, 5rem);
-      line-height: 1;
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(2.5rem, 5vw, 5rem);
+
+      line-height:
+        1;
+
+      font-weight:
+        600;
     }
 
-    .vanessa-copy p {
-      margin-top: 25px;
+    /*
+      TEXTO MAIOR + TIPOGRAFIA MAIS ELEGANTE
+    */
 
-      color: #a49b9e;
-      line-height: 1.9;
-      font-size: .95rem;
+    .vanessa-copy p {
+      margin-top:
+        28px;
+
+      max-width:
+        570px;
+
+      color:
+        #c4b8bc;
+
+      font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1.2rem,
+          2vw,
+          1.48rem
+        );
+
+      font-weight:
+        500;
+
+      line-height:
+        1.55;
+
+      letter-spacing:
+        .015em;
     }
 
     .vanessa-photo-wrap {
-      position: relative;
-      border-radius: 30px;
-      padding: 10px;
+      position:
+        relative;
+
+      border-radius:
+        30px;
+
+      padding:
+        10px;
 
       background:
         linear-gradient(
@@ -1138,24 +1690,41 @@
         );
 
       box-shadow:
-        0 35px 100px rgba(0,0,0,.65),
-        0 0 70px rgba(216,160,176,.08);
+        0 35px 100px
+        rgba(0,0,0,.65),
 
-      transform-style: preserve-3d;
-      transition: transform .25s ease;
+        0 0 70px
+        rgba(216,160,176,.08);
+
+      transform-style:
+        preserve-3d;
+
+      transition:
+        transform .25s ease;
     }
 
     .vanessa-photo-inner {
-      position: relative;
-      overflow: hidden;
-      border-radius: 23px;
-      background: #080808;
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        23px;
+
+      background:
+        #080808;
     }
 
     .vanessa-photo-inner::after {
       content: "";
-      position: absolute;
-      inset: 0;
+
+      position:
+        absolute;
+
+      inset:
+        0;
 
       background:
         linear-gradient(
@@ -1166,143 +1735,573 @@
           rgba(216,160,176,.05)
         );
 
-      pointer-events: none;
+      pointer-events:
+        none;
     }
 
     .vanessa-photo {
-      width: 100%;
-      height: auto;
+      width:
+        100%;
 
-      display: block;
+      height:
+        auto;
 
-      /* FOTO ORIGINAL — SEM FILTRO / SEM CROP */
-      object-fit: contain;
+      display:
+        block;
 
-      transform: translateZ(20px);
+      object-fit:
+        contain;
+
+      transform:
+        translateZ(20px);
     }
 
     .photo-corner {
-      position: absolute;
-      z-index: 5;
+      position:
+        absolute;
 
-      width: 35px;
-      height: 35px;
+      z-index:
+        5;
 
-      border-color: rgba(216,160,176,.65);
+      width:
+        35px;
+
+      height:
+        35px;
+
+      border-color:
+        rgba(216,160,176,.65);
     }
 
     .photo-corner.tl {
-      top: 20px;
-      left: 20px;
-      border-top: 1px solid;
-      border-left: 1px solid;
+      top:
+        20px;
+
+      left:
+        20px;
+
+      border-top:
+        1px solid;
+
+      border-left:
+        1px solid;
     }
 
     .photo-corner.tr {
-      top: 20px;
-      right: 20px;
-      border-top: 1px solid;
-      border-right: 1px solid;
+      top:
+        20px;
+
+      right:
+        20px;
+
+      border-top:
+        1px solid;
+
+      border-right:
+        1px solid;
     }
 
     .photo-corner.bl {
-      bottom: 20px;
-      left: 20px;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
+      bottom:
+        20px;
+
+      left:
+        20px;
+
+      border-bottom:
+        1px solid;
+
+      border-left:
+        1px solid;
     }
 
     .photo-corner.br {
-      bottom: 20px;
-      right: 20px;
-      border-bottom: 1px solid;
-      border-right: 1px solid;
+      bottom:
+        20px;
+
+      right:
+        20px;
+
+      border-bottom:
+        1px solid;
+
+      border-right:
+        1px solid;
     }
 
     /* =========================================================
-       CONTACT
+       FINAL CTA — NOVO
        ========================================================= */
 
-    .contact-box {
-      position: relative;
-      max-width: 900px;
-      margin: auto;
+    .final-section {
+      padding-top:
+        90px;
 
-      padding: 70px 35px;
+      padding-bottom:
+        120px;
+    }
 
-      border: 1px solid rgba(216,160,176,.17);
-      border-radius: 35px;
+    .final-box {
+      position:
+        relative;
 
-      text-align: center;
+      max-width:
+        1050px;
+
+      margin:
+        auto;
+
+      padding:
+        90px
+        30px;
+
+      border:
+        1px solid
+        rgba(216,160,176,.2);
+
+      border-radius:
+        38px;
+
+      text-align:
+        center;
+
+      overflow:
+        hidden;
 
       background:
         radial-gradient(
-          circle at 50% 0%,
-          rgba(216,160,176,.10),
+          ellipse at 50% 0%,
+          rgba(216,160,176,.14),
           transparent 45%
         ),
         rgba(255,255,255,.025);
 
       box-shadow:
-        0 35px 100px rgba(0,0,0,.5),
-        inset 0 1px 0 rgba(255,255,255,.04);
+        0 40px 120px
+        rgba(0,0,0,.65),
 
-      overflow: hidden;
+        inset 0 1px 0
+        rgba(255,255,255,.06);
     }
 
-    .contact-box::before {
+    .final-box::before {
       content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
 
-      left: 50%;
-      top: -200px;
+      position:
+        absolute;
 
-      transform: translateX(-50%);
+      width:
+        700px;
 
-      border-radius: 50%;
+      height:
+        700px;
 
-      background: rgba(216,160,176,.1);
-      filter: blur(70px);
+      left:
+        50%;
+
+      top:
+        -570px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(216,160,176,.12);
+
+      box-shadow:
+        0 0 100px
+        rgba(216,160,176,.12);
     }
 
-    .contact-box h2 {
-      position: relative;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 1;
+    .final-box::after {
+      content: "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      background:
+        linear-gradient(
+          115deg,
+          transparent 15%,
+          rgba(255,255,255,.025) 35%,
+          transparent 50%,
+          rgba(216,160,176,.035) 72%,
+          transparent 90%
+        );
+
+      animation:
+        finalLight
+        7s
+        ease-in-out
+        infinite
+        alternate;
     }
 
-    .contact-box p {
-      position: relative;
+    @keyframes finalLight {
+      from {
+        transform:
+          translateX(-8%);
+      }
 
-      max-width: 550px;
-      margin: 20px auto 30px;
+      to {
+        transform:
+          translateX(8%);
+      }
+    }
 
-      color: #a39a9d;
-      line-height: 1.8;
+    .final-kicker {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      display:
+        inline-block;
+
+      margin-bottom:
+        20px;
+
+      color:
+        var(--rose-light);
+
+      font-size:
+        9px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .32em;
+
+      text-transform:
+        uppercase;
+    }
+
+    /*
+      VANESSA SIGNATURE FINAL
+      GRANDE + ROBUSTO + MÁRMORE ROSÉ
+    */
+
+    .final-brand {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      display:
+        inline-block;
+
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3.5rem,
+          10vw,
+          8.5rem
+        );
+
+      line-height:
+        .92;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        -.065em;
+
+      background:
+        radial-gradient(
+          ellipse at 20% 20%,
+          #fff7f9 0%,
+          transparent 17%
+        ),
+
+        radial-gradient(
+          ellipse at 80% 80%,
+          #8f5064 0%,
+          transparent 27%
+        ),
+
+        repeating-linear-gradient(
+          118deg,
+          #8d5265 0px,
+          #e8b9c5 8px,
+          #f7dce2 15px,
+          #b96f83 22px,
+          #f0c8d1 30px,
+          #7b4356 38px,
+          #eabac6 47px,
+          #d08a9d 56px
+        );
+
+      background-size:
+        170% 170%,
+        150% 150%,
+        220% 220%;
+
+      background-position:
+        0% 0%,
+        100% 100%,
+        0% 50%;
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+
+      filter:
+        drop-shadow(
+          0 16px 30px
+          rgba(0,0,0,.75)
+        )
+        drop-shadow(
+          0 0 35px
+          rgba(216,160,176,.18)
+        );
+
+      animation:
+        finalMarble
+        10s
+        ease-in-out
+        infinite
+        alternate;
+    }
+
+    @keyframes finalMarble {
+      from {
+        background-position:
+          0% 0%,
+          100% 100%,
+          0% 50%;
+      }
+
+      to {
+        background-position:
+          100% 30%,
+          0% 70%,
+          100% 50%;
+      }
+    }
+
+    /*
+      NOVA FRASE DE ATRAÇÃO
+    */
+
+    .final-title {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      margin-top:
+        32px;
+
+      font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1.9rem,
+          4vw,
+          3.4rem
+        );
+
+      font-weight:
+        600;
+
+      line-height:
+        1.1;
+
+      color:
+        #f8e8ec;
+
+      letter-spacing:
+        -.015em;
+    }
+
+    .final-description {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        650px;
+
+      margin:
+        18px auto
+        34px;
+
+      color:
+        #aaa0a4;
+
+      font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1.1rem,
+          2vw,
+          1.35rem
+        );
+
+      line-height:
+        1.55;
+    }
+
+    /*
+      MENSAGEM FINAL
+    */
+
+    .thank-you {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        700px;
+
+      margin:
+        42px auto
+        32px;
+
+      padding-top:
+        32px;
+
+      border-top:
+        1px solid
+        rgba(216,160,176,.16);
+
+      color:
+        #e7d3d9;
+
+      font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          1.45rem,
+          3vw,
+          2rem
+        );
+
+      font-weight:
+        500;
+
+      line-height:
+        1.35;
+
+      letter-spacing:
+        .01em;
+    }
+
+    .thank-you::before {
+      content:
+        "✦";
+
+      display:
+        block;
+
+      margin-bottom:
+        13px;
+
+      color:
+        var(--rose);
+
+      font-size:
+        18px;
+
+      text-shadow:
+        0 0 18px
+        rgba(216,160,176,.7);
     }
 
     .whatsapp {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
+      position:
+        relative;
 
-      padding: 15px 24px;
+      z-index:
+        3;
 
-      border: 1px solid rgba(216,160,176,.35);
-      border-radius: 100px;
+      display:
+        inline-flex;
 
-      color: var(--rose-light);
+      align-items:
+        center;
+      justify-content:
+        center;
 
-      background: rgba(216,160,176,.06);
+      gap:
+        12px;
 
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+      padding:
+        16px
+        27px;
+
+      border:
+        1px solid
+        rgba(216,160,176,.4);
+
+      border-radius:
+        100px;
+
+      color:
+        var(--rose-light);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(216,160,176,.14),
+          rgba(216,160,176,.035)
+        );
+
+      font-size:
+        10px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .18em;
+
+      text-transform:
+        uppercase;
+
+      backdrop-filter:
+        blur(15px);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.35);
 
       transition:
         transform .3s ease,
@@ -1311,9 +2310,15 @@
     }
 
     .whatsapp:hover {
-      transform: translateY(-4px);
-      border-color: rgba(216,160,176,.65);
-      box-shadow: 0 15px 40px rgba(216,160,176,.12);
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(216,160,176,.7);
+
+      box-shadow:
+        0 20px 50px
+        rgba(216,160,176,.12);
     }
 
     /* =========================================================
@@ -1321,20 +2326,33 @@
        ========================================================= */
 
     footer {
-      padding: 45px 22px;
+      padding:
+        45px
+        22px;
 
-      border-top: 1px solid rgba(216,160,176,.08);
+      border-top:
+        1px solid
+        rgba(216,160,176,.08);
 
-      text-align: center;
+      text-align:
+        center;
 
-      color: #6f686b;
-      font-size: 9px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+      color:
+        #6f686b;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        .16em;
+
+      text-transform:
+        uppercase;
     }
 
     footer strong {
-      color: var(--rose-dark);
+      color:
+        var(--rose-dark);
     }
 
     /* =========================================================
@@ -1342,16 +2360,24 @@
        ========================================================= */
 
     .reveal {
-      opacity: 0;
-      transform: translateY(35px);
+      opacity:
+        0;
+
+      transform:
+        translateY(35px);
+
       transition:
         opacity .9s ease,
-        transform .9s cubic-bezier(.2,.8,.2,1);
+        transform .9s
+        cubic-bezier(.2,.8,.2,1);
     }
 
     .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
     }
 
     /* =========================================================
@@ -1361,77 +2387,119 @@
     @media (max-width: 850px) {
 
       header {
-        padding-top: 40px;
+        padding-top:
+          40px;
       }
 
       .logo-area {
-        width: min(340px, 85vw);
-        margin-bottom: 20px;
-      }
+        width:
+          min(340px, 85vw);
 
-      .hero-title-wrap {
-        margin-top: -2px;
-        padding-inline: 5px;
+        margin-bottom:
+          20px;
       }
 
       .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .service-card {
-        min-height: 290px;
+        min-height:
+          290px;
       }
 
       .vanessa-layout {
-        grid-template-columns: 1fr;
-        gap: 45px;
+        grid-template-columns:
+          1fr;
+
+        gap:
+          45px;
       }
 
       .vanessa-copy {
-        text-align: center;
+        text-align:
+          center;
+      }
+
+      .vanessa-copy p {
+        margin-left:
+          auto;
+
+        margin-right:
+          auto;
       }
     }
 
     @media (max-width: 500px) {
 
       header {
-        min-height: auto;
+        min-height:
+          auto;
+
         padding:
-          35px 16px
+          35px
+          16px
           85px;
       }
 
       .logo-area {
-        width: min(310px, 88vw);
+        width:
+          min(310px, 88vw);
       }
 
       .hero-title {
-        font-size: clamp(2.65rem, 13vw, 4.2rem);
+        font-size:
+          clamp(
+            2.65rem,
+            13vw,
+            4.2rem
+          );
       }
 
       .hero-subtitle {
-        font-size: .88rem;
+        font-size:
+          .88rem;
       }
 
       .hero-info {
-        gap: 7px;
+        gap:
+          7px;
       }
 
       .hero-info span {
-        font-size: 7px;
-        padding: 7px 9px;
+        font-size:
+          7px;
+
+        padding:
+          7px
+          9px;
       }
 
       section {
-        padding: 80px 16px;
+        padding:
+          80px
+          16px;
       }
 
       .service-card {
-        padding: 25px;
+        padding:
+          25px;
       }
 
-      .contact-box {
-        padding: 55px 22px;
+      .final-box {
+        padding:
+          65px
+          18px;
+      }
+
+      .final-brand {
+        font-size:
+          clamp(
+            3rem,
+            15vw,
+            5rem
+          );
       }
     }
 
@@ -1440,13 +2508,21 @@
        ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        scroll-behavior:
+          auto !important;
+
+        transition-duration:
+          .01ms !important;
       }
     }
   </style>
@@ -1459,10 +2535,13 @@
        ======================================================== -->
 
   <div class="background-tech">
+
     <div class="ambient one"></div>
     <div class="ambient two"></div>
     <div class="ambient three"></div>
+
   </div>
+
 
   <!-- =======================================================
        HERO
@@ -1474,24 +2553,30 @@
 
     <div class="hero-content">
 
+      <!-- LOGO -->
+
       <div
         class="logo-area tech-target"
         data-tech="logo"
         id="logo3d"
       >
 
-        <!-- MÁRMORE PRETO ATRÁS DA LOGO -->
         <div class="logo-marble marble"></div>
 
         <div class="logo-aura"></div>
 
-        <div class="logo-frame" id="logoFrame">
+        <div
+          class="logo-frame"
+          id="logoFrame"
+        >
 
-          <div class="logo-core" id="logoCore">
+          <div
+            class="logo-core"
+            id="logoCore"
+          >
 
             <div class="logo-core-mask">
 
-              <!-- LOGO ORIGINAL -->
               <img
                 class="brand-logo"
                 src="E1DE0041-E95A-45C9-A681-5A2D740A3AF9.png"
@@ -1506,14 +2591,21 @@
         </div>
 
         <div class="logo-status tech-target">
+
           <span class="status-dot"></span>
+
           Vanessa Signature
+
         </div>
 
       </div>
 
+
       <!-- NOME -->
-      <div class="hero-title-wrap tech-target">
+
+      <div
+        class="hero-title-wrap tech-target"
+      >
 
         <h1 class="hero-title">
           Vanessa Signature
@@ -1521,9 +2613,11 @@
 
       </div>
 
+
       <p class="hero-subtitle tech-target">
         Beleza, precisão e sofisticação em cada detalhe.
       </p>
+
 
       <div class="hero-info">
 
@@ -1541,11 +2635,12 @@
 
       </div>
 
+
       <a
         href="#servicos"
         class="hero-button tech-target"
       >
-        Explorar serviços
+        Conheça meu trabalho
       </a>
 
     </div>
@@ -1572,8 +2667,8 @@
         </h2>
 
         <p class="section-description tech-target">
-          Técnicas desenvolvidas para valorizar sua beleza com
-          precisão, naturalidade e acabamento sofisticado.
+          Técnicas desenvolvidas para valorizar sua beleza
+          com precisão, naturalidade e acabamento sofisticado.
         </p>
 
       </div>
@@ -1581,7 +2676,9 @@
 
       <div class="services-grid">
 
-        <article class="service-card tech-target reveal">
+        <article
+          class="service-card tech-target reveal"
+        >
 
           <span class="service-number">
             01 / SIGNATURE
@@ -1603,7 +2700,9 @@
         </article>
 
 
-        <article class="service-card tech-target reveal">
+        <article
+          class="service-card tech-target reveal"
+        >
 
           <span class="service-number">
             02 / SIGNATURE
@@ -1625,7 +2724,9 @@
         </article>
 
 
-        <article class="service-card tech-target reveal">
+        <article
+          class="service-card tech-target reveal"
+        >
 
           <span class="service-number">
             03 / SIGNATURE
@@ -1690,7 +2791,6 @@
 
           <div class="vanessa-photo-inner">
 
-            <!-- FOTO ORIGINAL — NÃO ALTERADA -->
             <img
               class="vanessa-photo"
               src="21127295-DDB3-45DD-8C3B-4F5817B8FB3F.png"
@@ -1700,6 +2800,7 @@
             >
 
           </div>
+
 
           <span class="photo-corner tl"></span>
           <span class="photo-corner tr"></span>
@@ -1716,28 +2817,61 @@
 
 
   <!-- =======================================================
-       CONTATO
+       FINAL — EXPERIÊNCIA / CTA
        ======================================================== -->
 
-  <section>
+  <section class="final-section">
 
     <div class="section-container">
 
-      <div class="contact-box reveal">
+      <div class="final-box marble reveal">
 
-        <span class="section-kicker tech-target">
-          Contact
+        <span class="final-kicker tech-target">
+          Sua beleza, sua identidade
         </span>
 
-        <h2 class="tech-target">
-          Vamos criar sua<br>
-          Signature?
+
+        <!-- VANESSA SIGNATURE GRANDE -->
+
+        <div
+          class="final-brand tech-target"
+        >
+          Vanessa Signature
+        </div>
+
+
+        <!-- TEXTO CHAMATIVO -->
+
+        <h2
+          class="final-title tech-target"
+        >
+          Realce a sua beleza.
+          <br>
+          Revele a sua melhor versão.
         </h2>
 
-        <p class="tech-target">
-          Entre em contato para conhecer os procedimentos,
-          tirar suas dúvidas e agendar seu atendimento.
+
+        <p
+          class="final-description tech-target"
+        >
+          Um atendimento pensado para você, com delicadeza,
+          precisão e um resultado que valoriza aquilo que
+          torna sua beleza única.
         </p>
+
+
+        <!-- AGRADECIMENTO -->
+
+        <div
+          class="thank-you tech-target"
+        >
+          Obrigada por estar aqui.
+          <br>
+          Será um prazer te atender.
+        </div>
+
+
+        <!-- CTA -->
 
         <a
           class="whatsapp tech-target"
@@ -1745,7 +2879,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Falar pelo WhatsApp
+          Quero conhecer o trabalho
           <span>↗</span>
         </a>
 
@@ -1763,8 +2897,13 @@
   <footer>
 
     <span class="tech-target">
-      © <strong id="year"></strong> Vanessa Signature —
+
+      ©
+      <strong id="year"></strong>
+
+      Vanessa Signature —
       Beleza, precisão e sofisticação.
+
     </span>
 
   </footer>
@@ -1777,7 +2916,7 @@
   <script>
 
     /* =======================================================
-       YEAR
+       ANO
        ======================================================== */
 
     document.getElementById("year").textContent =
@@ -1785,34 +2924,35 @@
 
 
     /* =======================================================
-       MOUSE LIGHT
+       LUZ DO MOUSE
        ======================================================== */
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
+    document.addEventListener(
+      "pointermove",
+      (event) => {
 
-    document.addEventListener("pointermove", (event) => {
+        const x =
+          (event.clientX /
+            window.innerWidth) *
+          100;
 
-      mouseX = event.clientX;
-      mouseY = event.clientY;
+        const y =
+          (event.clientY /
+            window.innerHeight) *
+          100;
 
-      const x =
-        (event.clientX / window.innerWidth) * 100;
+        document.documentElement.style.setProperty(
+          "--mx",
+          `${x}%`
+        );
 
-      const y =
-        (event.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty(
+          "--my",
+          `${y}%`
+        );
 
-      document.documentElement.style.setProperty(
-        "--mx",
-        `${x}%`
-      );
-
-      document.documentElement.style.setProperty(
-        "--my",
-        `${y}%`
-      );
-
-    });
+      }
+    );
 
 
     /* =======================================================
@@ -1837,10 +2977,14 @@
           logoArea.getBoundingClientRect();
 
         const x =
-          (event.clientX - rect.left) / rect.width;
+          (event.clientX -
+            rect.left) /
+          rect.width;
 
         const y =
-          (event.clientY - rect.top) / rect.height;
+          (event.clientY -
+            rect.top) /
+          rect.height;
 
         const rotateY =
           (x - .5) * 18;
@@ -1848,10 +2992,13 @@
         const rotateX =
           (y - .5) * -18;
 
+
         logoCore.style.transform =
-          `rotateX(${rotateX}deg)
+          `translate(-50%, -50%)
+           rotateX(${rotateX}deg)
            rotateY(${rotateY}deg)
            translateZ(18px)`;
+
 
         logoFrame.style.transform =
           `rotateX(${rotateX * .5}deg)
@@ -1866,7 +3013,7 @@
       () => {
 
         logoCore.style.transform =
-          "rotateX(0deg) rotateY(0deg) translateZ(0)";
+          "translate(-50%, -50%) rotateX(0deg) rotateY(0deg)";
 
         logoFrame.style.transform =
           "rotateX(0deg) rotateY(0deg)";
@@ -1876,11 +3023,12 @@
 
 
     /* =======================================================
-       PHOTO 3D
+       FOTO 3D
        ======================================================== */
 
     const photo =
       document.getElementById("photo3d");
+
 
     if (photo) {
 
@@ -1892,16 +3040,21 @@
             photo.getBoundingClientRect();
 
           const x =
-            (event.clientX - rect.left) / rect.width;
+            (event.clientX -
+              rect.left) /
+            rect.width;
 
           const y =
-            (event.clientY - rect.top) / rect.height;
+            (event.clientY -
+              rect.top) /
+            rect.height;
 
           const rotateY =
             (x - .5) * 8;
 
           const rotateX =
             (y - .5) * -8;
+
 
           photo.style.transform =
             `perspective(1000px)
@@ -1911,6 +3064,7 @@
 
         }
       );
+
 
       photo.addEventListener(
         "pointerleave",
@@ -1926,7 +3080,7 @@
 
 
     /* =======================================================
-       SERVICE CARDS 3D
+       CARDS 3D
        ======================================================== */
 
     document
@@ -1941,16 +3095,21 @@
               card.getBoundingClientRect();
 
             const x =
-              (event.clientX - rect.left) / rect.width;
+              (event.clientX -
+                rect.left) /
+              rect.width;
 
             const y =
-              (event.clientY - rect.top) / rect.height;
+              (event.clientY -
+                rect.top) /
+              rect.height;
 
             const rotateY =
               (x - .5) * 8;
 
             const rotateX =
               (y - .5) * -8;
+
 
             card.style.transform =
               `perspective(900px)
@@ -1960,6 +3119,7 @@
 
           }
         );
+
 
         card.addEventListener(
           "pointerleave",
@@ -1975,7 +3135,7 @@
 
 
     /* =======================================================
-       UNIVERSAL TECHNOLOGY CLICK
+       EFEITO TECNOLÓGICO DE CLIQUE
        ======================================================== */
 
     function createTechInteraction(
@@ -1984,41 +3144,50 @@
       target
     ) {
 
-      /* Pulse no próprio elemento */
-
       if (target) {
 
-        target.classList.remove("tech-active");
+        target.classList.remove(
+          "tech-active"
+        );
 
         void target.offsetWidth;
 
-        target.classList.add("tech-active");
+        target.classList.add(
+          "tech-active"
+        );
 
-        setTimeout(() => {
-
-          target.classList.remove("tech-active");
-
-        }, 800);
+        setTimeout(
+          () => {
+            target.classList.remove(
+              "tech-active"
+            );
+          },
+          800
+        );
 
       }
 
 
-      /* Anel principal */
-
       const wave =
         document.createElement("div");
 
-      wave.className = "click-wave";
+      wave.className =
+        "click-wave";
 
-      wave.style.left = `${x}px`;
-      wave.style.top = `${y}px`;
+      wave.style.left =
+        `${x}px`;
 
-      document.body.appendChild(wave);
+      wave.style.top =
+        `${y}px`;
+
+      document.body.appendChild(
+        wave
+      );
 
 
-      /* Partículas */
+      const particleCount =
+        14;
 
-      const particleCount = 14;
 
       for (
         let i = 0;
@@ -2032,23 +3201,35 @@
         particle.className =
           "click-particle";
 
+
         const angle =
-          Math.random() * Math.PI * 2;
+          Math.random() *
+          Math.PI *
+          2;
+
 
         const distance =
-          25 + Math.random() * 65;
+          25 +
+          Math.random() *
+          65;
+
 
         const dx =
-          Math.cos(angle) * distance;
+          Math.cos(angle) *
+          distance;
+
 
         const dy =
-          Math.sin(angle) * distance;
+          Math.sin(angle) *
+          distance;
+
 
         particle.style.left =
           `${x}px`;
 
         particle.style.top =
           `${y}px`;
+
 
         particle.style.setProperty(
           "--dx",
@@ -2060,40 +3241,43 @@
           dy
         );
 
+
         document.body.appendChild(
           particle
         );
 
-        setTimeout(() => {
 
-          particle.remove();
-
-        }, 850);
+        setTimeout(
+          () => {
+            particle.remove();
+          },
+          850
+        );
 
       }
 
 
-      setTimeout(() => {
-
-        wave.remove();
-
-      }, 900);
+      setTimeout(
+        () => {
+          wave.remove();
+        },
+        900
+      );
 
     }
 
-
-    /* =======================================================
-       CLICK EM TODOS OS ELEMENTOS TECNOLÓGICOS
-       ======================================================== */
 
     document.addEventListener(
       "pointerdown",
       (event) => {
 
         const target =
-          event.target.closest(".tech-target");
+          event.target.closest(
+            ".tech-target"
+          );
 
         if (!target) return;
+
 
         createTechInteraction(
           event.clientX,
@@ -2106,30 +3290,32 @@
 
 
     /* =======================================================
-       REVEAL ON SCROLL
+       REVEAL
        ======================================================== */
 
     const revealObserver =
       new IntersectionObserver(
         (entries) => {
 
-          entries.forEach((entry) => {
+          entries.forEach(
+            (entry) => {
 
-            if (
-              entry.isIntersecting
-            ) {
+              if (
+                entry.isIntersecting
+              ) {
 
-              entry.target.classList.add(
-                "visible"
-              );
+                entry.target.classList.add(
+                  "visible"
+                );
 
-              revealObserver.unobserve(
-                entry.target
-              );
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
 
             }
-
-          });
+          );
 
         },
         {
@@ -2140,35 +3326,42 @@
 
     document
       .querySelectorAll(".reveal")
-      .forEach((element) => {
+      .forEach(
+        (element) => {
 
-        revealObserver.observe(
-          element
-        );
+          revealObserver.observe(
+            element
+          );
 
-      });
+        }
+      );
 
 
     /* =======================================================
-       STAGGER DOS CARDS
+       STAGGER
        ======================================================== */
 
     document
       .querySelectorAll(".service-card")
-      .forEach((card, index) => {
+      .forEach(
+        (card, index) => {
 
-        card.style.transitionDelay =
-          `${index * 100}ms`;
+          card.style.transitionDelay =
+            `${index * 100}ms`;
 
-      });
+        }
+      );
 
 
     /* =======================================================
-       PARALLAX SUAVE DO HERO
+       PARALLAX HERO
        ======================================================== */
 
     const heroContent =
-      document.querySelector(".hero-content");
+      document.querySelector(
+        ".hero-content"
+      );
+
 
     document.addEventListener(
       "pointermove",
@@ -2178,15 +3371,18 @@
           window.innerWidth < 700
         ) return;
 
+
         const x =
-          (event.clientX /
-            window.innerWidth -
-            .5);
+          event.clientX /
+          window.innerWidth -
+          .5;
+
 
         const y =
-          (event.clientY /
-            window.innerHeight -
-            .5);
+          event.clientY /
+          window.innerHeight -
+          .5;
+
 
         heroContent.style.transform =
           `translate3d(
@@ -2194,23 +3390,6 @@
             ${y * 4}px,
             0
           )`;
-
-      }
-    );
-
-
-    /* =======================================================
-       RESET HERO
-       ======================================================== */
-
-    document.addEventListener(
-      "pointerleave",
-      () => {
-
-        if (!heroContent) return;
-
-        heroContent.style.transform =
-          "translate3d(0,0,0)";
 
       }
     );
