@@ -1,4 +1,2109 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070707">
+
+<title>Vanessa Signature</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:#f5d6df;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.22;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.7%,
+            rgba(216,160,176,.035) 50%,
+            transparent 50.3%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49.7%,
+            rgba(216,160,176,.035) 50%,
+            transparent 50.3%
+        );
+
+    background-size:80px 80px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        #000,
+        transparent 85%
+    );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:49;
+
+    background:
+        radial-gradient(
+            circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(216,160,176,.12),
+            transparent 23%
+        );
+}
+
+
+/* ================================
+   PARTÍCULAS
+================================ */
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;
+}
+
+.p{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+
+    background:#d8a0b0;
+
+    box-shadow:
+        0 0 7px #d8a0b0,
+        0 0 18px rgba(216,160,176,.8);
+
+    opacity:.45;
+
+    animation:particleUp linear infinite;
+}
+
+.p:nth-child(1){
+    left:7%;
+    animation-duration:11s;
+}
+
+.p:nth-child(2){
+    left:17%;
+    animation-duration:15s;
+    animation-delay:-4s;
+}
+
+.p:nth-child(3){
+    left:29%;
+    animation-duration:12s;
+    animation-delay:-7s;
+}
+
+.p:nth-child(4){
+    left:42%;
+    animation-duration:17s;
+    animation-delay:-3s;
+}
+
+.p:nth-child(5){
+    left:56%;
+    animation-duration:13s;
+    animation-delay:-9s;
+}
+
+.p:nth-child(6){
+    left:68%;
+    animation-duration:16s;
+    animation-delay:-5s;
+}
+
+.p:nth-child(7){
+    left:79%;
+    animation-duration:12s;
+    animation-delay:-8s;
+}
+
+.p:nth-child(8){
+    left:91%;
+    animation-duration:18s;
+    animation-delay:-11s;
+}
+
+@keyframes particleUp{
+
+    0%{
+        transform:translateY(110vh) scale(.4);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.5;
+    }
+
+    85%{
+        opacity:.35;
+    }
+
+    100%{
+        transform:translateY(-15vh) scale(1.4);
+        opacity:0;
+    }
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+header{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 25px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(216,160,176,.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(86,39,55,.18),
+            transparent 52%
+        ),
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #110b0e 45%,
+            #050505 100%
+        );
+}
+
+header .grid{
+    position:absolute;
+    inset:-20%;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            rgba(216,160,176,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(216,160,176,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    transform:
+        perspective(700px)
+        rotateX(58deg)
+        translateY(20%);
+
+    transform-origin:center bottom;
+
+    mask-image:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.8),
+            transparent 70%
+        );
+
+    opacity:.65;
+}
+
+
+/* ================================
+   ANÉIS
+================================ */
+
+.tech-ring{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.tech-ring.one{
+    width:min(820px,95vw);
+    aspect-ratio:1;
+
+    border:
+        1px solid
+        rgba(216,160,176,.12);
+
+    animation:
+        rotateRing 28s linear infinite;
+}
+
+.tech-ring.two{
+    width:min(700px,82vw);
+    aspect-ratio:1;
+
+    border:
+        1px dashed
+        rgba(216,160,176,.10);
+
+    animation:
+        rotateRingReverse 22s linear infinite;
+}
+
+.tech-ring.three{
+    width:min(590px,70vw);
+    aspect-ratio:1;
+
+    border:
+        1px solid
+        rgba(216,160,176,.07);
+
+    box-shadow:
+        0 0 40px rgba(216,160,176,.04);
+
+    animation:
+        rotateRing 18s linear infinite;
+}
+
+@keyframes rotateRing{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes rotateRingReverse{
+
+    from{
+        transform:rotate(360deg);
+    }
+
+    to{
+        transform:rotate(0deg);
+    }
+}
+
+.tech-ring::before,
+.tech-ring::after{
+    content:"";
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#d8a0b0;
+
+    box-shadow:
+        0 0 8px #d8a0b0,
+        0 0 25px rgba(216,160,176,.8);
+}
+
+.tech-ring::before{
+    top:0;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.tech-ring::after{
+    bottom:0;
+    left:50%;
+    transform:translate(-50%,50%);
+}
+
+
+/* ================================
+   HERO CONTENT
+================================ */
+
+.hero{
+    width:100%;
+    max-width:1200px;
+
+    position:relative;
+    z-index:10;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.logo-area{
+    position:relative;
+
+    width:min(560px,86vw);
+    aspect-ratio:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:40px;
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .25s ease-out;
+}
+
+.logo-aura{
+    position:absolute;
+    inset:7%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,160,176,.19),
+            rgba(216,160,176,.05) 45%,
+            transparent 70%
+        );
+
+    filter:blur(18px);
+
+    animation:
+        auraPulse 4s ease-in-out infinite;
+}
+
+@keyframes auraPulse{
+
+    0%,
+    100%{
+        transform:scale(.94);
+        opacity:.55;
+    }
+
+    50%{
+        transform:scale(1.04);
+        opacity:.9;
+    }
+}
+
+
+/* ================================
+   MOLDURA
+================================ */
+
+.logo-frame{
+    position:absolute;
+    inset:1%;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,160,176,.16);
+
+    box-shadow:
+        0 0 0 1px rgba(216,160,176,.04),
+        0 0 30px rgba(216,160,176,.07),
+        inset 0 0 30px rgba(216,160,176,.05);
+
+    animation:
+        framePulse 5s ease-in-out infinite;
+}
+
+.logo-frame::before{
+    content:"";
+
+    position:absolute;
+    inset:3%;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,160,176,.08);
+
+    border-top-color:
+        rgba(216,160,176,.55);
+
+    border-bottom-color:
+        rgba(216,160,176,.25);
+
+    animation:
+        rotateRingReverse 14s linear infinite;
+}
+
+.logo-frame::after{
+    content:"";
+
+    position:absolute;
+
+    width:72px;
+    height:72px;
+
+    top:50%;
+    left:-36px;
+
+    transform:translateY(-50%);
+
+    border:
+        1px solid
+        rgba(216,160,176,.35);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 15px rgba(216,160,176,.12);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,160,176,.18),
+            transparent 65%
+        );
+}
+
+@keyframes framePulse{
+
+    0%,
+    100%{
+        opacity:.8;
+    }
+
+    50%{
+        opacity:1;
+
+        box-shadow:
+            0 0 0 1px rgba(216,160,176,.05),
+            0 0 45px rgba(216,160,176,.12),
+            inset 0 0 35px rgba(216,160,176,.07);
+    }
+}
+
+
+/* ================================
+   LOGO REAL PNG
+================================ */
+
+.logo-core{
+    position:absolute;
+
+    width:84%;
+    height:84%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    z-index:5;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(20,12,15,.35),
+            rgba(3,3,3,.18)
+        );
+
+    border:
+        1px solid
+        rgba(216,160,176,.15);
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,.65),
+        0 0 45px rgba(216,160,176,.08),
+        inset 0 0 40px rgba(216,160,176,.035);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.logo-core::before{
+    content:"";
+
+    position:absolute;
+    inset:-3px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,160,176,.25);
+
+    pointer-events:none;
+
+    z-index:3;
+}
+
+.logo-core-mask{
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.brand-logo{
+    width:112%;
+    height:112%;
+
+    object-fit:contain;
+
+    display:block;
+
+    user-select:none;
+    -webkit-user-drag:none;
+
+    transform:translateZ(0);
+
+    filter:
+        drop-shadow(0 15px 22px rgba(0,0,0,.45))
+        drop-shadow(0 0 13px rgba(216,160,176,.15));
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
+}
+
+.logo-area:hover .brand-logo{
+    transform:
+        scale(1.025);
+
+    filter:
+        drop-shadow(0 18px 28px rgba(0,0,0,.5))
+        drop-shadow(0 0 25px rgba(216,160,176,.25));
+}
+
+.logo-area.logo-active .logo-core{
+    animation:
+        logoClickPulse .7s ease;
+}
+
+.logo-area.logo-active .brand-logo{
+    transform:
+        scale(1.055);
+}
+
+@keyframes logoClickPulse{
+
+    0%{
+        box-shadow:
+            0 25px 65px rgba(0,0,0,.65),
+            0 0 45px rgba(216,160,176,.08);
+    }
+
+    50%{
+        box-shadow:
+            0 25px 65px rgba(0,0,0,.65),
+            0 0 90px rgba(216,160,176,.35);
+    }
+
+    100%{
+        box-shadow:
+            0 25px 65px rgba(0,0,0,.65),
+            0 0 45px rgba(216,160,176,.08);
+    }
+}
+
+
+/* ================================
+   TÍTULO
+================================ */
+
+.hero-title{
+    position:relative;
+
+    font:
+        500 clamp(42px,7vw,78px)
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    letter-spacing:
+        clamp(2px,1vw,6px);
+
+    color:#d8a0b0;
+
+    text-align:center;
+
+    text-shadow:
+        0 0 18px rgba(216,160,176,.16),
+        0 0 40px rgba(216,160,176,.06);
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+}
+
+.hero-title::after{
+    content:"";
+
+    position:absolute;
+
+    left:-20%;
+    top:0;
+
+    width:30%;
+    height:100%;
+
+    transform:
+        skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.14),
+            transparent
+        );
+
+    animation:
+        titleShine 5s ease-in-out infinite;
+}
+
+@keyframes titleShine{
+
+    0%{
+        left:-30%;
+    }
+
+    40%,
+    100%{
+        left:120%;
+    }
+}
+
+
+/* ================================
+   SUBTÍTULO
+================================ */
+
+.hero-subtitle{
+    max-width:760px;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+    color:#d9c1c8;
+
+    font-size:
+        clamp(16px,2vw,21px);
+
+    line-height:1.7;
+
+    letter-spacing:.5px;
+}
+
+
+/* ================================
+   INFORMAÇÕES
+================================ */
+
+.hero-info{
+    width:100%;
+
+    display:flex;
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:35px;
+}
+
+.hero-info span{
+    padding:15px 22px;
+
+    border-radius:18px;
+
+    border:
+        1px solid
+        rgba(216,160,176,.24);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,24,29,.82),
+            rgba(10,10,10,.8)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.04);
+
+    backdrop-filter:
+        blur(14px);
+
+    color:#f0dce2;
+
+    font-size:16px;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.hero-info span:hover{
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(216,160,176,.65);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        0 0 25px rgba(216,160,176,.08);
+}
+
+
+/* ================================
+   BOTÃO
+================================ */
+
+.button{
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:230px;
+
+    padding:17px 32px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5b8c5,
+            #c990a3
+        );
+
+    color:#090707;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    box-shadow:
+        0 15px 40px rgba(216,160,176,.18);
+
+    overflow:hidden;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.button::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    transform:
+        skewX(-25deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transition:left .7s ease;
+}
+
+.button:hover{
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 55px rgba(216,160,176,.28);
+}
+
+.button:hover::before{
+    left:150%;
+}
+
+
+/* ================================
+   SEÇÕES
+================================ */
+
+section{
+    position:relative;
+
+    padding:
+        110px 25px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(216,160,176,.075),
+            transparent 40%
+        ),
+        #090909;
+}
+
+section::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:10%;
+    right:10%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216,160,176,.35),
+            transparent
+        );
+}
+
+h2{
+    font:
+        500 clamp(32px,5vw,44px)
+        Georgia,
+        serif;
+
+    color:#d8a0b0;
+
+    margin-bottom:55px;
+
+    text-shadow:
+        0 0 20px rgba(216,160,176,.12);
+}
+
+
+/* ================================
+   SERVIÇOS
+================================ */
+
+.services{
+    width:100%;
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px,1fr)
+        );
+
+    gap:25px;
+}
+
+.service{
+    position:relative;
+
+    padding:40px 25px;
+
+    min-height:230px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(29,21,25,.95),
+            rgba(9,9,9,.95)
+        );
+
+    border:
+        1px solid
+        rgba(216,160,176,.22);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.04);
+
+    backdrop-filter:
+        blur(15px);
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.service::before{
+    content:"";
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    width:30px;
+    height:30px;
+
+    border-top:
+        1px solid
+        rgba(216,160,176,.45);
+
+    border-left:
+        1px solid
+        rgba(216,160,176,.45);
+
+    border-radius:
+        8px 0 0 0;
+}
+
+.service::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:15px;
+    right:15px;
+
+    width:30px;
+    height:30px;
+
+    border-right:
+        1px solid
+        rgba(216,160,176,.45);
+
+    border-bottom:
+        1px solid
+        rgba(216,160,176,.45);
+
+    border-radius:
+        0 0 8px 0;
+}
+
+.service:hover{
+    transform:
+        perspective(900px)
+        rotateX(4deg)
+        rotateY(-5deg)
+        translateY(-12px)
+        translateZ(15px);
+
+    border-color:
+        rgba(216,160,176,.6);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.55),
+        0 0 35px rgba(216,160,176,.08);
+}
+
+.service h3{
+    color:#d8a0b0;
+
+    font-size:23px;
+
+    margin-bottom:15px;
+}
+
+.service p{
+    color:#d8c5cb;
+
+    line-height:1.75;
+
+    font-size:16px;
+}
+
+
+/* ================================
+   VANESSA
+================================ */
+
+.vanessa{
+    min-height:650px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(216,160,176,.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(70,25,45,.14),
+            transparent 35%
+        ),
+        #070707;
+}
+
+.character-wrap{
+    position:relative;
+
+    width:min(520px,90vw);
+
+    transform-style:preserve-3d;
+}
+
+.character-wrap::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-20px;
+
+    border-radius:35px;
+
+    border:
+        1px solid
+        rgba(216,160,176,.1);
+
+    box-shadow:
+        0 0 50px rgba(216,160,176,.08);
+
+    animation:
+        auraPulse 5s ease-in-out infinite;
+}
+
+.character{
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+    border-radius:28px;
+
+    border:
+        1px solid
+        rgba(216,160,176,.35);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        0 0 45px rgba(216,160,176,.12);
+
+    transition:
+        transform .6s ease;
+}
+
+.character-wrap:hover .character{
+    transform:
+        perspective(1000px)
+        rotateY(-4deg)
+        translateY(-8px)
+        scale(1.01);
+}
+
+.message{
+    width:min(440px,90vw);
+
+    text-align:left;
+}
+
+.message .name{
+    font:
+        500 clamp(40px,6vw,56px)
+        Georgia,
+        serif;
+
+    color:#d8a0b0;
+
+    margin-bottom:18px;
+}
+
+.message p{
+    color:#f1e2e6;
+
+    font-size:25px;
+
+    line-height:1.5;
+}
+
+
+/* ================================
+   CONTATO
+================================ */
+
+.contact{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,160,176,.08),
+            transparent 45%
+        ),
+        #070707;
+}
+
+.contact-box{
+    width:min(720px,92vw);
+
+    margin:auto;
+
+    padding:45px 30px;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        rgba(216,160,176,.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,21,25,.95),
+            rgba(10,10,10,.95)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.04);
+
+    transition:
+        transform .5s ease,
+        border-color .5s ease;
+}
+
+.contact-box:hover{
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(216,160,176,.6);
+}
+
+.contact-title{
+    font:
+        500 34px
+        Georgia,
+        serif;
+
+    color:#d8a0b0;
+
+    margin-bottom:30px;
+}
+
+.whatsapp{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:14px;
+
+    padding:18px 30px;
+
+    border-radius:18px;
+
+    background:#111;
+
+    color:#f3e3e7;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    border:
+        1px solid
+        rgba(216,160,176,.4);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.whatsapp:hover{
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    border-color:#d8a0b0;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.4);
+}
+
+.icon{
+    width:36px;
+    height:36px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#25d366;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+    padding:40px 25px;
+
+    text-align:center;
+
+    background:#040404;
+
+    color:#d8a0b0;
+
+    border-top:
+        1px solid
+        #302027;
+
+    letter-spacing:.4px;
+}
+
+
+/* ================================
+   REVEAL
+================================ */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(60px)
+        scale(.96);
+
+    transition:
+        opacity 1s cubic-bezier(.2,.8,.2,1),
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* ================================
+   CLIQUE
+================================ */
+
+.click{
+    position:fixed;
+
+    width:20px;
+    height:20px;
+
+    border:
+        2px solid
+        #d8a0b0;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transform:
+        translate(-50%,-50%);
+
+    animation:
+        clickPulse .8s ease-out forwards;
+}
+
+@keyframes clickPulse{
+
+    to{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(5);
+    }
+}
+
+
+/* ================================
+   BURST
+================================ */
+
+.logo-burst{
+    position:fixed;
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:99998;
+
+    background:#d8a0b0;
+
+    box-shadow:
+        0 0 15px #d8a0b0,
+        0 0 40px #d8a0b0;
+
+    transform:
+        translate(-50%,-50%);
+
+    animation:
+        burst .8s ease-out forwards;
+}
+
+@keyframes burst{
+
+    to{
+        width:260px;
+        height:260px;
+        opacity:0;
+    }
+}
+
+
+/* ================================
+   RESPONSIVO
+================================ */
+
+@media(max-width:800px){
+
+    header{
+        padding:
+            45px 18px;
+    }
+
+    .logo-area{
+        width:min(500px,94vw);
+        margin-bottom:30px;
+    }
+
+    .logo-core{
+        width:86%;
+        height:86%;
+    }
+
+    .tech-ring.one{
+        width:100vw;
+    }
+
+    .tech-ring.two{
+        width:84vw;
+    }
+
+    .tech-ring.three{
+        width:72vw;
+    }
+
+    .hero-info{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .hero-info span{
+        width:100%;
+        max-width:430px;
+    }
+
+    section{
+        padding:
+            85px 20px;
+    }
+
+    .vanessa{
+        gap:40px;
+    }
+
+    .message{
+        text-align:center;
+    }
+
+    .character-wrap{
+        width:min(500px,88vw);
+    }
+}
+
+@media(max-width:600px){
+
+    .logo-area{
+        width:94vw;
+    }
+
+    .logo-frame::after{
+        width:45px;
+        height:45px;
+        left:-22px;
+    }
+
+    .hero-title{
+        font-size:43px;
+        letter-spacing:2px;
+    }
+
+    .hero-subtitle{
+        font-size:16px;
+    }
+
+    .hero-info span{
+        font-size:15px;
+        padding:14px 16px;
+    }
+
+    .button{
+        width:100%;
+        max-width:300px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .service{
+        min-height:210px;
+    }
+
+    .message .name{
+        font-size:40px;
+    }
+
+    .message p{
+        font-size:21px;
+    }
+
+    .whatsapp{
+        width:100%;
+        font-size:19px;
+    }
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="particles">
+
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+    <i class="p"></i>
+
+</div>
+
+
+<header id="inicio">
+
+    <div class="grid"></div>
+
+    <div class="tech-ring one"></div>
+    <div class="tech-ring two"></div>
+    <div class="tech-ring three"></div>
+
+
+    <div class="hero">
+
+
+        <div
+            class="logo-area reveal"
+            id="logoArea"
+            aria-label="Logo Vanessa Signature"
+        >
+
+            <div class="logo-aura"></div>
+
+            <div class="logo-frame"></div>
+
+            <div class="logo-core">
+
+                <div class="logo-core-mask">
+
+                    <img
+                        class="brand-logo"
+                        src="E1DE0041-E95A-45C9-A681-5A2D740A3AF9.png"
+                        alt="Vanessa Signature - Brow Design & Beauty"
+                        draggable="false"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h1 class="hero-title reveal">
+            Vanessa Signature
+        </h1>
+
+
+        <p class="hero-subtitle reveal">
+            Beleza, precisão e sofisticação em cada detalhe.
+        </p>
+
+
+        <div class="hero-info">
+
+            <span class="reveal">
+                Micro Labial
+            </span>
+
+            <span class="reveal">
+                Dermopigmentação
+            </span>
+
+            <span class="reveal">
+                Design de Sobrancelhas
+            </span>
+
+        </div>
+
+
+        <a
+            class="button reveal"
+            href="#servicos"
+        >
+            Conheça nossos serviços
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<section id="servicos">
+
+    <h2 class="reveal">
+        Nossos Serviços
+    </h2>
+
+
+    <div class="services">
+
+
+        <div class="service reveal">
+
+            <h3>
+                Micro Labial
+            </h3>
+
+            <p>
+                Realce e definição dos lábios com um resultado
+                delicado, sofisticado e personalizado.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <h3>
+                Dermopigmentação
+            </h3>
+
+            <p>
+                Procedimentos realizados com cuidado,
+                precisão e foco em resultados naturais.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <h3>
+                Design de Sobrancelhas
+            </h3>
+
+            <p>
+                Design personalizado para valorizar o olhar
+                e harmonizar os seus traços.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="vanessa">
+
+
+    <div class="character-wrap reveal">
+
+        <img
+            class="character"
+            src="Boas-vindas Vanessa Signature Neon.png"
+            alt="Vanessa Signature"
+        >
+
+    </div>
+
+
+    <div class="message reveal">
+
+        <div class="name">
+            Vanessa
+        </div>
+
+        <p>
+            Obrigada por estar aqui! ✨
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<section class="contact">
+
+
+    <div class="contact-box reveal">
+
+        <div class="contact-title">
+            Agende seu atendimento
+        </div>
+
+
+        <a
+            class="whatsapp"
+            href="https://wa.me/5521987391225"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <span class="icon">
+                ☎
+            </span>
+
+            (21) 98739-1225
+
+        </a>
+
+
+        <p
+            style="
+                margin-top:18px;
+                color:#bcaab0;
+            "
+        >
+            Clique para falar diretamente pelo WhatsApp
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<footer>
+    © 2026 Vanessa Signature
+</footer>
+
+
+
+<script>
+
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => observer.observe(element));
+
+
+
+document.addEventListener(
+
+    "pointermove",
+
+    event => {
+
+        document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${event.clientX}px`
+        );
+
+        document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${event.clientY}px`
+        );
+
+    }
+
+);
+
+
+
+const logoArea =
+    document.getElementById("logoArea");
+
+
+if(
+    logoArea &&
+    window.matchMedia("(pointer:fine)").matches
+){
+
+    logoArea.addEventListener(
+
+        "pointermove",
+
+        event => {
+
+            const rect =
+                logoArea.getBoundingClientRect();
+
+
+            const x =
+                (event.clientX - rect.left)
+                / rect.width
+                - .5;
+
+
+            const y =
+                (event.clientY - rect.top)
+                / rect.height
+                - .5;
+
+
+            const rotateX =
+                y * -8;
+
+
+            const rotateY =
+                x * 8;
+
+
+            logoArea.style.transform =
+                `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                scale(1.015)
+                `;
+
+        }
+
+    );
+
+
+    logoArea.addEventListener(
+
+        "pointerleave",
+
+        () => {
+
+            logoArea.style.transform =
+                `
+                perspective(1000px)
+                rotateX(0deg)
+                rotateY(0deg)
+                scale(1)
+                `;
+
+        }
+
+    );
+
+}
+
+
+
+if(logoArea){
+
+    logoArea.addEventListener(
+
+        "click",
+
+        event => {
+
+            logoArea.classList.remove(
+                "logo-active"
+            );
+
+
+            void logoArea.offsetWidth;
+
+
+            logoArea.classList.add(
+                "logo-active"
+            );
+
+
+            const burst =
+                document.createElement("div");
+
+
+            burst.className =
+                "logo-burst";
+
+
+            burst.style.left =
+                `${event.clientX}px`;
+
+
+            burst.style.top =
+                `${event.clientY}px`;
+
+
+            document.body.appendChild(
+                burst
+            );
+
+
+            setTimeout(
+                () => burst.remove(),
+                850
+            );
+
+        }
+
+    );
+
+}
+
+
+
+document.addEventListener(
+
+    "click",
+
+    event => {
+
+        const effect =
+            document.createElement("div");
+
+
+        effect.className =
+            "click";
+
+
+        effect.style.left =
+            `${event.clientX}px`;
+
+
+        effect.style.top =
+            `${event.clientY}px`;
+
+
+        document.body.appendChild(
+            effect
+        );
+
+
+        setTimeout(
+            () => effect.remove(),
+            850
+        );
+
+    }
+
+);
+
+
+
+document
+    .querySelectorAll(".service")
+    .forEach(card => {
+
+
+        card.addEventListener(
+
+            "pointermove",
+
+            event => {
+
+                if(
+                    !window.matchMedia(
+                        "(pointer:fine)"
+                    ).matches
+                ){
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    (event.clientX - rect.left)
+                    / rect.width
+                    - .5;
+
+
+                const y =
+                    (event.clientY - rect.top)
+                    / rect.height
+                    - .5;
+
+
+                card.style.transform =
+                    `
+                    perspective(900px)
+                    rotateX(${y * -7}deg)
+                    rotateY(${x * 7}deg)
+                    translateY(-10px)
+                    translateZ(12px)
+                    `;
+
+            }
+
+        );
+
+
+        card.addEventListener(
+
+            "pointerleave",
+
+            () => {
+
+                card.style.transform =
+                    "";
+
+            }
+
+        );
+
+    });
+
+
+
+const footer =
+    document.querySelector("footer");
+
+
+if(footer){
+
+    footer.innerHTML =
+        `© ${new Date().getFullYear()} Vanessa Signature`;
+
+}
+
+</script>
+
+</body>
+</html>>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
